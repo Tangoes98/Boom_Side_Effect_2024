@@ -1,63 +1,87 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public abstract class Architect : MonoBehaviour
 {
+    [Header("DEV TOOL")]
     [SerializeField]
-    protected int level;
+    protected bool disableSelfExam;
+    [Space(20)]
 
-    protected GameObject baseArchitect; // 合体前的基础建筑
-
-
-    public string Code => GetInfo().code;
-    public bool IsUpgradable => GetInfo().GetProperties().Select(p=>p.level).Max()>level;
     
-    protected abstract ArchitectBase GetInfo();
-    protected ArchitectModiferBase GetBaseModifer(int sourceArchLinkNum) 
-                                        => GetBaseProperty(level).GetModifers().Where(p=>p.sourceLinkNum==sourceArchLinkNum).First();
+    [SerializeField,Range(1,3)]
+    public int level;
 
-    protected ArchitectProperty GetBaseProperty(int level)  => GetInfo().GetProperties().Where(p=>p.level==level).First();
+    [SerializeField,Range(0,4)]
+    public int existingLinkNum;
+
+    [SerializeField,Range(0,4)]
+    public int activeOutputLinkNum;
+
+    [SerializeField,Range(0,4)]
+    public int sourceArchitectLinkNum;
+
+    public GameObject BaseArchitect {get;set;} // 合体前的基础建筑
+
+
+    public string Code => Info().code;
+
+    public bool IsUpgradable => Info().GetProperties().Select(p=>p.level).Max()>level;
+
+    
+    public abstract ArchitectBase Info();
+
+    protected ArchitectProperty GetBaseProperty(int level)  => Info().GetProperties().Where(p=>p.level==level).First();
 
 
     protected virtual void Awake() {
         SelfExam();
+        try {
+            level = 1; // initialize status to level 1 !!!!!!
+            existingLinkNum=0;
+            sourceArchitectLinkNum=0;
+            activeOutputLinkNum=0;
+            Reload(); 
+        } catch(Exception e) {
+            Debug.LogError("建筑初始化失败，请检查BaseInfo>Properties中level=1的元素");
+            Debug.LogError(e);
+        }
+        
     }
 
     public void Upgrade() => UpgradeTo(level+1);
 
-    protected abstract void UpgradeTo(int level);
+    public void Reload() => UpgradeTo(level);
 
-    public void UnMutate() {
-        // need to upgrade base architect to be same as the mutant one first
-        baseArchitect.GetComponent<Architect>().UpgradeTo(level);
-        baseArchitect.SetActive(true);
-        Destroy(this.gameObject);
-    }
+    public abstract void UpgradeTo(int level);
 
-    public void Mutate(Architect fromArchitect) {
-        ArchiLinkManager.Instance.Mutate(fromArchitect, this);
-    }
+    protected abstract void ApplyModifer();
+
+    public abstract ArchitectStatus Status();
 
 
     public void Destroy() {
-        if(baseArchitect!=null) {
-            ArchiLinkManager.Instance.Destroy(baseArchitect.GetComponent<Architect>()); // destroy links
-            Destroy(baseArchitect);
+        if(BaseArchitect!=null) {
+            ArchiLinkManager.Instance.Unregister(BaseArchitect.GetComponent<Architect>()); // destroy links
+            Destroy(BaseArchitect);
         }
-        ArchiLinkManager.Instance.Destroy(this); // / destroy links
+        ArchiLinkManager.Instance.Unregister(this); // / destroy links
         Destroy(this.gameObject);
     }
 
     private void SelfExam() {
+        if(disableSelfExam) return;
 
-        foreach( ArchitectProperty p in GetInfo().GetProperties()) {
+
+        foreach( ArchitectProperty p in Info().GetProperties()) {
              HashSet<int> levels = new();
             if(p.GetModifers()==null || p.GetModifers().Length==0) {
-                if(GetInfo().isMutant)
+                if(Info().isMutant)
                     throw new System.Exception("Mutant architect must have modifer in them");
             } else {
-                if(!GetInfo().isMutant)
+                if(!Info().isMutant)
                     throw new System.Exception("Only mutant architect can have modifer in them");
                 else {
                     HashSet<int> keys = new();

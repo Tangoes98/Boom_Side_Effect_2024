@@ -9,4 +9,5 @@ public class DefenseTowerStatus : ArchitectStatus {
     public DamageType damageType;
     [Inspectable]
     public float attackSpeed;
+
 }

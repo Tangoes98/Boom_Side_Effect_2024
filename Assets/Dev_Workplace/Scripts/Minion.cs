@@ -1,46 +1,29 @@
 using UnityEngine;
 
 public class Minion : MonoBehaviour {
-    // Editor里只需要填写code，其他property会通过code自动填充
-    [SerializeField]
-    protected string code;
-
 
     [SerializeField]
-    protected MinionBase info;
+    public MinionStatus status; //建筑status里的minionModifier会修改status
     [SerializeField]
-    float range;
-    [SerializeField]
-    float viewRange;
-    [SerializeField]
-    bool isMelee;
-    [SerializeField]
-    float damage;
-    [SerializeField]
-    DamageType damageType;
-    [SerializeField]
-    float health;
-    [SerializeField]
-    float speed;
-    [SerializeField]
-    float attackSpeed;
+    public MinionBase baseInfo;
+
+    public string Code => baseInfo.code;
 
 
     void Awake() {
-        // load info
-        info = ArchitectConfig.GetMinionBase(code);
-        InitializeFromInfo();
+        // load baseInfo
+        Reload();
     }
 
-    void InitializeFromInfo() {
-        range = info.Range;
-        viewRange = info.ViewRange;
-        isMelee = info.IsMelee;
-        damage = info.Damage;
-        damageType = info.DamageType;
-        health = info.Health;
-        speed = info.Speed;
-        attackSpeed = info.AttackSpeed;
+    void Reload() {
+        status.range = baseInfo.range;
+        status.viewRange = baseInfo.viewRange;
+        status.isMelee = baseInfo.isMelee;
+        status.damage = baseInfo.damage;
+        status.damageType = baseInfo.damageType;
+        status.health = baseInfo.health;
+        status.speed = baseInfo.speed;
+        status.attackSpeed = baseInfo.attackSpeed;
     }
 
 

@@ -1,10 +1,11 @@
 using System;
 using Unity.VisualScripting;
+using UnityEngine;
 
 [Serializable]
-public class BarrackModiferBase : ArchitectModiferBase {
+public class BarrackModifierBase : ArchitectModiferBase {
 
-    [Inspectable]
+    [Inspectable,Range(0,4)]
     public int maxMinionNum;
     [Inspectable]
     public float coolDown;
