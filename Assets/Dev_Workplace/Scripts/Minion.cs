@@ -1,7 +1,13 @@
 using UnityEngine;
 
 public class Minion : MonoBehaviour {
-    // convert to Abstract if needed
+    // Editor里只需要填写code，其他property会通过code自动填充
+    [SerializeField]
+    protected string code;
+
+
+    [SerializeField]
+    protected MinionBase info;
     [SerializeField]
     float range;
     [SerializeField]
@@ -11,14 +17,32 @@ public class Minion : MonoBehaviour {
     [SerializeField]
     float damage;
     [SerializeField]
-    float damageType;
+    DamageType damageType;
     [SerializeField]
     float health;
     [SerializeField]
     float speed;
     [SerializeField]
     float attackSpeed;
-    [SerializeField]
-    Vector3 position;
+
+
+    void Awake() {
+        // load info
+        info = ArchitectConfig.GetMinionBase(code);
+        InitializeFromInfo();
+    }
+
+    void InitializeFromInfo() {
+        range = info.Range;
+        viewRange = info.ViewRange;
+        isMelee = info.IsMelee;
+        damage = info.Damage;
+        damageType = info.DamageType;
+        health = info.Health;
+        speed = info.Speed;
+        attackSpeed = info.AttackSpeed;
+    }
+
+
 
 }

@@ -16,11 +16,12 @@ public class ArchiLinkManager : MonoBehaviour
     }
 
     [SerializeField]
-    private GameObject[] _basicArchitectPrefabs, _mutantArchitectPrefabs;
+    private GameObject _linePrefab;
 
-    private Dictionary<string,GameObject> _allMutantArchitectPrefabs;
+    [SerializeField]
+    private StringGameObjectPair[] _basicArchitectPrefabs;
 
-    public Dictionary<string,GameObject> AllBasicArchitectPrefabs {get; private set;}
+    public Dictionary<string,GameObject> AllBasicArchitectPrefabs;
 
     private void Awake() {
         if(_instance == null) {
@@ -28,6 +29,7 @@ public class ArchiLinkManager : MonoBehaviour
         } else if(_instance != this) {
             Destroy(this);
         }
+        AllBasicArchitectPrefabs = _basicArchitectPrefabs.ToDictionary(p=>p.code,p=>p.gameObject);
     }
     
     public void Build(Vector3 position, int code) // 在对应位置instantiate建筑
@@ -47,12 +49,12 @@ public class ArchiLinkManager : MonoBehaviour
 
     }
 
-    public List<Architect> GetSurroundingArchitects() // 显示可link的其他建筑
+    public List<Architect> GetSurroundingArchitects(Architect architect) // 显示可link的其他建筑, 假设范围是圆形的
     {
         return null;
     }
 
-    public Tuple<List<Link>,List<Link>> GetInAndOutLinks(Architect architect) // 用于显示已有link
+    public Tuple<List<Link>,List<Link>> GetInAndOutLinks(Architect architect) // 用于显示建筑已有link
     {
         return null;
     }

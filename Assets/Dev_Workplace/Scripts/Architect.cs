@@ -1,33 +1,32 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public abstract class Architect : MonoBehaviour
 {
     [SerializeField]
-    protected Vector3 position;
-    [SerializeField]
     protected int level;
-    [SerializeField]
-    protected ArchitectBase info;
-    [SerializeField]
-    protected GameObject baseArchitect;
 
+    protected GameObject baseArchitect; // 合体前的基础建筑
+
+
+    public string Code => GetInfo().code;
+    public bool IsUpgradable => GetInfo().GetProperties().Select(p=>p.level).Max()>level;
     
-    [SerializeField]
-    protected int maxLinkNum;
-    [SerializeField]
-    protected int existingLinkNum;
-    [SerializeField]
-    protected int activeOutputLinkNum;
-    [SerializeField]
-    protected float range;
+    protected abstract ArchitectBase GetInfo();
+    protected ArchitectModiferBase GetBaseModifer(int sourceArchLinkNum) 
+                                        => GetBaseProperty(level).GetModifers().Where(p=>p.sourceLinkNum==sourceArchLinkNum).First();
+
+    protected ArchitectProperty GetBaseProperty(int level)  => GetInfo().GetProperties().Where(p=>p.level==level).First();
 
 
-    public string Code => info.Code;
-    public bool IsUpgradable => info.IsUpgradable(level);
+    protected virtual void Awake() {
+        SelfExam();
+    }
 
-    public void Upgrade() => UpgradeTo(level++);
+    public void Upgrade() => UpgradeTo(level+1);
 
-    public abstract void UpgradeTo(int level);
+    protected abstract void UpgradeTo(int level);
 
     public void UnMutate() {
         // need to upgrade base architect to be same as the mutant one first
@@ -48,6 +47,42 @@ public abstract class Architect : MonoBehaviour
         }
         ArchiLinkManager.Instance.Destroy(this); // / destroy links
         Destroy(this.gameObject);
+    }
+
+    private void SelfExam() {
+
+        foreach( ArchitectProperty p in GetInfo().GetProperties()) {
+             HashSet<int> levels = new();
+            if(p.GetModifers()==null || p.GetModifers().Length==0) {
+                if(GetInfo().isMutant)
+                    throw new System.Exception("Mutant architect must have modifer in them");
+            } else {
+                if(!GetInfo().isMutant)
+                    throw new System.Exception("Only mutant architect can have modifer in them");
+                else {
+                    HashSet<int> keys = new();
+                    foreach(var m in p.GetModifers()) {
+                        if(m.probability <0 || m.probability>1)
+                            throw new System.ArgumentOutOfRangeException("probability has to be in 0-1");
+                        if(keys.Contains(m.sourceLinkNum)) {
+                            throw new System.ArgumentOutOfRangeException("Duplicate Key " +m.sourceLinkNum+ " found in modifiers");
+                        } else {
+                            keys.Add(m.sourceLinkNum);
+                        }
+                    }
+                    
+                    
+                }
+                    
+            }
+            if(levels.Contains(p.level)) {
+                throw new System.ArgumentOutOfRangeException("Duplicate Level " +p.level+ " found in properties");
+            } else {
+                levels.Add(p.level);
+            }
+                
+        }
+        
     }
 
 }

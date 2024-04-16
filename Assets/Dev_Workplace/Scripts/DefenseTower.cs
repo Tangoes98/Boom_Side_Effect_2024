@@ -4,22 +4,26 @@ using UnityEngine;
 
 public class DefenseTower : Architect
 {
-    protected float damage;
-    protected DamageType damageType;
-    protected float attackSpeed;
+    [SerializeField]
+    public DefenseTowerStatus status;
+    [SerializeField]
+    protected DefenseTowerBase baseInfo;
 
-    public override void UpgradeTo(int level) {
+    protected override ArchitectBase GetInfo() => baseInfo;
+
+    protected override void UpgradeTo(int level) {
         if(level==this.level) {
             return;
         }
-        
-        ArchitectProperty prop = info.GetProperty(level);
+        this.level = level;
+        DefenseTowerProperty prop = (DefenseTowerProperty) GetBaseProperty(level);
         // refresh all properties
-        maxLinkNum = prop.MaxLinkNum;
-        range = prop.Range;
-        damage = prop.Damage;
-        damageType = prop.DamageType;
-        attackSpeed = prop.AttackSpeed;
+        status.maxLinkNum = prop.maxLinkNum;
+        status.linkRange = prop.linkRange;
+        status.range = prop.range;
+        status.damage = prop.damage;
+        status.damageType = prop.damageType;
+        status.attackSpeed = prop.attackSpeed;
 
     }
 
