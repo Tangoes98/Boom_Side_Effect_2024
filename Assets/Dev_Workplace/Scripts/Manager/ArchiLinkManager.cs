@@ -213,7 +213,11 @@ public class ArchiLinkManager : MonoBehaviour
     }
 
     private void UpdateSurroundingSourceLinkNum(Architect architect, Architect ignore) {
-
+        // architect is the outputter
+        foreach(var arch in _links.Where(l => l.From==architect && l.To!=ignore).Select(l=>l.To)) {
+            arch.sourceArchitectLinkNum = architect.activeOutputLinkNum;
+            arch.Reload();
+        }
     }
 
     public List<Architect> GetSurroundingArchitects(Architect architect) // 显示可link的其他建筑，策划说先不允许主动连线/断线
