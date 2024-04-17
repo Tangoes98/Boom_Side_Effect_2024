@@ -61,8 +61,9 @@ public class ArchiLinkManager : MonoBehaviour
             var cloestArch = tuple.Item1;
             
             if(Mutate(cloestArch, arch)) {
-                GameObject line = BuildLink(cloestArch, arch);
-                line.SetActive(false);
+                var lines = BuildLink(cloestArch, arch);
+                lines.Item1.SetActive(false);
+                lines.Item2.SetActive(false);
                 // new link
                 cloestArch.existingLinkNum ++;
                 arch.existingLinkNum ++;
@@ -177,7 +178,7 @@ public class ArchiLinkManager : MonoBehaviour
         return null;
     }
 
-    public GameObject BuildLink(Architect fromArch, Architect toArch) { // 策划说不做
+    public Tuple<GameObject,GameObject> BuildLink(Architect fromArch, Architect toArch) { // 策划说不做
         Vector3[] waypoints = new Vector3[]{_architects[fromArch],_architects[toArch]};
         GameObject line = Instantiate(_linePrefab), 
             lineReverse = Instantiate(_linePrefab);
@@ -193,7 +194,7 @@ public class ArchiLinkManager : MonoBehaviour
         lineRenderer2.SetPositions(waypoints.Reverse().ToArray());
 
         _links.Add(new(fromArch, toArch, line, lineReverse));
-        return line;
+        return new(line,lineReverse);
     }
 
     public void LinkFromClosestArchToPointer(bool on) => _linkFromClosestArchToPointer= on;// 从最近的建筑到鼠标
