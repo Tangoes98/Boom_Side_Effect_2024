@@ -59,15 +59,11 @@ public class ArchiLinkManager : MonoBehaviour
                 return arch;
             }
             var cloestArch = tuple.Item1;
-            
+
             if(Mutate(cloestArch, arch)) {
                 var lines = BuildLink(cloestArch, arch);
                 lines.Item1.SetActive(false);
                 lines.Item2.SetActive(false);
-                // new link
-                cloestArch.existingLinkNum ++;
-                arch.existingLinkNum ++;
-
                 
             }
         } 
@@ -77,20 +73,38 @@ public class ArchiLinkManager : MonoBehaviour
 
     public void Unregister(Architect architect) {
         _architects.Remove(architect);
-        _links.RemoveAll(l=>l.ArchitectA==architect || l.ArchitectB==architect);
+        foreach(var link in _links.Where(l=> l.IsActive && (l.ArchitectA==architect || l.ArchitectB==architect)).ToList()) {
+            DestroyLink(link);
+        }
     }
 
     private bool Mutate(Architect fromArchitect,Architect toArchitect) { // disable基础建筑，存起来，在原地instantiate变种建筑
         try {
             Vector3 pos = _architects[toArchitect];
-            string mutantCode = GetMutantResult(fromArchitect.Code, toArchitect.Code);
-            Architect arch = Build(pos,mutantCode);
-            arch.BaseArchitect = toArchitect.gameObject; // save for later
+            string mutantCode = GetMutantResult(fromArchitect.Info().isMutant? 
+                                    fromArchitect.BaseArchitect.GetComponent<Architect>().Code 
+                                    : fromArchitect.Code, toArchitect.Code);
+            Architect newArch = Build(pos,mutantCode);
+            newArch.BaseArchitect = toArchitect.gameObject; // save for later
+            
+            // copy status
+            Architect baseArch = toArchitect;
+            newArch.activeOutputLinkNum = baseArch.activeOutputLinkNum;
+            newArch.existingLinkNum = baseArch.existingLinkNum;
+
+            fromArchitect.activeOutputLinkNum++;
+            UpdateSurroundingSourceLinkNum(fromArchitect,newArch);
+            newArch.sourceArchitectLinkNum = fromArchitect.activeOutputLinkNum;
+
+            // need to upgrade architect to be same as the base one first
+            newArch.UpgradeTo(toArchitect.level);
 
             toArchitect.gameObject.SetActive(false);
 
-            fromArchitect.activeOutputLinkNum++;
-            toArchitect.sourceArchitectLinkNum = fromArchitect.activeOutputLinkNum;
+            foreach(var l in _links.Where(l=> l.ArchitectA==baseArch || l.ArchitectB==baseArch )) {
+                if(l.ArchitectA==baseArch) l.ArchitectA=newArch;
+                if(l.ArchitectB==baseArch) l.ArchitectB=newArch;
+            }
 
             return true;
         } catch(InvalidOperationException ioe) {
@@ -103,11 +117,30 @@ public class ArchiLinkManager : MonoBehaviour
                             => _mutations.Where(m => m.baseArchitectCode == toArchitectCode && m.buffArchitectCode==fromArchitectCode)
                                 .Select(m=>m.mutantArchitectCode).First();
 
-    private void UnMutate(Architect architect) {
+    private Architect UnMutate(Architect architect) {
+        if(architect.BaseArchitect==null) {
+            // base architect, no mutation
+            return architect;
+        }
+        
+        Architect baseArch = architect.BaseArchitect.GetComponent<Architect>();
+        // copy status
+        baseArch.activeOutputLinkNum = architect.activeOutputLinkNum;
+        baseArch.existingLinkNum = architect.existingLinkNum;
+        baseArch.sourceArchitectLinkNum = 0;
+
         // need to upgrade base architect to be same as the mutant one first
-        architect.BaseArchitect.GetComponent<Architect>().UpgradeTo(architect.level);
+        baseArch.UpgradeTo(architect.level);
+
         architect.BaseArchitect.SetActive(true);
+
+        foreach(var l in _links.Where(l=> l.ArchitectA==architect || l.ArchitectB==architect )) {
+            if(l.ArchitectA==architect) l.ArchitectA=baseArch;
+            if(l.ArchitectB==architect) l.ArchitectB=baseArch;
+        }
+
         Destroy(architect.gameObject);
+        return baseArch;
     }
 
     public void HighAllLinks(bool isShow) {
@@ -140,37 +173,47 @@ public class ArchiLinkManager : MonoBehaviour
     public void UpdateLink(Link link, Link.LinkStatus newStatus) {
         if(link.Status == newStatus) return;
         // check 2 architect
-
-        Architect oldOuting;
-        Architect oldAbsorbing; 
-        Architect newOuting;
-        Architect newAbsorbing; 
-
         if(link.Status==PAUSE) {
-            // null -> outing
-            // null -> absorbing
-            if(newStatus == A_TO_B) {
-                newOuting = link.ArchitectA;
-                newAbsorbing = link.ArchitectB;
-            } else {
-                newOuting = link.ArchitectB;
-                newAbsorbing = link.ArchitectA;
+            // 启动
+            link.Status = newStatus;
+            
+            // pause all other incoming links
+            if(link.To.Info().isMutant) {
+                foreach(var l in _links.Where(l=> l!=link && l.To==link.To)) {
+                    UpdateLink(l,PAUSE); // this will change arch to basic arch
+                }
             }
+            
+            // mutate again
+            Mutate(link.From,link.To);
 
-            //Remo
+        } else if(newStatus == PAUSE) {
+            // 暂停
+            link.From.activeOutputLinkNum--;
+            UpdateSurroundingSourceLinkNum(link.From,link.To);
+            UnMutate(link.To);
+
+            link.Status = newStatus;
+
+        } else {
+             // 反向
+            link.From.activeOutputLinkNum--;
+            UpdateSurroundingSourceLinkNum(link.From,link.To);
+            UnMutate(link.From);
+            UnMutate(link.To);
+
+            // mutate again
+            Mutate(link.To,link.From);
+
+            link.Status = newStatus;
         }
-        //Architect oldOuting = ; 
         
+       
         
-        // outing -> null
-        // abosrbing -> null
-        // outing -> absorbing
-        // absorbing -> outing 
-        
-        // update parent connection number
-        // mute/unmute
+    }
 
-        link.Status = newStatus;
+    private void UpdateSurroundingSourceLinkNum(Architect architect, Architect ignore) {
+
     }
 
     public List<Architect> GetSurroundingArchitects(Architect architect) // 显示可link的其他建筑，策划说先不允许主动连线/断线
@@ -178,7 +221,7 @@ public class ArchiLinkManager : MonoBehaviour
         return null;
     }
 
-    public Tuple<GameObject,GameObject> BuildLink(Architect fromArch, Architect toArch) { // 策划说不做
+    public Tuple<GameObject,GameObject> BuildLink(Architect fromArch, Architect toArch) { // 策划说不做主动连线
         Vector3[] waypoints = new Vector3[]{_architects[fromArch],_architects[toArch]};
         GameObject line = Instantiate(_linePrefab), 
             lineReverse = Instantiate(_linePrefab);
@@ -193,12 +236,23 @@ public class ArchiLinkManager : MonoBehaviour
         lineRenderer2.positionCount = waypoints.Length;
         lineRenderer2.SetPositions(waypoints.Reverse().ToArray());
 
-        _links.Add(new(fromArch, toArch, line, lineReverse));
+        Link link = new(fromArch, toArch, line, lineReverse);
+        UpdateLink(link, A_TO_B);
+        _links.Add(link);
+        
         return new(line,lineReverse);
     }
 
-    public void LinkFromClosestArchToPointer(bool on) => _linkFromClosestArchToPointer= on;// 从最近的建筑到鼠标
-         
+    public void DestroyLink(Link link) { // 摧毁连接
+        UpdateLink(link, PAUSE);
+        link.ArchitectA.existingLinkNum--;
+        link.ArchitectB.existingLinkNum--;
+        Destroy(link.LineAB);
+        Destroy(link.LineBA);
+        _links.Remove(link);
+    }
+
+    public void LinkFromClosestArchToPointer(bool on) => _linkFromClosestArchToPointer= on;// 从最近的建筑到鼠标,建筑必须是通过Build()产生         
 
     private void Update() {
         UpdateLineFromClosestArchToPointer();
