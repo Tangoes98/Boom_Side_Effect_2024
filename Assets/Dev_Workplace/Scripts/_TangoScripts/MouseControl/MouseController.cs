@@ -24,15 +24,20 @@ public class MouseController : MonoBehaviour
         if (EventSystem.current.IsPointerOverGameObject()) return;
         transform.position = MouseWorldPosition(_mouseGroundLayerMask);
 
-
-        // // For mouse cursor if possible
-        // Debug.Log(GetMouseWorldPosition());
-        // // // Check if mouse button is active
-        // // Is_LMB_Down();
-        // // Is_RMB_Down();
     }
+
     #region Public Methods
     public Vector3 GetMouseWorldPosition() => transform.position;
+    public static bool Is_LMB_Down()
+    {
+        if (Input.GetMouseButtonDown(0)) return true;
+        else return false;
+    }
+    public static bool Is_RMB_Down()
+    {
+        if (Input.GetMouseButtonDown(1)) return true;
+        else return false;
+    }
 
 
 
@@ -49,6 +54,7 @@ public class MouseController : MonoBehaviour
         Physics.Raycast(mouseRay, out RaycastHit raycastHit, float.MaxValue, layerMask);
         return raycastHit.point;
     }
+
 
 
 
