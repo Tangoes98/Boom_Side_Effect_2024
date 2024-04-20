@@ -1464,7 +1464,7 @@ GameObject:
   - component: {fileID: 950056228}
   m_Layer: 6
   m_Name: Floor
-  m_TagString: Untagged
+  m_TagString: BuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3064,8 +3064,11 @@ MonoBehaviour:
   _buildingListObject: {fileID: 1081399100}
   _buildingShadowMaterial: {fileID: 2100000, guid: 9e496b3011fa0de4a94e6a5f2eeedc8b,
     type: 2}
+  _buildingForbidMaterial: {fileID: 2100000, guid: 92c8690b9e4958341be34f1b4aac60ba,
+    type: 2}
   _previewBuilding: {fileID: 0}
   _previewBuildingMaterial: {fileID: 0}
+  <CanPlaceBuilding>k__BackingField: 0
 --- !u!4 &1854730211
 Transform:
   m_ObjectHideFlags: 0

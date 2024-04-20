@@ -21,6 +21,7 @@ public class MouseStateManager : MonoBehaviour
         None, Building
     }
     public Action PlaceBuildingEvent;
+    public Action CancelBuildingEvent;
 
 
     private MouseStates _mouseStates;
@@ -38,12 +39,29 @@ public class MouseStateManager : MonoBehaviour
             case MouseStates.None:
                 break;
             case MouseStates.Building:
+
+                //*Check if Cancel the Building
+                if (MouseController.Is_RMB_Down())
+                {
+                    CancelBuilding();
+                    return;
+                }
+
+                //*Check if Place the Building
                 if (!MouseController.Is_LMB_Down()) return;
+                
+                //*Check if is a valid position to place the Building
+                if (!BuidlingManager.Instance.CanPlaceBuilding) return;
                 PlaceBuilding();
 
                 break;
         }
     }
+
+
+
+
+
 
     #region Public Methods
     public void SwitchState(MouseStates state, Action enterState)
@@ -60,6 +78,13 @@ public class MouseStateManager : MonoBehaviour
         PlaceBuildingEvent?.Invoke();
         SwitchState(MouseStates.None, null);
     }
+    void CancelBuilding()
+    {
+        CancelBuildingEvent?.Invoke();
+        SwitchState(MouseStates.None, null);
+    }
+
+
 
 
 

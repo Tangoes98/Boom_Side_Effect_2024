@@ -30,12 +30,14 @@ public class BuidlingManager : MonoBehaviour
     Dictionary<Button, GameObject> _buttonBuildingPairDictionary = new();
     [SerializeField] Transform _buildingListObject;
     [SerializeField] Material _buildingShadowMaterial;
+    [SerializeField] Material _buildingForbidMaterial;
 
 
 
     [Header("DEBUG")]
     [SerializeField] GameObject _previewBuilding;
     [SerializeField] Material _previewBuildingMaterial;
+    [field: SerializeField] public bool CanPlaceBuilding { get; private set; }
 
 
 
@@ -50,10 +52,12 @@ public class BuidlingManager : MonoBehaviour
         }
 
         MouseStateManager.Instance.PlaceBuildingEvent += PlaceBuildingEventAction;
+        MouseStateManager.Instance.CancelBuildingEvent += CancelBuildingEventAction;
     }
     private void Update()
     {
         if (!_previewBuilding) return;
+        BuildingValidation();
         UpdatePreviewBuildingPosition(_previewBuilding);
     }
 
@@ -68,13 +72,15 @@ public class BuidlingManager : MonoBehaviour
     #region Event Methods
     void PlaceBuildingEventAction()
     {
-        // foreach (var item in _buttonBuildingPairs)
-        // {
-        //     if (item.BuildingObject != _previewBuilding) continue;
-        //     _previewBuilding.GetComponentInChildren<MeshRenderer>().material = item.BuildingMaterial;
-        // }
-
         _previewBuilding.GetComponentInChildren<MeshRenderer>().material = _previewBuildingMaterial;
+        _previewBuildingMaterial = null;
+        _previewBuilding = null;
+    }
+
+    void CancelBuildingEventAction()
+    {
+        Destroy(_previewBuilding);
+        _previewBuildingMaterial = null;
         _previewBuilding = null;
     }
 
@@ -93,7 +99,7 @@ public class BuidlingManager : MonoBehaviour
 
     void OnButtonClick(Button btn)
     {
-
+        CanPlaceBuilding = false;
         GameObject building = Instantiate(_buttonBuildingPairDictionary[btn], _buildingListObject);
         _previewBuilding = building;
         building.GetComponentInChildren<MeshRenderer>().material = _buildingShadowMaterial;
@@ -111,6 +117,21 @@ public class BuidlingManager : MonoBehaviour
     void UpdatePreviewBuildingPosition(GameObject building)
     {
         building.transform.position = MouseController.Instance.GetMouseWorldPosition();
+    }
+
+    void BuildingValidation()
+    {
+        var buildingCheacker = _previewBuilding.GetComponent<BuildingChecker>();
+        if (!buildingCheacker.CanBuild)
+        {
+            _previewBuilding.GetComponentInChildren<MeshRenderer>().material = _buildingForbidMaterial;
+            CanPlaceBuilding = false;
+        }
+        else
+        {
+            _previewBuilding.GetComponentInChildren<MeshRenderer>().material = _buildingShadowMaterial;
+            CanPlaceBuilding = true;
+        }
     }
 
     #endregion
