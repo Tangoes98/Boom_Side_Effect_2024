@@ -49,7 +49,7 @@ namespace Yunhao_Fight
             Collider[] attackTargets = Physics.OverlapSphere(this.transform.position, this._attackRange, LevelManager.EnemyLayer());
             if (attackTargets.Length>0 && attackTargets[0].gameObject.TryGetComponent<Enemy>(out Enemy enemy))
             {
-                Debug.Log("Get a new enemy: " + enemy.name);
+                //Debug.Log("Get a new enemy: " + enemy.name);
                 return enemy;
             }
             else return null;

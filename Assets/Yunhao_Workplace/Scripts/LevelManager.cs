@@ -21,75 +21,19 @@ namespace Yunhao_Fight
         }
         #endregion
         #region =============== Variables =======================
-        [SerializeField] Transform _enemyTarget;
+        [SerializeField] LayerMask _friendLayer;
         [SerializeField] LayerMask _enemyLayer;
+        [SerializeField] Transform _baseDestination;
         #endregion
         #region =================== Public ============================
-        public static Transform EnemyTarget() => Instance._enemyTarget;
+        public static LayerMask FriendLayer() => Instance._friendLayer;
         public static LayerMask EnemyLayer() => Instance._enemyLayer;
+        public static Transform BaseDestination() => Instance._baseDestination;
         #endregion
         #region ================ MonoBehaviour =======================
-        //private void Start()
-        //{
-        //    GetAllUnitIntoUnitList();
 
-        //}
-        //private void Update()
-        //{
-        //    CheckUnitListEmptiness();
-        //}
         #endregion
         #region =============== Methods =======================
-
-        //void GetAllUnitIntoUnitList()
-        //{
-        //    T_Unit[] units = _unitSpawner.GetComponentsInChildren<T_Unit>();
-        //    foreach (var unit in units)
-        //    {
-        //        if (unit.G_IsEnemyUnit()) _enemyList.Add(unit);
-        //        else _friendList.Add(unit);
-        //    }
-        //}
-        //void CheckUnitListEmptiness()
-        //{
-        //    if (IsUnitListEmpty(_enemyList) || IsUnitListEmpty(_friendList))
-        //    {
-        //        // Game Over
-        //        Event_GameOver?.Invoke();
-        //    }
-        //    if (IsUnitListEmpty(_enemyList))
-        //    {
-        //        // Player wins
-
-        //    }
-        //    if (IsUnitListEmpty(_friendList))
-        //    {
-        //        // Enemy wins
-
-        //    }
-
-
-        //}
-
-
-        //bool IsUnitListEmpty(List<T_Unit> untiList)
-        //{
-        //    if (untiList.Count < 1) return true;
-        //    else return false;
-        //}
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         #endregion

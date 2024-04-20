@@ -5,20 +5,8 @@ using UnityEngine.UI;
 
 namespace Yunhao_Fight
 {
-    public class EnemyUI : MonoBehaviour
+    public class MinionUI : MonoBehaviour
     {
-        #region =============== Instance =======================
-        //static LevelManager Instance;
-        //private void Awake()
-        //{
-        //    if (Instance != null)
-        //    {
-        //        Debug.LogError("Multiple instances occured");
-        //        Destroy(Instance);
-        //    }
-        //    Instance = this;
-        //}
-        #endregion
         #region =============== Variables =======================
 
         [Header("UI")]

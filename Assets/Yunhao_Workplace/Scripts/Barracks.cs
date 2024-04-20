@@ -1,40 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.AI;
 
 namespace Yunhao_Fight
 {
-    public class Enemy : MinionBase
+    public class Barracks : MonoBehaviour
     {
-        //enum damageType;
-
         #region =============== Variables =======================
+        [SerializeField] float _attackRange;
 
         #endregion
         #region =================== Public ============================
-
-
-
-
-
-
-
-
+        public float AttackRange() => _attackRange;
         #endregion
         #region ================ MonoBehaviour =======================
 
-
         #endregion
         #region =============== Methods =======================
-        protected override void setIdleDestination()
-        {
-            _idleDestination = LevelManager.BaseDestination();
-        }
-        
-
 
         #endregion
-
+        void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(transform.position, _attackRange);
+        }
     }
 }
