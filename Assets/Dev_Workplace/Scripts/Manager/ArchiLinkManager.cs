@@ -15,6 +15,10 @@ public class ArchiLinkManager : MonoBehaviour
             return _instance; 
         } 
     }
+    [Header("DEV TOOL")]
+    [SerializeField]
+    protected bool disableSelfExam;
+    [Space(20)]
 
     [SerializeField]
     private GameObject _linePrefab;
@@ -24,10 +28,13 @@ public class ArchiLinkManager : MonoBehaviour
 
     [SerializeField]
     private ArchitectMutation[] _mutations;
+    [SerializeField]
+    private ArchitectModifer[] _modifiers;
 
     public Dictionary<string,GameObject> AllBasicArchitectPrefabs, AllMutantArchitectPrefabs;
 
 
+    private Dictionary<int,Dictionary<int,ArchitectModiferCase>> _modifierDict = new();
     private GameObject _lineToMouse;
     private bool _linkFromClosestArchToPointer;
 
@@ -40,12 +47,27 @@ public class ArchiLinkManager : MonoBehaviour
         } else if(_instance != this) {
             Destroy(this);
         }
+
+        SelfExam();
+        
         AllBasicArchitectPrefabs = _basicArchitectPrefabs.ToDictionary(p=>p.code,p=>p.gameObject);
         AllMutantArchitectPrefabs = _mutantArchitectPrefabs.ToDictionary(p=>p.code,p=>p.gameObject);
+
+        _modifierDict = _modifiers.ToDictionary(m => m.unstability,
+                                        m=> {
+                                                Dictionary<int,ArchitectModiferCase> dict = new();
+                                                int total = 0;
+                                                foreach(var c in m.modifierCases.Where(c=>c.type!=ModifierType.NONE)) {
+                                                    total+=c.probability;
+                                                    dict.Add(total,c);
+                                                }
+                                                return dict;
+                                            });
     }
     
     public Architect Build(Vector3 position, string code) // 在对应位置instantiate建筑
     {   
+        Debug.Log("build");
         bool isMutant = !AllBasicArchitectPrefabs.ContainsKey(code);
 
         GameObject archObj = Instantiate(isMutant? AllMutantArchitectPrefabs[code] : AllBasicArchitectPrefabs[code], 
@@ -60,12 +82,9 @@ public class ArchiLinkManager : MonoBehaviour
             }
             var cloestArch = tuple.Item1;
 
-            if(Mutate(cloestArch, arch)) {
-                var lines = BuildLink(cloestArch, arch);
-                lines.Item1.SetActive(false);
-                lines.Item2.SetActive(false);
-                
-            }
+            var lines = BuildLink(cloestArch, arch);
+            lines.Item1.SetActive(false);
+            lines.Item2.SetActive(false);
         } 
         return arch;
     }
@@ -216,7 +235,6 @@ public class ArchiLinkManager : MonoBehaviour
         // architect is the outputter
         foreach(var arch in _links.Where(l => l.From==architect && l.To!=ignore).Select(l=>l.To)) {
             arch.sourceArchitectLinkNum = architect.activeOutputLinkNum;
-            arch.Reload();
         }
     }
 
@@ -300,7 +318,7 @@ public class ArchiLinkManager : MonoBehaviour
                 continue;
             }
 
-            if(arch.existingLinkNum>=arch.Status().maxLinkNum) { 
+            if(arch.existingLinkNum>=arch.Info().maxLinkNum) { 
                 Debug.Log(arch.name + " all outlets occupied. Skip.");
                 continue; // skip arch with all outlets occupied
             }
@@ -313,5 +331,56 @@ public class ArchiLinkManager : MonoBehaviour
             }
         }
         return (closestArch==null)? null : new Tuple<Architect, Vector3[]> (closestArch, new Vector3[]{mousePos,closestPos});
+    }
+
+    public float GetModifier(int unstability, out ModifierType modifierType) {
+        if(unstability<=1) {
+            modifierType = ModifierType.NONE;
+            return 1;
+        }
+        var modifierCases = _modifierDict[unstability];
+        int rand = (int) (UnityEngine.Random.value * 100);
+        
+        int caseNum = modifierCases.Keys.Where(k=>rand<k).OrderBy(k=>k).FirstOrDefault();
+        if(caseNum==0) {
+            modifierType = ModifierType.NONE;
+            return 1;
+        }
+        var modifierCase = modifierCases[caseNum];
+        modifierType = modifierCase.type;
+        return modifierCase.modifier;
+        
+    }
+
+    private void SelfExam() {
+        if(disableSelfExam) return;
+
+        HashSet<int> unstabilities = new();
+        foreach( ArchitectModifer m in _modifiers) {
+            if(unstabilities.Contains(m.unstability)) {
+                throw new Exception("Duplicate Unstability " +m.unstability+ " found");
+            } else {
+                bool isNoBuffCaseSpecified = false;
+                int totalProb = 0;
+                foreach(var modifierCase in m.modifierCases) {
+                    if(modifierCase.type==ModifierType.NONE) {
+                        isNoBuffCaseSpecified = true;
+                    }
+                    totalProb += modifierCase.probability;
+                }
+                if(isNoBuffCaseSpecified && totalProb!=100) {
+                    throw new Exception("NONE buff case specified but probabilities don't add up to 100 in unstability" +m.unstability);
+                } else if (!isNoBuffCaseSpecified && totalProb>100) {
+                    throw new Exception("Nprobabilities exceed 100 in unstability" +m.unstability);
+                }
+            }
+                
+        }
+        for(int i=2;i<=4;i++) {
+            if(!unstabilities.Contains(i)) {
+                throw new Exception("Missing Unstability " +i);
+            }
+        }
+        
     }
 }

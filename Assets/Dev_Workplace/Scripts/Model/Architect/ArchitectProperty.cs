@@ -1,19 +1,14 @@
 using System;
-using Unity.VisualScripting;
 using UnityEngine;
 
 [Serializable]
 public abstract class ArchitectProperty {
     
-    [Inspectable,Range(1,5)]
+    [Range(1,3)]
     public int level;
-    [Inspectable,Range(1,4)]
-    public int maxLinkNum;
-    [Inspectable]
-    public float linkRange;
-    [Inspectable]
-    public float range;
+    [Header("升级费用，1级即为建造费用。只有基础建筑要填")]
+    public int cost;
 
-    public abstract ArchitectModiferBase[] GetModifers();
+    public float range;
     
 }
