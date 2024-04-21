@@ -16,7 +16,7 @@ public abstract class ArchitectBase
     public bool isMutant;
 
     [Range(1,4)]
-    public int maxLinkNum;
+    public int maxLinkNum = 4;
 
     //public float linkRange;
 
