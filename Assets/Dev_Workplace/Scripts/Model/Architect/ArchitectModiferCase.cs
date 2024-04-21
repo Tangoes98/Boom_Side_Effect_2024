@@ -7,7 +7,7 @@ public class ArchitectModiferCase {
 
     [Range(1,100)]
     public int probability;
-    [Range(0,1)]
+
     public float modifier;
 
     public ModifierType type;
