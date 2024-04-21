@@ -16,7 +16,10 @@ namespace Yunhao_Fight
         [Header("Attack")]
         [SerializeField] float _attackRange;
         [SerializeField] float _damage;
-        [SerializeField] float _attackTimer;
+        [SerializeField] float _attackTimer;//攻击间隔
+        [SerializeField] float _attackDuration;//攻击持续时间
+
+        Coroutine _attacking;
 
         #endregion
         #region =================== Public ============================
@@ -26,7 +29,7 @@ namespace Yunhao_Fight
         private void Start()
         {
             _laser.SetPosition(0, _laser.transform.position);
-            StartCoroutine(Attack());
+            StartCoroutine(Combat());
             
         }
         private void Update()
@@ -55,7 +58,7 @@ namespace Yunhao_Fight
             else return null;
 
         }
-        IEnumerator Attack()
+        IEnumerator Combat()
         {
             yield return null;
             while (_isWorking)
@@ -69,16 +72,39 @@ namespace Yunhao_Fight
                 {
                     while(_target != null && Vector3.Distance(_target.transform.position, this.transform.position) < _attackRange)
                     {
-                        _target.SendMessage("TakeDamage", _damage);
-                        yield return new WaitForSeconds(_attackTimer);
+                        if (_attacking == null) _attacking = StartCoroutine(Attack());
+                        yield return null;
                     }
                     _target = GetEnemyInRange();
                 }
                 yield return null;
             }
         }
+        IEnumerator Attack()
+        {
+            //单次攻击类型
+            //开始播放动画(如果动画是实现复杂的话可以再执行一个corotine)
+            yield return new WaitForSeconds(_attackDuration);
+            _target.SendMessage("TakeDamage", _damage);
 
 
+            /*持续攻击类型（没测试过）
+            //开始播放动画(如果动画是实现复杂的话可以再执行一个corotine)
+            float timer = _attackDuration;
+            while(timer > 0)
+            {
+                timer -= 0.1f;
+                yield return new WaitForSeconds(0.1f);
+            }
+            */
+
+
+            yield return new WaitForSeconds(_attackTimer);
+            _attacking = null;
+            //_attackTarget = GetOpponentInRange(_attackRange);//如果是普通索敌这边再加上这句（没测试过）
+            //还有个范围索敌的需要攻击整个范围内的敌人，索敌和攻击逻辑都要修改，或者这边索敌就改成攻击整个列表的敌人，但非范围索敌时列表只有一个
+            //攻击类型和索敌类型考虑做成两个接口按需要调用策略？
+        }
         #endregion
         void OnDrawGizmosSelected()
         {

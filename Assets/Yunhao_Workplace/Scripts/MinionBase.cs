@@ -37,8 +37,8 @@ namespace Yunhao_Fight
         [SerializeField] float _attackRange;
         [SerializeField] float _viewRange;
         [SerializeField] float _damage;
-        //[SerializeField] float _attackSpeed;
-        [SerializeField] float _attackTimer;
+        [SerializeField] float _attackTimer;//攻击间隔
+        [SerializeField] float _attackDuration;//攻击持续时间
         MinionBase _viewTarget;
         MinionBase _attackTarget;
         Coroutine _attacking;
@@ -150,11 +150,15 @@ namespace Yunhao_Fight
 
         IEnumerator Attack()
         {
+            //单次攻击类型
+            //开始播放动画(如果动画是实现复杂的话可以再执行一个corotine)
+            yield return new WaitForSeconds(_attackDuration);
             _attackTarget.SendMessage("TakeDamage", _damage);
+
             yield return new WaitForSeconds(_attackTimer);
             _attacking = null;
         }
-        
+
 
 
         void SwitchMinionState(MinionState state)
