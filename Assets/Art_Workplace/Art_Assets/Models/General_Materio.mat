@@ -270,7 +270,7 @@ Material:
     - _OutlineFadeMax: 2
     - _OutlineFadeMin: 0.25
     - _OutlineNoise: 0
-    - _OutlineSize: 90
+    - _OutlineSize: 160
     - _OutlineTab: 1
     - _Parallax: 0.005
     - _QueueOffset: 0
@@ -284,7 +284,7 @@ Material:
     - _Roughness: 0.5
     - _Saturation: 1
     - _SketchMapScale: 1
-    - _Smoothness: 0.315
+    - _Smoothness: 0.25
     - _SmoothnessTextureChannel: 0
     - _Specular: 1
     - _SpecularHighlights: 1
