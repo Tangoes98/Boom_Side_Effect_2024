@@ -6,7 +6,7 @@ using UnityEngine;
 public class BarrackStatus : ArchitectStatus {
     public List<Minion> currentMinions; 
     [Range(1,4)]
-    public int maxMinionNum;
+    public int maxMinionNum=1;
     public float manufactureInterval;
 
     public float manufactureTime;

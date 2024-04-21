@@ -319,6 +319,7 @@ public class ArchiLinkManager : MonoBehaviour
             }
 
             if(arch.existingLinkNum>=arch.Info().maxLinkNum) { 
+                Debug.Log(arch.existingLinkNum + " " +arch.Info().maxLinkNum);
                 Debug.Log(arch.name + " all outlets occupied. Skip.");
                 continue; // skip arch with all outlets occupied
             }

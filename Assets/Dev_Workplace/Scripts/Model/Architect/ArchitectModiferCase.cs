@@ -6,7 +6,7 @@ public class ArchitectModiferCase {
     [Header("无需申明建筑100%效果的情况")]
 
     [Range(1,100)]
-    public int probability;
+    public int probability=50;
 
     public float modifier;
 

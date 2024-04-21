@@ -5,7 +5,7 @@ using UnityEngine;
 public class MinionProperty {
 
     [Range(1,3)]
-    public int level;
+    public int level=1;
     
     public float range;
     
