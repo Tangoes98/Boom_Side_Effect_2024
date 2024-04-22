@@ -19,9 +19,8 @@ public class ArchiLinkManager : MonoBehaviour
     [SerializeField]
     protected bool disableSelfExam;
     [Space(20)]
-
-    [SerializeField]
-    private GameObject _linePrefab;
+    [SerializeField] private GameObject _directionalLinePrefab;
+    [SerializeField] private GameObject _pauseLinePrefab;
 
     [SerializeField]
     private StringGameObjectPair[] _basicArchitectPrefabs,_mutantArchitectPrefabs;
@@ -244,9 +243,10 @@ public class ArchiLinkManager : MonoBehaviour
     }
 
     public Tuple<GameObject,GameObject> BuildLink(Architect fromArch, Architect toArch) { // 策划说不做主动连线
-        Vector3[] waypoints = new Vector3[]{_architects[fromArch],_architects[toArch]};
-        GameObject line = Instantiate(_linePrefab), 
-            lineReverse = Instantiate(_linePrefab);
+        Vector3[] waypoints = GenerateCurveLine(_architects[fromArch],_architects[toArch], 10); // height可改
+        GameObject line = Instantiate(_directionalLinePrefab), 
+            lineReverse = Instantiate(_directionalLinePrefab),
+            linePause = Instantiate(_pauseLinePrefab);
         
         line.name =  fromArch.Info().name + "-" + toArch.Info().name;
         LineRenderer lineRenderer = line.GetComponent<LineRenderer>();
@@ -258,11 +258,30 @@ public class ArchiLinkManager : MonoBehaviour
         lineRenderer2.positionCount = waypoints.Length;
         lineRenderer2.SetPositions(waypoints.Reverse().ToArray());
 
-        Link link = new(fromArch, toArch, line, lineReverse);
+        linePause.name = "pause";
+        LineRenderer lineRenderer3 = line.GetComponent<LineRenderer>();
+        lineRenderer3.positionCount = waypoints.Length;
+        lineRenderer3.SetPositions(waypoints);
+
+        Link link = new(fromArch, toArch, line, lineReverse,linePause);
         UpdateLink(link, A_TO_B);
         _links.Add(link);
         
         return new(line,lineReverse);
+    }
+
+    private Vector3[] GenerateCurveLine(Vector3 start, Vector3 end, int height) {
+        // y轴是纵轴
+        var pointList = new List<Vector3>();
+        var curvePoint = new Vector3((start.x + end.x) / 2,(start.y + end.y) / 2 + height,(start.z + end.z) / 2 );
+        int vertexCount = 50;
+        for(float ratio = 0; ratio <= 1; ratio += 1.0f / vertexCount) {
+            var tanLineVertex1 = Vector3.Lerp(start, curvePoint, ratio);
+            var tanLineVertex2 = Vector3.Lerp(curvePoint, end, ratio);
+            var bezierPoint = Vector3.Lerp(tanLineVertex1,tanLineVertex2,ratio);
+            pointList.Add(bezierPoint);
+        }
+        return pointList.ToArray();
     }
 
     public void DestroyLink(Link link) { // 摧毁连接
@@ -293,7 +312,7 @@ public class ArchiLinkManager : MonoBehaviour
             return;
         }
         if(_lineToMouse==null) {
-            _lineToMouse = Instantiate(_linePrefab);
+            _lineToMouse = Instantiate(_directionalLinePrefab);
             _lineToMouse.name =  "line_from_closest_arch_to_pointer";
         }
        

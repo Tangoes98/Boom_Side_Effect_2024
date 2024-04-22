@@ -14,6 +14,7 @@ public class Link {
     
     public GameObject LineAB {get;set;} // AB BA 箭头方向不同，按需求enable
     public GameObject LineBA {get;set;}
+    public GameObject LinePause {get;set;}
     public LinkStatus Status {get;set;}
 
     public bool IsActive => Status != PAUSE;
@@ -50,11 +51,32 @@ public class Link {
         }
     } 
 
-    public Link(Architect fromArchitect,Architect toArchitect, GameObject lineAB, GameObject lineBA) {
+    public void ShowLine() {
+        switch(Status) {
+            case A_TO_B:
+                LineAB.SetActive(true);
+                break;
+            case B_TO_A:
+                LineBA.SetActive(true);
+                break;
+            case PAUSE:
+                LinePause.SetActive(true);
+                break;
+        }
+    }
+
+    public void HideLine() {
+        LineAB.SetActive(false);
+        LineBA.SetActive(false);
+        LinePause.SetActive(false);
+    }
+
+    public Link(Architect fromArchitect,Architect toArchitect, GameObject lineAB, GameObject lineBA, GameObject linePause) {
         ArchitectA = fromArchitect;
         ArchitectB = toArchitect;
         LineAB = lineAB;
         LineBA = lineBA;
+        LinePause = linePause;
         Status = PAUSE;
         ArchitectA.existingLinkNum++;
         ArchitectB.existingLinkNum++;
