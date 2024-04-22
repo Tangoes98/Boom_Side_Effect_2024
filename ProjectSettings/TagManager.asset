@@ -13,8 +13,9 @@ TagManager:
   - Water
   - UI
   - MouseLayer
-  - 
-  - 
+  - EnemyPath
+  - Enemy
+  - Friend
   - 
   - 
   - 
