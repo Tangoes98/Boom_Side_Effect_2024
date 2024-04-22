@@ -40,6 +40,7 @@ public class ArchiLinkManager : MonoBehaviour
 
     private Dictionary<Architect,Vector3> _architects = new();
     private List<Link> _links = new();
+    private Architect _lastSelectArch;
 
     private void Awake() {
         if(_instance == null) {
@@ -171,6 +172,8 @@ public class ArchiLinkManager : MonoBehaviour
     public void GetInAndOutAndPauseLinks(Architect architect, out List<Link> incomingLinks,
                                         out List<Link> outgoingLinks, out List<Link> pausedLinks) // 用于显示建筑已有link
     {
+        _lastSelectArch = architect;
+        
         incomingLinks = new();
         outgoingLinks = new();
         pausedLinks = new();
@@ -190,8 +193,18 @@ public class ArchiLinkManager : MonoBehaviour
         }
     }
 
+    private void ShowAllLinksOnLastSelectArch() {
+        // 当link方向改变，重新展示所有连线
+        foreach(Link l in _links.Where(l=>l.ArchitectA==_lastSelectArch || l.ArchitectB==_lastSelectArch)) {
+            l.ShowLine();
+        }
+    }
+
     public void UpdateLink(Link link, Link.LinkStatus newStatus) {
         if(link.Status == newStatus) return;
+
+        link.HideLine(); // 先Hide所有线，之后ShowAllLinksOnLastSelectArch()会在显示
+
         // check 2 architect
         if(link.Status==PAUSE) {
             // 启动
@@ -333,8 +346,10 @@ public class ArchiLinkManager : MonoBehaviour
             if(line!=null && line.link != null) {
                 ArchiLinkManager.Instance.UpdateLink(line.link,line.link.NextState());
                 // 重新展示所有 line
-                Debug.Log("line clicked");
+                ShowAllLinksOnLastSelectArch();
             } 
+            
+            Debug.Log("line clicked");
         }
     }
 
