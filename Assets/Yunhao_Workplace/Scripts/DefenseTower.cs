@@ -10,7 +10,7 @@ namespace Yunhao_Fight
         #region =============== Variables =======================
 
         [SerializeField] LineRenderer _laser;
-        Enemy _target;
+        Enemy _targets;
         [SerializeField] bool _isWorking = true;
 
         [Header("Attack")]
