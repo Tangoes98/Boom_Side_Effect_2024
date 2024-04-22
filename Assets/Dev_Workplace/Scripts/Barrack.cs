@@ -7,9 +7,9 @@ using System;
 public partial class Barrack : Architect
 {
     [SerializeField]
-    protected BarrackStatus status;
+    protected BarrackStatus status; // 只用这里的数据
     [SerializeField]
-    protected BarrackBase baseInfo;
+    protected BarrackBase baseInfo; // 不要直接调用！初始数据
 
     public override ArchitectBase Info() => baseInfo;
     public override ArchitectStatus Status() => status;
@@ -21,35 +21,29 @@ public partial class Barrack : Architect
         this.level = level;
         BarrackProperty prop = (BarrackProperty)GetBaseProperty(level);
         // refresh all properties
-        status.maxLinkNum = prop.maxLinkNum;
-        status.linkRange = prop.linkRange;
+        //status.maxLinkNum = prop.maxLinkNum;
         status.range = prop.range;
         status.maxMinionNum = prop.maxMinionNum;
-        status.coolDown = prop.coolDown;
-        status.minionCode = prop.minionCode;
-        
-        ApplyModifer();
-    }
 
-    protected override void ApplyModifer() {
-        if(sourceArchitectLinkNum==0) {
-            return;
-        }
-        try {
-            BarrackModifierBase modifier = (BarrackModifierBase) GetBaseProperty(level).GetModifers().Where(p=>p.sourceLinkNum==sourceArchitectLinkNum).First();
-            status.maxLinkNum += modifier.maxLinkNum;
-            status.range += modifier.range;
-            status.maxMinionNum += modifier.maxMinionNum;
-            status.coolDown += modifier.coolDown;
-            status.minionModifier = modifier.minionModifier;
-        } catch(Exception e) {
-            Debug.LogError("Fail to apply modifer for num " + sourceArchitectLinkNum);
-            Debug.LogError(e.Message);
-        }
+        status.manufactureInterval = baseInfo.manufactureInterval;
+        status.manufactureTime = baseInfo.manufactureTime;
+        status.minionPrefab = baseInfo.minionPrefab;
     }
 
     protected override void Awake() {
         base.Awake(); // keep this!
     }
 
+    
+    public void ManufactureMinion() {
+        GameObject minionObj = Instantiate(baseInfo.minionPrefab); // 改
+        
+        Minion minion = minionObj.GetComponent<Minion>();
+        minion.Initialize(this);
+        status.currentMinions.Add(minion);
+    }
+
+    public void DestroyMinion(Minion minion) {
+        status.currentMinions.Remove(minion);
+    }
 }

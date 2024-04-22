@@ -1,5 +1,5 @@
 using System;
-using Unity.VisualScripting;
+using UnityEngine;
 
 [Serializable]
 public abstract class ArchitectBase
@@ -8,12 +8,17 @@ public abstract class ArchitectBase
         DEFENCE_TOWER,
         BARRACK
     }
-    [Inspectable]
+
     public string code;
-    [Inspectable]
+
     public string name;
-    [Inspectable]
+
     public bool isMutant;
+
+    [Range(1,4)]
+    public int maxLinkNum = 4;
+
+    //public float linkRange;
 
     public abstract ArchitectProperty[] GetProperties();
 

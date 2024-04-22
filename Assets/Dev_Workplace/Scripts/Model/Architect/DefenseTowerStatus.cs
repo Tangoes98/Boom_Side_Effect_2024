@@ -1,13 +1,20 @@
 using System;
-using Unity.VisualScripting;
 
 [Serializable]
 public class DefenseTowerStatus : ArchitectStatus {
-    [Inspectable]
-    public float damage; 
-    [Inspectable]
-    public DamageType damageType;
-    [Inspectable]
-    public float attackSpeed;
 
+    public float damage; 
+    public AttackMode attackMode;
+
+    public LockMode lockMode;
+
+    public float fireInterval;
+
+    public float fireTime; // each fire take time
+
+    public float aoeRange;
+
+    public SpecialEffect specialEffect;
+    public float specialEffectModifier;
+    public float specialEffectLastTime;
 }

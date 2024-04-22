@@ -1,15 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class DefenseTower : Architect
 {
     [SerializeField]
-    protected DefenseTowerStatus status;
+    protected DefenseTowerStatus status; // 只用这里的数据
     [SerializeField]
-    protected DefenseTowerBase baseInfo;
+    protected DefenseTowerBase baseInfo; // 不要直接调用！初始数据
 
     public override ArchitectBase Info() => baseInfo;
     public override ArchitectStatus Status() => status;
@@ -21,37 +20,29 @@ public class DefenseTower : Architect
         this.level = level;
         DefenseTowerProperty prop = (DefenseTowerProperty) GetBaseProperty(level);
         // refresh all properties
-        status.maxLinkNum = prop.maxLinkNum;
-        status.linkRange = prop.linkRange;
+        //status.maxLinkNum = prop.maxLinkNum;
         status.range = prop.range;
         status.damage = prop.damage;
-        status.damageType = prop.damageType;
-        status.attackSpeed = prop.attackSpeed;
+        status.specialEffectModifier = prop.specialEffectModifier;
+        status.specialEffectLastTime = prop.specialEffectLastTime;
 
-        ApplyModifer();
+        status.attackMode = baseInfo.attackMode;
+        status.lockMode = baseInfo.lockMode;
+        status.fireInterval  = baseInfo.fireInterval;
+        status.fireTime = baseInfo.fireTime;
+        status.aoeRange = baseInfo.aoeRange;
+        status.specialEffect = baseInfo.specialEffect;
 
     }
 
-    protected override void ApplyModifer() {
-        if(sourceArchitectLinkNum==0) {
-            return;
-        }
-        try {
-            DefenseTowerModifierBase modifier = (DefenseTowerModifierBase) GetBaseProperty(level).GetModifers().Where(p=>p.sourceLinkNum==sourceArchitectLinkNum).First();
-            status.maxLinkNum += modifier.maxLinkNum;
-            status.range += modifier.range;
-            status.damage += modifier.damage;
-            if(modifier.damageType!=DamageType.SAME_AS_BEFORE) 
-                status.damageType = modifier.damageType;
-            status.attackSpeed += modifier.attackSpeed;
-        } catch(Exception e) {
-            Debug.LogError("Fail to apply modifer for num " + sourceArchitectLinkNum);
-            Debug.LogError(e.Message);
-        }
-    }
 
     protected override void Awake() {
         base.Awake(); // keep this!
+    }
+
+    private float GetDamage(out ModifierType modifierType) { // BUFF/DEBUFF
+        float modifier = ArchiLinkManager.Instance.GetModifier(Unstability, out modifierType);
+        return status.damage * modifier;
     }
 
 }
