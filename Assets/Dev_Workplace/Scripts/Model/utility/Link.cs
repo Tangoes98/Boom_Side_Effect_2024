@@ -1,7 +1,8 @@
 using System;
-using System.Collections.Generic;
+
 using UnityEngine;
 using static Link.LinkStatus;
+
 public class Link {
     public enum LinkStatus {
         A_TO_B,
@@ -102,5 +103,9 @@ public class Link {
         return hashA<hashB? HashCode.Combine(ArchitectA,ArchitectB) : HashCode.Combine(ArchitectB,ArchitectA); 
     }
 
-
+    public Link.LinkStatus NextState() {
+        if(Status==Link.LinkStatus.A_TO_B) return Link.LinkStatus.B_TO_A;
+        if(Status==Link.LinkStatus.B_TO_A) return Link.LinkStatus.PAUSE;
+        else return Link.LinkStatus.A_TO_B;
+    }
 }
