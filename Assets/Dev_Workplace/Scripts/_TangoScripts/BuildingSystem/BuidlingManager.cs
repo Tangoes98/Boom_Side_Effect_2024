@@ -73,6 +73,7 @@ public class BuidlingManager : MonoBehaviour
     void PlaceBuildingEventAction()
     {
         _previewBuilding.GetComponentInChildren<MeshRenderer>().material = _previewBuildingMaterial;
+        
         _previewBuildingMaterial = null;
         _previewBuilding = null;
     }

@@ -305,7 +305,10 @@ public class ArchiLinkManager : MonoBehaviour
 
     private Tuple<Architect,Vector3[]> FindClosestArchArray(Architect skipArch) {
         // 鼠标坐标，后续改
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //! Modified by Tango
+        Vector3 mousePos = MouseController.Instance.GetMouseWorldPosition();
+
 
         Vector3 closestPos = Vector3.zero;
         Architect closestArch = null;
