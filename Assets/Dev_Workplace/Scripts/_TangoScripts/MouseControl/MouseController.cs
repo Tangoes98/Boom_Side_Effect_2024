@@ -8,6 +8,7 @@ public class MouseController : MonoBehaviour
     public static MouseController Instance;
 
     [SerializeField] LayerMask _mouseGroundLayerMask;
+    [SerializeField] LayerMask _buildingLayerMask;
 
     void Awake()
     {
@@ -22,12 +23,13 @@ public class MouseController : MonoBehaviour
     void Update()
     {
         if (EventSystem.current.IsPointerOverGameObject()) return;
-        transform.position = MouseWorldPosition(_mouseGroundLayerMask);
+        transform.position = MouseRaycastHit(_mouseGroundLayerMask).point;
 
     }
 
     #region Public Methods
     public Vector3 GetMouseWorldPosition() => transform.position;
+    public Transform GetSelectedBuilding() => MouseRaycastHit(_buildingLayerMask).transform;
     public static bool Is_LMB_Down()
     {
         if (Input.GetMouseButtonDown(0)) return true;
@@ -53,6 +55,22 @@ public class MouseController : MonoBehaviour
         Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
         Physics.Raycast(mouseRay, out RaycastHit raycastHit, float.MaxValue, layerMask);
         return raycastHit.point;
+    }
+
+    Transform RayCastBuilding()
+    {
+        Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Physics.Raycast(mouseRay, out RaycastHit raycastHit, float.MaxValue, _buildingLayerMask);
+
+        return raycastHit.transform;
+    }
+
+    RaycastHit MouseRaycastHit(LayerMask layerMask)
+    {
+        if (EventSystem.current.IsPointerOverGameObject()) return new RaycastHit();
+        Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Physics.Raycast(mouseRay, out RaycastHit raycastHit, float.MaxValue, layerMask);
+        return raycastHit;
     }
 
 

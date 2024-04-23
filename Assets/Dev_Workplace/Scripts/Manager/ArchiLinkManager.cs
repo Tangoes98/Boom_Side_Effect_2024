@@ -40,6 +40,8 @@ public class ArchiLinkManager : MonoBehaviour
     private Dictionary<Architect,Vector3> _architects = new();
     private List<Link> _links = new();
 
+    Vector3 _linkOffset = new(0,3,0);
+
     private void Awake() {
         if(_instance == null) {
             _instance = this;
@@ -81,9 +83,12 @@ public class ArchiLinkManager : MonoBehaviour
             }
             var cloestArch = tuple.Item1;
 
-            var lines = BuildLink(cloestArch, arch);
-            lines.Item1.SetActive(false);
-            lines.Item2.SetActive(false);
+            var links = BuildLink(cloestArch, arch);
+            // links.Item1.SetActive(false);
+            // links.Item2.SetActive(false);
+            links.LineAB.SetActive(false);
+            links.LineBA.SetActive(false);
+            links.LinePause.SetActive(false);
         } 
         return arch;
     }
@@ -242,8 +247,9 @@ public class ArchiLinkManager : MonoBehaviour
         return null;
     }
 
-    public Tuple<GameObject,GameObject> BuildLink(Architect fromArch, Architect toArch) { // 策划说不做主动连线
-        Vector3[] waypoints = GenerateCurveLine(_architects[fromArch],_architects[toArch], 10); // height可改
+    // public Tuple<GameObject,GameObject> BuildLink(Architect fromArch, Architect toArch) { // 策划说不做主动连线
+    public Link BuildLink(Architect fromArch, Architect toArch) { // 策划说不做主动连线
+        Vector3[] waypoints = GenerateCurveLine(_architects[fromArch] + _linkOffset ,_architects[toArch] + _linkOffset, 10); // height可改
         GameObject line = Instantiate(_directionalLinePrefab), 
             lineReverse = Instantiate(_directionalLinePrefab),
             linePause = Instantiate(_pauseLinePrefab);
@@ -267,7 +273,8 @@ public class ArchiLinkManager : MonoBehaviour
         UpdateLink(link, A_TO_B);
         _links.Add(link);
         
-        return new(line,lineReverse);
+        //return new(line,lineReverse);
+        return link;
     }
 
     private Vector3[] GenerateCurveLine(Vector3 start, Vector3 end, int height) {
@@ -324,7 +331,7 @@ public class ArchiLinkManager : MonoBehaviour
 
     private Tuple<Architect,Vector3[]> FindClosestArchArray(Architect skipArch) {
         // 鼠标坐标，后续改
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 mousePos = MouseController.Instance.GetMouseWorldPosition();
 
         Vector3 closestPos = Vector3.zero;
         Architect closestArch = null;
@@ -350,7 +357,8 @@ public class ArchiLinkManager : MonoBehaviour
                 closestArch = arch;
             }
         }
-        return (closestArch==null)? null : new Tuple<Architect, Vector3[]> (closestArch, new Vector3[]{mousePos,closestPos});
+
+        return (closestArch==null)? null : new Tuple<Architect, Vector3[]> (closestArch, new Vector3[]{mousePos + _linkOffset ,closestPos + _linkOffset});
     }
 
     public float GetModifier(int unstability, out ModifierType modifierType) {

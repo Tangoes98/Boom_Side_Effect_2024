@@ -21,6 +21,7 @@ public class BuidlingManager : MonoBehaviour
     public struct ButtonBuildingPair
     {
         public Button Button;
+        public string BuildingCode;
         public GameObject BuildingObject;
         public Material BuildingMaterial;
 
@@ -28,6 +29,7 @@ public class BuidlingManager : MonoBehaviour
 
     [SerializeField] List<ButtonBuildingPair> _buttonBuildingPairs;
     Dictionary<Button, GameObject> _buttonBuildingPairDictionary = new();
+    Dictionary<Button, string> _buttonAndBuildingCodeDic = new();
     [SerializeField] Transform _buildingListObject;
     [SerializeField] Material _buildingShadowMaterial;
     [SerializeField] Material _buildingForbidMaterial;
@@ -37,6 +39,7 @@ public class BuidlingManager : MonoBehaviour
     [Header("DEBUG")]
     [SerializeField] GameObject _previewBuilding;
     [SerializeField] Material _previewBuildingMaterial;
+    [SerializeField] string _buildingCode;
     [field: SerializeField] public bool CanPlaceBuilding { get; private set; }
 
 
@@ -44,6 +47,7 @@ public class BuidlingManager : MonoBehaviour
     private void Start()
     {
         AddButtonBuildingPairToDictionary(_buttonBuildingPairs, _buttonBuildingPairDictionary);
+        AddBuildingCodeToDictionary(_buttonBuildingPairs, _buttonAndBuildingCodeDic);
 
         //* Button Event
         foreach (Button btn in _buttonBuildingPairDictionary.Keys)
@@ -72,8 +76,17 @@ public class BuidlingManager : MonoBehaviour
     #region Event Methods
     void PlaceBuildingEventAction()
     {
-        _previewBuilding.GetComponentInChildren<MeshRenderer>().material = _previewBuildingMaterial;
-        _previewBuildingMaterial = null;
+        //_previewBuilding.GetComponentInChildren<MeshRenderer>().material = _previewBuildingMaterial;
+
+        //! InvalidOperationException: Sequence contains no elements //
+        //! if (!ResourceManager.Instance.CanBuild(_previewBuilding.GetComponent<Architect>().GetBuildCost())) return;
+
+        //! Need Help
+        ArchiLinkManager.Instance.Build(_previewBuilding.transform.position, _buildingCode);
+        //ArchiLinkManager.Instance.HighAllLinks(true);
+
+        Destroy(_previewBuilding);
+        //_previewBuildingMaterial = null;
         _previewBuilding = null;
     }
 
@@ -96,10 +109,19 @@ public class BuidlingManager : MonoBehaviour
             dic.Add(item.Button, item.BuildingObject);
         }
     }
+    void AddBuildingCodeToDictionary(List<ButtonBuildingPair> list, Dictionary<Button, string> dic)
+    {
+        foreach (var item in list)
+        {
+            dic.Add(item.Button, item.BuildingCode);
+        }
+    }
 
     void OnButtonClick(Button btn)
     {
+        ArchiLinkManager.Instance.LinkFromClosestArchToPointer(true);
         CanPlaceBuilding = false;
+        _buildingCode = _buttonAndBuildingCodeDic[btn];
         GameObject building = Instantiate(_buttonBuildingPairDictionary[btn], _buildingListObject);
         _previewBuilding = building;
         building.GetComponentInChildren<MeshRenderer>().material = _buildingShadowMaterial;
