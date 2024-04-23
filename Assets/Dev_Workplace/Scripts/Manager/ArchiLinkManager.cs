@@ -378,9 +378,9 @@ public class ArchiLinkManager : MonoBehaviour
         }
        
         LineRenderer lineRenderer = _lineToMouse.GetComponent<LineRenderer>();
-        lineRenderer.positionCount = 2;
-        
-        lineRenderer.SetPositions(tuple.Item2);
+        Vector3[] waypoints = GenerateCurveLine(tuple.Item2[1], tuple.Item2[0], 10);
+        lineRenderer.positionCount = waypoints.Length;
+        lineRenderer.SetPositions(waypoints);
     }
 
     private Tuple<Architect,Vector3[]> FindClosestArchArray(Architect skipArch) {
