@@ -21,7 +21,7 @@ public class ArchiLinkManager : MonoBehaviour
     protected bool disableSelfExam;
     [Space(20)]
     [SerializeField] private GameObject _directionalLinePrefab;
-    [SerializeField] private GameObject _pauseLinePrefab;
+    [SerializeField] private GameObject _reverseLinePrefab,_pauseLinePrefab;
 
     [SerializeField]
     private StringGameObjectPair[] _basicArchitectPrefabs,_mutantArchitectPrefabs;
@@ -266,7 +266,7 @@ public class ArchiLinkManager : MonoBehaviour
     public Link BuildLink(Architect fromArch, Architect toArch) { // 策划说不做主动连线
         Vector3[] waypoints = GenerateCurveLine(_architects[fromArch] + _linkOffset ,_architects[toArch] + _linkOffset, 10); // height可改
         GameObject line = Instantiate(_directionalLinePrefab), 
-            lineReverse = Instantiate(_directionalLinePrefab),
+            lineReverse = Instantiate(_reverseLinePrefab),
             linePause = Instantiate(_pauseLinePrefab);
         
         line.name =  fromArch.Info().name + "-" + toArch.Info().name;
