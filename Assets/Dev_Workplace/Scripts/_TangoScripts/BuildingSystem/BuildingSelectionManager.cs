@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,45 +24,62 @@ public class BuildingSelectionManager : MonoBehaviour
 
     [Header("DEBUG")]
     public Transform CurrentSelectedBuilding;
-    public Transform Cube;
 
+
+
+    public event Action<bool> UIPanelSelectionEvent;
 
     private void Start()
     {
         _buildingUIPanel.SetActive(false);
+
+        //todo: Button funcitons
     }
 
     private void Update()
     {
-        //_buildingUIPanel.transform.LookAt(Camera.main.transform);
 
         if (MouseStateManager.Instance.MouseState != MouseStateManager.MouseStates.Selecting) return;
-        
-        // //*Close Selection UI Panel
-        // if (!CurrentSelectedBuilding)
-        // {
-        //     _buildingUIPanel.SetActive(false);
-        //     return;
-        // }
 
         //*Close Selection UI Panel
-        if (MouseController.Is_RMB_Down())
+        if (MouseController.Is_LMB_Down() && CurrentSelectedBuilding != MouseController.Instance.GetSelectedBuilding())
         {
-            CurrentSelectedBuilding = null;
-            _buildingUIPanel.SetActive(false);
+            CloseSelectionPanel();
             return;
         }
 
-        if (!MouseController.Is_LMB_Down()) return;
 
+        //* Open Selection UI Panel
+        if (!MouseController.Is_LMB_Down()) return;
+        if (!CurrentSelectedBuilding) return;
+
+        UIPanelSelectionEvent?.Invoke(false);
         _buildingUIPanel.SetActive(true);
         _buildingUIPanel.GetComponent<RectTransform>().anchoredPosition = GetBuildingScreenCanvasPosition(CurrentSelectedBuilding);
-
-
+        SelectBuildingLinks(true);
+        MouseStateManager.Instance.SwitchState(MouseStateManager.MouseStates.SelectionPanelInspection, null);
 
 
     }
 
+
+
+    #region Publice methods
+    public void CloseSelectionPanel()
+    {
+        SelectBuildingLinks(false);
+        CurrentSelectedBuilding = null;
+        _buildingUIPanel.SetActive(false);
+        UIPanelSelectionEvent?.Invoke(true);
+    }
+
+
+
+
+
+
+    #endregion
+    #region ========================
     Vector3 GetBuildingScreenCanvasPosition(Transform building)
     {
         var rectTransform = _buildingUIPanel.GetComponent<RectTransform>();
@@ -72,8 +90,51 @@ public class BuildingSelectionManager : MonoBehaviour
         return -buildingScreenPosition;
     }
 
+    void SelectBuildingLinks(bool showLink)
+    {
+        Architect building = CurrentSelectedBuilding.GetComponent<Architect>();
+
+        ArchiLinkManager.Instance.GetInAndOutAndPauseLinks(building,
+                                                        out List<Link> incomingLinks,
+                                                        out List<Link> outgoingLinks,
+                                                        out List<Link> pausedLinks);
+        if (showLink)
+        {
+            ShowLinks(incomingLinks);
+            ShowLinks(outgoingLinks);
+            ShowLinks(pausedLinks);
+        }
+        else
+        {
+            HideLinks(incomingLinks);
+            HideLinks(outgoingLinks);
+            HideLinks(pausedLinks);
+        }
+    }
+
+    void ShowLinks(List<Link> linkList)
+    {
+        foreach (var item in linkList)
+        {
+            item.ShowLine();
+        }
+    }
+    void HideLinks(List<Link> linkList)
+    {
+        foreach (var item in linkList)
+        {
+            item.HideLine();
+        }
+    }
 
 
 
 
+
+
+
+
+
+
+    #endregion
 }

@@ -18,7 +18,7 @@ public class MouseStateManager : MonoBehaviour
 
     public enum MouseStates
     {
-        Selecting, Building
+        None, Selecting, SelectionPanelInspection, Building
     }
     public event Action PlaceBuildingEvent;
     public event Action CancelBuildingEvent;
@@ -36,15 +36,22 @@ public class MouseStateManager : MonoBehaviour
     {
         switch (_mouseStates)
         {
+            case MouseStates.None:
+                if (!MouseController.Is_LMB_Down()) return;
+                SwitchState(MouseStates.Selecting, null);
+                break;
             case MouseStates.Selecting:
-                if (!MouseController.Instance.GetSelectedBuilding())
-                {
-                    BuildingSelectionManager.Instance.CurrentSelectedBuilding = null;
-                    return;
-                }
-                
+                if (!MouseController.Instance.GetSelectedBuilding()) return;
+
+                //if (!MouseController.Is_LMB_Down()) return;
+
                 BuildingSelectionManager.Instance.CurrentSelectedBuilding = MouseController.Instance.GetSelectedBuilding();
 
+                break;
+            case MouseStates.SelectionPanelInspection:
+                if (!MouseController.Is_RMB_Down()) return;
+                BuildingSelectionManager.Instance.CloseSelectionPanel();
+                SwitchState(MouseStates.Selecting, null);
                 break;
             case MouseStates.Building:
 

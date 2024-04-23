@@ -585,7 +585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98a70ed6b98f94440970cb7f6cdcdbfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <PlayerResource>k__BackingField: 5
+  <PlayerResource>k__BackingField: 999
 --- !u!1 &131596637
 GameObject:
   m_ObjectHideFlags: 0
@@ -2157,7 +2157,6 @@ MonoBehaviour:
   _upgradeBtn: {fileID: 1480402190}
   _demolitionBtn: {fileID: 1825597387}
   CurrentSelectedBuilding: {fileID: 0}
-  Cube: {fileID: 925541814}
 --- !u!1 &1013463798
 GameObject:
   m_ObjectHideFlags: 0
@@ -4258,6 +4257,7 @@ MonoBehaviour:
     type: 2}
   _buildingForbidMaterial: {fileID: 2100000, guid: 92c8690b9e4958341be34f1b4aac60ba,
     type: 2}
+  _buildingUIPanel: {fileID: 7836992}
   _previewBuilding: {fileID: 0}
   _buildingCode: 
   <CanPlaceBuilding>k__BackingField: 0

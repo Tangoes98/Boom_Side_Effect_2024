@@ -27,13 +27,14 @@ public class BuidlingManager : MonoBehaviour
 
     }
 
+    [Header("REFERENCE")]
     [SerializeField] List<ButtonBuildingPair> _buttonBuildingPairs;
     Dictionary<Button, GameObject> _buttonBuildingPairDictionary = new();
     Dictionary<Button, string> _buttonAndBuildingCodeDic = new();
     [SerializeField] Transform _buildingListObject;
     [SerializeField] Material _buildingShadowMaterial;
     [SerializeField] Material _buildingForbidMaterial;
-
+    [SerializeField] GameObject _buildingUIPanel;
 
 
     [Header("DEBUG")]
@@ -58,6 +59,8 @@ public class BuidlingManager : MonoBehaviour
 
         MouseStateManager.Instance.PlaceBuildingEvent += PlaceBuildingEventAction;
         MouseStateManager.Instance.CancelBuildingEvent += CancelBuildingEventAction;
+
+        BuildingSelectionManager.Instance.UIPanelSelectionEvent += UIPanelSelectionEventAction;
     }
     private void Update()
     {
@@ -109,6 +112,11 @@ public class BuidlingManager : MonoBehaviour
         //_previewBuildingMaterial = null;
     }
 
+    void UIPanelSelectionEventAction(bool isBuildUIOn)
+    {
+        _buildingUIPanel.SetActive(isBuildUIOn);
+    }
+
 
 
 
@@ -131,8 +139,8 @@ public class BuidlingManager : MonoBehaviour
 
     void OnButtonClick(Button btn)
     {
-        ArchiLinkManager.Instance.LinkFromClosestArchToPointer(true);
         CanPlaceBuilding = false;
+        ArchiLinkManager.Instance.LinkFromClosestArchToPointer(true);
         _buildingCode = _buttonAndBuildingCodeDic[btn];
         GameObject building = Instantiate(_buttonBuildingPairDictionary[btn], _buildingListObject);
         _previewBuilding = building;
