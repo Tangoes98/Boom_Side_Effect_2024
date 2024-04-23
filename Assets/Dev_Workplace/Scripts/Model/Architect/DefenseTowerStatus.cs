@@ -17,4 +17,8 @@ public class DefenseTowerStatus : ArchitectStatus {
     public SpecialEffect specialEffect;
     public float specialEffectModifier;
     public float specialEffectLastTime;
+
+    public SpecialEffect secondSpEffect;
+    public float secondSpEffectModifier;
+    public float secondSpEffectLastTime;
 }

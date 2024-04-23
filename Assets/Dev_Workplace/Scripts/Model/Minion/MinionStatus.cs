@@ -27,5 +27,9 @@ public class MinionStatus {
     public float specialEffectModifier;
 
     public float specialEffectLastTime;
+
+    public SpecialEffect secondSpEffect;
+    public float secondSpEffectModifier;
+    public float secondSpEffectLastTime;
     
 }

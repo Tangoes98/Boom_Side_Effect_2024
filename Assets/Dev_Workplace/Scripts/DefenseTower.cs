@@ -23,15 +23,20 @@ public class DefenseTower : Architect
         //status.maxLinkNum = prop.maxLinkNum;
         status.range = prop.range;
         status.damage = prop.damage;
-        status.specialEffectModifier = prop.specialEffectModifier;
-        status.specialEffectLastTime = prop.specialEffectLastTime;
 
         status.attackMode = baseInfo.attackMode;
         status.lockMode = baseInfo.lockMode;
         status.fireInterval  = baseInfo.fireInterval;
         status.fireTime = baseInfo.fireTime;
         status.aoeRange = baseInfo.aoeRange;
+
         status.specialEffect = baseInfo.specialEffect;
+        status.specialEffectModifier = prop.specialEffectModifier;
+        status.specialEffectLastTime = prop.specialEffectLastTime;
+
+        status.secondSpEffect = baseInfo.secondSpEffect;
+        status.secondSpEffectModifier = prop.secondSpEffectModifier;
+        status.secondSpEffectLastTime = prop.secondSpEffectLastTime;
 
     }
 
