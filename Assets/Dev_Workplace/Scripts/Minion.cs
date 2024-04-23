@@ -26,14 +26,18 @@ public class Minion : MonoBehaviour {
 
         status.range = prop.range;
         status.viewRange = prop.viewRange;
-        status.specialEffectModifier = prop.specialEffectModifier;
-        status.specialEffectLastTime = prop.specialEffectLastTime;
         status.attackMode = baseInfo.attackMode;
         status.lockMode = baseInfo.lockMode;
         status.fireInterval = baseInfo.fireInterval;
         status.fireTime = baseInfo.fireTime;
-        status.specialEffect = baseInfo.specialEffect;
 
+        status.specialEffect = baseInfo.specialEffect;
+        status.specialEffectModifier = prop.specialEffectModifier;
+        status.specialEffectLastTime = prop.specialEffectLastTime;
+
+        status.secondSpEffect = baseInfo.secondSpecialEffect;
+        status.secondSpEffectModifier = prop.secondSpEffectModifier;
+        status.secondSpEffectLastTime = prop.secondSpEffectLastTime;
     }
 
     private MinionProperty GetBaseProperty(int level)  => baseInfo.levelRelatedProperties.Where(p=>p.level==level).First();
