@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using static Link.LinkStatus;
 
 public class ArchiLinkManager : MonoBehaviour
@@ -39,6 +40,7 @@ public class ArchiLinkManager : MonoBehaviour
 
     private Dictionary<Architect,Vector3> _architects = new();
     private List<Link> _links = new();
+    private Architect _lastSelectArch;
 
     Vector3 _linkOffset = new(0,3,0);
 
@@ -166,20 +168,23 @@ public class ArchiLinkManager : MonoBehaviour
         return baseArch;
     }
 
-    public void HighAllLinks(bool isShow) {
+    public void ShowAllLinks(bool isShow) { // 重新隐藏Link
         foreach (var link in _links) {
-            link.LineAB.SetActive(isShow);
+            link.HideLine();
         }
     }
 
     public void GetInAndOutAndPauseLinks(Architect architect, out List<Link> incomingLinks,
                                         out List<Link> outgoingLinks, out List<Link> pausedLinks) // 用于显示建筑已有link
     {
+        _lastSelectArch = architect;
+        
         incomingLinks = new();
         outgoingLinks = new();
         pausedLinks = new();
 
         foreach(Link l in _links.Where(l=>l.ArchitectA==architect || l.ArchitectB==architect)) {
+            l.ShowLine(); // 会显示Link
             if(l.Status==PAUSE) {
                 pausedLinks.Add(l);
                 continue;
@@ -193,8 +198,18 @@ public class ArchiLinkManager : MonoBehaviour
         }
     }
 
+    private void ShowAllLinksOnLastSelectArch() {
+        // 当link方向改变，重新展示所有连线
+        foreach(Link l in _links.Where(l=>l.ArchitectA==_lastSelectArch || l.ArchitectB==_lastSelectArch)) {
+            l.ShowLine();
+        }
+    }
+
     public void UpdateLink(Link link, Link.LinkStatus newStatus) {
         if(link.Status == newStatus) return;
+
+        link.HideLine(); // 先Hide所有线，之后ShowAllLinksOnLastSelectArch()会在显示
+
         // check 2 architect
         if(link.Status==PAUSE) {
             // 启动
@@ -258,23 +273,41 @@ public class ArchiLinkManager : MonoBehaviour
         LineRenderer lineRenderer = line.GetComponent<LineRenderer>();
         lineRenderer.positionCount = waypoints.Length;
         lineRenderer.SetPositions(waypoints);
+        AddMeshColliderToLine(line, lineRenderer);
 
         lineReverse.name =  toArch.Info().name + "-" + fromArch.Info().name;
         LineRenderer lineRenderer2 = lineReverse.GetComponent<LineRenderer>();
         lineRenderer2.positionCount = waypoints.Length;
         lineRenderer2.SetPositions(waypoints.Reverse().ToArray());
+        AddMeshColliderToLine(lineReverse, lineRenderer2);
 
         linePause.name = "pause";
         LineRenderer lineRenderer3 = line.GetComponent<LineRenderer>();
         lineRenderer3.positionCount = waypoints.Length;
         lineRenderer3.SetPositions(waypoints);
+        AddMeshColliderToLine(linePause, lineRenderer3);
 
         Link link = new(fromArch, toArch, line, lineReverse,linePause);
+        line.GetComponent<Line>().link = link;
+        lineReverse.GetComponent<Line>().link = link;
+        linePause.GetComponent<Line>().link = link;
+        line.GetComponent<Line>().status = A_TO_B;
+        lineReverse.GetComponent<Line>().status = B_TO_A;
+        linePause.GetComponent<Line>().status = PAUSE;
+        
         UpdateLink(link, A_TO_B);
         _links.Add(link);
         
         //return new(line,lineReverse);
         return link;
+    }
+
+    private void AddMeshColliderToLine(GameObject line, LineRenderer lineRenderer) {
+        MeshCollider meshCollider = line.AddComponent<MeshCollider>();
+        Mesh mesh = new Mesh();
+        lineRenderer.BakeMesh(mesh, true);
+        lineRenderer.useWorldSpace = false;
+        meshCollider.sharedMesh = mesh;
     }
 
     private Vector3[] GenerateCurveLine(Vector3 start, Vector3 end, int height) {
@@ -297,6 +330,7 @@ public class ArchiLinkManager : MonoBehaviour
         link.ArchitectB.existingLinkNum--;
         Destroy(link.LineAB);
         Destroy(link.LineBA);
+        Destroy(link.LinePause);
         _links.Remove(link);
     }
 
@@ -304,6 +338,26 @@ public class ArchiLinkManager : MonoBehaviour
 
     private void Update() {
         UpdateLineFromClosestArchToPointer();
+        ClickLine();
+    }
+
+    private void ClickLine()
+    {
+        if(!MouseController.Is_LMB_Down()) {
+            return;
+        }
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if(Physics.Raycast(ray,out hit)) {
+            Line line = hit.transform.GetComponent<Line>();
+            if(line!=null && line.link != null) {
+                ArchiLinkManager.Instance.UpdateLink(line.link,line.link.NextState());
+                // 重新展示所有 line
+                ShowAllLinksOnLastSelectArch();
+            } 
+            
+            Debug.Log("line clicked");
+        }
     }
 
     private void UpdateLineFromClosestArchToPointer() {
