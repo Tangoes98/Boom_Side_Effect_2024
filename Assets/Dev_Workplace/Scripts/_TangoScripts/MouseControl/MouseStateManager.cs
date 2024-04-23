@@ -25,7 +25,7 @@ public class MouseStateManager : MonoBehaviour
 
 
     [SerializeField] private MouseStates _mouseStates;
-
+    public MouseStates MouseState { get { return _mouseStates; } }
 
 
     private void Start()
@@ -37,21 +37,25 @@ public class MouseStateManager : MonoBehaviour
         switch (_mouseStates)
         {
             case MouseStates.Selecting:
-                if (!MouseController.Instance.GetSelectedBuilding()) return;
-                if (!MouseController.Is_LMB_Down()) return;
+                if (!MouseController.Instance.GetSelectedBuilding())
+                {
+                    BuildingSelectionManager.Instance.CurrentSelectedBuilding = null;
+                    return;
+                }
+                
                 BuildingSelectionManager.Instance.CurrentSelectedBuilding = MouseController.Instance.GetSelectedBuilding();
 
                 break;
             case MouseStates.Building:
 
-                //*Check if Cancel the Building
+                //*Check if Cancel the Building action
                 if (MouseController.Is_RMB_Down())
                 {
                     CancelBuilding();
                     return;
                 }
 
-                //*Check if Place the Building
+                //*Check if Place the Building 
                 if (!MouseController.Is_LMB_Down()) return;
 
                 //*Check if is a valid position to place the Building

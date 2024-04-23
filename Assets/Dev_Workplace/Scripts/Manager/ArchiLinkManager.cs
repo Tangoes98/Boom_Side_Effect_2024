@@ -42,7 +42,7 @@ public class ArchiLinkManager : MonoBehaviour
     private List<Link> _links = new();
     private Architect _lastSelectArch;
 
-    Vector3 _linkOffset = new(0,3,0);
+    Vector3 _linkOffset = new(0,2,0);
 
     private void Awake() {
         if(_instance == null) {
