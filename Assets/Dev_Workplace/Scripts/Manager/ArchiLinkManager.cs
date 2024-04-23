@@ -168,7 +168,7 @@ public class ArchiLinkManager : MonoBehaviour
         return baseArch;
     }
 
-    public void ShowAllLinks(bool isShow) { // 重新隐藏Link
+    public void HideAllLinks() { // 重新隐藏Link
         foreach (var link in _links) {
             link.HideLine();
         }
@@ -455,6 +455,7 @@ public class ArchiLinkManager : MonoBehaviour
                 } else if (!isNoBuffCaseSpecified && totalProb>100) {
                     throw new Exception("Nprobabilities exceed 100 in unstability" +m.unstability);
                 }
+                unstabilities.Add(m.unstability);
             }
                 
         }

@@ -450,7 +450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98a70ed6b98f94440970cb7f6cdcdbfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <PlayerResource>k__BackingField: 0
+  <PlayerResource>k__BackingField: 5
 --- !u!1 &131596637
 GameObject:
   m_ObjectHideFlags: 0
@@ -2317,7 +2317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c5b6e4ade2194d21a39b9026ed40371, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disableSelfExam: 1
+  disableSelfExam: 0
   _directionalLinePrefab: {fileID: 7416556038332987479, guid: 9ab9288d3429cc44b9b25651c2a9722c,
     type: 3}
   _pauseLinePrefab: {fileID: 7416556038332987479, guid: 9ab9288d3429cc44b9b25651c2a9722c,
@@ -2345,6 +2345,22 @@ MonoBehaviour:
     mutantArchitectCode: T01M
   _modifiers:
   - unstability: 2
+    modifierCases:
+    - probability: 15
+      modifier: 0
+      type: 1
+    - probability: 15
+      modifier: 0
+      type: 2
+  - unstability: 3
+    modifierCases:
+    - probability: 1
+      modifier: 0
+      type: 1
+    - probability: 1
+      modifier: 0
+      type: 2
+  - unstability: 4
     modifierCases:
     - probability: 1
       modifier: 0

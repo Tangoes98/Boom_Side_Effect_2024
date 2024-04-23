@@ -24,7 +24,7 @@ public class MouseStateManager : MonoBehaviour
     public event Action CancelBuildingEvent;
 
 
-    private MouseStates _mouseStates;
+    [SerializeField] private MouseStates _mouseStates;
 
 
 
@@ -56,6 +56,7 @@ public class MouseStateManager : MonoBehaviour
 
                 //*Check if is a valid position to place the Building
                 if (!BuidlingManager.Instance.CanPlaceBuilding) return;
+
                 PlaceBuilding();
 
                 break;
@@ -80,6 +81,7 @@ public class MouseStateManager : MonoBehaviour
     void PlaceBuilding()
     {
         PlaceBuildingEvent?.Invoke();
+        if (!BuidlingManager.Instance.HaveEnoughResourceToBuild) return;
         SwitchState(MouseStates.Selecting, null);
     }
     void CancelBuilding()

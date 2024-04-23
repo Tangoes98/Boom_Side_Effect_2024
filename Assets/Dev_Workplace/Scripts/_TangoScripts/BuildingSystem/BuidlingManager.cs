@@ -38,9 +38,10 @@ public class BuidlingManager : MonoBehaviour
 
     [Header("DEBUG")]
     [SerializeField] GameObject _previewBuilding;
-    [SerializeField] Material _previewBuildingMaterial;
+    //[SerializeField] Material _previewBuildingMaterial;
     [SerializeField] string _buildingCode;
     [field: SerializeField] public bool CanPlaceBuilding { get; private set; }
+    [field: SerializeField] public bool HaveEnoughResourceToBuild { get; private set; }
 
 
 
@@ -78,23 +79,34 @@ public class BuidlingManager : MonoBehaviour
     {
         //_previewBuilding.GetComponentInChildren<MeshRenderer>().material = _previewBuildingMaterial;
 
-        //! InvalidOperationException: Sequence contains no elements //
-        //! if (!ResourceManager.Instance.CanBuild(_previewBuilding.GetComponent<Architect>().GetBuildCost())) return;
+        //* Check if there is enough resource to build
+        if (!ResourceManager.Instance.CanBuild(_previewBuilding.GetComponent<Architect>().GetBuildCost()))
+        {
+            // Switch mouse state back to building
+            // MouseStateManager.Instance.SwitchState(MouseStateManager.MouseStates.Building,
+            //                          () => { Debug.Log("Dont have enough resource to build"); });
+            Debug.Log("Dont have enough resource to build");
+            HaveEnoughResourceToBuild = false;
+            return;
+        }
+        else
+        {
+            HaveEnoughResourceToBuild = true;
+            ArchiLinkManager.Instance.Build(_previewBuilding.transform.position, _buildingCode);
+            Destroy(_previewBuilding);
+            _previewBuilding = null;
+        }
+        ArchiLinkManager.Instance.LinkFromClosestArchToPointer(false);
 
-        //! Need Help
-        ArchiLinkManager.Instance.Build(_previewBuilding.transform.position, _buildingCode);
-        //ArchiLinkManager.Instance.HighAllLinks(true);
-
-        Destroy(_previewBuilding);
         //_previewBuildingMaterial = null;
-        _previewBuilding = null;
     }
 
     void CancelBuildingEventAction()
     {
+        ArchiLinkManager.Instance.LinkFromClosestArchToPointer(false);
         Destroy(_previewBuilding);
-        _previewBuildingMaterial = null;
         _previewBuilding = null;
+        //_previewBuildingMaterial = null;
     }
 
 
@@ -126,11 +138,11 @@ public class BuidlingManager : MonoBehaviour
         _previewBuilding = building;
         building.GetComponentInChildren<MeshRenderer>().material = _buildingShadowMaterial;
 
-        foreach (var item in _buttonBuildingPairs)
-        {
-            if (item.BuildingObject != _buttonBuildingPairDictionary[btn]) continue;
-            _previewBuildingMaterial = item.BuildingMaterial;
-        }
+        // foreach (var item in _buttonBuildingPairs)
+        // {
+        //     if (item.BuildingObject != _buttonBuildingPairDictionary[btn]) continue;
+        //     _previewBuildingMaterial = item.BuildingMaterial;
+        // }
 
         MouseStateManager.Instance.SwitchState(MouseStateManager.MouseStates.Building,
                                              () => { Debug.Log("EnterBuildingState"); });
