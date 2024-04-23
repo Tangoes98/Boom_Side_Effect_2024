@@ -21,6 +21,8 @@ public class DefenseTowerBase : ArchitectBase {
 
     public SpecialEffect specialEffect;
 
+    public SpecialEffect secondSpEffect;
+
     public DefenseTowerProperty[] levelRelatedProperties;
 }
 

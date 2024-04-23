@@ -9,4 +9,8 @@ public class DefenseTowerProperty : ArchitectProperty {
     public float specialEffectModifier;
 
     public float specialEffectLastTime;
+
+    public float secondSpEffectModifier;
+
+    public float secondSpEffectLastTime;
 }
