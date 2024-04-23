@@ -36,14 +36,17 @@ public abstract class Architect : MonoBehaviour
 
     public int Unstability => math.max(activeOutputLinkNum, sourceArchitectLinkNum);
 
-    
     public abstract ArchitectBase Info();
 
     public abstract ArchitectStatus Status();
 
     protected ArchitectProperty GetBaseProperty(int level)  => Info().GetProperties().Where(p=>p.level==level).First();
 
+    protected ModifierType modifiertype;
 
+    protected IState currentState;
+    protected Dictionary<DefenseTowerStateType, IState> states = new Dictionary<DefenseTowerStateType, IState>();
+   
     protected virtual void Awake() {
         SelfExam();
         try {
@@ -96,6 +99,12 @@ public abstract class Architect : MonoBehaviour
                 
         }
         
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, Status().range);
     }
 
 }
