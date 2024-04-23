@@ -22,5 +22,7 @@ public class MinionBase {
 
     public SpecialEffect specialEffect;
 
+    public SpecialEffect secondSpecialEffect;
+
     public MinionProperty[] levelRelatedProperties;
 }
