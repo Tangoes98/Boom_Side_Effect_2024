@@ -1193,7 +1193,7 @@ GameObject:
   - component: {fileID: 374199790}
   m_Layer: 6
   m_Name: Floor (4)
-  m_TagString: Untagged
+  m_TagString: BuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1255,7 +1255,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 82c0f1d21523e044c8afdde60ada7d19, type: 2}
+  - {fileID: 2100000, guid: 75af82e292d37534f801448916d084c1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2639,7 +2639,7 @@ GameObject:
   - component: {fileID: 1104302398}
   m_Layer: 6
   m_Name: Floor (5)
-  m_TagString: Untagged
+  m_TagString: BuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2701,7 +2701,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 82c0f1d21523e044c8afdde60ada7d19, type: 2}
+  - {fileID: 2100000, guid: 75af82e292d37534f801448916d084c1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2745,7 +2745,7 @@ GameObject:
   - component: {fileID: 1162161578}
   m_Layer: 6
   m_Name: Floor (1)
-  m_TagString: Untagged
+  m_TagString: BuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2807,7 +2807,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 82c0f1d21523e044c8afdde60ada7d19, type: 2}
+  - {fileID: 2100000, guid: 75af82e292d37534f801448916d084c1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3329,16 +3329,16 @@ MonoBehaviour:
     type: 3}
   _basicArchitectPrefabs:
   - code: T01
-    gameObject: {fileID: 6957985860104754605, guid: 736fe4e6ddb14524d82889ab2003408b,
+    gameObject: {fileID: 6957985860104754605, guid: b004a424a280fd04894fd6c2569730e2,
       type: 3}
   - code: T02
-    gameObject: {fileID: 1352693974052360230, guid: 5690a9fc78150394fa60aeca51515a26,
+    gameObject: {fileID: 1352693974052360230, guid: 52a952d391543d644977c86ad8485560,
       type: 3}
   - code: B01
-    gameObject: {fileID: 4932967713008927214, guid: de123732f23bc2b43ac9b82bafd74e56,
+    gameObject: {fileID: 4932967713008927214, guid: e6d2683904c683a49b396344efc433e6,
       type: 3}
   - code: B02
-    gameObject: {fileID: 2199405383578435967, guid: a8280c1f096a80849bae18032c8ab22d,
+    gameObject: {fileID: 2199405383578435967, guid: 7efb164efea41a64684566671aae5038,
       type: 3}
   _mutantArchitectPrefabs:
   - code: T01M
@@ -4259,7 +4259,7 @@ GameObject:
   - component: {fileID: 1792572838}
   m_Layer: 6
   m_Name: Floor (2)
-  m_TagString: Untagged
+  m_TagString: BuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4321,7 +4321,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 82c0f1d21523e044c8afdde60ada7d19, type: 2}
+  - {fileID: 2100000, guid: 75af82e292d37534f801448916d084c1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4608,37 +4608,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38ff8545b236071429a98c1b10bff53c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buildingActionStates: 0
   _buttonBuildingPairs:
   - Button: {fileID: 900191392}
     BuildingCode: T01
-    BuildingObject: {fileID: 6957985860104754605, guid: 736fe4e6ddb14524d82889ab2003408b,
+    BuildingObject: {fileID: 6957985860104754605, guid: b004a424a280fd04894fd6c2569730e2,
       type: 3}
-    BuildingMaterial: {fileID: 2100000, guid: 337e175a3c67c1247a293b1790cd9e7c, type: 2}
   - Button: {fileID: 131596639}
     BuildingCode: T02
-    BuildingObject: {fileID: 1352693974052360230, guid: 5690a9fc78150394fa60aeca51515a26,
+    BuildingObject: {fileID: 1352693974052360230, guid: 52a952d391543d644977c86ad8485560,
       type: 3}
-    BuildingMaterial: {fileID: 2100000, guid: 81f7e56ce61a72b4fb7f8f81d3e3467c, type: 2}
   - Button: {fileID: 777157006}
     BuildingCode: B01
-    BuildingObject: {fileID: 4932967713008927214, guid: de123732f23bc2b43ac9b82bafd74e56,
+    BuildingObject: {fileID: 4932967713008927214, guid: e6d2683904c683a49b396344efc433e6,
       type: 3}
-    BuildingMaterial: {fileID: 2100000, guid: 834932f50a26e574cbe0fa7118f9428a, type: 2}
   - Button: {fileID: 294204520}
     BuildingCode: B02
-    BuildingObject: {fileID: 2199405383578435967, guid: a8280c1f096a80849bae18032c8ab22d,
+    BuildingObject: {fileID: 2199405383578435967, guid: 7efb164efea41a64684566671aae5038,
       type: 3}
-    BuildingMaterial: {fileID: 2100000, guid: 36dd86d7d0facb54ea1788a18d6bae42, type: 2}
   _buildingListObject: {fileID: 1081399100}
-  _buildingShadowMaterial: {fileID: 2100000, guid: 9e496b3011fa0de4a94e6a5f2eeedc8b,
+  _buildingShadowMaterial: {fileID: 2100000, guid: fb8dcf75df0287145827383b9869df17,
     type: 2}
-  _buildingForbidMaterial: {fileID: 2100000, guid: 92c8690b9e4958341be34f1b4aac60ba,
+  _buildingForbidMaterial: {fileID: 2100000, guid: c4869e0511f90a4468a2dc14d489c067,
     type: 2}
+  _buildingDissolveMaterial: {fileID: 2100000, guid: c39b84b2194841047bf7d5ba940a86a8,
+    type: 2}
+  _buildingPlopVFX: {fileID: 2560227431584268466, guid: 21ebf9d09e16ff546beae49d8bfddab1,
+    type: 3}
+  _dissolveTime: 0
+  _dissolveSpeed: 0.1
   _buildingUIPanel: {fileID: 7836992}
   _previewBuilding: {fileID: 0}
   _buildingCode: 
   <CanPlaceBuilding>k__BackingField: 0
   <HaveEnoughResourceToBuild>k__BackingField: 0
+  _isBuilding: 0
 --- !u!4 &1854730211
 Transform:
   m_ObjectHideFlags: 0

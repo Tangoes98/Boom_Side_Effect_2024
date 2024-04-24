@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Dissolve
+  m_Name: BuildingDissolveShader
   m_Shader: {fileID: -6465566751694194690, guid: 598552c811cb07e4ca54e7a83d2f6ed8,
     type: 3}
   m_Parent: {fileID: 0}
@@ -103,7 +103,7 @@ Material:
     - _ClearCoatSmoothness: 0
     - _Cull: 2
     - _Cutoff: 0.5
-    - _CutoffHeight: 15
+    - _CutoffHeight: 5.9969993
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
@@ -130,7 +130,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _Albedo: {r: 1, g: 0.9046902, b: 0.504, a: 1}
+    - _Albedo: {r: 0.8301887, g: 0.48870853, b: 0, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EdgeColor: {r: 0, g: 3.262745, b: 23.96863, a: 1}

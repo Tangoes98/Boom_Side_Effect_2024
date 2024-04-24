@@ -51,24 +51,6 @@ public class MouseController : MonoBehaviour
     #endregion
     #region =================
 
-
-    // private Vector3 MouseWorldPosition(LayerMask layerMask)
-    // {
-    //     // Generate ray from main camera to the world
-    //     // return the world position
-    //     Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-    //     Physics.Raycast(mouseRay, out RaycastHit raycastHit, float.MaxValue, layerMask);
-    //     return raycastHit.point;
-    // }
-
-    // Transform RayCastBuilding()
-    // {
-    //     Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-    //     Physics.Raycast(mouseRay, out RaycastHit raycastHit, float.MaxValue, _buildingLayerMask);
-
-    //     return raycastHit.transform;
-    // }
-
     RaycastHit MouseRaycastHit(LayerMask layerMask)
     {
         if (EventSystem.current.IsPointerOverGameObject()) return new RaycastHit();

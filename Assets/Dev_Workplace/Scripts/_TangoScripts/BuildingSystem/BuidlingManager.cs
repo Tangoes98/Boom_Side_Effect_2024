@@ -23,26 +23,34 @@ public class BuidlingManager : MonoBehaviour
         public Button Button;
         public string BuildingCode;
         public GameObject BuildingObject;
-        public Material BuildingMaterial;
+    }
 
+    public enum BuildingActionState
+    {
+        Preview, Building
     }
 
     [Header("REFERENCE")]
+    [SerializeField] BuildingActionState _buildingActionStates;
     [SerializeField] List<ButtonBuildingPair> _buttonBuildingPairs;
     Dictionary<Button, GameObject> _buttonBuildingPairDictionary = new();
     Dictionary<Button, string> _buttonAndBuildingCodeDic = new();
     [SerializeField] Transform _buildingListObject;
     [SerializeField] Material _buildingShadowMaterial;
     [SerializeField] Material _buildingForbidMaterial;
+    [SerializeField] Material _buildingDissolveMaterial;
+    [SerializeField] GameObject _buildingPlopVFX;
+    [SerializeField] float _dissolveTime;
+    [SerializeField] float _dissolveSpeed;
     [SerializeField] GameObject _buildingUIPanel;
 
 
     [Header("DEBUG")]
     [SerializeField] GameObject _previewBuilding;
-    //[SerializeField] Material _previewBuildingMaterial;
     [SerializeField] string _buildingCode;
     [field: SerializeField] public bool CanPlaceBuilding { get; private set; }
     [field: SerializeField] public bool HaveEnoughResourceToBuild { get; private set; }
+    [SerializeField] bool _isBuilding;
 
 
 
@@ -64,14 +72,28 @@ public class BuidlingManager : MonoBehaviour
     }
     private void Update()
     {
-        if (!_previewBuilding) return;
-        BuildingValidation();
-        UpdatePreviewBuildingPosition(_previewBuilding);
+
+        switch (_buildingActionStates)
+        {
+            case BuildingActionState.Preview:
+                if (!_previewBuilding) return;
+                if (_isBuilding) return;
+                BuildingValidation();
+                UpdatePreviewBuildingPosition(_previewBuilding);
+                break;
+            case BuildingActionState.Building:
+                if (_dissolveTime > 1) return;
+                _buildingDissolveMaterial.SetFloat("_CutoffHeight", Mathf.Lerp(0f, 15f, _dissolveTime));
+                _dissolveTime += Time.deltaTime * _dissolveSpeed;
+                break;
+        }
+
+
+
     }
 
+
     #region Public Methods
-
-
 
 
 
@@ -80,7 +102,6 @@ public class BuidlingManager : MonoBehaviour
     #region Event Methods
     void PlaceBuildingEventAction()
     {
-        //_previewBuilding.GetComponentInChildren<MeshRenderer>().material = _previewBuildingMaterial;
 
         //* Check if there is enough resource to build
         if (!ResourceManager.Instance.CanBuild(_previewBuilding.GetComponent<Architect>().GetBuildCost()))
@@ -88,16 +109,14 @@ public class BuidlingManager : MonoBehaviour
             HaveEnoughResourceToBuild = false;
             return;
         }
-        else
+        else //* Build Action
         {
             HaveEnoughResourceToBuild = true;
-            ArchiLinkManager.Instance.Build(_previewBuilding.transform.position, _buildingCode);
-            Destroy(_previewBuilding);
-            _previewBuilding = null;
+
+            StartCoroutine(BuildingActionAnimation());
+
         }
         ArchiLinkManager.Instance.LinkFromClosestArchToPointer(false);
-
-        //_previewBuildingMaterial = null;
     }
 
     void CancelBuildingEventAction()
@@ -105,7 +124,6 @@ public class BuidlingManager : MonoBehaviour
         ArchiLinkManager.Instance.LinkFromClosestArchToPointer(false);
         Destroy(_previewBuilding);
         _previewBuilding = null;
-        //_previewBuildingMaterial = null;
     }
 
     void UIPanelSelectionEventAction(bool isBuildUIOn)
@@ -115,6 +133,32 @@ public class BuidlingManager : MonoBehaviour
 
 
 
+
+    #endregion
+    #region Coroutine Methods
+    IEnumerator BuildingActionAnimation()
+    {
+        var waitTime3s = new WaitForSeconds(3);
+        var waitTime1s = new WaitForSeconds(1);
+
+        _isBuilding = true;
+        _previewBuilding.GetComponentInChildren<MeshRenderer>().material = _buildingDissolveMaterial;
+        _dissolveTime = 0f;
+        _buildingActionStates = BuildingActionState.Building;
+        Vector3 buildingPos = _previewBuilding.transform.position;
+        yield return waitTime3s;
+
+        GameObject builfVFX = Instantiate(_buildingPlopVFX, buildingPos, Quaternion.identity);
+        ArchiLinkManager.Instance.Build(_previewBuilding.transform.position, _buildingCode);
+        Destroy(_previewBuilding);
+        _previewBuilding = null;
+        yield return waitTime1s;
+
+        Destroy(builfVFX);
+        _isBuilding = false;
+        _buildingActionStates = BuildingActionState.Preview;
+
+    }
 
     #endregion
     #region ===============
@@ -137,16 +181,14 @@ public class BuidlingManager : MonoBehaviour
     {
         CanPlaceBuilding = false;
         ArchiLinkManager.Instance.LinkFromClosestArchToPointer(true);
+        _buildingActionStates = BuildingActionState.Preview;
         _buildingCode = _buttonAndBuildingCodeDic[btn];
         GameObject building = Instantiate(_buttonBuildingPairDictionary[btn], _buildingListObject);
         _previewBuilding = building;
         building.GetComponentInChildren<MeshRenderer>().material = _buildingShadowMaterial;
 
-        // foreach (var item in _buttonBuildingPairs)
-        // {
-        //     if (item.BuildingObject != _buttonBuildingPairDictionary[btn]) continue;
-        //     _previewBuildingMaterial = item.BuildingMaterial;
-        // }
+
+
 
         MouseStateManager.Instance.SwitchState(MouseStateManager.MouseStates.Building,
                                              () => { Debug.Log("EnterBuildingState"); });
