@@ -70,3 +70,11 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+Assets/Art_Workplace/Art_Assets/_MK/MKToon/ExamplesBuiltin.unitypackage.meta
+Assets/Art_Workplace/Art_Assets/_MK/MKToon/ExamplesInc.unitypackage.meta
+Assets/Art_Workplace/Art_Assets/_MK/MKToon/ExamplesURP.unitypackage.meta
+Assets/Art_Workplace/Art_Assets/_MK/MKToon/ShadersBuiltIn.unitypackage.meta
+Assets/Art_Workplace/Art_Assets/_MK/MKToon/ShadersURP.unitypackage.meta
+Assets/Art_Workplace/Art_Assets/Models/PolygonNatureBiomes/URP_ExtractMe_Nature_Biomes.unitypackage.meta
+Assets/Ilumisoft/Dusty Canyon/URP.unitypackage.meta
+Assets/Scenes/TangoScene/BuildingSystem.unity

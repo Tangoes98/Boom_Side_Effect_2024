@@ -34,6 +34,8 @@ public class BuildingSelectionManager : MonoBehaviour
         _buildingUIPanel.SetActive(false);
 
         //todo: Button funcitons
+        _upgradeBtn.onClick.AddListener(UpgradeAction);
+        _demolitionBtn.onClick.AddListener(DemolishAction);
     }
 
     private void Update()
@@ -53,12 +55,8 @@ public class BuildingSelectionManager : MonoBehaviour
         if (!MouseController.Is_LMB_Down()) return;
         if (!CurrentSelectedBuilding) return;
 
-        UIPanelSelectionEvent?.Invoke(false);
-        _buildingUIPanel.SetActive(true);
-        _buildingUIPanel.GetComponent<RectTransform>().anchoredPosition = GetBuildingScreenCanvasPosition(CurrentSelectedBuilding);
-        SelectBuildingLinks(true);
+        ShowSelectionPanels();
         MouseStateManager.Instance.SwitchState(MouseStateManager.MouseStates.SelectionPanelInspection, null);
-
 
     }
 
@@ -73,9 +71,35 @@ public class BuildingSelectionManager : MonoBehaviour
         UIPanelSelectionEvent?.Invoke(true);
     }
 
+    #endregion
+    #region Event Methods
+    void UpgradeAction()
+    {
+        if (!CurrentSelectedBuilding) return;
+        Architect building = CurrentSelectedBuilding.GetComponent<Architect>();
 
+        //* check if building is upgradeable
+        if (!building.IsUpgradable())
+        {
+            Debug.Log("Cant Upgrade");
+            return;
+        }
 
+        //* check if enough resources to upgrade 
+        if (!ResourceManager.Instance.CanUpgrade(building.GetUpgradeCost())) return;
 
+        building.Upgrade();
+    }
+
+    void DemolishAction()
+    {
+        if (!CurrentSelectedBuilding) return;
+        Architect building = CurrentSelectedBuilding.GetComponent<Architect>();
+
+        MouseStateManager.Instance.SwitchState(MouseStateManager.MouseStates.Selecting, CloseSelectionPanel);
+        building.SelfDestroy();
+
+    }
 
 
     #endregion
@@ -127,7 +151,13 @@ public class BuildingSelectionManager : MonoBehaviour
         }
     }
 
-
+    void ShowSelectionPanels()
+    {
+        UIPanelSelectionEvent?.Invoke(false);
+        _buildingUIPanel.SetActive(true);
+        _buildingUIPanel.GetComponent<RectTransform>().anchoredPosition = GetBuildingScreenCanvasPosition(CurrentSelectedBuilding);
+        SelectBuildingLinks(true);
+    }
 
 
 

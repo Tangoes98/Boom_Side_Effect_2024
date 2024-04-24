@@ -40,19 +40,20 @@ public class MouseStateManager : MonoBehaviour
                 if (!MouseController.Is_LMB_Down()) return;
                 SwitchState(MouseStates.Selecting, null);
                 break;
+
             case MouseStates.Selecting:
                 if (!MouseController.Instance.GetSelectedBuilding()) return;
-
-                //if (!MouseController.Is_LMB_Down()) return;
 
                 BuildingSelectionManager.Instance.CurrentSelectedBuilding = MouseController.Instance.GetSelectedBuilding();
 
                 break;
+
             case MouseStates.SelectionPanelInspection:
                 if (!MouseController.Is_RMB_Down()) return;
                 BuildingSelectionManager.Instance.CloseSelectionPanel();
                 SwitchState(MouseStates.Selecting, null);
                 break;
+
             case MouseStates.Building:
 
                 //*Check if Cancel the Building action
@@ -71,6 +72,7 @@ public class MouseStateManager : MonoBehaviour
                 PlaceBuilding();
 
                 break;
+                
         }
     }
 

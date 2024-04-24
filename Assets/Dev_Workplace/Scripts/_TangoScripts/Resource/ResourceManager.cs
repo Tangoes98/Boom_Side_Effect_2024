@@ -28,9 +28,25 @@ public class ResourceManager : MonoBehaviour
 
     public bool CanBuild(int buildingCost)
     {
-        if (buildingCost > PlayerResource) return false;
+        if (buildingCost > PlayerResource)
+        {
+            Debug.Log("Dont have enough resource to build");
+            return false;
+        }
 
         PlayerResource -= buildingCost;
+        if (PlayerResource < 0) PlayerResource = 0;
+        return true;
+    }
+    public bool CanUpgrade(int upgradeCost)
+    {
+        if (upgradeCost > PlayerResource)
+        {
+            Debug.Log("Dont have enough resource upgrade");
+            return false;
+        }
+
+        PlayerResource -= upgradeCost;
         if (PlayerResource < 0) PlayerResource = 0;
         return true;
     }

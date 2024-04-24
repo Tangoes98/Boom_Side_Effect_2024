@@ -85,10 +85,6 @@ public class BuidlingManager : MonoBehaviour
         //* Check if there is enough resource to build
         if (!ResourceManager.Instance.CanBuild(_previewBuilding.GetComponent<Architect>().GetBuildCost()))
         {
-            // Switch mouse state back to building
-            // MouseStateManager.Instance.SwitchState(MouseStateManager.MouseStates.Building,
-            //                          () => { Debug.Log("Dont have enough resource to build"); });
-            Debug.Log("Dont have enough resource to build");
             HaveEnoughResourceToBuild = false;
             return;
         }

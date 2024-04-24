@@ -346,6 +346,7 @@ public class ArchiLinkManager : MonoBehaviour
         if(!MouseController.Is_LMB_Down()) {
             return;
         }
+        if (EventSystem.current.IsPointerOverGameObject()) return;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if(Physics.Raycast(ray,out hit)) {
