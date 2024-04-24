@@ -51,6 +51,7 @@ public class BuidlingManager : MonoBehaviour
     [field: SerializeField] public bool CanPlaceBuilding { get; private set; }
     [field: SerializeField] public bool HaveEnoughResourceToBuild { get; private set; }
     [SerializeField] bool _isBuilding;
+    BuildingArtAssets _buildingAssets;
 
 
 
@@ -82,9 +83,9 @@ public class BuidlingManager : MonoBehaviour
                 UpdatePreviewBuildingPosition(_previewBuilding);
                 break;
             case BuildingActionState.Building:
-                if (_dissolveTime > 1) return;
-                _buildingDissolveMaterial.SetFloat("_CutoffHeight", Mathf.Lerp(0f, 15f, _dissolveTime));
+                _buildingDissolveMaterial.SetFloat("_CutoffHeight", Mathf.Lerp(0f, _buildingAssets.DissolveFinishValue, _dissolveTime));
                 _dissolveTime += Time.deltaTime * _dissolveSpeed;
+                if (_buildingDissolveMaterial.GetFloat("_CutoffHeight") == _buildingAssets.DissolveFinishValue) StartCoroutine(BuildingAction());
                 break;
         }
 
@@ -112,8 +113,17 @@ public class BuidlingManager : MonoBehaviour
         else //* Build Action
         {
             HaveEnoughResourceToBuild = true;
+            _buildingUIPanel.SetActive(false);
 
-            StartCoroutine(BuildingActionAnimation());
+            _isBuilding = true;
+            foreach (var item in _buildingAssets.Subassets)
+            {
+                item.GetComponent<MeshRenderer>().material = _buildingDissolveMaterial;
+            }
+            _dissolveTime = 0f;
+            _buildingActionStates = BuildingActionState.Building;
+
+
 
         }
         ArchiLinkManager.Instance.LinkFromClosestArchToPointer(false);
@@ -136,24 +146,25 @@ public class BuidlingManager : MonoBehaviour
 
     #endregion
     #region Coroutine Methods
-    IEnumerator BuildingActionAnimation()
+    IEnumerator BuildingAction()
     {
-        var waitTime3s = new WaitForSeconds(3);
         var waitTime1s = new WaitForSeconds(1);
 
-        _isBuilding = true;
-        _previewBuilding.GetComponentInChildren<MeshRenderer>().material = _buildingDissolveMaterial;
-        _dissolveTime = 0f;
-        _buildingActionStates = BuildingActionState.Building;
-        Vector3 buildingPos = _previewBuilding.transform.position;
-        yield return waitTime3s;
 
+
+        // while (_buildingDissolveMaterial.GetFloat("_CutoffHeight") < 15f)
+        // {
+        //     Debug.Log("Waiting for building");
+        //     if (_buildingDissolveMaterial.GetFloat("_CutoffHeight") > 15f) break;
+        // }
+        // yield return null;
+        Vector3 buildingPos = _previewBuilding.transform.position;
         GameObject builfVFX = Instantiate(_buildingPlopVFX, buildingPos, Quaternion.identity);
         ArchiLinkManager.Instance.Build(_previewBuilding.transform.position, _buildingCode);
         Destroy(_previewBuilding);
         _previewBuilding = null;
+        _buildingUIPanel.SetActive(true);
         yield return waitTime1s;
-
         Destroy(builfVFX);
         _isBuilding = false;
         _buildingActionStates = BuildingActionState.Preview;
@@ -185,7 +196,19 @@ public class BuidlingManager : MonoBehaviour
         _buildingCode = _buttonAndBuildingCodeDic[btn];
         GameObject building = Instantiate(_buttonBuildingPairDictionary[btn], _buildingListObject);
         _previewBuilding = building;
-        building.GetComponentInChildren<MeshRenderer>().material = _buildingShadowMaterial;
+
+        //* Switch all material into preview material
+        _buildingAssets = building.GetComponentInChildren<BuildingArtAssets>();
+        foreach (var item in _buildingAssets.Subassets)
+        {
+            item.GetComponent<MeshRenderer>().material = _buildingShadowMaterial;
+        }
+        //* Stop all buidling VFX
+        if (_buildingAssets.CanAttack) _buildingAssets.AttackVFX.gameObject.SetActive(false);
+        foreach (var item in _buildingAssets.ParticleSystems)
+        {
+            item.gameObject.SetActive(false);
+        }
 
 
 
