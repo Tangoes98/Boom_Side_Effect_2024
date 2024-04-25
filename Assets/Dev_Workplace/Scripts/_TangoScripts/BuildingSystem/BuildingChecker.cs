@@ -24,4 +24,14 @@ public class BuildingChecker : MonoBehaviour
         CanBuild = false;
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (!other.CompareTag("BuildingArea"))
+        {
+            CanBuild = false;
+            return;
+        }
+        CanBuild = true;
+    }
+
 }

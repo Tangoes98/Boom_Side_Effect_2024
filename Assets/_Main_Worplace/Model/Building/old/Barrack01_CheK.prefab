@@ -91,7 +91,12 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f32da2c5677663843ac26aaea04c95ea,
         type: 3}
       propertyPath: m_Name
-      value: Barrack01
+      value: Barrack01_CheK
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f32da2c5677663843ac26aaea04c95ea,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -27,7 +27,7 @@ public class BuidlingManager : MonoBehaviour
 
     public enum BuildingActionState
     {
-        Preview, Building
+        Preview, PlayBuildingDissolveEffect
     }
 
     [Header("REFERENCE")]
@@ -82,10 +82,14 @@ public class BuidlingManager : MonoBehaviour
                 BuildingValidation();
                 UpdatePreviewBuildingPosition(_previewBuilding);
                 break;
-            case BuildingActionState.Building:
+            case BuildingActionState.PlayBuildingDissolveEffect:
                 _buildingDissolveMaterial.SetFloat("_CutoffHeight", Mathf.Lerp(0f, _buildingAssets.DissolveFinishValue, _dissolveTime));
                 _dissolveTime += Time.deltaTime * _dissolveSpeed;
-                if (_buildingDissolveMaterial.GetFloat("_CutoffHeight") == _buildingAssets.DissolveFinishValue) StartCoroutine(BuildingAction());
+                if (_buildingDissolveMaterial.GetFloat("_CutoffHeight") == _buildingAssets.DissolveFinishValue)
+                {
+                    StartCoroutine(BuildingAction());
+                    _buildingActionStates = BuildingActionState.Preview;
+                }
                 break;
         }
 
@@ -114,6 +118,7 @@ public class BuidlingManager : MonoBehaviour
         {
             HaveEnoughResourceToBuild = true;
             _buildingUIPanel.SetActive(false);
+            MouseStateManager.Instance.SwitchState(MouseStateManager.MouseStates.None, null);
 
             _isBuilding = true;
             foreach (var item in _buildingAssets.Subassets)
@@ -121,10 +126,7 @@ public class BuidlingManager : MonoBehaviour
                 item.GetComponent<MeshRenderer>().material = _buildingDissolveMaterial;
             }
             _dissolveTime = 0f;
-            _buildingActionStates = BuildingActionState.Building;
-
-
-
+            _buildingActionStates = BuildingActionState.PlayBuildingDissolveEffect;
         }
         ArchiLinkManager.Instance.LinkFromClosestArchToPointer(false);
     }
@@ -148,26 +150,17 @@ public class BuidlingManager : MonoBehaviour
     #region Coroutine Methods
     IEnumerator BuildingAction()
     {
-        var waitTime1s = new WaitForSeconds(1);
+        var wait1Time = new WaitForSeconds(1);
+        _buildingUIPanel.SetActive(true);
 
-
-
-        // while (_buildingDissolveMaterial.GetFloat("_CutoffHeight") < 15f)
-        // {
-        //     Debug.Log("Waiting for building");
-        //     if (_buildingDissolveMaterial.GetFloat("_CutoffHeight") > 15f) break;
-        // }
-        // yield return null;
         Vector3 buildingPos = _previewBuilding.transform.position;
         GameObject builfVFX = Instantiate(_buildingPlopVFX, buildingPos, Quaternion.identity);
-        ArchiLinkManager.Instance.Build(_previewBuilding.transform.position, _buildingCode);
+        ArchiLinkManager.Instance.Build(buildingPos, _buildingCode);
         Destroy(_previewBuilding);
-        _previewBuilding = null;
-        _buildingUIPanel.SetActive(true);
-        yield return waitTime1s;
+
+        yield return wait1Time;
         Destroy(builfVFX);
         _isBuilding = false;
-        _buildingActionStates = BuildingActionState.Preview;
 
     }
 
@@ -187,12 +180,19 @@ public class BuidlingManager : MonoBehaviour
             dic.Add(item.Button, item.BuildingCode);
         }
     }
+    #region Button Click Event
 
     void OnButtonClick(Button btn)
     {
         CanPlaceBuilding = false;
+
+        //*Show Links
         ArchiLinkManager.Instance.LinkFromClosestArchToPointer(true);
+
+        //*Switch Mouse States
         _buildingActionStates = BuildingActionState.Preview;
+
+        //*Get and build preview of the building
         _buildingCode = _buttonAndBuildingCodeDic[btn];
         GameObject building = Instantiate(_buttonBuildingPairDictionary[btn], _buildingListObject);
         _previewBuilding = building;
@@ -217,6 +217,7 @@ public class BuidlingManager : MonoBehaviour
                                              () => { Debug.Log("EnterBuildingState"); });
     }
 
+    #endregion
     void UpdatePreviewBuildingPosition(GameObject building)
     {
         building.transform.position = MouseController.Instance.GetMouseWorldPosition();

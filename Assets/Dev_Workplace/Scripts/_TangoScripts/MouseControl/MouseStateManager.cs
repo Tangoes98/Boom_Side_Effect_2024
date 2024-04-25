@@ -37,8 +37,8 @@ public class MouseStateManager : MonoBehaviour
         switch (_mouseStates)
         {
             case MouseStates.None:
-                if (!MouseController.Is_LMB_Down()) return;
-                SwitchState(MouseStates.Selecting, null);
+                //if (MouseController.Is_LMB_Down()) return;
+                //SwitchState(MouseStates.Selecting, null);
                 break;
 
             case MouseStates.Selecting:
@@ -95,7 +95,7 @@ public class MouseStateManager : MonoBehaviour
     {
         PlaceBuildingEvent?.Invoke();
         if (!BuidlingManager.Instance.HaveEnoughResourceToBuild) return;
-        SwitchState(MouseStates.Selecting, null);
+        //SwitchState(MouseStates.Selecting, null);
     }
     void CancelBuilding()
     {
