@@ -5,8 +5,6 @@ public class MinionBase {
     
     public string name;
 
-    public float health;
-
     public float speed;
     
     public DamageType baseType;

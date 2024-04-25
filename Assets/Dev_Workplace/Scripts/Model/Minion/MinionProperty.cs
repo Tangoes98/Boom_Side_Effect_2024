@@ -6,6 +6,8 @@ public class MinionProperty {
 
     [Range(1,3)]
     public int level=1;
+
+    public float health;
     
     public float range;
     
