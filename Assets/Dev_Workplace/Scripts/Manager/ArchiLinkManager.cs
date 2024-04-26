@@ -39,8 +39,7 @@ public class ArchiLinkManager : MonoBehaviour
     private bool _linkFromClosestArchToPointer;
 
     private Dictionary<Architect,Vector3> _architects = new();
-    private List<Link> _links = new();
-    private Architect _lastSelectArch;
+    [SerializeField] private List<Link> _links;
 
     Vector3 _linkOffset = new(0,2,0);
 
@@ -66,6 +65,7 @@ public class ArchiLinkManager : MonoBehaviour
                                                 }
                                                 return dict;
                                             });
+        _links = new();
     }
     
     public Architect Build(Vector3 position, string code) // 在对应位置instantiate建筑
@@ -113,7 +113,7 @@ public class ArchiLinkManager : MonoBehaviour
             newArch.BaseArchitect = toArchitect.gameObject; // save for later
             if (toArchitect.gameObject.transform == BuildingSelectionManager.Instance.CurrentSelectedBuilding)
             {
-                BuildingSelectionManager.Instance.CurrentSelectedBuilding = newArch.BaseArchitect.transform;
+                BuildingSelectionManager.Instance.CurrentSelectedBuilding = newArch.transform;
             }
             
             // copy status
@@ -165,7 +165,7 @@ public class ArchiLinkManager : MonoBehaviour
 
         if (architect.gameObject.transform == BuildingSelectionManager.Instance.CurrentSelectedBuilding)
         {
-            BuildingSelectionManager.Instance.CurrentSelectedBuilding = baseArch.transform;
+            BuildingSelectionManager.Instance.CurrentSelectedBuilding = architect.BaseArchitect.transform;
         }
             
 
@@ -187,8 +187,6 @@ public class ArchiLinkManager : MonoBehaviour
     public void GetInAndOutAndPauseLinks(Architect architect, out List<Link> incomingLinks,
                                         out List<Link> outgoingLinks, out List<Link> pausedLinks) // 用于显示建筑已有link
     {
-        _lastSelectArch = architect;
-        
         incomingLinks = new();
         outgoingLinks = new();
         pausedLinks = new();
@@ -210,7 +208,10 @@ public class ArchiLinkManager : MonoBehaviour
 
     private void ShowAllLinksOnLastSelectArch() {
         // 当link方向改变，重新展示所有连线
-        foreach(Link l in _links.Where(l=>l.ArchitectA==_lastSelectArch || l.ArchitectB==_lastSelectArch)) {
+        if(BuildingSelectionManager.Instance.CurrentSelectedBuilding==null)
+            return;
+        Architect lastSelectArch = BuildingSelectionManager.Instance.CurrentSelectedBuilding.GetComponent<Architect>();
+        foreach(Link l in _links.Where(l=>l.ArchitectA== lastSelectArch || l.ArchitectB==lastSelectArch)) {
             l.ShowLine();
         }
     }
@@ -305,8 +306,9 @@ public class ArchiLinkManager : MonoBehaviour
         lineReverse.GetComponent<Line>().status = B_TO_A;
         linePause.GetComponent<Line>().status = PAUSE;
         
-        UpdateLink(link, A_TO_B);
         _links.Add(link);
+        UpdateLink(link, A_TO_B);
+        
         
         //return new(line,lineReverse);
         return link;
@@ -362,12 +364,11 @@ public class ArchiLinkManager : MonoBehaviour
         if(Physics.Raycast(ray,out hit)) {
             Line line = hit.transform.GetComponent<Line>();
             if(line!=null && line.link != null) {
-                ArchiLinkManager.Instance.UpdateLink(line.link,line.link.NextState());
+                Debug.Log("line clicked");
+                UpdateLink(line.link,line.link.NextState());
                 // 重新展示所有 line
                 ShowAllLinksOnLastSelectArch();
             } 
-            
-            Debug.Log("line clicked");
         }
     }
 

@@ -2,7 +2,7 @@ using System;
 
 using UnityEngine;
 using static Link.LinkStatus;
-
+[Serializable]
 public class Link {
     public enum LinkStatus {
         A_TO_B,
