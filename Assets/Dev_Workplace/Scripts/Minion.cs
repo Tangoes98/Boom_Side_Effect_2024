@@ -20,7 +20,7 @@ public class Minion : MonoBehaviour {
         float modifier = GetMinionDamageAndHealthModifier(parent.Unstability);
         MinionProperty prop = GetBaseProperty(level);
 
-        status.maxHealth = modifier * baseInfo.health;
+        status.maxHealth = modifier * prop.health;
         status.health = status.maxHealth;
         status.damage = modifier * prop.damage;
 
