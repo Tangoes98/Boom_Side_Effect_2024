@@ -175,16 +175,16 @@ MonoBehaviour:
     properties:
     - level: 1
       cost: 0
-      range: 2
+      range: 4
       maxMinionNum: 0
     - level: 2
-      cost: 30
-      range: 2
+      cost: 50
+      range: 4
       maxMinionNum: 1
     - level: 3
-      cost: 50
-      range: 2
-      maxMinionNum: 2
+      cost: 60
+      range: 4
+      maxMinionNum: 1
 --- !u!4 &84480119
 Transform:
   m_ObjectHideFlags: 0
@@ -252,16 +252,16 @@ MonoBehaviour:
     properties:
     - level: 1
       cost: 0
-      range: 2
-      maxMinionNum: 0
+      range: 4
+      maxMinionNum: 2
     - level: 2
-      cost: 30
-      range: 2
+      cost: 50
+      range: 4
       maxMinionNum: 2
     - level: 3
-      cost: 50
-      range: 2
-      maxMinionNum: 3
+      cost: 60
+      range: 4
+      maxMinionNum: 2
 --- !u!4 &115407057
 Transform:
   m_ObjectHideFlags: 0
@@ -329,16 +329,16 @@ MonoBehaviour:
     properties:
     - level: 1
       cost: 0
-      range: 2
-      maxMinionNum: 0
+      range: 4
+      maxMinionNum: 2
     - level: 2
-      cost: 30
-      range: 2
+      cost: 50
+      range: 4
       maxMinionNum: 2
     - level: 3
-      cost: 50
-      range: 2
-      maxMinionNum: 3
+      cost: 60
+      range: 4
+      maxMinionNum: 2
 --- !u!4 &140593693
 Transform:
   m_ObjectHideFlags: 0
@@ -406,16 +406,16 @@ MonoBehaviour:
     properties:
     - level: 1
       cost: 0
-      range: 2
-      maxMinionNum: 0
+      range: 4
+      maxMinionNum: 2
     - level: 2
-      cost: 30
-      range: 2
+      cost: 50
+      range: 4
       maxMinionNum: 2
     - level: 3
-      cost: 50
-      range: 2
-      maxMinionNum: 3
+      cost: 60
+      range: 4
+      maxMinionNum: 2
 --- !u!4 &199453073
 Transform:
   m_ObjectHideFlags: 0
@@ -478,39 +478,41 @@ MonoBehaviour:
     specialEffectLastTime: 0
   baseInfo:
     name: DuSuBing
-    health: 150
-    speed: 5
+    speed: 3
     baseType: 3
     addonType: 0
     attackMode: 0
     lockMode: 1
-    fireInterval: 1
+    fireInterval: 1.5
     fireTime: 0.2
     specialEffect: 3
     secondSpecialEffect: 0
     levelRelatedProperties:
     - level: 1
+      health: 20
       range: 0.5
       viewRange: 2
-      damage: 8
+      damage: 3
       specialEffectModifier: 0.05
-      specialEffectLastTime: 3
+      specialEffectLastTime: 2
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
     - level: 2
+      health: 25
       range: 0.5
       viewRange: 2
-      damage: 10
-      specialEffectModifier: 0.07
-      specialEffectLastTime: 4
+      damage: 5
+      specialEffectModifier: 0.1
+      specialEffectLastTime: 2
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
     - level: 3
+      health: 30
       range: 0.5
       viewRange: 2
-      damage: 15
-      specialEffectModifier: 0.1
-      specialEffectLastTime: 5
+      damage: 7
+      specialEffectModifier: 0.15
+      specialEffectLastTime: 2
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
 --- !u!4 &279573635
@@ -583,35 +585,35 @@ MonoBehaviour:
     attackMode: 1
     lockMode: 0
     fireInterval: 0.5
-    fireTime: 1.5
+    fireTime: 2
     aoeRange: 0.5
     specialEffect: 1
     secondSpEffect: 2
     levelRelatedProperties:
     - level: 1
       cost: 0
-      range: 2.5
-      damage: 0.5
-      specialEffectModifier: 1.05
-      specialEffectLastTime: 3
-      secondSpEffectModifier: -1
-      secondSpEffectLastTime: 3
-    - level: 2
-      cost: 30
-      range: 3
+      range: 2
       damage: 0.8
       specialEffectModifier: 1.1
-      specialEffectLastTime: 4
-      secondSpEffectModifier: -2
-      secondSpEffectLastTime: 4
-    - level: 3
+      specialEffectLastTime: 1
+      secondSpEffectModifier: -1
+      secondSpEffectLastTime: 1
+    - level: 2
       cost: 50
-      range: 3.5
+      range: 2.5
       damage: 1
+      specialEffectModifier: 1.15
+      specialEffectLastTime: 1
+      secondSpEffectModifier: -2
+      secondSpEffectLastTime: 1
+    - level: 3
+      cost: 60
+      range: 3
+      damage: 1.4
       specialEffectModifier: 1.2
-      specialEffectLastTime: 5
+      specialEffectLastTime: 1
       secondSpEffectModifier: -3
-      secondSpEffectLastTime: 5
+      secondSpEffectLastTime: 1
 --- !u!4 &292361153
 Transform:
   m_ObjectHideFlags: 0
@@ -679,16 +681,16 @@ MonoBehaviour:
     properties:
     - level: 1
       cost: 0
-      range: 2
-      maxMinionNum: 0
+      range: 4
+      maxMinionNum: 2
     - level: 2
-      cost: 30
-      range: 2
+      cost: 50
+      range: 4
       maxMinionNum: 2
     - level: 3
-      cost: 50
-      range: 2
-      maxMinionNum: 3
+      cost: 60
+      range: 4
+      maxMinionNum: 2
 --- !u!4 &309819728
 Transform:
   m_ObjectHideFlags: 0
@@ -755,17 +757,17 @@ MonoBehaviour:
     minionPrefab: {fileID: 0}
     properties:
     - level: 1
-      cost: 100
-      range: 2
-      maxMinionNum: 1
+      cost: 70
+      range: 4
+      maxMinionNum: 2
     - level: 2
-      cost: 30
-      range: 2
+      cost: 50
+      range: 4
       maxMinionNum: 2
     - level: 3
-      cost: 50
-      range: 2
-      maxMinionNum: 3
+      cost: 60
+      range: 4
+      maxMinionNum: 2
 --- !u!4 &332455249
 Transform:
   m_ObjectHideFlags: 0
@@ -835,32 +837,32 @@ MonoBehaviour:
     addonType: 1
     attackMode: 0
     lockMode: 0
-    fireInterval: 1.5
-    fireTime: 0.5
-    aoeRange: 0
+    fireInterval: 0.5
+    fireTime: 0.3
+    aoeRange: 3
     specialEffect: 0
     secondSpEffect: 0
     levelRelatedProperties:
     - level: 1
       cost: 0
-      range: 1.2
-      damage: 12
+      range: 0
+      damage: 6
       specialEffectModifier: 0
       specialEffectLastTime: 0
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
     - level: 2
-      cost: 30
-      range: 1.5
-      damage: 15
+      cost: 50
+      range: 0
+      damage: 9
       specialEffectModifier: 0
       specialEffectLastTime: 0
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
     - level: 3
-      cost: 50
-      range: 1.8
-      damage: 20
+      cost: 60
+      range: 0
+      damage: 14
       specialEffectModifier: 0
       specialEffectLastTime: 0
       secondSpEffectModifier: 0
@@ -927,8 +929,7 @@ MonoBehaviour:
     specialEffectLastTime: 0
   baseInfo:
     name: BaoRanJiPu
-    health: 200
-    speed: 8
+    speed: 5
     baseType: 1
     addonType: 3
     attackMode: 0
@@ -939,27 +940,30 @@ MonoBehaviour:
     secondSpecialEffect: 0
     levelRelatedProperties:
     - level: 1
-      range: 1
+      health: 30
+      range: 0
       viewRange: 2
-      damage: 30
+      damage: 5
       specialEffectModifier: 0.05
-      specialEffectLastTime: 3
+      specialEffectLastTime: 2
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
     - level: 2
-      range: 1
+      health: 42
+      range: 0
       viewRange: 2
-      damage: 40
+      damage: 10
       specialEffectModifier: 0.07
-      specialEffectLastTime: 4
+      specialEffectLastTime: 2
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
     - level: 3
-      range: 1
+      health: 55
+      range: 0
       viewRange: 2
-      damage: 50
+      damage: 15
       specialEffectModifier: 0.1
-      specialEffectLastTime: 5
+      specialEffectLastTime: 2
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
 --- !u!4 &377707097
@@ -1029,16 +1033,16 @@ MonoBehaviour:
     properties:
     - level: 1
       cost: 0
-      range: 2
-      maxMinionNum: 0
+      range: 4
+      maxMinionNum: 2
     - level: 2
-      cost: 30
-      range: 2
+      cost: 50
+      range: 4
       maxMinionNum: 2
     - level: 3
-      cost: 50
-      range: 2
-      maxMinionNum: 3
+      cost: 60
+      range: 4
+      maxMinionNum: 2
 --- !u!4 &383735439
 Transform:
   m_ObjectHideFlags: 0
@@ -1269,37 +1273,39 @@ MonoBehaviour:
     specialEffectLastTime: 0
   baseInfo:
     name: HuoYanPenSheChe
-    health: 100
-    speed: 6
+    speed: 5
     baseType: 1
     addonType: 0
     attackMode: 0
     lockMode: 1
-    fireInterval: 1.5
+    fireInterval: 1.2
     fireTime: 0.5
     specialEffect: 0
     secondSpecialEffect: 0
     levelRelatedProperties:
     - level: 1
+      health: 20
       range: 1.25
       viewRange: 2
-      damage: 20
+      damage: 4
       specialEffectModifier: 0
       specialEffectLastTime: 0
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
     - level: 2
+      health: 30
       range: 1.25
       viewRange: 2
-      damage: 30
+      damage: 6
       specialEffectModifier: 0
       specialEffectLastTime: 0
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
     - level: 3
+      health: 45
       range: 1.25
       viewRange: 2
-      damage: 40
+      damage: 8
       specialEffectModifier: 0
       specialEffectLastTime: 0
       secondSpEffectModifier: 0
@@ -1373,7 +1379,7 @@ MonoBehaviour:
     addonType: 2
     attackMode: 0
     lockMode: 0
-    fireInterval: 0.75
+    fireInterval: 1
     fireTime: 0.2
     aoeRange: 0.5
     specialEffect: 1
@@ -1384,25 +1390,25 @@ MonoBehaviour:
       range: 2
       damage: 8
       specialEffectModifier: 1.05
+      specialEffectLastTime: 2
+      secondSpEffectModifier: -1
+      secondSpEffectLastTime: 2
+    - level: 2
+      cost: 50
+      range: 2.5
+      damage: 10
+      specialEffectModifier: 1.05
       specialEffectLastTime: 3
       secondSpEffectModifier: -1
       secondSpEffectLastTime: 3
-    - level: 2
-      cost: 30
-      range: 2.5
-      damage: 10
-      specialEffectModifier: 1.1
-      specialEffectLastTime: 4
-      secondSpEffectModifier: -2
-      secondSpEffectLastTime: 4
     - level: 3
-      cost: 50
+      cost: 60
       range: 3
-      damage: 15
-      specialEffectModifier: 1.2
-      specialEffectLastTime: 5
-      secondSpEffectModifier: -3
-      secondSpEffectLastTime: 5
+      damage: 16
+      specialEffectModifier: 1.05
+      specialEffectLastTime: 4
+      secondSpEffectModifier: -1
+      secondSpEffectLastTime: 4
 --- !u!4 &503792570
 Transform:
   m_ObjectHideFlags: 0
@@ -1472,7 +1478,7 @@ MonoBehaviour:
     addonType: 1
     attackMode: 0
     lockMode: 0
-    fireInterval: 4
+    fireInterval: 3
     fireTime: 0.5
     aoeRange: 1
     specialEffect: 4
@@ -1480,14 +1486,14 @@ MonoBehaviour:
     levelRelatedProperties:
     - level: 1
       cost: 0
-      range: 1.2
-      damage: 50
+      range: 1.5
+      damage: 45
       specialEffectModifier: 0
       specialEffectLastTime: 0.2
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
     - level: 2
-      cost: 30
+      cost: 50
       range: 1.5
       damage: 70
       specialEffectModifier: 0
@@ -1495,9 +1501,9 @@ MonoBehaviour:
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
     - level: 3
-      cost: 50
-      range: 1.8
-      damage: 100
+      cost: 60
+      range: 1.5
+      damage: 110
       specialEffectModifier: 0
       specialEffectLastTime: 0.5
       secondSpEffectModifier: 0
@@ -1564,39 +1570,41 @@ MonoBehaviour:
     specialEffectLastTime: 0
   baseInfo:
     name: QiangHuaDuSuBing
-    health: 200
-    speed: 5
+    speed: 3
     baseType: 3
     addonType: 3
     attackMode: 0
     lockMode: 1
-    fireInterval: 1.5
-    fireTime: 0.5
+    fireInterval: 2
+    fireTime: 0.2
     specialEffect: 3
     secondSpecialEffect: 0
     levelRelatedProperties:
     - level: 1
+      health: 23
       range: 0.5
       viewRange: 2
-      damage: 8
-      specialEffectModifier: 0.05
+      damage: 3
+      specialEffectModifier: 0.1
       specialEffectLastTime: 3
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
     - level: 2
+      health: 30
       range: 0.5
       viewRange: 2
-      damage: 10
-      specialEffectModifier: 0.07
-      specialEffectLastTime: 4
+      damage: 4
+      specialEffectModifier: 0.15
+      specialEffectLastTime: 3
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
     - level: 3
+      health: 40
       range: 0.5
       viewRange: 2
-      damage: 15
-      specialEffectModifier: 0.1
-      specialEffectLastTime: 5
+      damage: 6
+      specialEffectModifier: 0.2
+      specialEffectLastTime: 3
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
 --- !u!4 &705613111
@@ -1661,37 +1669,39 @@ MonoBehaviour:
     specialEffectLastTime: 0
   baseInfo:
     name: JiaTeLinJiChe
-    health: 100
     speed: 5
     baseType: 1
     addonType: 4
-    attackMode: 0
+    attackMode: 1
     lockMode: 1
-    fireInterval: 0.1
-    fireTime: 0.1
+    fireInterval: 1
+    fireTime: 999
     specialEffect: 0
     secondSpecialEffect: 0
     levelRelatedProperties:
     - level: 1
+      health: 15
       range: 5
-      viewRange: 5.5
-      damage: 1
+      viewRange: 5
+      damage: 0.3
       specialEffectModifier: 0
       specialEffectLastTime: 0
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
     - level: 2
+      health: 20
       range: 5
-      viewRange: 5.5
-      damage: 3
+      viewRange: 5
+      damage: 0.5
       specialEffectModifier: 0
       specialEffectLastTime: 0
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
     - level: 3
+      health: 25
       range: 5
-      viewRange: 5.5
-      damage: 5
+      viewRange: 5
+      damage: 0.8
       specialEffectModifier: 0
       specialEffectLastTime: 0
       secondSpEffectModifier: 0
@@ -1758,8 +1768,7 @@ MonoBehaviour:
     specialEffectLastTime: 0
   baseInfo:
     name: DuWuPenSheZhe
-    health: 100
-    speed: 4
+    speed: 3
     baseType: 3
     addonType: 1
     attackMode: 1
@@ -1770,25 +1779,28 @@ MonoBehaviour:
     secondSpecialEffect: 0
     levelRelatedProperties:
     - level: 1
+      health: 25
       range: 1
       viewRange: 2
-      damage: 3
+      damage: 0.5
       specialEffectModifier: 0
       specialEffectLastTime: 0
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
     - level: 2
+      health: 30
       range: 1
       viewRange: 2
-      damage: 4
+      damage: 1
       specialEffectModifier: 0
       specialEffectLastTime: 0
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
     - level: 3
+      health: 35
       range: 1
       viewRange: 2
-      damage: 5
+      damage: 2
       specialEffectModifier: 0
       specialEffectLastTime: 0
       secondSpEffectModifier: 0
@@ -1855,26 +1867,27 @@ MonoBehaviour:
     specialEffectLastTime: 0
   baseInfo:
     name: FangSheDuShou
-    health: 400
-    speed: 3
+    speed: 2.5
     baseType: 3
     addonType: 4
     attackMode: 0
     lockMode: 1
-    fireInterval: 1.5
+    fireInterval: 2.5
     fireTime: 0.5
     specialEffect: 4
     secondSpecialEffect: 0
     levelRelatedProperties:
     - level: 1
+      health: 60
       range: 0.5
       viewRange: 2
-      damage: 20
+      damage: 30
       specialEffectModifier: 0
       specialEffectLastTime: 0.2
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
     - level: 2
+      health: 90
       range: 0.5
       viewRange: 2
       damage: 50
@@ -1883,6 +1896,7 @@ MonoBehaviour:
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
     - level: 3
+      health: 120
       range: 0.5
       viewRange: 2
       damage: 75
@@ -1967,28 +1981,28 @@ MonoBehaviour:
     levelRelatedProperties:
     - level: 1
       cost: 0
-      range: 1.2
+      range: 2
       damage: 0.1
       specialEffectModifier: 1.05
-      specialEffectLastTime: 3
-      secondSpEffectModifier: 0.05
-      secondSpEffectLastTime: 3
+      specialEffectLastTime: 1
+      secondSpEffectModifier: 0.1
+      secondSpEffectLastTime: 1
     - level: 2
-      cost: 30
-      range: 1.5
+      cost: 50
+      range: 2
       damage: 0.2
       specialEffectModifier: 1.1
-      specialEffectLastTime: 4
-      secondSpEffectModifier: 0.07
-      secondSpEffectLastTime: 4
+      specialEffectLastTime: 1
+      secondSpEffectModifier: 0.15
+      secondSpEffectLastTime: 1
     - level: 3
-      cost: 50
-      range: 1.8
+      cost: 60
+      range: 2.5
       damage: 0.3
       specialEffectModifier: 1.2
-      specialEffectLastTime: 5
-      secondSpEffectModifier: 0.1
-      secondSpEffectLastTime: 5
+      specialEffectLastTime: 1
+      secondSpEffectModifier: 0.2
+      secondSpEffectLastTime: 1
 --- !u!4 &1023890469
 Transform:
   m_ObjectHideFlags: 0
@@ -2228,8 +2242,7 @@ MonoBehaviour:
     specialEffectLastTime: 0
   baseInfo:
     name: FuShiSheShou
-    health: 100
-    speed: 5
+    speed: 4
     baseType: 3
     addonType: 2
     attackMode: 1
@@ -2240,29 +2253,32 @@ MonoBehaviour:
     secondSpecialEffect: 2
     levelRelatedProperties:
     - level: 1
-      range: 2
-      viewRange: 3
-      damage: 0.1
-      specialEffectModifier: 0.05
-      specialEffectLastTime: 3
-      secondSpEffectModifier: -1.5
-      secondSpEffectLastTime: 3
-    - level: 2
-      range: 2
-      viewRange: 3
-      damage: 0.2
-      specialEffectModifier: 0.07
-      specialEffectLastTime: 4
-      secondSpEffectModifier: -2.5
-      secondSpEffectLastTime: 4
-    - level: 3
-      range: 2
-      viewRange: 3
+      health: 15
+      range: 1
+      viewRange: 2
       damage: 0.3
       specialEffectModifier: 0.1
-      specialEffectLastTime: 5
-      secondSpEffectModifier: -3.5
-      secondSpEffectLastTime: 5
+      specialEffectLastTime: 1
+      secondSpEffectModifier: -1
+      secondSpEffectLastTime: 1
+    - level: 2
+      health: 20
+      range: 1
+      viewRange: 2
+      damage: 0.5
+      specialEffectModifier: 0.1
+      specialEffectLastTime: 1
+      secondSpEffectModifier: -1.5
+      secondSpEffectLastTime: 1
+    - level: 3
+      health: 25
+      range: 1
+      viewRange: 2
+      damage: 1
+      specialEffectModifier: 0.1
+      specialEffectLastTime: 1
+      secondSpEffectModifier: -2
+      secondSpEffectLastTime: 1
 --- !u!4 &1260506922
 Transform:
   m_ObjectHideFlags: 0
@@ -2325,8 +2341,7 @@ MonoBehaviour:
     specialEffectLastTime: 0
   baseInfo:
     name: QiangHuaHuoYanPenSheChe
-    health: 120
-    speed: 6
+    speed: 5
     baseType: 1
     addonType: 1
     attackMode: 0
@@ -2337,25 +2352,28 @@ MonoBehaviour:
     secondSpecialEffect: 0
     levelRelatedProperties:
     - level: 1
-      range: 1.5
+      health: 20
+      range: 1.25
       viewRange: 2
-      damage: 30
+      damage: 8
       specialEffectModifier: 0
       specialEffectLastTime: 0
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
     - level: 2
-      range: 1.5
+      health: 25
+      range: 1.25
       viewRange: 2
-      damage: 40
+      damage: 13
       specialEffectModifier: 0
       specialEffectLastTime: 0
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
     - level: 3
-      range: 1.5
+      health: 30
+      range: 1.25
       viewRange: 2
-      damage: 50
+      damage: 20
       specialEffectModifier: 0
       specialEffectLastTime: 0
       secondSpEffectModifier: 0
@@ -2437,26 +2455,26 @@ MonoBehaviour:
     levelRelatedProperties:
     - level: 1
       cost: 0
-      range: 2.5
-      damage: 0.5
-      specialEffectModifier: -1
-      specialEffectLastTime: 3
+      range: 2
+      damage: 1.5
+      specialEffectModifier: -1.5
+      specialEffectLastTime: 1
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
     - level: 2
-      cost: 30
+      cost: 50
       range: 3
-      damage: 0.8
-      specialEffectModifier: -2
-      specialEffectLastTime: 4
+      damage: 1.7
+      specialEffectModifier: -2.5
+      specialEffectLastTime: 1
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
     - level: 3
-      cost: 50
-      range: 3.5
-      damage: 1
-      specialEffectModifier: -3
-      specialEffectLastTime: 5
+      cost: 60
+      range: 4
+      damage: 2
+      specialEffectModifier: -3.5
+      specialEffectLastTime: 1
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
 --- !u!4 &1344144905
@@ -2632,15 +2650,15 @@ MonoBehaviour:
     properties:
     - level: 1
       cost: 0
-      range: 2
-      maxMinionNum: 0
+      range: 4
+      maxMinionNum: 3
     - level: 2
-      cost: 30
-      range: 2
-      maxMinionNum: 2
-    - level: 3
       cost: 50
-      range: 2
+      range: 4
+      maxMinionNum: 3
+    - level: 3
+      cost: 60
+      range: 4
       maxMinionNum: 3
 --- !u!4 &1504842374
 Transform:
@@ -2709,16 +2727,16 @@ MonoBehaviour:
     properties:
     - level: 1
       cost: 0
-      range: 2
-      maxMinionNum: 0
+      range: 4
+      maxMinionNum: 2
     - level: 2
-      cost: 30
-      range: 2
+      cost: 50
+      range: 4
       maxMinionNum: 2
     - level: 3
-      cost: 50
-      range: 2
-      maxMinionNum: 3
+      cost: 60
+      range: 4
+      maxMinionNum: 2
 --- !u!4 &1528325789
 Transform:
   m_ObjectHideFlags: 0
@@ -2797,25 +2815,25 @@ MonoBehaviour:
     - level: 1
       cost: 70
       range: 2.5
-      damage: 0.5
+      damage: 1.2
       specialEffectModifier: -1
-      specialEffectLastTime: 3
+      specialEffectLastTime: 1
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
     - level: 2
-      cost: 30
+      cost: 50
       range: 3
-      damage: 0.8
+      damage: 1.6
       specialEffectModifier: -2
-      specialEffectLastTime: 4
+      specialEffectLastTime: 1
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
     - level: 3
-      cost: 50
+      cost: 60
       range: 3.5
-      damage: 1
+      damage: 2.2
       specialEffectModifier: -3
-      specialEffectLastTime: 5
+      specialEffectLastTime: 1
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
 --- !u!4 &1616811439
@@ -3064,17 +3082,17 @@ MonoBehaviour:
     minionPrefab: {fileID: 0}
     properties:
     - level: 1
-      cost: 100
-      range: 2
-      maxMinionNum: 0
+      cost: 70
+      range: 4
+      maxMinionNum: 2
     - level: 2
-      cost: 30
-      range: 2
+      cost: 50
+      range: 4
       maxMinionNum: 2
     - level: 3
-      cost: 50
-      range: 2
-      maxMinionNum: 3
+      cost: 60
+      range: 4
+      maxMinionNum: 2
 --- !u!4 &1899353523
 Transform:
   m_ObjectHideFlags: 0
@@ -3144,7 +3162,7 @@ MonoBehaviour:
     addonType: 0
     attackMode: 0
     lockMode: 0
-    fireInterval: 0.75
+    fireInterval: 0.5
     fireTime: 0.2
     aoeRange: 0
     specialEffect: 1
@@ -3153,21 +3171,21 @@ MonoBehaviour:
     - level: 1
       cost: 70
       range: 2
-      damage: 8
-      specialEffectModifier: 1.05
+      damage: 10
+      specialEffectModifier: 1.1
       specialEffectLastTime: 3
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
     - level: 2
-      cost: 30
+      cost: 50
       range: 2.5
-      damage: 10
-      specialEffectModifier: 1.1
+      damage: 12
+      specialEffectModifier: 1.15
       specialEffectLastTime: 4
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
     - level: 3
-      cost: 50
+      cost: 60
       range: 3
       damage: 15
       specialEffectModifier: 1.2
@@ -3251,28 +3269,28 @@ MonoBehaviour:
     levelRelatedProperties:
     - level: 1
       cost: 0
-      range: 2
-      damage: 0.5
+      range: 1
+      damage: 1.2
       specialEffectModifier: -1
-      specialEffectLastTime: 3
-      secondSpEffectModifier: 0.05
-      secondSpEffectLastTime: 3
-    - level: 2
-      cost: 30
-      range: 2.5
-      damage: 0.5
-      specialEffectModifier: -2
-      specialEffectLastTime: 4
-      secondSpEffectModifier: 0.07
-      secondSpEffectLastTime: 4
-    - level: 3
-      cost: 50
-      range: 3
-      damage: 0.5
-      specialEffectModifier: -3
-      specialEffectLastTime: 5
+      specialEffectLastTime: 1
       secondSpEffectModifier: 0.1
-      secondSpEffectLastTime: 5
+      secondSpEffectLastTime: 1
+    - level: 2
+      cost: 50
+      range: 1.5
+      damage: 1.5
+      specialEffectModifier: -2
+      specialEffectLastTime: 1
+      secondSpEffectModifier: 0.15
+      secondSpEffectLastTime: 1
+    - level: 3
+      cost: 60
+      range: 2
+      damage: 1.8
+      specialEffectModifier: -3
+      specialEffectLastTime: 1
+      secondSpEffectModifier: 0.2
+      secondSpEffectLastTime: 1
 --- !u!4 &1984319562
 Transform:
   m_ObjectHideFlags: 0
@@ -3453,39 +3471,41 @@ MonoBehaviour:
     specialEffectLastTime: 0
   baseInfo:
     name: ZiBaoChe
-    health: 50
-    speed: 10
+    speed: 7
     baseType: 1
     addonType: 2
     attackMode: 0
     lockMode: 1
     fireInterval: 999
     fireTime: 0.1
-    specialEffect: 0
+    specialEffect: 4
     secondSpecialEffect: 0
     levelRelatedProperties:
     - level: 1
+      health: 30
       range: 0.2
       viewRange: 2
-      damage: 150
+      damage: 40
       specialEffectModifier: 0
-      specialEffectLastTime: 0
+      specialEffectLastTime: 0.2
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
     - level: 2
+      health: 40
       range: 0.2
       viewRange: 2
-      damage: 200
+      damage: 60
       specialEffectModifier: 0
-      specialEffectLastTime: 0
+      specialEffectLastTime: 0.3
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
     - level: 3
+      health: 50
       range: 0.2
       viewRange: 2
-      damage: 250
+      damage: 100
       specialEffectModifier: 0
-      specialEffectLastTime: 0
+      specialEffectLastTime: 0.5
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
 --- !u!4 &2043911046
@@ -3588,7 +3608,7 @@ MonoBehaviour:
     addonType: 4
     attackMode: 0
     lockMode: 0
-    fireInterval: 0.75
+    fireInterval: 0.3
     fireTime: 0.2
     aoeRange: 0
     specialEffect: 1
@@ -3597,25 +3617,25 @@ MonoBehaviour:
     - level: 1
       cost: 0
       range: 2.5
-      damage: 10
-      specialEffectModifier: 1.05
+      damage: 6
+      specialEffectModifier: 1.1
       specialEffectLastTime: 3
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
     - level: 2
-      cost: 30
+      cost: 50
       range: 3
-      damage: 15
-      specialEffectModifier: 1.1
-      specialEffectLastTime: 4
+      damage: 7
+      specialEffectModifier: 1.15
+      specialEffectLastTime: 3.5
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
     - level: 3
-      cost: 50
+      cost: 60
       range: 3.5
-      damage: 20
+      damage: 12
       specialEffectModifier: 1.2
-      specialEffectLastTime: 5
+      specialEffectLastTime: 4
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
 --- !u!4 &2136447624
