@@ -152,6 +152,7 @@ public class BuidlingManager : MonoBehaviour
     {
         var wait1Time = new WaitForSeconds(1);
         _buildingUIPanel.SetActive(true);
+        MouseStateManager.Instance.SwitchState(MouseStateManager.MouseStates.Selecting, null);
 
         Vector3 buildingPos = _previewBuilding.transform.position;
         GameObject builfVFX = Instantiate(_buildingPlopVFX, buildingPos, Quaternion.identity);
@@ -209,9 +210,6 @@ public class BuidlingManager : MonoBehaviour
         {
             item.gameObject.SetActive(false);
         }
-
-
-
 
         MouseStateManager.Instance.SwitchState(MouseStateManager.MouseStates.Building,
                                              () => { Debug.Log("EnterBuildingState"); });

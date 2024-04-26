@@ -3322,11 +3322,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   disableSelfExam: 0
-  _directionalLinePrefab: {fileID: 7416556038332987479, guid: 9ab9288d3429cc44b9b25651c2a9722c,
+  _directionalLinePrefab: {fileID: 7416556038332987479, guid: 5227c6a251b8d164cbcf0e602ec4d8c2,
     type: 3}
   _reverseLinePrefab: {fileID: 7416556038332987479, guid: 9ab9288d3429cc44b9b25651c2a9722c,
     type: 3}
-  _pauseLinePrefab: {fileID: 7416556038332987479, guid: 9ab9288d3429cc44b9b25651c2a9722c,
+  _pauseLinePrefab: {fileID: 7416556038332987479, guid: b169894824658b74aa5c87d435fe4239,
     type: 3}
   _basicArchitectPrefabs:
   - code: T01
@@ -4637,7 +4637,7 @@ MonoBehaviour:
   _buildingPlopVFX: {fileID: 2560227431584268466, guid: 21ebf9d09e16ff546beae49d8bfddab1,
     type: 3}
   _dissolveTime: 0
-  _dissolveSpeed: 0.3
+  _dissolveSpeed: 0.5
   _buildingUIPanel: {fileID: 7836992}
   _previewBuilding: {fileID: 0}
   _buildingCode: 

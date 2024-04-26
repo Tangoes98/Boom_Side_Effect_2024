@@ -11,6 +11,12 @@ public class BuildingChecker : MonoBehaviour
             CanBuild = false;
             return;
         }
+        else if (other.CompareTag("Building"))
+        {
+            CanBuild = false;
+            return;
+        }
+
         CanBuild = true;
     }
 
@@ -21,17 +27,13 @@ public class BuildingChecker : MonoBehaviour
             CanBuild = true;
             return;
         }
-        CanBuild = false;
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (!other.CompareTag("BuildingArea"))
+        else if (other.CompareTag("Building"))
         {
-            CanBuild = false;
+            CanBuild = true;
             return;
         }
-        CanBuild = true;
+
+        CanBuild = false;
     }
 
 }

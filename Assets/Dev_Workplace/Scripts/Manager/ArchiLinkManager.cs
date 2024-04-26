@@ -111,6 +111,10 @@ public class ArchiLinkManager : MonoBehaviour
                                     : fromArchitect.Code, toArchitect.Code);
             Architect newArch = Build(pos,mutantCode);
             newArch.BaseArchitect = toArchitect.gameObject; // save for later
+            if (toArchitect.gameObject.transform == BuildingSelectionManager.Instance.CurrentSelectedBuilding)
+            {
+                BuildingSelectionManager.Instance.CurrentSelectedBuilding = newArch.BaseArchitect.transform;
+            }
             
             // copy status
             Architect baseArch = toArchitect;
@@ -158,6 +162,12 @@ public class ArchiLinkManager : MonoBehaviour
         baseArch.UpgradeTo(architect.level);
 
         architect.BaseArchitect.SetActive(true);
+
+        if (architect.gameObject.transform == BuildingSelectionManager.Instance.CurrentSelectedBuilding)
+        {
+            BuildingSelectionManager.Instance.CurrentSelectedBuilding = baseArch.transform;
+        }
+            
 
         foreach(var l in _links.Where(l=> l.ArchitectA==architect || l.ArchitectB==architect )) {
             if(l.ArchitectA==architect) l.ArchitectA=baseArch;
@@ -282,7 +292,7 @@ public class ArchiLinkManager : MonoBehaviour
         AddMeshColliderToLine(lineReverse, lineRenderer2);
 
         linePause.name = "pause";
-        LineRenderer lineRenderer3 = line.GetComponent<LineRenderer>();
+        LineRenderer lineRenderer3 = linePause.GetComponent<LineRenderer>();
         lineRenderer3.positionCount = waypoints.Length;
         lineRenderer3.SetPositions(waypoints);
         AddMeshColliderToLine(linePause, lineRenderer3);
