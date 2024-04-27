@@ -41,7 +41,7 @@ public class ArchiLinkManager : MonoBehaviour
     private Dictionary<Architect,Vector3> _architects = new();
     [SerializeField] private List<Link> _links;
 
-    Vector3 _linkOffset = new(0,2,0);
+    Vector3 _linkOffset = new(0,12,0);
 
     private void Awake() {
         if(_instance == null) {

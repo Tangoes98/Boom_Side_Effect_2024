@@ -205,10 +205,13 @@ public class BuidlingManager : MonoBehaviour
             item.GetComponent<MeshRenderer>().material = _buildingShadowMaterial;
         }
         //* Stop all buidling VFX
-        if (_buildingAssets.CanAttack) _buildingAssets.AttackVFX.gameObject.SetActive(false);
-        foreach (var item in _buildingAssets.ParticleSystems)
+        if (_buildingAssets.CanAttack && _buildingAssets.AttackVFX != null) _buildingAssets.AttackVFX.gameObject.SetActive(false);
+        if (_buildingAssets.ParticleSystems.Count > 0)
         {
-            item.gameObject.SetActive(false);
+            foreach (var item in _buildingAssets.ParticleSystems)
+            {
+                item.gameObject.SetActive(false);
+            }
         }
 
         MouseStateManager.Instance.SwitchState(MouseStateManager.MouseStates.Building,
@@ -226,12 +229,18 @@ public class BuidlingManager : MonoBehaviour
         var buildingCheacker = _previewBuilding.GetComponent<BuildingChecker>();
         if (!buildingCheacker.CanBuild)
         {
-            _previewBuilding.GetComponentInChildren<MeshRenderer>().material = _buildingForbidMaterial;
+            foreach (var item in _buildingAssets.Subassets)
+            {
+                item.GetComponent<MeshRenderer>().material = _buildingForbidMaterial;
+            }
             CanPlaceBuilding = false;
         }
         else
         {
-            _previewBuilding.GetComponentInChildren<MeshRenderer>().material = _buildingShadowMaterial;
+            foreach (var item in _buildingAssets.Subassets)
+            {
+                item.GetComponent<MeshRenderer>().material = _buildingShadowMaterial;
+            }
             CanPlaceBuilding = true;
         }
     }
