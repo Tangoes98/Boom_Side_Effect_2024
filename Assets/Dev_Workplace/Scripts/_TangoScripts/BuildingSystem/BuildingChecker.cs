@@ -6,32 +6,36 @@ public class BuildingChecker : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.CompareTag("Building"))
+        {
+            CanBuild = false;
+            return;
+        }
+
         if (!other.CompareTag("BuildingArea"))
         {
             CanBuild = false;
             return;
         }
-        else if (other.CompareTag("Building"))
-        {
-            CanBuild = false;
-            return;
-        }
+
 
         CanBuild = true;
     }
 
     private void OnTriggerExit(Collider other)
     {
+        if (other.CompareTag("Building"))
+        {
+            CanBuild = true;
+            return;
+        }
+        
         if (!other.CompareTag("BuildingArea"))
         {
             CanBuild = true;
             return;
         }
-        else if (other.CompareTag("Building"))
-        {
-            CanBuild = true;
-            return;
-        }
+
 
         CanBuild = false;
     }
