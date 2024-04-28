@@ -47,3 +47,9 @@ public enum SpecialEffect {
     POSION, //中毒
     DIZZY //眩晕
 }
+public enum DefenseTowerStateType
+{
+    IDLE,//待机状态 
+    INTERVAL,//间隔状态
+    ATTACK//攻击状态
+}

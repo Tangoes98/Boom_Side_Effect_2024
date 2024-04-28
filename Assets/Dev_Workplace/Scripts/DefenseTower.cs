@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using Yunhao_Fight;
 
 public class DefenseTower : Architect
 {
@@ -12,6 +14,9 @@ public class DefenseTower : Architect
 
     public override ArchitectBase Info() => baseInfo;
     public override ArchitectStatus Status() => status;
+
+    protected Dictionary<DefenseTowerStateType, IState> states = new Dictionary<DefenseTowerStateType, IState>();
+    public Enemy[] targets;
 
     public override void UpgradeTo(int level) {
         if(level==this.level) {
@@ -43,11 +48,89 @@ public class DefenseTower : Architect
 
     protected override void Awake() {
         base.Awake(); // keep this!
+
+        states.Add(DefenseTowerStateType.IDLE, new DefenseTowerIdleState(this));
+        states.Add(DefenseTowerStateType.INTERVAL, new DefenseTowerIntervalState(this));
+        states.Add(DefenseTowerStateType.ATTACK, new DefenseTowerAttackState(this));
+
+        TransitionState(DefenseTowerStateType.IDLE);
     }
 
-    private float GetDamage(out ModifierType modifierType) { // BUFF/DEBUFF
+    void Update()
+    {
+        currentState.onUpdate();
+    }
+
+    public float GetDamage(out ModifierType modifierType) { // BUFF/DEBUFF
         float modifier = ArchiLinkManager.Instance.GetModifier(Unstability, out modifierType);
         return status.damage * modifier;
     }
 
+    public void TransitionState(DefenseTowerStateType type)
+    {
+        if (currentState != null)
+        {
+            currentState.onExit();
+        }
+        currentState = states[type];
+        currentState.onEnter();
+    }
+
+    public Enemy[] GetEnemyInRange()
+    {
+        Collider[] attackTargets = Physics.OverlapSphere(this.transform.position, status.range, LevelManager.EnemyLayer());
+        Enemy[] enemies = attackTargets.Select(collider => collider.gameObject.GetComponent<Enemy>())
+                               .Where(enemy => enemy != null)
+                               .ToArray();
+        if (attackTargets.Length > 0)
+        {
+            //Debug.Log("Get a new enemy: " + enemy.name);
+            return enemies;
+        }
+        else return null;
+    }
+
+    public void Attack()
+    {
+        switch (status.attackMode)
+        {
+            case AttackMode.SINGLE_HIT:
+                StartCoroutine(SingleAttack());
+                break;
+            case AttackMode.CONTINUOUS:
+                StartCoroutine(ContinuousAttack());
+                break;
+        }
+    }
+    IEnumerator SingleAttack()
+    {
+        yield return new WaitForSeconds(status.fireTime);
+        DealDamage();
+    }
+    IEnumerator ContinuousAttack()
+    {
+        float timer = status.fireTime;
+        while (timer > 0)
+        {
+            timer -= 0.1f;
+            yield return new WaitForSeconds(0.1f);
+        }
+        DealDamage();
+    }
+    //应该拓展DealDamage和checkTarget就能处理成不同的建筑功能
+    protected virtual void DealDamage()
+    {
+        //暂时为单体。
+        targets[0].gameObject.SendMessage("TakeDamage", GetDamage(out modifiertype));//攻击最近的目标
+    }
+
+    public virtual bool checkTarget()//检测攻击对象是否存在
+    {
+        //暂时为单体。
+        bool isExist = targets[0] != null && Vector3.Distance(targets[0].transform.position, transform.position) < status.range;
+        return isExist;
+
+    }
+
 }
+
