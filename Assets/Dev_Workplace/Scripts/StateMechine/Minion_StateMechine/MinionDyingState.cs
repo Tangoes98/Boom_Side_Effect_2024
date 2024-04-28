@@ -13,7 +13,8 @@ public class MinionDyingState : IState
     }
     public void onEnter()
     {
-        manager.Barrack().DestroyMinion(manager);
+        if(manager.Info().minionType==MinionType.FRIEND) manager.Barrack().DestroyMinion(manager);
+        else LevelEditor.Instance.EnemyDie(manager);
     }
     public void onExit()
     {
