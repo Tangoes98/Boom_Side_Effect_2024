@@ -109,7 +109,11 @@ public class ArchiLinkManager : MonoBehaviour
             string mutantCode = GetMutantResult(fromArchitect.Info().isMutant? 
                                     fromArchitect.BaseArchitect.GetComponent<Architect>().Code 
                                     : fromArchitect.Code, toArchitect.Code);
+
+            _architects.Remove(toArchitect);
             Architect newArch = Build(pos,mutantCode);
+            _architects.TryAdd(newArch, pos);
+
             newArch.BaseArchitect = toArchitect.gameObject; // save for later
             if (toArchitect.gameObject.transform == BuildingSelectionManager.Instance.CurrentSelectedBuilding)
             {
@@ -142,9 +146,12 @@ public class ArchiLinkManager : MonoBehaviour
         return false;
     }
 
-    private string GetMutantResult(string fromArchitectCode, string toArchitectCode) 
-                            => _mutations.Where(m => m.baseArchitectCode == toArchitectCode && m.buffArchitectCode==fromArchitectCode)
+    private string GetMutantResult(string fromArchitectCode, string toArchitectCode) {
+        string mutantCode =  _mutations.Where(m => m.baseArchitectCode == toArchitectCode && m.buffArchitectCode==fromArchitectCode)
                                 .Select(m=>m.mutantArchitectCode).First();
+        Debug.Log(fromArchitectCode + "+" + toArchitectCode + "=" + mutantCode);
+        return mutantCode;
+    }
 
     private Architect UnMutate(Architect architect) {
         if(architect.BaseArchitect==null) {
@@ -173,6 +180,9 @@ public class ArchiLinkManager : MonoBehaviour
             if(l.ArchitectA==architect) l.ArchitectA=baseArch;
             if(l.ArchitectB==architect) l.ArchitectB=baseArch;
         }
+
+        _architects.Add(baseArch, baseArch.transform.position);
+        _architects.Remove(architect);
 
         Destroy(architect.gameObject);
         return baseArch;
@@ -390,14 +400,17 @@ public class ArchiLinkManager : MonoBehaviour
         }
        
         LineRenderer lineRenderer = _lineToMouse.GetComponent<LineRenderer>();
-        Vector3[] waypoints = GenerateCurveLine(tuple.Item2[1], tuple.Item2[0], 10);
+        Vector3[] waypoints = GenerateCurveLine(tuple.Item2[1]+ _linkOffset, tuple.Item2[0]+ _linkOffset, 10);
         lineRenderer.positionCount = waypoints.Length;
         lineRenderer.SetPositions(waypoints);
     }
 
     private Tuple<Architect,Vector3[]> FindClosestArchArray(Architect skipArch) {
         // 鼠标坐标，后续改
-        Vector3 mousePos = MouseController.Instance.GetMouseWorldPosition();
+        Vector3 startPos = skipArch==null? MouseController.Instance.GetMouseWorldPosition() :
+                                            skipArch.transform.position;
+        startPos.y = 0; // ensure ground level
+        //Debug.Log(mousePos);
 
         Vector3 closestPos = Vector3.zero;
         Architect closestArch = null;
@@ -415,7 +428,7 @@ public class ArchiLinkManager : MonoBehaviour
                 Debug.Log(arch.name + " all outlets occupied. Skip.");
                 continue; // skip arch with all outlets occupied
             }
-            float newDis = Vector3.Distance(mousePos, pos);
+            float newDis = Vector3.Distance(startPos, pos);
 
             if(dis>newDis) {
                 dis= newDis;
@@ -424,7 +437,7 @@ public class ArchiLinkManager : MonoBehaviour
             }
         }
 
-        return (closestArch==null)? null : new Tuple<Architect, Vector3[]> (closestArch, new Vector3[]{mousePos + _linkOffset ,closestPos + _linkOffset});
+        return (closestArch==null)? null : new Tuple<Architect, Vector3[]> (closestArch, new Vector3[]{startPos, closestPos});
     }
 
     public float GetModifier(int unstability, out ModifierType modifierType) {
