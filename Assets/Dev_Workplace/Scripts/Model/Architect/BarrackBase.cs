@@ -14,3 +14,8 @@ public class BarrackBase : ArchitectBase {
 
     public BarrackProperty[] properties;
 }
+public enum BarrackStateType
+{
+    IDLE,//´ý»ú×´Ì¬ 
+    SPAWN,//Éú²ú×´Ì¬
+}

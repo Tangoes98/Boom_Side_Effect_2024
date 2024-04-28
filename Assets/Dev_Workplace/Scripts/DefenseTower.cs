@@ -15,6 +15,7 @@ public class DefenseTower : Architect
     public override ArchitectBase Info() => baseInfo;
     public override ArchitectStatus Status() => status;
 
+    protected Dictionary<DefenseTowerStateType, IState> states = new Dictionary<DefenseTowerStateType, IState>();
     public Enemy[] targets;
 
     public override void UpgradeTo(int level) {
@@ -44,8 +45,9 @@ public class DefenseTower : Architect
         base.Awake(); // keep this!
 
         states.Add(DefenseTowerStateType.IDLE, new DefenseTowerIdleState(this));
-        states.Add(DefenseTowerStateType.INTERVAL, new DefenseTowerIdleState(this));
-        states.Add(DefenseTowerStateType.ATTACK, new DefenseTowerIdleState(this));
+        states.Add(DefenseTowerStateType.INTERVAL, new DefenseTowerIntervalState(this));
+        states.Add(DefenseTowerStateType.ATTACK, new DefenseTowerAttackState(this));
+
         TransitionState(DefenseTowerStateType.IDLE);
     }
 

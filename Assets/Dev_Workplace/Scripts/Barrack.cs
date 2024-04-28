@@ -14,6 +14,18 @@ public partial class Barrack : Architect
     public override ArchitectBase Info() => baseInfo;
     public override ArchitectStatus Status() => status;
 
+    Dictionary<BarrackStateType, IState> states = new Dictionary<BarrackStateType, IState>();
+
+    public Transform minionDestination
+    {
+        get
+        {
+            //计算默认位置
+            return minionDestination;
+        }
+        set => minionDestination = value;
+    }
+
     public override void UpgradeTo(int level) {
         if(level==this.level) {
             return;
@@ -28,6 +40,10 @@ public partial class Barrack : Architect
         status.manufactureInterval = baseInfo.manufactureInterval;
         status.manufactureTime = baseInfo.manufactureTime;
         status.minionPrefab = baseInfo.minionPrefab;
+
+        states.Add(BarrackStateType.IDLE, new BarrackIdleState(this));
+        states.Add(BarrackStateType.SPAWN, new BarrackSpawnState(this));
+        TransitionState(BarrackStateType.IDLE);
     }
 
     protected override void Awake() {
@@ -45,5 +61,16 @@ public partial class Barrack : Architect
 
     public void DestroyMinion(Minion minion) {
         status.currentMinions.Remove(minion);
+        Destroy(minion.gameObject);//改
+    }
+
+    public void TransitionState(BarrackStateType type)
+    {
+        if (currentState != null)
+        {
+            currentState.onExit();
+        }
+        currentState = states[type];
+        currentState.onEnter();
     }
 }

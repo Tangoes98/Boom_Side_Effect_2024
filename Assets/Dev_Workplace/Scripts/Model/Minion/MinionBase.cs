@@ -16,6 +16,8 @@ public class MinionBase {
 
     public LockMode lockMode;
 
+    public MinionType minionType;
+
     public float fireInterval;
 
     public float fireTime; // each fire take time
@@ -23,4 +25,18 @@ public class MinionBase {
     public SpecialEffect specialEffect;
 
     public MinionProperty[] levelRelatedProperties;
+}
+public enum MinionStateType
+{
+    IDLE,//´ý»ú×´Ì¬
+    VIEW,//Ë÷µÐ×·×Ù
+    INTERVAL,//¼ä¸ô×´Ì¬
+    ATTACK,//¹¥»÷×´Ì¬
+    DYING//±ôËÀ
+}
+
+public enum MinionType
+{
+    ENEMY,//µÐ¾ü 
+    FRIEND//ÓÑ¾ü
 }

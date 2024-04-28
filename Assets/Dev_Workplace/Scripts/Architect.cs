@@ -45,7 +45,6 @@ public abstract class Architect : MonoBehaviour
     protected ModifierType modifiertype;
 
     protected IState currentState;
-    protected Dictionary<DefenseTowerStateType, IState> states = new Dictionary<DefenseTowerStateType, IState>();
    
     protected virtual void Awake() {
         SelfExam();
