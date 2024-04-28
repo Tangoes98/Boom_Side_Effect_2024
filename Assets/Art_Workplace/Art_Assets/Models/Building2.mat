@@ -19,6 +19,7 @@ Material:
   - _MK_FRESNEL_HIGHLIGHTS
   - _MK_LIGHT_CEL
   - _MK_OUTLINE_HULL_CLIP
+  - _MK_OUTLINE_NOISE
   - _MK_RECEIVE_SHADOWS
   - _MK_SPECULAR_ISOTROPIC
   - _MK_WRAPPED_DIFFUSE
@@ -269,7 +270,7 @@ Material:
     - _OutlineData: 0
     - _OutlineFadeMax: 2
     - _OutlineFadeMin: 0.25
-    - _OutlineNoise: 0
+    - _OutlineNoise: 0.06
     - _OutlineSize: 100
     - _OutlineTab: 1
     - _Parallax: 0.005
