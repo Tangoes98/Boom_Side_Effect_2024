@@ -22,7 +22,7 @@ public class BarrackSpawnState : IState
 
     public void onExit()
     {
-        manager.ManufactureMinion()
+        manager.ManufactureMinion();
     }
 
     public void onUpdate()
