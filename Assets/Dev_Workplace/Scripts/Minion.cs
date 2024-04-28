@@ -7,6 +7,8 @@ using Yunhao_Fight;
 
 public class Minion : MonoBehaviour {
 
+    public string code;
+
     public int level;
     public ModifierType modifierType; // BUFF/DEBUFF/NONE, 可能会根据此变量，改变小兵外观（大小）
 
