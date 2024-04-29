@@ -229,7 +229,7 @@ Material:
     - _DetailNormalMapIntensity: 1
     - _DetailNormalMapScale: 1
     - _Diffuse: 0
-    - _DiffuseSmoothness: 0.286
+    - _DiffuseSmoothness: 0
     - _DiffuseThresholdOffset: 0.25
     - _Dissolve: 0
     - _DissolveAmount: 0.5
@@ -255,8 +255,8 @@ Material:
     - _IridescenceSmoothness: 0.5
     - _IridescenceThresholdOffset: 0
     - _Light: 2
-    - _LightBands: 4
-    - _LightBandsScale: 0.5
+    - _LightBands: 2
+    - _LightBandsScale: 0
     - _LightThreshold: 0.356
     - _LightTransmission: 0
     - _LightTransmissionDistortion: 0.25
@@ -282,7 +282,7 @@ Material:
     - _RenderPriority: 0
     - _Rim: 2
     - _RimSize: 1.66
-    - _RimSmoothness: 0.5
+    - _RimSmoothness: 0.289
     - _RimThresholdOffset: 0.25
     - _Roughness: 0.5
     - _Saturation: 1
@@ -292,7 +292,7 @@ Material:
     - _Specular: 1
     - _SpecularHighlights: 1
     - _SpecularIntensity: 1
-    - _SpecularSmoothness: 0
+    - _SpecularSmoothness: 0.161
     - _SpecularThresholdOffset: 0.25
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
