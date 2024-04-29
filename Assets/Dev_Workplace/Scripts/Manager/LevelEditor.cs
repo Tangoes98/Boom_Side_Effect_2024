@@ -67,8 +67,11 @@ public class LevelEditor : MonoBehaviour
     public void EnemyDie(Minion enemy) {
         EnemyOnStage.Remove(enemy);
         EnemyBase eb = enemyDict[enemy.code];
-        ResourceManager.Instance.DropResource(eb.resource);
+        
         Destroy(enemy.gameObject);
+
+        // add drop GEAR animation !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        ResourceManager.Instance.DropResource(eb.resource);
 
         if(IsCurrentWaveDone()) {
             if(_waveQueue.Count == 0) {
