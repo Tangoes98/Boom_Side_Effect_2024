@@ -7,18 +7,17 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Particle_FireHead
-  m_Shader: {fileID: 4800000, guid: 51b152e3ee06f564eaa1ec9cb3a1c5c9, type: 3}
+  m_Name: Chara_Radiation
+  m_Shader: {fileID: 4800000, guid: 99835d13b72a0b64389a242f47f3a8db, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
-  - _ENABLECONTACT_ON
+  m_ValidKeywords: []
   m_InvalidKeywords:
   - _CASTSHADOWS_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: 
@@ -26,26 +25,26 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 9f4d574998647b9419e690407736a019, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SelfShadowRampTex:
+        m_Texture: {fileID: 2800000, guid: 4e2a8292e29533445b57467df9211be4, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _ShadowMapRampTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 2dfa0d577c23f034fb434d2faf947b91, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _BottomY: 4.45
     - _CastShadows: 1
-    - _DepthPower: 0.5
-    - _EnableContact: 1
-    - _GradientScale: 1.4
-    - _TipOffset: 0
-    - _TipY: 4.6
+    - _NormalStrength: 0.5
     m_Colors:
-    - _BasePosWS: {r: 0, g: 1, b: 0, a: 1}
-    - _BasePosition: {r: 0, g: 0, b: 0, a: 0}
-    - _BottomColor: {r: 0.8901961, g: 0.6062235, b: 0.77111095, a: 1}
-    - _TintColor: {r: 0.8705883, g: 0.5019608, b: 0.74509805, a: 1}
-    - _TipColor: {r: 0.801, g: 0.07369196, b: 0.78060806, a: 1}
+    - _AmbientColor: {r: 0.98307383, g: 1, b: 0.759434, a: 1}
+    - _ShadowColor: {r: 0.25178748, g: 0.2830189, b: 0.081434675, a: 1}
   m_BuildTextureStacks: []
