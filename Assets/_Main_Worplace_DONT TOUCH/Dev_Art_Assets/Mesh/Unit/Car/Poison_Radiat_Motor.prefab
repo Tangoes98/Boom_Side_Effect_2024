@@ -474,7 +474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94df330358919a445ae695ab9b26a73d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 0}
+  _animator: {fileID: 2321540482531238809}
   _moveAnimation: Poison_Radiat_Motor_Move
   _stopAnimation: Poison_Radiat_Motor_Stop
   _crossfadeDuration: 0.5

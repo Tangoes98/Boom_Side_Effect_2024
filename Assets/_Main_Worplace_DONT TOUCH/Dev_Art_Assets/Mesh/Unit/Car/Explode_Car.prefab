@@ -235,7 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94df330358919a445ae695ab9b26a73d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 0}
+  _animator: {fileID: -1129487722269975771}
   _moveAnimation: Explodecar_Forward_Move
   _stopAnimation: Explodecar_Forward_Stop
   _crossfadeDuration: 0.5

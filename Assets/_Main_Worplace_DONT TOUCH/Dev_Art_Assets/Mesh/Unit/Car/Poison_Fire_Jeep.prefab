@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94df330358919a445ae695ab9b26a73d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 0}
+  _animator: {fileID: -5034094644831194663}
   _moveAnimation: Posion_Fire_Jeep_Move
   _stopAnimation: Posion_Fire_Jeep_Stop
   _crossfadeDuration: 0.5
