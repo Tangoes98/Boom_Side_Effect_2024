@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Unstability : MonoBehaviour
 {
-     int _currentUnstabilityLevel;
+    int _currentUnstabilityLevel;
     [SerializeField] List<Transform> _unstability = new();
     Dictionary<int, Transform> _unstabilityPairs = new();
 
@@ -18,6 +18,7 @@ public class Unstability : MonoBehaviour
 
     private void Update()
     {
+        _currentUnstabilityLevel = GetComponentInParent<Architect>().Unstability;
         UpdateRankTransform();
     }
 
