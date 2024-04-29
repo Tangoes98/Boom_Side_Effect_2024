@@ -56,7 +56,7 @@ public class LevelEditor : MonoBehaviour
         foreach(var seb in enemies) {
             EnemyBase eb = enemyDict[seb.code];
             for(int i = 0; i<seb.number; i++) {
-                GameObject enemy = Instantiate(eb.enemyPrefab, seb.spawnLocation, Quaternion.identity);
+                GameObject enemy = Instantiate(eb.enemyPrefab, seb.spawnLocation.position, Quaternion.identity);
                 var script = enemy.GetComponent<Minion>();
                 script.code = eb.code;
                 EnemyOnStage.Add(script);
