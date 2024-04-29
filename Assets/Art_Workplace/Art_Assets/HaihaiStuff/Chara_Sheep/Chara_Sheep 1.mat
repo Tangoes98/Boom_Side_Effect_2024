@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Chara_Sheep
+  m_Name: Chara_Sheep 1
   m_Shader: {fileID: 4800000, guid: 99835d13b72a0b64389a242f47f3a8db, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
