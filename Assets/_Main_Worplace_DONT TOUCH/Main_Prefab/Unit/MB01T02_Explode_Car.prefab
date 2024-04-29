@@ -1,0 +1,183 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3854347739719651370
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3494059298417077787}
+  - component: {fileID: 3803593518565151252}
+  m_Layer: 0
+  m_Name: MB01T02_Explode_Car
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3494059298417077787
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3854347739719651370}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 408180340029200661}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3803593518565151252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3854347739719651370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0660118fd51642ef88dab267d21b63b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  code: 
+  level: 0
+  modifierType: 0
+  status:
+    health: 0
+    maxHealth: 0
+    speed: 0
+    range: 0
+    viewRange: 0
+    attackMode: 0
+    lockMode: 0
+    fireInterval: 0
+    fireTime: 0
+    damage: 0
+    specialEffect: 0
+    specialEffectModifier: 0
+    specialEffectLastTime: 0
+    secondSpEffect: 0
+    secondSpEffectModifier: 0
+    secondSpEffectLastTime: 0
+  baseInfo:
+    name: ZiBaoChe
+    speed: 7
+    baseType: 1
+    addonType: 2
+    attackMode: 0
+    lockMode: 1
+    minionType: 0
+    fireInterval: 999
+    fireTime: 0.1
+    specialEffect: 4
+    secondSpecialEffect: 0
+    levelRelatedProperties:
+    - level: 1
+      health: 30
+      range: 0.2
+      viewRange: 2
+      damage: 40
+      specialEffectModifier: 0
+      specialEffectLastTime: 0.2
+      secondSpEffectModifier: 0
+      secondSpEffectLastTime: 0
+    - level: 2
+      health: 40
+      range: 0.2
+      viewRange: 2
+      damage: 60
+      specialEffectModifier: 0
+      specialEffectLastTime: 0.3
+      secondSpEffectModifier: 0
+      secondSpEffectLastTime: 0
+    - level: 3
+      health: 50
+      range: 0.2
+      viewRange: 2
+      damage: 100
+      specialEffectModifier: 0
+      specialEffectLastTime: 0.5
+      secondSpEffectModifier: 0
+      secondSpEffectLastTime: 0
+  moveDestination: {fileID: 0}
+  agent: {fileID: 0}
+--- !u!1001 &4905484165428481900
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3494059298417077787}
+    m_Modifications:
+    - target: {fileID: 4736064976544208505, guid: 4f999cd873d2d084484c1463373a79de,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4736064976544208505, guid: 4f999cd873d2d084484c1463373a79de,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4736064976544208505, guid: 4f999cd873d2d084484c1463373a79de,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4736064976544208505, guid: 4f999cd873d2d084484c1463373a79de,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4736064976544208505, guid: 4f999cd873d2d084484c1463373a79de,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4736064976544208505, guid: 4f999cd873d2d084484c1463373a79de,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4736064976544208505, guid: 4f999cd873d2d084484c1463373a79de,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4736064976544208505, guid: 4f999cd873d2d084484c1463373a79de,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4736064976544208505, guid: 4f999cd873d2d084484c1463373a79de,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4736064976544208505, guid: 4f999cd873d2d084484c1463373a79de,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4943288539083598259, guid: 4f999cd873d2d084484c1463373a79de,
+        type: 3}
+      propertyPath: m_Name
+      value: Explode_Car
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4f999cd873d2d084484c1463373a79de, type: 3}
+--- !u!4 &408180340029200661 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4736064976544208505, guid: 4f999cd873d2d084484c1463373a79de,
+    type: 3}
+  m_PrefabInstance: {fileID: 4905484165428481900}
+  m_PrefabAsset: {fileID: 0}

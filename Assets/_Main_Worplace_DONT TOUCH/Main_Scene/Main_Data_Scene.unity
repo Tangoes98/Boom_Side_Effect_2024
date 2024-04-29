@@ -460,6 +460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0660118fd51642ef88dab267d21b63b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  code: 
   level: 0
   modifierType: 0
   status:
@@ -486,6 +487,7 @@ MonoBehaviour:
     addonType: 0
     attackMode: 0
     lockMode: 1
+    minionType: 0
     fireInterval: 1.5
     fireTime: 0.2
     specialEffect: 3
@@ -518,6 +520,8 @@ MonoBehaviour:
       specialEffectLastTime: 2
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
+  moveDestination: {fileID: 0}
+  agent: {fileID: 0}
 --- !u!4 &279573635
 Transform:
   m_ObjectHideFlags: 0
@@ -620,6 +624,7 @@ MonoBehaviour:
       specialEffectLastTime: 1
       secondSpEffectModifier: -3
       secondSpEffectLastTime: 1
+  targets: []
 --- !u!4 &292361153
 Transform:
   m_ObjectHideFlags: 0
@@ -876,6 +881,7 @@ MonoBehaviour:
       specialEffectLastTime: 0
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
+  targets: []
 --- !u!4 &355567690
 Transform:
   m_ObjectHideFlags: 0
@@ -920,6 +926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0660118fd51642ef88dab267d21b63b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  code: 
   level: 0
   modifierType: 0
   status:
@@ -946,6 +953,7 @@ MonoBehaviour:
     addonType: 3
     attackMode: 0
     lockMode: 1
+    minionType: 0
     fireInterval: 1.5
     fireTime: 0.5
     specialEffect: 3
@@ -978,6 +986,8 @@ MonoBehaviour:
       specialEffectLastTime: 2
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
+  moveDestination: {fileID: 0}
+  agent: {fileID: 0}
 --- !u!4 &377707097
 Transform:
   m_ObjectHideFlags: 0
@@ -1267,6 +1277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0660118fd51642ef88dab267d21b63b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  code: 
   level: 0
   modifierType: 0
   status:
@@ -1293,6 +1304,7 @@ MonoBehaviour:
     addonType: 0
     attackMode: 0
     lockMode: 1
+    minionType: 0
     fireInterval: 1.2
     fireTime: 0.5
     specialEffect: 0
@@ -1325,6 +1337,8 @@ MonoBehaviour:
       specialEffectLastTime: 0
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
+  moveDestination: {fileID: 0}
+  agent: {fileID: 0}
 --- !u!4 &485391594
 Transform:
   m_ObjectHideFlags: 0
@@ -1427,6 +1441,7 @@ MonoBehaviour:
       specialEffectLastTime: 4
       secondSpEffectModifier: -1
       secondSpEffectLastTime: 4
+  targets: []
 --- !u!4 &503792570
 Transform:
   m_ObjectHideFlags: 0
@@ -1529,6 +1544,7 @@ MonoBehaviour:
       specialEffectLastTime: 0.5
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
+  targets: []
 --- !u!4 &631736405
 Transform:
   m_ObjectHideFlags: 0
@@ -1573,6 +1589,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0660118fd51642ef88dab267d21b63b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  code: 
   level: 0
   modifierType: 0
   status:
@@ -1599,6 +1616,7 @@ MonoBehaviour:
     addonType: 3
     attackMode: 0
     lockMode: 1
+    minionType: 0
     fireInterval: 2
     fireTime: 0.2
     specialEffect: 3
@@ -1631,6 +1649,8 @@ MonoBehaviour:
       specialEffectLastTime: 3
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
+  moveDestination: {fileID: 0}
+  agent: {fileID: 0}
 --- !u!4 &705613111
 Transform:
   m_ObjectHideFlags: 0
@@ -1675,6 +1695,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0660118fd51642ef88dab267d21b63b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  code: 
   level: 0
   modifierType: 0
   status:
@@ -1701,6 +1722,7 @@ MonoBehaviour:
     addonType: 4
     attackMode: 1
     lockMode: 1
+    minionType: 0
     fireInterval: 1
     fireTime: 999
     specialEffect: 0
@@ -1733,6 +1755,8 @@ MonoBehaviour:
       specialEffectLastTime: 0
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
+  moveDestination: {fileID: 0}
+  agent: {fileID: 0}
 --- !u!4 &806610727
 Transform:
   m_ObjectHideFlags: 0
@@ -1777,6 +1801,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0660118fd51642ef88dab267d21b63b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  code: 
   level: 0
   modifierType: 0
   status:
@@ -1803,6 +1828,7 @@ MonoBehaviour:
     addonType: 1
     attackMode: 1
     lockMode: 1
+    minionType: 0
     fireInterval: 1.5
     fireTime: 999
     specialEffect: 0
@@ -1835,6 +1861,8 @@ MonoBehaviour:
       specialEffectLastTime: 0
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
+  moveDestination: {fileID: 0}
+  agent: {fileID: 0}
 --- !u!4 &998006886
 Transform:
   m_ObjectHideFlags: 0
@@ -1879,6 +1907,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0660118fd51642ef88dab267d21b63b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  code: 
   level: 0
   modifierType: 0
   status:
@@ -1905,6 +1934,7 @@ MonoBehaviour:
     addonType: 4
     attackMode: 0
     lockMode: 1
+    minionType: 0
     fireInterval: 2.5
     fireTime: 0.5
     specialEffect: 4
@@ -1937,6 +1967,8 @@ MonoBehaviour:
       specialEffectLastTime: 0.5
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
+  moveDestination: {fileID: 0}
+  agent: {fileID: 0}
 --- !u!4 &1011761947
 Transform:
   m_ObjectHideFlags: 0
@@ -2039,6 +2071,7 @@ MonoBehaviour:
       specialEffectLastTime: 1
       secondSpEffectModifier: 0.2
       secondSpEffectLastTime: 1
+  targets: []
 --- !u!4 &1023890469
 Transform:
   m_ObjectHideFlags: 0
@@ -2262,6 +2295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0660118fd51642ef88dab267d21b63b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  code: 
   level: 0
   modifierType: 0
   status:
@@ -2288,6 +2322,7 @@ MonoBehaviour:
     addonType: 2
     attackMode: 1
     lockMode: 1
+    minionType: 0
     fireInterval: 0.5
     fireTime: 999
     specialEffect: 3
@@ -2320,6 +2355,8 @@ MonoBehaviour:
       specialEffectLastTime: 1
       secondSpEffectModifier: -2
       secondSpEffectLastTime: 1
+  moveDestination: {fileID: 0}
+  agent: {fileID: 0}
 --- !u!4 &1260506922
 Transform:
   m_ObjectHideFlags: 0
@@ -2364,6 +2401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0660118fd51642ef88dab267d21b63b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  code: 
   level: 0
   modifierType: 0
   status:
@@ -2390,6 +2428,7 @@ MonoBehaviour:
     addonType: 1
     attackMode: 0
     lockMode: 1
+    minionType: 0
     fireInterval: 1.5
     fireTime: 0.5
     specialEffect: 0
@@ -2422,6 +2461,8 @@ MonoBehaviour:
       specialEffectLastTime: 0
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
+  moveDestination: {fileID: 0}
+  agent: {fileID: 0}
 --- !u!4 &1263848522
 Transform:
   m_ObjectHideFlags: 0
@@ -2524,6 +2565,7 @@ MonoBehaviour:
       specialEffectLastTime: 1
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
+  targets: []
 --- !u!4 &1344144905
 Transform:
   m_ObjectHideFlags: 0
@@ -2886,6 +2928,7 @@ MonoBehaviour:
       specialEffectLastTime: 1
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
+  targets: []
 --- !u!4 &1616811439
 Transform:
   m_ObjectHideFlags: 0
@@ -2998,6 +3041,7 @@ MonoBehaviour:
     specialEffect: 0
     secondSpEffect: 0
     levelRelatedProperties: []
+  targets: []
 --- !u!65 &1884036403
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3248,6 +3292,7 @@ MonoBehaviour:
       specialEffectLastTime: 5
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
+  targets: []
 --- !u!4 &1938192416
 Transform:
   m_ObjectHideFlags: 0
@@ -3350,6 +3395,7 @@ MonoBehaviour:
       specialEffectLastTime: 1
       secondSpEffectModifier: 0.2
       secondSpEffectLastTime: 1
+  targets: []
 --- !u!4 &1984319562
 Transform:
   m_ObjectHideFlags: 0
@@ -3512,6 +3558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0660118fd51642ef88dab267d21b63b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  code: 
   level: 0
   modifierType: 0
   status:
@@ -3538,6 +3585,7 @@ MonoBehaviour:
     addonType: 2
     attackMode: 0
     lockMode: 1
+    minionType: 0
     fireInterval: 999
     fireTime: 0.1
     specialEffect: 4
@@ -3570,6 +3618,8 @@ MonoBehaviour:
       specialEffectLastTime: 0.5
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
+  moveDestination: {fileID: 0}
+  agent: {fileID: 0}
 --- !u!4 &2043911046
 Transform:
   m_ObjectHideFlags: 0
@@ -3703,6 +3753,7 @@ MonoBehaviour:
       specialEffectLastTime: 4
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
+  targets: []
 --- !u!4 &2136447624
 Transform:
   m_ObjectHideFlags: 0
