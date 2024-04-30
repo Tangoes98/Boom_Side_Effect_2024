@@ -24,6 +24,16 @@ public class MinionViewState : IState
     }
     public void onUpdate()
     {
+        //Èç¹ûµĞÈË½øÈë¹¥»÷·¶Î§£¬ÇĞ»»µ½¹¥»÷×´Ì¬
+        Minion[] targets = manager.GetOppenentInRange(status.range);
+        if (targets != null)
+        {
+            manager.targets = targets;
+            manager.TransitionState(MinionStateType.ATTACK);
+
+            return;
+        }
+
         //µĞ·½ÏûÊ§»òµĞ·½Àë¿ªË÷µĞ·¶Î§£¬ÇĞ»»»Ø´ı»ú
         if (manager.targets == null || 
             Vector3.Distance(viewTarget.transform.position, manager.transform.position) >= status.viewRange)

@@ -32,7 +32,8 @@ public enum MinionStateType
     VIEW,//Ë÷µÐ×·×Ù
     INTERVAL,//¼ä¸ô×´Ì¬
     ATTACK,//¹¥»÷×´Ì¬
-    DYING//±ôËÀ
+    DYING,//±ôËÀ
+    DIZZY//Ñ£ÔÎ
 }
 
 public enum MinionType

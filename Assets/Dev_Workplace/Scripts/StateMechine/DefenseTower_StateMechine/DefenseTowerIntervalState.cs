@@ -21,11 +21,15 @@ public class DefenseTowerIntervalState : IState
 
     public void onExit()
     {
-        
+        timer = status.fireInterval;
     }
 
     public void onUpdate()
     {
+        if (!manager.checkTarget()) {
+            manager.TransitionState(DefenseTowerStateType.IDLE);
+            return;
+        }
         timer -= Time.deltaTime;
         if (timer <= 0)
         {

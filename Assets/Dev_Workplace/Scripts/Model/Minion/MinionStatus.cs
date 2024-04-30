@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
@@ -21,15 +22,16 @@ public class MinionStatus {
     
     public float damage;
 
-    public SpecialEffect specialEffect;
-
     [Header("额外5%写1.05，减0.5写-0.5")]
+    public SpecialEffect specialEffect; 
     public float specialEffectModifier;
-
     public float specialEffectLastTime;
 
     public SpecialEffect secondSpEffect;
     public float secondSpEffectModifier;
     public float secondSpEffectLastTime;
-    
+
+    public Dictionary<SpecialEffect, Effect> gotEffects;
+    public float takeDamageModifer;
+
 }

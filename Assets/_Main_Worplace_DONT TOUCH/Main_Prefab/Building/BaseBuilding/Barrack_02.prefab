@@ -129,7 +129,8 @@ MonoBehaviour:
     maxLinkNum: 4
     manufactureInterval: 8
     manufactureTime: 0.5
-    minionPrefab: {fileID: 0}
+    minionPrefab: {fileID: 7777447231491799731, guid: d428ab1da0b6176419d94cf5313828e0,
+      type: 3}
     properties:
     - level: 1
       cost: 70

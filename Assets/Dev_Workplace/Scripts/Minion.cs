@@ -1,8 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 using Yunhao_Fight;
 
 public class Minion : MonoBehaviour {
@@ -21,11 +25,13 @@ public class Minion : MonoBehaviour {
     public Barrack Barrack() => _parent;
 
     public Minion[] targets{get; set;}
-    public Transform moveDestination;
-    public NavMeshAgent agent;
+    public Vector3 moveDestination { get; set; }
+    public NavMeshAgent agent { get; set; }
 
-    IState currentState;
-    Dictionary<MinionStateType, IState> states = new Dictionary<MinionStateType, IState>();
+    protected IState currentState;
+    protected Dictionary<MinionStateType, IState> states = new Dictionary<MinionStateType, IState>();
+
+    [SerializeField] TextMeshProUGUI stateLabel;
 
     public void Initialize(Barrack parent) {
         _parent = parent;
@@ -43,6 +49,7 @@ public class Minion : MonoBehaviour {
         status.lockMode = baseInfo.lockMode;
         status.fireInterval = baseInfo.fireInterval;
         status.fireTime = baseInfo.fireTime;
+        
 
         status.specialEffect = baseInfo.specialEffect;
         status.specialEffectModifier = prop.specialEffectModifier;
@@ -51,9 +58,15 @@ public class Minion : MonoBehaviour {
         status.secondSpEffect = baseInfo.secondSpecialEffect;
         status.secondSpEffectModifier = prop.secondSpEffectModifier;
         status.secondSpEffectLastTime = prop.secondSpEffectLastTime;
-        moveDestination = baseInfo.minionType == MinionType.ENEMY? LevelManager.BaseDestination():_parent.minionDestination;
 
-        agent = this.GetComponent<NavMeshAgent>();
+        status.gotEffects = new Dictionary<SpecialEffect, Effect>();
+        status.takeDamageModifer = 1f;
+
+        moveDestination = baseInfo.minionType == MinionType.ENEMY? LevelManager.BaseDestination().position:_parent.minionDestination;
+
+        status.speed = baseInfo.speed;//也许要改
+
+        createAgent();
 
         states.Add(MinionStateType.IDLE, new MinionIdleState(this));
         states.Add(MinionStateType.INTERVAL, new MinionIntervalState(this));
@@ -62,18 +75,19 @@ public class Minion : MonoBehaviour {
         states.Add(MinionStateType.DYING, new MinionDyingState(this));
 
         TransitionState(MinionStateType.IDLE);
-
+        
         SendMessage("InitializeHealth", status.maxHealth);
     }
 
     void Update()
     {
+        UpdateEffect();
         currentState.onUpdate();
     }
 
-    private MinionProperty GetBaseProperty(int level)  => baseInfo.levelRelatedProperties.Where(p=>p.level==level).First();
+    protected MinionProperty GetBaseProperty(int level)  => baseInfo.levelRelatedProperties.Where(p=>p.level==level).First();
 
-    private float GetMinionDamageAndHealthModifier(int unstability) => ArchiLinkManager.Instance.GetModifier(unstability, out modifierType);
+    protected float GetMinionDamageAndHealthModifier(int unstability) => ArchiLinkManager.Instance.GetModifier(unstability, out modifierType);
 
     public void SelfDestroy() {
         _parent.DestroyMinion(this);
@@ -81,7 +95,8 @@ public class Minion : MonoBehaviour {
 
     public Minion[] GetOppenentInRange(float range)
     {
-        Collider[] attackTargets = Physics.OverlapSphere(this.transform.position, range, LevelManager.EnemyLayer());
+        LayerMask OppenetLayer = (baseInfo.minionType == MinionType.FRIEND) ? LevelManager.EnemyLayer() : LevelManager.FriendLayer();
+        Collider[] attackTargets = Physics.OverlapSphere(this.transform.position, range, OppenetLayer);
         Minion[] minions = attackTargets.Select(collider => collider.gameObject.GetComponent<Minion>())
                                .Where(enemy => enemy != null)
                                .ToArray();
@@ -99,24 +114,67 @@ public class Minion : MonoBehaviour {
         }
         currentState = states[type];
         currentState.onEnter();
+
+        stateLabel.text=type.ToString();
     }
     
     public virtual void Attack(Minion target)
     {
-        //targets[0].gameObject.SendMessage("TakeDamage", GetDamage(out modifiertype));//攻击最近的目标
+        target.TakeEffect(status.specialEffect,level);
+        target.TakeEffect(status.secondSpEffect, level);
+        target.TakeDamage(status.damage);
     }
 
-    void InitializeHealth(float health)
-    {
-        status.health = health;
-    }
     void TakeDamage(float damage)
     {
+        damage *= status.takeDamageModifer;
         status.health = Mathf.Clamp(status.health - damage, 0, status.maxHealth);
+        GetComponentInChildren<Slider>().value = status.health;
         if (status.health <= 0)
         {
             TransitionState(MinionStateType.DYING);
         }
+    }
+    void TakeEffect(SpecialEffect type, int level)
+    {
+        if (type == SpecialEffect.NONE) return;
+        if (!status.gotEffects.TryGetValue(type, out Effect existingeffect))
+        {
+            status.gotEffects.Add(type, new Effect());
+        }
+        status.gotEffects[type].AddEffect(type, level);
+    }
+    void UpdateEffect()
+    {
+        foreach(var gotEffect in status.gotEffects)
+        {
+            SpecialEffect specialEffect = gotEffect.Key;
+            Effect effect = gotEffect.Value;
+
+            effect.UpdateEffect(Time.deltaTime);
+            switch (specialEffect)
+            {
+                case SpecialEffect.WEAK:
+                    status.takeDamageModifer = 1 + effect.effect.modifier;
+                    break;
+                case SpecialEffect.POSION:
+                    SendMessage("TakeDamage",effect.effect.modifier*status.maxHealth);
+                    break;
+                case SpecialEffect.SLOW:
+                    agent.speed=status.speed=agent.speed* effect.effect.modifier;
+                    break;
+                case SpecialEffect.DIZZY:
+                    TransitionState(MinionStateType.DIZZY);
+                    break;
+                    
+            }
+        }
+    }
+    void createAgent()
+    {
+        this.transform.position=_parent.GetSpawnPosition();
+
+        agent = gameObject.AddComponent(typeof(NavMeshAgent)) as NavMeshAgent;
     }
 
     void OnDrawGizmosSelected()

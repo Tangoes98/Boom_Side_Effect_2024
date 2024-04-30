@@ -23,6 +23,7 @@ public class BarrackSpawnState : IState
     public void onExit()
     {
         manager.ManufactureMinion();
+        time = status.manufactureTime;
     }
 
     public void onUpdate()
