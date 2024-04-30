@@ -22,7 +22,7 @@ public class BarrackIdleState : IState
 
     public void onExit()
     {
-
+        time = status.manufactureInterval;
     }
 
     public void onUpdate()

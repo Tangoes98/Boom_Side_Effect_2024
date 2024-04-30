@@ -18,7 +18,7 @@ public class DefenseTowerAttackState : IState
 
     public void onEnter()
     {
-        
+        manager.Attack();
     }
 
     public void onExit()
@@ -28,8 +28,7 @@ public class DefenseTowerAttackState : IState
 
     public void onUpdate()
     {
-        if(manager.checkTarget()) manager.TransitionState(DefenseTowerStateType.IDLE);
-        manager.Attack();
+        if(!manager.checkTarget()) manager.TransitionState(DefenseTowerStateType.IDLE);
     }
 
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using Yunhao_Fight;
 
@@ -18,10 +19,12 @@ public class DefenseTower : Architect
     protected Dictionary<DefenseTowerStateType, IState> states = new Dictionary<DefenseTowerStateType, IState>();
     public Enemy[] targets;
 
+    [SerializeField] TextMeshProUGUI stateLabel;
+
     public override void UpgradeTo(int level) {
-        if(level==this.level) {
-            return;
-        }
+        //if(level==this.level) {
+        //    return;
+        //}
         this.level = level;
         DefenseTowerProperty prop = (DefenseTowerProperty) GetBaseProperty(level);
         // refresh all properties
@@ -48,6 +51,7 @@ public class DefenseTower : Architect
 
     protected override void Awake() {
         base.Awake(); // keep this!
+        Reload();
 
         states.Add(DefenseTowerStateType.IDLE, new DefenseTowerIdleState(this));
         states.Add(DefenseTowerStateType.INTERVAL, new DefenseTowerIntervalState(this));
@@ -74,6 +78,8 @@ public class DefenseTower : Architect
         }
         currentState = states[type];
         currentState.onEnter();
+
+        stateLabel.text = type.ToString();
     }
 
     public Enemy[] GetEnemyInRange()
@@ -110,12 +116,12 @@ public class DefenseTower : Architect
     IEnumerator ContinuousAttack()
     {
         float timer = status.fireTime;
-        while (timer > 0)
+        while (timer > 0 && checkTarget())
         {
+            DealDamage();
             timer -= 0.1f;
             yield return new WaitForSeconds(0.1f);
         }
-        DealDamage();
     }
     //应该拓展DealDamage和checkTarget就能处理成不同的建筑功能
     protected virtual void DealDamage()
@@ -127,7 +133,7 @@ public class DefenseTower : Architect
     public virtual bool checkTarget()//检测攻击对象是否存在
     {
         //暂时为单体。
-        bool isExist = targets[0] != null && Vector3.Distance(targets[0].transform.position, transform.position) < status.range;
+        bool isExist = targets[0] != null && Vector3.Distance(targets[0].transform.position, this.transform.position) < status.range;
         return isExist;
 
     }
