@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6324976587947042098
+--- !u!1 &7425934711789390196
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,38 +8,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2522871506717477651}
-  - component: {fileID: 2475771014167581330}
-  m_Layer: 0
-  m_Name: MB01B02_Poison_Fire_Jeep
+  - component: {fileID: 4876111969156795941}
+  - component: {fileID: 6360705245605550445}
+  - component: {fileID: 7052577402766275384}
+  m_Layer: 9
+  m_Name: MB02_Sheep1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2522871506717477651
+--- !u!4 &4876111969156795941
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6324976587947042098}
+  m_GameObject: {fileID: 7425934711789390196}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2523572887800894351}
+  - {fileID: 682807133819012252}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2475771014167581330
+--- !u!114 &6360705245605550445
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6324976587947042098}
+  m_GameObject: {fileID: 7425934711789390196}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d0660118fd51642ef88dab267d21b63b, type: 3}
@@ -65,107 +66,132 @@ MonoBehaviour:
     secondSpEffect: 0
     secondSpEffectModifier: 0
     secondSpEffectLastTime: 0
+    takeDamageModifer: 0
   baseInfo:
-    name: BaoRanJiPu
-    speed: 5
-    baseType: 1
-    addonType: 3
+    name: DuSuBing
+    speed: 3
+    baseType: 3
+    addonType: 0
     attackMode: 0
     lockMode: 1
-    minionType: 0
+    minionType: 1
     fireInterval: 1.5
-    fireTime: 0.5
+    fireTime: 1
     specialEffect: 3
     secondSpecialEffect: 0
     levelRelatedProperties:
     - level: 1
-      health: 30
-      range: 0
-      viewRange: 2
-      damage: 5
+      health: 20
+      range: 5
+      viewRange: 20
+      damage: 3
       specialEffectModifier: 0.05
       specialEffectLastTime: 2
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
     - level: 2
-      health: 42
-      range: 0
+      health: 25
+      range: 0.5
       viewRange: 2
-      damage: 10
-      specialEffectModifier: 0.07
-      specialEffectLastTime: 2
-      secondSpEffectModifier: 0
-      secondSpEffectLastTime: 0
-    - level: 3
-      health: 55
-      range: 0
-      viewRange: 2
-      damage: 15
+      damage: 5
       specialEffectModifier: 0.1
       specialEffectLastTime: 2
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
-  moveDestination: {fileID: 0}
-  agent: {fileID: 0}
---- !u!1001 &4902255402054395934
+    - level: 3
+      health: 30
+      range: 0.5
+      viewRange: 2
+      damage: 7
+      specialEffectModifier: 0.15
+      specialEffectLastTime: 2
+      secondSpEffectModifier: 0
+      secondSpEffectLastTime: 0
+  <targets>k__BackingField: []
+  _stateLabel: 
+  animationController: {fileID: 0}
+--- !u!136 &7052577402766275384
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7425934711789390196}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.35
+  m_Height: 5.21
+  m_Direction: 1
+  m_Center: {x: 0, y: 2.59, z: 0}
+--- !u!1001 &2692223803400409885
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2522871506717477651}
+    m_TransformParent: {fileID: 4876111969156795941}
     m_Modifications:
-    - target: {fileID: 5155219644700475552, guid: d65ed3f49ee360840840ba93800ab6b7,
+    - target: {fileID: 2560960265858466990, guid: 98dc69301dd714541a445665e0ffa204,
         type: 3}
       propertyPath: m_Name
-      value: Poison_Fire_Jeep
+      value: Sheep1
       objectReference: {fileID: 0}
-    - target: {fileID: 7425810693235735441, guid: d65ed3f49ee360840840ba93800ab6b7,
+    - target: {fileID: 3181056676361590657, guid: 98dc69301dd714541a445665e0ffa204,
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7425810693235735441, guid: d65ed3f49ee360840840ba93800ab6b7,
+    - target: {fileID: 3181056676361590657, guid: 98dc69301dd714541a445665e0ffa204,
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7425810693235735441, guid: d65ed3f49ee360840840ba93800ab6b7,
+    - target: {fileID: 3181056676361590657, guid: 98dc69301dd714541a445665e0ffa204,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7425810693235735441, guid: d65ed3f49ee360840840ba93800ab6b7,
+    - target: {fileID: 3181056676361590657, guid: 98dc69301dd714541a445665e0ffa204,
         type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7425810693235735441, guid: d65ed3f49ee360840840ba93800ab6b7,
+    - target: {fileID: 3181056676361590657, guid: 98dc69301dd714541a445665e0ffa204,
         type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7425810693235735441, guid: d65ed3f49ee360840840ba93800ab6b7,
+    - target: {fileID: 3181056676361590657, guid: 98dc69301dd714541a445665e0ffa204,
         type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7425810693235735441, guid: d65ed3f49ee360840840ba93800ab6b7,
+    - target: {fileID: 3181056676361590657, guid: 98dc69301dd714541a445665e0ffa204,
         type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7425810693235735441, guid: d65ed3f49ee360840840ba93800ab6b7,
+    - target: {fileID: 3181056676361590657, guid: 98dc69301dd714541a445665e0ffa204,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7425810693235735441, guid: d65ed3f49ee360840840ba93800ab6b7,
+    - target: {fileID: 3181056676361590657, guid: 98dc69301dd714541a445665e0ffa204,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7425810693235735441, guid: d65ed3f49ee360840840ba93800ab6b7,
+    - target: {fileID: 3181056676361590657, guid: 98dc69301dd714541a445665e0ffa204,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
@@ -174,10 +200,10 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d65ed3f49ee360840840ba93800ab6b7, type: 3}
---- !u!4 &2523572887800894351 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: 98dc69301dd714541a445665e0ffa204, type: 3}
+--- !u!4 &682807133819012252 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 7425810693235735441, guid: d65ed3f49ee360840840ba93800ab6b7,
+  m_CorrespondingSourceObject: {fileID: 3181056676361590657, guid: 98dc69301dd714541a445665e0ffa204,
     type: 3}
-  m_PrefabInstance: {fileID: 4902255402054395934}
+  m_PrefabInstance: {fileID: 2692223803400409885}
   m_PrefabAsset: {fileID: 0}

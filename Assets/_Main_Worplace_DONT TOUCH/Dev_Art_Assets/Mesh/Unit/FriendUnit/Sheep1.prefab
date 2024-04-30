@@ -534,19 +534,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 628b82336c9842e429f7a924b0008d25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 6325566718782308355}
+  animator: {fileID: 6325566718782308355}
   _crossfadeDuration: 0.5
   _animationClipPairs:
   - StateName: Idle
     ClipName: Sheep_Idle
+  - StateName: Move
+    ClipName: Sheep_Run
   - StateName: Attack
     ClipName: Sheep_Attack
   - StateName: Dead
     ClipName: Sheep_Dead
   - StateName: Hurt
     ClipName: Sheep_Hurt
-  - StateName: Run
-    ClipName: Sheep_Run
 --- !u!1 &2677331046772422713
 GameObject:
   m_ObjectHideFlags: 0

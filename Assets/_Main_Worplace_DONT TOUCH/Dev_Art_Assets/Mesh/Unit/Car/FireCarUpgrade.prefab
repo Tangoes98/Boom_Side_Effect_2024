@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8001293427707209793}
-  - component: {fileID: 8068069033296832194}
-  - component: {fileID: 397811321353687728}
+  - component: {fileID: -3259952692117162177}
+  - component: {fileID: -1577563062904788304}
   m_Layer: 0
   m_Name: FireCarUpgrade
   m_TagString: Untagged
@@ -37,7 +37,7 @@ Transform:
   - {fileID: 3393828764357450833}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &8068069033296832194
+--- !u!95 &-3259952692117162177
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -47,7 +47,7 @@ Animator:
   m_GameObject: {fileID: 5146275529868288230}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d117eea0d0cfb614393122a74cbe5e8b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6573ff4ccf7c2a444afdd9653103531c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -58,7 +58,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &397811321353687728
+--- !u!114 &-1577563062904788304
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -67,13 +67,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 5146275529868288230}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94df330358919a445ae695ab9b26a73d, type: 3}
+  m_Script: {fileID: 11500000, guid: 628b82336c9842e429f7a924b0008d25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 8068069033296832194}
-  _moveAnimation: FirecarUpgrade_Forward_Move
-  _stopAnimation: FirecarUpgrade_Forward_Stop
+  animator: {fileID: -3259952692117162177}
   _crossfadeDuration: 0.5
+  _animationClipPairs:
+  - StateName: Idle
+    ClipName: Firecar_Forward_Idle
+  - StateName: Attack
+    ClipName: Firecar_Forward_Attack
+  - StateName: Move
+    ClipName: Firecar_Forward_Move
+  - StateName: Dead
+    ClipName: Firecar_Forward_Dead
 --- !u!1 &5233452488519413293
 GameObject:
   m_ObjectHideFlags: 0

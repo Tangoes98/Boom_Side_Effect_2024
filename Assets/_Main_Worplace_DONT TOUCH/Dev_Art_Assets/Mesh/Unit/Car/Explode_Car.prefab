@@ -176,7 +176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4736064976544208505}
   - component: {fileID: -1129487722269975771}
-  - component: {fileID: -825342242946457352}
+  - component: {fileID: -9103829763157110161}
   m_Layer: 0
   m_Name: Explode_Car
   m_TagString: Untagged
@@ -223,7 +223,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &-825342242946457352
+--- !u!114 &-9103829763157110161
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -232,13 +232,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 4943288539083598259}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94df330358919a445ae695ab9b26a73d, type: 3}
+  m_Script: {fileID: 11500000, guid: 628b82336c9842e429f7a924b0008d25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: -1129487722269975771}
-  _moveAnimation: Explodecar_Forward_Move
-  _stopAnimation: Explodecar_Forward_Stop
+  animator: {fileID: -1129487722269975771}
   _crossfadeDuration: 0.5
+  _animationClipPairs:
+  - StateName: Idle
+    ClipName: Explodecar_Forward_Idle
+  - StateName: Attack
+    ClipName: Explodecar_Forward_Attack
+  - StateName: Move
+    ClipName: Explodecar_Forward_Move
+  - StateName: Dead
+    ClipName: Explodecar_Forward_Dead
 --- !u!1 &8407608289282963430
 GameObject:
   m_ObjectHideFlags: 0

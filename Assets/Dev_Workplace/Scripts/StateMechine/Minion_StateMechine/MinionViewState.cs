@@ -16,7 +16,10 @@ public class MinionViewState : IState
     }
     public void onEnter()
     {
-        viewTarget=manager.targets[0];
+        //*Set Animation State
+        manager.animationController.SwitchAnimState("Move");
+
+        viewTarget = manager.targets[0];
     }
     public void onExit()
     {
@@ -35,7 +38,7 @@ public class MinionViewState : IState
         }
 
         //敌方消失或敌方离开索敌范围，切换回待机
-        if (manager.targets == null || 
+        if (manager.targets == null ||
             Vector3.Distance(viewTarget.transform.position, manager.transform.position) >= status.viewRange)
         {
             manager.TransitionState(MinionStateType.IDLE);
@@ -44,14 +47,14 @@ public class MinionViewState : IState
         manager.agent.SetDestination(viewTarget.transform.position);
 
         //限制范围
-        if(manager.Info().minionType == MinionType.FRIEND)
+        if (manager.Info().minionType == MinionType.FRIEND)
         {
             Barrack barrack = manager.Barrack();
             if (Vector3.Distance(barrack.transform.position, manager.transform.position) >= barrack.Status().range)
             {
                 //停止但持续索敌直到敌方（可能）进入兵营范围
                 manager.agent.speed = 0;
-                if (viewTarget!= null && Vector3.Distance(barrack.transform.position, viewTarget.transform.position) <= barrack.Status().range)
+                if (viewTarget != null && Vector3.Distance(barrack.transform.position, viewTarget.transform.position) <= barrack.Status().range)
                 {
                     manager.agent.speed = status.speed;
                 }

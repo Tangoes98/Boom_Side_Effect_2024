@@ -254,15 +254,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 628b82336c9842e429f7a924b0008d25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 552413181782374127}
+  animator: {fileID: 552413181782374127}
   _crossfadeDuration: 0.5
   _animationClipPairs:
+  - StateName: Idle
+    ClipName: Enemy_Motor_Idle
+  - StateName: Move
+    ClipName: Enemy_Motor_Run
   - StateName: Attack
     ClipName: Enemy_Motor_Attack
   - StateName: Dead
     ClipName: Enemy_Motor_Dead
-  - StateName: Run
-    ClipName: Enemy_Motor_Run
 --- !u!1 &6570061442793275153
 GameObject:
   m_ObjectHideFlags: 0

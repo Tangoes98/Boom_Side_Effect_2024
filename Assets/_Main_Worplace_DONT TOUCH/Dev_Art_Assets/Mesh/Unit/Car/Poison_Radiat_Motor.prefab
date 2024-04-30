@@ -415,7 +415,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2147488106262416185}
   - component: {fileID: 2321540482531238809}
-  - component: {fileID: 6011159644036229919}
+  - component: {fileID: 8298376384894442192}
   m_Layer: 0
   m_Name: Poison_Radiat_Motor
   m_TagString: Untagged
@@ -462,7 +462,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &6011159644036229919
+--- !u!114 &8298376384894442192
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -471,13 +471,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 2242270145447633292}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94df330358919a445ae695ab9b26a73d, type: 3}
+  m_Script: {fileID: 11500000, guid: 628b82336c9842e429f7a924b0008d25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 2321540482531238809}
-  _moveAnimation: Poison_Radiat_Motor_Move
-  _stopAnimation: Poison_Radiat_Motor_Stop
+  animator: {fileID: 2321540482531238809}
   _crossfadeDuration: 0.5
+  _animationClipPairs:
+  - StateName: Idle
+    ClipName: Poison_Radiat_Motor_Stop
+  - StateName: Attack
+    ClipName: Poison_Radiat_Motor_Attack
+  - StateName: Move
+    ClipName: Poison_Radiat_Motor_Move
+  - StateName: Dead
+    ClipName: Poison_Radiat_Motor_Dead
 --- !u!1 &2784070798969645001
 GameObject:
   m_ObjectHideFlags: 0

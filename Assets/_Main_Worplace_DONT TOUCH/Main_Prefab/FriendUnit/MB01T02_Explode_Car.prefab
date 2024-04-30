@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1241358184360892033
+--- !u!1 &3854347739719651370
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,38 +8,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8500912312678612240}
-  - component: {fileID: 2813895342966522457}
-  m_Layer: 0
-  m_Name: MB01B01_FireCarUpgrade
+  - component: {fileID: 3494059298417077787}
+  - component: {fileID: 3803593518565151252}
+  m_Layer: 9
+  m_Name: MB01T02_Explode_Car
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8500912312678612240
+--- !u!4 &3494059298417077787
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1241358184360892033}
+  m_GameObject: {fileID: 3854347739719651370}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7081427107499044835}
+  - {fileID: 408180340029200661}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2813895342966522457
+--- !u!114 &3803593518565151252
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1241358184360892033}
+  m_GameObject: {fileID: 3854347739719651370}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d0660118fd51642ef88dab267d21b63b, type: 3}
@@ -65,119 +65,120 @@ MonoBehaviour:
     secondSpEffect: 0
     secondSpEffectModifier: 0
     secondSpEffectLastTime: 0
+    takeDamageModifer: 0
   baseInfo:
-    name: QiangHuaHuoYanPenSheChe
-    speed: 5
+    name: ZiBaoChe
+    speed: 7
     baseType: 1
-    addonType: 1
+    addonType: 2
     attackMode: 0
     lockMode: 1
-    minionType: 0
-    fireInterval: 1.5
-    fireTime: 0.5
-    specialEffect: 0
+    minionType: 1
+    fireInterval: 999
+    fireTime: 0.1
+    specialEffect: 4
     secondSpecialEffect: 0
     levelRelatedProperties:
     - level: 1
-      health: 20
-      range: 1.25
-      viewRange: 2
-      damage: 8
+      health: 30
+      range: 5
+      viewRange: 10
+      damage: 40
       specialEffectModifier: 0
-      specialEffectLastTime: 0
+      specialEffectLastTime: 0.2
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
     - level: 2
-      health: 25
-      range: 1.25
+      health: 40
+      range: 0.2
       viewRange: 2
-      damage: 13
+      damage: 60
       specialEffectModifier: 0
-      specialEffectLastTime: 0
+      specialEffectLastTime: 0.3
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
     - level: 3
-      health: 30
-      range: 1.25
+      health: 50
+      range: 0.2
       viewRange: 2
-      damage: 20
+      damage: 100
       specialEffectModifier: 0
-      specialEffectLastTime: 0
+      specialEffectLastTime: 0.5
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
-  moveDestination: {fileID: 0}
-  agent: {fileID: 0}
---- !u!1001 &958146961375659938
+  _stateLabel: 
+  animationController: {fileID: 0}
+--- !u!1001 &4905484165428481900
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 8500912312678612240}
+    m_TransformParent: {fileID: 3494059298417077787}
     m_Modifications:
-    - target: {fileID: 5146275529868288230, guid: 96b7b5550a01f524d8d853b51fe2c359,
-        type: 3}
-      propertyPath: m_Name
-      value: FireCarUpgrade
-      objectReference: {fileID: 0}
-    - target: {fileID: 8001293427707209793, guid: 96b7b5550a01f524d8d853b51fe2c359,
+    - target: {fileID: 4736064976544208505, guid: 4f999cd873d2d084484c1463373a79de,
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8001293427707209793, guid: 96b7b5550a01f524d8d853b51fe2c359,
+    - target: {fileID: 4736064976544208505, guid: 4f999cd873d2d084484c1463373a79de,
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8001293427707209793, guid: 96b7b5550a01f524d8d853b51fe2c359,
+    - target: {fileID: 4736064976544208505, guid: 4f999cd873d2d084484c1463373a79de,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8001293427707209793, guid: 96b7b5550a01f524d8d853b51fe2c359,
+    - target: {fileID: 4736064976544208505, guid: 4f999cd873d2d084484c1463373a79de,
         type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8001293427707209793, guid: 96b7b5550a01f524d8d853b51fe2c359,
+    - target: {fileID: 4736064976544208505, guid: 4f999cd873d2d084484c1463373a79de,
         type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8001293427707209793, guid: 96b7b5550a01f524d8d853b51fe2c359,
+    - target: {fileID: 4736064976544208505, guid: 4f999cd873d2d084484c1463373a79de,
         type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8001293427707209793, guid: 96b7b5550a01f524d8d853b51fe2c359,
+    - target: {fileID: 4736064976544208505, guid: 4f999cd873d2d084484c1463373a79de,
         type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8001293427707209793, guid: 96b7b5550a01f524d8d853b51fe2c359,
+    - target: {fileID: 4736064976544208505, guid: 4f999cd873d2d084484c1463373a79de,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8001293427707209793, guid: 96b7b5550a01f524d8d853b51fe2c359,
+    - target: {fileID: 4736064976544208505, guid: 4f999cd873d2d084484c1463373a79de,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8001293427707209793, guid: 96b7b5550a01f524d8d853b51fe2c359,
+    - target: {fileID: 4736064976544208505, guid: 4f999cd873d2d084484c1463373a79de,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4943288539083598259, guid: 4f999cd873d2d084484c1463373a79de,
+        type: 3}
+      propertyPath: m_Name
+      value: Explode_Car
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 96b7b5550a01f524d8d853b51fe2c359, type: 3}
---- !u!4 &7081427107499044835 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: 4f999cd873d2d084484c1463373a79de, type: 3}
+--- !u!4 &408180340029200661 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 8001293427707209793, guid: 96b7b5550a01f524d8d853b51fe2c359,
+  m_CorrespondingSourceObject: {fileID: 4736064976544208505, guid: 4f999cd873d2d084484c1463373a79de,
     type: 3}
-  m_PrefabInstance: {fileID: 958146961375659938}
+  m_PrefabInstance: {fileID: 4905484165428481900}
   m_PrefabAsset: {fileID: 0}

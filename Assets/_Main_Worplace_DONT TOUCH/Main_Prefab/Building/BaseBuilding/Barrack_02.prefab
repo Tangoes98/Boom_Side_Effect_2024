@@ -131,20 +131,20 @@ MonoBehaviour:
     maxLinkNum: 4
     manufactureInterval: 8
     manufactureTime: 0.5
-    minionPrefab: {fileID: 7777447231491799731, guid: d428ab1da0b6176419d94cf5313828e0,
+    minionPrefab: {fileID: 7425934711789390196, guid: 2db21549915c47e4d9a8029726714536,
       type: 3}
     properties:
     - level: 1
       cost: 70
-      range: 4
+      range: 40
       maxMinionNum: 2
     - level: 2
       cost: 50
-      range: 4
+      range: 40
       maxMinionNum: 2
     - level: 3
       cost: 60
-      range: 4
+      range: 40
       maxMinionNum: 2
 --- !u!1 &3442167883446985076
 GameObject:
@@ -665,6 +665,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1307074127675902697}
     m_Modifications:
+    - target: {fileID: 2796304278880188963, guid: 2dec65abb8562bc4a816633f9870019b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4662240347591470861, guid: 2dec65abb8562bc4a816633f9870019b,
         type: 3}
       propertyPath: m_Name

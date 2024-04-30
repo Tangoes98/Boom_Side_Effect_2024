@@ -194,6 +194,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3972197083992701745}
+  - component: {fileID: 1117062067926395145}
+  - component: {fileID: 7443270452735984005}
   m_Layer: 0
   m_Name: Enemy_Dog
   m_TagString: Untagged
@@ -218,6 +220,50 @@ Transform:
   - {fileID: 2044702159870524757}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1117062067926395145
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7145258896964878277}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3ddb2d3b26bc2e44bbf76e2a89f3dedb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7443270452735984005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7145258896964878277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 628b82336c9842e429f7a924b0008d25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1117062067926395145}
+  _crossfadeDuration: 0.5
+  _animationClipPairs:
+  - StateName: Idle
+    ClipName: Enemy_Motor_Idle
+  - StateName: Move
+    ClipName: Enemy_Motor_Run
+  - StateName: Attack
+    ClipName: Enemy_Motor_Attack
+  - StateName: Dead
+    ClipName: Enemy_Motor_Dead
 --- !u!1 &8132425628794703083
 GameObject:
   m_ObjectHideFlags: 0

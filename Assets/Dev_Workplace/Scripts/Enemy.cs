@@ -15,7 +15,7 @@ public class Enemy : Minion
         status.lockMode = Info().lockMode;
         status.fireInterval = Info().fireInterval;
         status.fireTime = Info().fireTime;
-        status.speed=Info().speed;
+        status.speed = Info().speed;
 
         status.specialEffect = Info().specialEffect;
 
@@ -28,6 +28,10 @@ public class Enemy : Minion
 
         agent = this.GetComponent<NavMeshAgent>();
 
+        //*Animation Controller Setups
+        animationController = GetComponentInChildren<AnimationController>();
+        animationController.InitializeAnimationClipPairs();
+
         states.Add(MinionStateType.IDLE, new MinionIdleState(this));
         states.Add(MinionStateType.INTERVAL, new MinionIntervalState(this));
         states.Add(MinionStateType.ATTACK, new MinionAttackState(this));
@@ -36,6 +40,6 @@ public class Enemy : Minion
 
         TransitionState(MinionStateType.IDLE);
 
-        SendMessage("InitializeHealth", status.maxHealth);
+        //SendMessage("InitializeHealth", status.maxHealth);
     }
 }

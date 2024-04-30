@@ -1211,12 +1211,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 628b82336c9842e429f7a924b0008d25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 5274918250499155627}
+  animator: {fileID: 5274918250499155627}
   _crossfadeDuration: 0.5
   _animationClipPairs:
   - StateName: Idle
     ClipName: DaZhuang_Idle
-  - StateName: Run
+  - StateName: Move
     ClipName: DaZhuang_Run
   - StateName: Attack
     ClipName: DaZhuang_Attack

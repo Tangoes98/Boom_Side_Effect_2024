@@ -20,10 +20,13 @@ public class MinionAttackState : IState
 
     public void onEnter()
     {
+        //*Set Animation State
+        manager.animationController.SwitchAnimState("Attack");
+
         attackTarget = manager.targets[0];
         timer = status.fireTime;
         timerInterval0_1 = 1;
-        manager.agent.speed = 0;
+        //manager.agent.speed = 0;
     }
     public void onExit()
     {
@@ -34,7 +37,7 @@ public class MinionAttackState : IState
     {
         timer -= Time.deltaTime;
         timerInterval0_1 -= Time.deltaTime;
-        
+
         //如果失去了攻击目标，回到待机
         if (attackTarget == null ||
             Vector3.Distance(attackTarget.transform.position, manager.transform.position) >= status.range)

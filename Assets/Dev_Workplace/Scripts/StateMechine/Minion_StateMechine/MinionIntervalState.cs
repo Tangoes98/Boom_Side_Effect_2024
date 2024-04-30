@@ -15,6 +15,9 @@ public class MinionIntervalState : IState
     Minion attackTarget;
     public void onEnter()
     {
+        //*Set Animation State
+        manager.animationController.SwitchAnimState("Idle");
+
         attackTarget = manager.targets[0];
         timer = status.fireInterval;
     }

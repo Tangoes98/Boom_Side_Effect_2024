@@ -9,7 +9,8 @@ using UnityEngine.AI;
 using UnityEngine.UI;
 using Yunhao_Fight;
 
-public class Minion : MonoBehaviour {
+public class Minion : MonoBehaviour
+{
 
     public string code;
 
@@ -26,16 +27,20 @@ public class Minion : MonoBehaviour {
     private Barrack _parent;
     public Barrack Barrack() => _parent;
 
-    public Minion[] targets{get; set;}
+    [field:SerializeField] public Minion[] targets { get; set; }
     public Vector3 moveDestination { get; set; }
     public NavMeshAgent agent { get; set; }
 
     protected IState currentState;
     protected Dictionary<MinionStateType, IState> states = new Dictionary<MinionStateType, IState>();
 
-    [SerializeField] TextMeshProUGUI stateLabel;
+    //[SerializeField] TextMeshProUGUI stateLabel;
+    [SerializeField] string _stateLabel;
+    public AnimationController animationController;
 
-    public void Initialize(Barrack parent) {
+
+    public void Initialize(Barrack parent)
+    {
         _parent = parent;
         level = parent.level;
         float modifier = GetMinionDamageAndHealthModifier(parent.Unstability);
@@ -51,7 +56,7 @@ public class Minion : MonoBehaviour {
         status.lockMode = baseInfo.lockMode;
         status.fireInterval = baseInfo.fireInterval;
         status.fireTime = baseInfo.fireTime;
-        
+
 
         status.specialEffect = baseInfo.specialEffect;
         status.specialEffectModifier = prop.specialEffectModifier;
@@ -64,9 +69,13 @@ public class Minion : MonoBehaviour {
         status.gotEffects = new Dictionary<SpecialEffect, Effect>();
         status.takeDamageModifer = 1f;
 
-        moveDestination = baseInfo.minionType == MinionType.ENEMY? LevelManager.BaseDestination().position:_parent.minionDestination;
+        moveDestination = baseInfo.minionType == MinionType.ENEMY ? LevelManager.BaseDestination().position : _parent.minionDestination;
 
         status.speed = baseInfo.speed;//也许要改
+
+        //*Animation Controller Setups
+        animationController = GetComponentInChildren<AnimationController>();
+        animationController.InitializeAnimationClipPairs();
 
         createAgent();
 
@@ -77,8 +86,9 @@ public class Minion : MonoBehaviour {
         states.Add(MinionStateType.DYING, new MinionDyingState(this));
 
         TransitionState(MinionStateType.IDLE);
-        
-        SendMessage("InitializeHealth", status.maxHealth);
+
+        //SendMessage("InitializeHealth", status.maxHealth);
+
     }
 
     void Update()
@@ -87,11 +97,12 @@ public class Minion : MonoBehaviour {
         currentState.onUpdate();
     }
 
-    protected MinionProperty GetBaseProperty(int level)  => baseInfo.levelRelatedProperties.Where(p=>p.level==level).First();
+    protected MinionProperty GetBaseProperty(int level) => baseInfo.levelRelatedProperties.Where(p => p.level == level).First();
 
     protected float GetMinionDamageAndHealthModifier(int unstability) => ArchiLinkManager.Instance.GetModifier(unstability, out modifierType);
 
-    public void SelfDestroy() {
+    public void SelfDestroy()
+    {
         _parent.DestroyMinion(this);
     }
 
@@ -117,12 +128,13 @@ public class Minion : MonoBehaviour {
         currentState = states[type];
         currentState.onEnter();
 
-        stateLabel.text=type.ToString();
+        //stateLabel.text = type.ToString();
+        _stateLabel = type.ToString();
     }
-    
+
     public virtual void Attack(Minion target)
     {
-        target.TakeEffect(status.specialEffect,level);
+        target.TakeEffect(status.specialEffect, level);
         target.TakeEffect(status.secondSpEffect, level);
         target.TakeDamage(status.damage);
     }
@@ -131,7 +143,7 @@ public class Minion : MonoBehaviour {
     {
         damage *= status.takeDamageModifer;
         status.health = Mathf.Clamp(status.health - damage, 0, status.maxHealth);
-        GetComponentInChildren<Slider>().value = status.health;
+        //GetComponentInChildren<Slider>().value = status.health;
         if (status.health <= 0)
         {
             TransitionState(MinionStateType.DYING);
@@ -148,7 +160,7 @@ public class Minion : MonoBehaviour {
     }
     void UpdateEffect()
     {
-        foreach(var gotEffect in status.gotEffects)
+        foreach (var gotEffect in status.gotEffects)
         {
             SpecialEffect specialEffect = gotEffect.Key;
             Effect effect = gotEffect.Value;
@@ -160,23 +172,26 @@ public class Minion : MonoBehaviour {
                     status.takeDamageModifer = 1 + effect.effect.modifier;
                     break;
                 case SpecialEffect.POSION:
-                    SendMessage("TakeDamage",effect.effect.modifier*status.maxHealth);
+                    SendMessage("TakeDamage", effect.effect.modifier * status.maxHealth);
                     break;
                 case SpecialEffect.SLOW:
-                    agent.speed=status.speed=agent.speed* effect.effect.modifier;
+                    agent.speed = status.speed = agent.speed * effect.effect.modifier;
                     break;
                 case SpecialEffect.DIZZY:
                     TransitionState(MinionStateType.DIZZY);
                     break;
-                    
+
             }
         }
     }
     void createAgent()
     {
-        this.transform.position=_parent.GetSpawnPosition();
+        this.transform.position = _parent.GetSpawnPosition();
 
         agent = gameObject.AddComponent(typeof(NavMeshAgent)) as NavMeshAgent;
+
+        //* Editing Minion Agent Info
+        agent.stoppingDistance = 1f;
     }
 
     void OnDrawGizmosSelected()

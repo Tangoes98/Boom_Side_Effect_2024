@@ -567,7 +567,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7252648442714430758
 Transform:
   m_ObjectHideFlags: 0
@@ -611,6 +611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a99a7b5ed8742d4aa5fcb1d20d47eb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  code: 
   level: 0
   modifierType: 0
   status:
@@ -630,6 +631,7 @@ MonoBehaviour:
     secondSpEffect: 0
     secondSpEffectModifier: 0
     secondSpEffectLastTime: 0
+    takeDamageModifer: 0
   baseInfo:
     name: 
     speed: 15
@@ -652,7 +654,6 @@ MonoBehaviour:
       specialEffectLastTime: 0
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
-  stateLabel: {fileID: 9040057820731021809}
 --- !u!195 &4740539835744642749
 NavMeshAgent:
   m_ObjectHideFlags: 0

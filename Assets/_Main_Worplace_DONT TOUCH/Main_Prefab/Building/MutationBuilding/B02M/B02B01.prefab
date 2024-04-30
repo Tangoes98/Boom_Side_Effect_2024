@@ -130,19 +130,20 @@ MonoBehaviour:
     maxLinkNum: 4
     manufactureInterval: 8
     manufactureTime: 0.5
-    minionPrefab: {fileID: 0}
+    minionPrefab: {fileID: 1102987470148134011, guid: 96eef6b0d5bd01d4aacda767a7558b5c,
+      type: 3}
     properties:
     - level: 1
       cost: 0
-      range: 4
+      range: 40
       maxMinionNum: 2
     - level: 2
       cost: 50
-      range: 4
+      range: 40
       maxMinionNum: 2
     - level: 3
       cost: 60
-      range: 4
+      range: 40
       maxMinionNum: 2
 --- !u!1 &3442167883446985076
 GameObject:

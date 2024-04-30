@@ -221,6 +221,7 @@ MonoBehaviour:
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
   targets: []
+  stateLabel: {fileID: 0}
 --- !u!1001 &2668723438123365135
 PrefabInstance:
   m_ObjectHideFlags: 0

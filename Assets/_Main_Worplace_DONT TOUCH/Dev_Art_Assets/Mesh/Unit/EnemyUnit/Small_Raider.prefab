@@ -839,15 +839,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 628b82336c9842e429f7a924b0008d25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 3519745103289918201}
+  animator: {fileID: 3519745103289918201}
   _crossfadeDuration: 0.5
   _animationClipPairs:
   - StateName: Idle
     ClipName: Raider_Idle
+  - StateName: Move
+    ClipName: Raider_Run
   - StateName: Attack
     ClipName: Raider_Attack
-  - StateName: Run
-    ClipName: Raider_Run
   - StateName: Dead
     ClipName: Raider_Dead
 --- !u!1 &2951732763974448240

@@ -93,7 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7425810693235735441}
   - component: {fileID: -5034094644831194663}
-  - component: {fileID: 6081479904088410143}
+  - component: {fileID: 7778653485859153947}
   m_Layer: 0
   m_Name: Poison_Fire_Jeep
   m_TagString: Untagged
@@ -140,7 +140,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &6081479904088410143
+--- !u!114 &7778653485859153947
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,13 +149,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 5155219644700475552}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94df330358919a445ae695ab9b26a73d, type: 3}
+  m_Script: {fileID: 11500000, guid: 628b82336c9842e429f7a924b0008d25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: -5034094644831194663}
-  _moveAnimation: Posion_Fire_Jeep_Move
-  _stopAnimation: Posion_Fire_Jeep_Stop
+  animator: {fileID: -5034094644831194663}
   _crossfadeDuration: 0.5
+  _animationClipPairs:
+  - StateName: Idle
+    ClipName: Posion_Fire_Jeep_Idle
+  - StateName: Attack
+    ClipName: Posion_Fire_Jeep_Attack
+  - StateName: Move
+    ClipName: Posion_Fire_Jeep_Move
+  - StateName: Dead
+    ClipName: Posion_Fire_Jeep_Dead
 --- !u!1 &7127594980053780002
 GameObject:
   m_ObjectHideFlags: 0
