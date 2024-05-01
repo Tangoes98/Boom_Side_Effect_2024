@@ -23,11 +23,13 @@ namespace Yunhao_Fight
         #region =============== Variables =======================
         [SerializeField] LayerMask _friendLayer;
         [SerializeField] LayerMask _enemyLayer;
+        [SerializeField] LayerMask _spawnPointLayer;
         [SerializeField] Transform _baseDestination;
         #endregion
         #region =================== Public ============================
         public static LayerMask FriendLayer() => Instance._friendLayer;
         public static LayerMask EnemyLayer() => Instance._enemyLayer;
+        public static LayerMask SpawnPointLayer() => Instance._spawnPointLayer;
         public static Transform BaseDestination() => Instance._baseDestination;
         #endregion
         #region ================ MonoBehaviour =======================

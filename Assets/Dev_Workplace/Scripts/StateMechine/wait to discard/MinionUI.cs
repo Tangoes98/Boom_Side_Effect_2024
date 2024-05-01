@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 namespace Yunhao_Fight
 {
@@ -19,6 +20,7 @@ namespace Yunhao_Fight
 
         #endregion
         #region ================ MonoBehaviour =======================
+
         private void Update()
         {
             UpdateUI();
@@ -39,10 +41,6 @@ namespace Yunhao_Fight
             _healthBar.value = _healthBar.maxValue = health;
         }
 
-        void TakeDamage(float damage)
-        {
-            _healthBar.value -= damage;
-        }
 
         #endregion
 

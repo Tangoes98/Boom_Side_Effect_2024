@@ -18,6 +18,7 @@ public class Rank : MonoBehaviour
 
     private void Update()
     {
+        _currentLevel = GetComponentInParent<Architect>().level;
         UpdateRankTransform();
     }
 

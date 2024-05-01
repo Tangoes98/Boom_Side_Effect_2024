@@ -1,12 +1,13 @@
 using System;
 
 [Serializable]
-public class MinionBase {
-    
+public class MinionBase
+{
+
     public string name;
 
     public float speed;
-    
+
     public DamageType baseType;
     public DamageType addonType;
 
@@ -25,6 +26,7 @@ public class MinionBase {
     public SpecialEffect secondSpecialEffect;
 
     public MinionProperty[] levelRelatedProperties;
+
 }
 public enum MinionStateType
 {
@@ -32,7 +34,8 @@ public enum MinionStateType
     VIEW,//Ë÷µÐ×·×Ù
     INTERVAL,//¼ä¸ô×´Ì¬
     ATTACK,//¹¥»÷×´Ì¬
-    DYING//±ôËÀ
+    DYING,//±ôËÀ
+    DIZZY//Ñ£ÔÎ
 }
 
 public enum MinionType

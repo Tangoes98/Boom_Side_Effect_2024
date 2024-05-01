@@ -1,0 +1,184 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1504312180345031243
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 791623503421668237}
+  - component: {fileID: 4766027877509684999}
+  m_Layer: 9
+  m_Name: MB01T01_Poison_Radiat_Motor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &791623503421668237
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504312180345031243}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5065406493167961337}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4766027877509684999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504312180345031243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0660118fd51642ef88dab267d21b63b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  code: 
+  level: 0
+  modifierType: 0
+  status:
+    health: 0
+    maxHealth: 0
+    speed: 0
+    range: 0
+    viewRange: 0
+    attackMode: 0
+    lockMode: 0
+    fireInterval: 0
+    fireTime: 0
+    damage: 0
+    specialEffect: 0
+    specialEffectModifier: 0
+    specialEffectLastTime: 0
+    secondSpEffect: 0
+    secondSpEffectModifier: 0
+    secondSpEffectLastTime: 0
+    takeDamageModifer: 0
+  baseInfo:
+    name: JiaTeLinJiChe
+    speed: 5
+    baseType: 1
+    addonType: 4
+    attackMode: 1
+    lockMode: 1
+    minionType: 1
+    fireInterval: 1
+    fireTime: 999
+    specialEffect: 0
+    secondSpecialEffect: 0
+    levelRelatedProperties:
+    - level: 1
+      health: 15
+      range: 30
+      viewRange: 50
+      damage: 0.3
+      specialEffectModifier: 0
+      specialEffectLastTime: 0
+      secondSpEffectModifier: 0
+      secondSpEffectLastTime: 0
+    - level: 2
+      health: 20
+      range: 5
+      viewRange: 5
+      damage: 0.5
+      specialEffectModifier: 0
+      specialEffectLastTime: 0
+      secondSpEffectModifier: 0
+      secondSpEffectLastTime: 0
+    - level: 3
+      health: 25
+      range: 5
+      viewRange: 5
+      damage: 0.8
+      specialEffectModifier: 0
+      specialEffectLastTime: 0
+      secondSpEffectModifier: 0
+      secondSpEffectLastTime: 0
+  _stateLabel: 
+  animationController: {fileID: 0}
+--- !u!1001 &6595127273896939456
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 791623503421668237}
+    m_Modifications:
+    - target: {fileID: 2147488106262416185, guid: 59dbad4302117a54d86636bd9b52d5fc,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2147488106262416185, guid: 59dbad4302117a54d86636bd9b52d5fc,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2147488106262416185, guid: 59dbad4302117a54d86636bd9b52d5fc,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2147488106262416185, guid: 59dbad4302117a54d86636bd9b52d5fc,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2147488106262416185, guid: 59dbad4302117a54d86636bd9b52d5fc,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2147488106262416185, guid: 59dbad4302117a54d86636bd9b52d5fc,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2147488106262416185, guid: 59dbad4302117a54d86636bd9b52d5fc,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2147488106262416185, guid: 59dbad4302117a54d86636bd9b52d5fc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2147488106262416185, guid: 59dbad4302117a54d86636bd9b52d5fc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2147488106262416185, guid: 59dbad4302117a54d86636bd9b52d5fc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2242270145447633292, guid: 59dbad4302117a54d86636bd9b52d5fc,
+        type: 3}
+      propertyPath: m_Name
+      value: Poison_Radiat_Motor
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 59dbad4302117a54d86636bd9b52d5fc, type: 3}
+--- !u!4 &5065406493167961337 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2147488106262416185, guid: 59dbad4302117a54d86636bd9b52d5fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 6595127273896939456}
+  m_PrefabAsset: {fileID: 0}

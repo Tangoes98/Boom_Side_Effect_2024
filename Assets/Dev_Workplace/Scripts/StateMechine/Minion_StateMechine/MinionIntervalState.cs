@@ -12,8 +12,13 @@ public class MinionIntervalState : IState
         this.status = manager.status;
     }
     float timer;
+    Minion attackTarget;
     public void onEnter()
     {
+        //*Set Animation State
+        manager.animationController.SwitchAnimState("Idle");
+
+        attackTarget = manager.targets[0];
         timer = status.fireInterval;
     }
     public void onExit()
@@ -23,7 +28,16 @@ public class MinionIntervalState : IState
     public void onUpdate()
     {
         timer -= Time.deltaTime;
-        if(timer <= 0)
+
+        //如果失去了攻击目标，回到待机
+        if (attackTarget == null ||
+            Vector3.Distance(attackTarget.transform.position, manager.transform.position) >= status.range)
+        {
+            manager.TransitionState(MinionStateType.IDLE);
+            return;
+        }
+
+        if (timer <= 0)
         {
             manager.TransitionState(MinionStateType.ATTACK);
         }
