@@ -25,6 +25,7 @@ public class LevelEditor : MonoBehaviour
     [SerializeField] private Animator _boomAnminator;
     [SerializeField] private Level[] levels;
     [SerializeField] private EnemyBase[] enemies;
+    [SerializeField] private Transform enemyParentObject;
 
 
     [Header("以下请勿修改")]
@@ -52,7 +53,7 @@ public class LevelEditor : MonoBehaviour
 
     public void NextLevel() {
         LevelNumber ++;
-        if(levels.Length == LevelNumber) {
+        if(levels.Length < LevelNumber) {
             Debug.Log("WIN");
             return;
         }
@@ -88,7 +89,9 @@ public class LevelEditor : MonoBehaviour
 
     private IEnumerator SpawnSameEnemy(SpawnEnemyBase seb, EnemyBase eb) {
         for(int i = 0; i<seb.number; i++) {
-            GameObject enemy = Instantiate(eb.enemyPrefab, seb.spawnLocation.position, Quaternion.identity);
+            GameObject enemy = enemyParentObject==null? 
+                Instantiate(eb.enemyPrefab,seb.spawnLocation.position, Quaternion.identity) :
+                Instantiate(eb.enemyPrefab,seb.spawnLocation.position, Quaternion.identity,enemyParentObject);
             var script = enemy.GetComponent<Minion>();
             script.code = eb.code;
             EnemyOnStage.Add(script);
