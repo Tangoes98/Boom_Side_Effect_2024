@@ -36,6 +36,8 @@ public class MinionViewState : IState
 
             return;
         }
+        manager.targets = manager.GetOppenentInRange(status.viewRange);
+        viewTarget = manager.targets[0];
 
         //敌方消失或敌方离开索敌范围，切换回待机
         if (manager.targets == null ||
