@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2522871506717477651}
   - component: {fileID: 2475771014167581330}
+  - component: {fileID: 3128374215609352332}
+  - component: {fileID: 1701130746710429457}
   m_Layer: 9
   m_Name: MB01B02_Poison_Fire_Jeep
   m_TagString: Untagged
@@ -106,8 +108,57 @@ MonoBehaviour:
       specialEffectLastTime: 2
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
+  <targets>k__BackingField: []
   _stateLabel: 
   animationController: {fileID: 0}
+--- !u!65 &3128374215609352332
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6324976587947042098}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 7.29155, y: 6.4994717, z: 9.300724}
+  m_Center: {x: -0.022830725, y: 2.9976406, z: 0.041604042}
+--- !u!54 &1701130746710429457
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6324976587947042098}
+  serializedVersion: 4
+  m_Mass: 0.0000001
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &4902255402054395934
 PrefabInstance:
   m_ObjectHideFlags: 0

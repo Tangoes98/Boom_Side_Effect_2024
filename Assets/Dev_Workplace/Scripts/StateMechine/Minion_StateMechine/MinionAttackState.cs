@@ -26,7 +26,8 @@ public class MinionAttackState : IState
         attackTarget = manager.targets[0];
         timer = status.fireTime;
         timerInterval0_1 = 1;
-        //manager.agent.speed = 0;
+        manager.agent.speed = 0;
+        //manager.agent.velocity = Vector3.zero;
     }
     public void onExit()
     {
@@ -37,6 +38,9 @@ public class MinionAttackState : IState
     {
         timer -= Time.deltaTime;
         timerInterval0_1 -= Time.deltaTime;
+
+        // if (Vector3.Distance(attackTarget.transform.position, manager.transform.position) < manager.agent.stoppingDistance)
+        //     manager.agent.speed = 0;
 
         //如果失去了攻击目标，回到待机
         if (attackTarget == null ||

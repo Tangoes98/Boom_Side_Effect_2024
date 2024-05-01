@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8856913161838689290}
   - component: {fileID: 2627547052922578157}
+  - component: {fileID: 1968730024553051983}
+  - component: {fileID: -8247409999206403577}
   m_Layer: 9
   m_Name: MB02B02_Sheep2
   m_TagString: Untagged
@@ -106,8 +108,59 @@ MonoBehaviour:
       specialEffectLastTime: 3
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
+  <targets>k__BackingField: []
   _stateLabel: 
   animationController: {fileID: 0}
+--- !u!136 &1968730024553051983
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769547925289043441}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.35
+  m_Height: 5.21
+  m_Direction: 1
+  m_Center: {x: 0, y: 2.59, z: 0}
+--- !u!54 &-8247409999206403577
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769547925289043441}
+  serializedVersion: 4
+  m_Mass: 0.0000001
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &7094718368876739827
 PrefabInstance:
   m_ObjectHideFlags: 0

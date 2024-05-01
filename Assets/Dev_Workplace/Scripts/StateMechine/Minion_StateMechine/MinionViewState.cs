@@ -16,10 +16,10 @@ public class MinionViewState : IState
     }
     public void onEnter()
     {
-        //*Set Animation State
-        manager.animationController.SwitchAnimState("Move");
-
         viewTarget = manager.targets[0];
+
+        if (!viewTarget) manager.animationController.SwitchAnimState("Idle");
+        else manager.animationController.SwitchAnimState("Move");
     }
     public void onExit()
     {

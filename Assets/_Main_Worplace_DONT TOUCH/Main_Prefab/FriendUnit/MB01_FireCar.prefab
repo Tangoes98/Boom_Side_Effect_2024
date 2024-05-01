@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6757055267373932902}
   - component: {fileID: 7749817469228231603}
   - component: {fileID: 1301143512699417277}
+  - component: {fileID: 1985791269405158168}
   m_Layer: 9
   m_Name: MB01_FireCar
   m_TagString: Untagged
@@ -131,6 +132,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 6.697942, y: 5.5862293, z: 11.446842}
   m_Center: {x: 0, y: 2.5410194, z: 0.20142198}
+--- !u!54 &1985791269405158168
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4199983258997125223}
+  serializedVersion: 4
+  m_Mass: 0.0000001
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &9029622640885988717
 PrefabInstance:
   m_ObjectHideFlags: 0
