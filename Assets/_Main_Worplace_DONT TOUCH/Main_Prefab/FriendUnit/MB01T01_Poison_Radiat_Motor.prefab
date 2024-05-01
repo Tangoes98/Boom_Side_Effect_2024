@@ -222,6 +222,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Poison_Radiat_Motor
       objectReference: {fileID: 0}
+    - target: {fileID: 8298376384894442192, guid: 59dbad4302117a54d86636bd9b52d5fc,
+        type: 3}
+      propertyPath: _animationClipPairs.Array.data[0].ClipName
+      value: Poison_Radiat_Motor_Idle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
