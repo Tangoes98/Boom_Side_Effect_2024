@@ -16,14 +16,11 @@ public class MinionIdleState : IState
 
         //manager.targets = null; // 可能不需要
         manager.agent.speed = status.speed;
+        manager.targets = null;
 
         //回到默认位置
         manager.agent.SetDestination(manager.moveDestination);
-
-        //*Stop move animtion check
-        if (Vector3.Distance(manager.moveDestination, manager.transform.position) > manager.agent.stoppingDistance) 
-            manager.animationController.SwitchAnimState("Move");
-        else manager.animationController.SwitchAnimState("Idle");
+        manager.animationController.SwitchAnimState("Move");
     }
     public void onExit()
     {
@@ -47,7 +44,14 @@ public class MinionIdleState : IState
         {
             manager.targets = targets;
             manager.TransitionState(MinionStateType.VIEW);
+
+            return;
         }
+
+        //*Stop move animtion check
+        if (Vector3.Distance(manager.moveDestination, manager.transform.position) > manager.agent.stoppingDistance) 
+            manager.animationController.SwitchAnimState("Move");
+        else manager.animationController.SwitchAnimState("Idle");
 
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using TMPro;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
@@ -51,7 +52,7 @@ public class Minion : MonoBehaviour
         status.damage = modifier * prop.damage;
 
         status.range = prop.range;
-        status.viewRange = prop.viewRange;
+        status.viewRange = math.max(prop.range, prop.viewRange);
         status.attackMode = baseInfo.attackMode;
         status.lockMode = baseInfo.lockMode;
         status.fireInterval = baseInfo.fireInterval;
@@ -112,6 +113,7 @@ public class Minion : MonoBehaviour
         Collider[] attackTargets = Physics.OverlapSphere(this.transform.position, range, OppenetLayer);
         Minion[] minions = attackTargets.Select(collider => collider.gameObject.GetComponent<Minion>())
                                .Where(enemy => enemy != null)
+                               .OrderBy(m => Vector3.Distance(this.transform.position, m.transform.position))
                                .ToArray();
         if (attackTargets.Length > 0)
         {

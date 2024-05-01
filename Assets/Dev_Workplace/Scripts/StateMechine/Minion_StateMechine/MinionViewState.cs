@@ -44,6 +44,7 @@ public class MinionViewState : IState
             manager.TransitionState(MinionStateType.IDLE);
             return;
         }
+        manager.agent.speed = status.speed;
         manager.agent.SetDestination(viewTarget.transform.position);
 
         //限制范围
@@ -52,13 +53,18 @@ public class MinionViewState : IState
             Barrack barrack = manager.Barrack();
             if (Vector3.Distance(barrack.transform.position, manager.transform.position) >= barrack.Status().range)
             {
-                //停止但持续索敌直到敌方（可能）进入兵营范围
-                manager.agent.speed = 0;
+                //停止但持续索敌直到敌方（可能）进入兵营范围                
                 if (viewTarget != null && Vector3.Distance(barrack.transform.position, viewTarget.transform.position) <= barrack.Status().range)
                 {
                     manager.agent.speed = status.speed;
+                    manager.animationController.SwitchAnimState("Move");
+                } else {
+                    manager.animationController.SwitchAnimState("Idle");
+                    manager.agent.speed = 0;
                 }
+                return;
             }
         }
+        manager.animationController.SwitchAnimState("Move");
     }
 }

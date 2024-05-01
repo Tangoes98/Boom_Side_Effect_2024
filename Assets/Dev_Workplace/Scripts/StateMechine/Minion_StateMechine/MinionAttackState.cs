@@ -26,6 +26,7 @@ public class MinionAttackState : IState
         attackTarget = manager.targets[0];
         timer = status.fireTime;
         timerInterval0_1 = 1;
+        manager.agent.SetDestination(attackTarget.transform.position);
         manager.agent.speed = 0;
         //manager.agent.velocity = Vector3.zero;
     }
@@ -42,7 +43,7 @@ public class MinionAttackState : IState
         // if (Vector3.Distance(attackTarget.transform.position, manager.transform.position) < manager.agent.stoppingDistance)
         //     manager.agent.speed = 0;
 
-        //Èç¹ûÊ§È¥ÁË¹¥»÷Ä¿±ê£¬»Øµ½´ý»ú
+        //ï¿½ï¿½ï¿½Ê§È¥ï¿½Ë¹ï¿½ï¿½ï¿½Ä¿ï¿½ê£¬ï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½
         if (attackTarget == null ||
             Vector3.Distance(attackTarget.transform.position, manager.transform.position) >= status.range)
         {
