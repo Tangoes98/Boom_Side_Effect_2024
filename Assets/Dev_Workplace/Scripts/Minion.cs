@@ -191,7 +191,7 @@ public class Minion : MonoBehaviour
         agent = gameObject.AddComponent(typeof(NavMeshAgent)) as NavMeshAgent;
 
         //* Editing Minion Agent Info
-        agent.stoppingDistance = 1f;
+        agent.stoppingDistance = 3f;
     }
 
     void OnDrawGizmosSelected()

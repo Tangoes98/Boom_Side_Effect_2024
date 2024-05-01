@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MinionDyingState : IState
 {
     Minion manager;
     MinionStatus status;
+    float _deathAnimationTimer;
     public MinionDyingState(Minion manager)
     {
         this.manager = manager;
@@ -13,8 +12,9 @@ public class MinionDyingState : IState
     }
     public void onEnter()
     {
-        if(manager.Info().minionType==MinionType.FRIEND) manager.Barrack().DestroyMinion(manager);
-        else LevelEditor.Instance.EnemyDie(manager);
+        manager.animationController.SwitchAnimState("Dead");
+        _deathAnimationTimer = 3f;
+
     }
     public void onExit()
     {
@@ -22,5 +22,12 @@ public class MinionDyingState : IState
     }
     public void onUpdate()
     {
+        _deathAnimationTimer -= Time.deltaTime;
+        if (_deathAnimationTimer < 0)
+        {
+            _deathAnimationTimer = 0;
+            if (manager.Info().minionType == MinionType.FRIEND) manager.Barrack().DestroyMinion(manager);
+            else LevelEditor.Instance.EnemyDie(manager);
+        }
     }
 }
