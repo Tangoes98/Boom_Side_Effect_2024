@@ -9,6 +9,7 @@ public class Enemy : Minion
 {
     private void Start()
     {
+        status.maxHealth = GetBaseProperty(1).health;
         status.health = status.maxHealth;
 
         status.attackMode = Info().attackMode;

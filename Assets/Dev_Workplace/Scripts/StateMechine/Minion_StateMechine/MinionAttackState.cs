@@ -43,9 +43,10 @@ public class MinionAttackState : IState
         // if (Vector3.Distance(attackTarget.transform.position, manager.transform.position) < manager.agent.stoppingDistance)
         //     manager.agent.speed = 0;
 
-        //���ʧȥ�˹���Ŀ�꣬�ص�����
-        if (attackTarget == null ||
-            Vector3.Distance(attackTarget.transform.position, manager.transform.position) >= status.range)
+        //���ʧȥ�˹���Ŀ�꣬�ص����ￄ1�7
+        if (attackTarget == null 
+        //|| Vector3.Distance(attackTarget.transform.position, manager.transform.position) > status.range
+        )
         {
             manager.TransitionState(MinionStateType.IDLE);
             return;

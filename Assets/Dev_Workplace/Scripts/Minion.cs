@@ -143,6 +143,9 @@ public class Minion : MonoBehaviour
 
     void TakeDamage(float damage)
     {
+        if(_stateLabel== MinionStateType.DYING.ToString()) {
+            return;
+        }
         damage *= status.takeDamageModifer;
         status.health = Mathf.Clamp(status.health - damage, 0, status.maxHealth);
         //GetComponentInChildren<Slider>().value = status.health;

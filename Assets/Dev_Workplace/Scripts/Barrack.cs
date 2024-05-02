@@ -100,7 +100,9 @@ public partial class Barrack : Architect
         Collider[] points=Physics.OverlapSphere(this.transform.position, status.range, LevelManager.SpawnPointLayer());
         if (points.Length > 0)
         {
-            return points[0].transform.position;
+            return new List<Collider>(points)
+                .OrderBy(p => Vector3.Distance(this.transform.position, p.transform.position))
+                .First().transform.position;
         }
         else
         {
