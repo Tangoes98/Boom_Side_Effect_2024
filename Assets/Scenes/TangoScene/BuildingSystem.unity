@@ -3200,7 +3200,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1394667137
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3373,6 +3373,7 @@ MonoBehaviour:
     - probability: 1
       modifier: 0
       type: 2
+  _links: []
 --- !u!4 &1426791121
 Transform:
   m_ObjectHideFlags: 0
@@ -3712,9 +3713,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afacb36ed8af8e643920d04c2887df54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mouseCursorDefault: {fileID: 0}
+  _mouseCursorSelected: {fileID: 0}
   _currentResource: {fileID: 1926142694}
-  _ENTexts: []
-  _CNTexts: []
+  _texts: {fileID: 0}
 --- !u!1 &1604986058
 GameObject:
   m_ObjectHideFlags: 0
@@ -4608,37 +4610,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38ff8545b236071429a98c1b10bff53c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buildingActionStates: 0
   _buttonBuildingPairs:
   - Button: {fileID: 900191392}
     BuildingCode: T01
     BuildingObject: {fileID: 6957985860104754605, guid: 736fe4e6ddb14524d82889ab2003408b,
       type: 3}
-    BuildingMaterial: {fileID: 2100000, guid: 337e175a3c67c1247a293b1790cd9e7c, type: 2}
   - Button: {fileID: 131596639}
     BuildingCode: T02
     BuildingObject: {fileID: 1352693974052360230, guid: 5690a9fc78150394fa60aeca51515a26,
       type: 3}
-    BuildingMaterial: {fileID: 2100000, guid: 81f7e56ce61a72b4fb7f8f81d3e3467c, type: 2}
   - Button: {fileID: 777157006}
     BuildingCode: B01
     BuildingObject: {fileID: 4932967713008927214, guid: de123732f23bc2b43ac9b82bafd74e56,
       type: 3}
-    BuildingMaterial: {fileID: 2100000, guid: 834932f50a26e574cbe0fa7118f9428a, type: 2}
   - Button: {fileID: 294204520}
     BuildingCode: B02
     BuildingObject: {fileID: 2199405383578435967, guid: a8280c1f096a80849bae18032c8ab22d,
       type: 3}
-    BuildingMaterial: {fileID: 2100000, guid: 36dd86d7d0facb54ea1788a18d6bae42, type: 2}
   _buildingListObject: {fileID: 1081399100}
   _buildingShadowMaterial: {fileID: 2100000, guid: 9e496b3011fa0de4a94e6a5f2eeedc8b,
     type: 2}
   _buildingForbidMaterial: {fileID: 2100000, guid: 92c8690b9e4958341be34f1b4aac60ba,
     type: 2}
+  _buildingDissolveMaterial: {fileID: 0}
+  _buildingPlopVFX: {fileID: 0}
+  _dissolveTime: 0
+  _dissolveSpeed: 0
   _buildingUIPanel: {fileID: 7836992}
   _previewBuilding: {fileID: 0}
   _buildingCode: 
-  <CanPlaceBuilding>k__BackingField: 0
+  <CanPlopBuilding>k__BackingField: 0
   <HaveEnoughResourceToBuild>k__BackingField: 0
+  _isBuilding: 0
 --- !u!4 &1854730211
 Transform:
   m_ObjectHideFlags: 0

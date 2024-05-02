@@ -49,6 +49,7 @@ MonoBehaviour:
   AttackVFX: {fileID: 226495757400140645}
   Subassets:
   - {fileID: 4760293159644293372}
+  - {fileID: 8002866100075860807}
   ParticleSystems: []
 --- !u!1 &1352693974052360230
 GameObject:
@@ -379,6 +380,12 @@ PrefabInstance:
 --- !u!4 &472617948045401107 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8225793293000385892, guid: 2dec65abb8562bc4a816633f9870019b,
+    type: 3}
+  m_PrefabInstance: {fileID: 8406233617846270327}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8002866100075860807 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1992584170079382064, guid: 2dec65abb8562bc4a816633f9870019b,
     type: 3}
   m_PrefabInstance: {fileID: 8406233617846270327}
   m_PrefabAsset: {fileID: 0}

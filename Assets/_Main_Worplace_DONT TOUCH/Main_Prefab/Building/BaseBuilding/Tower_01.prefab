@@ -51,6 +51,8 @@ MonoBehaviour:
   - {fileID: 8362699418958319896}
   - {fileID: 4078187147799844953}
   - {fileID: 5334274433183486433}
+  - {fileID: 2977154617015584966}
+  - {fileID: 5221804370503502294}
   ParticleSystems: []
 --- !u!1 &6957985860104754605
 GameObject:
@@ -379,10 +381,23 @@ PrefabInstance:
       value: Rank_Untability
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7038559131050287901, guid: 6c138ddb81cadcd46901052db6ad11e4, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c138ddb81cadcd46901052db6ad11e4, type: 3}
+--- !u!1 &2977154617015584966 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5763160305122854115, guid: 6c138ddb81cadcd46901052db6ad11e4,
+    type: 3}
+  m_PrefabInstance: {fileID: 7397762287225408549}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5221804370503502294 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3377052049939858931, guid: 6c138ddb81cadcd46901052db6ad11e4,
+    type: 3}
+  m_PrefabInstance: {fileID: 7397762287225408549}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7964381135910101100 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 589140220593859657, guid: 6c138ddb81cadcd46901052db6ad11e4,
