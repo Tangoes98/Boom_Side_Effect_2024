@@ -2,9 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
+    public static UIManager Instance;
+
+    void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(this);
+            return;
+        }
+        Instance = this;
+
+        SwitchLanguage("EN");
+    }
+
+
     [Header("MouseCursor")]
     [SerializeField] Texture2D _mouseCursorDefault;
     [SerializeField] Texture2D _mouseCursorSelected;
@@ -17,18 +33,36 @@ public class UIManager : MonoBehaviour
 
     [Space(10f)]
     [Header("Locolization")]
-    [SerializeField] List<TextMeshProUGUI> _ENTexts;
-    [SerializeField] List<TextMeshProUGUI> _CNTexts;
+    [SerializeField] UITexts _texts;
 
 
     private void Start()
     {
         Cursor.SetCursor(_mouseCursorDefault, _hotSpot, _cursorMode);
 
+
     }
     private void Update()
     {
-        UpdatePlayerResourcePanel();
+        //UpdatePlayerResourcePanel();
+        // if (Input.GetMouseButtonDown(0))
+        // {
+        //     SceneManager.LoadScene(1);
+        // }
+        // if (Input.GetMouseButtonDown(1))
+        // {
+        //     SceneManager.LoadScene(0);
+        // }
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            SwitchLanguage("CN");
+        }
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            SwitchLanguage("EN");
+        }
+
     }
     void OnMouseEnter()
     {
@@ -47,12 +81,12 @@ public class UIManager : MonoBehaviour
         switch (language)
         {
             case "EN":
-                LanguageChange(_ENTexts, true);
-                LanguageChange(_CNTexts, false);
+                LanguageChange(_texts.ENTexts, true);
+                LanguageChange(_texts.CNTexts, false);
                 break;
             case "CN":
-                LanguageChange(_ENTexts, false);
-                LanguageChange(_CNTexts, true);
+                LanguageChange(_texts.ENTexts, false);
+                LanguageChange(_texts.CNTexts, true);
                 break;
         }
     }
@@ -64,12 +98,6 @@ public class UIManager : MonoBehaviour
             item.gameObject.SetActive(isActive);
         }
     }
-
-
-
-
-
-
     #endregion
 
 }
