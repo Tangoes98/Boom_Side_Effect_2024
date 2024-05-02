@@ -62,8 +62,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7366225567147057103}
   - component: {fileID: 6395384532926094687}
+  - component: {fileID: -3095246482165734405}
   - component: {fileID: -4259329475479671481}
-  - component: {fileID: -6552911780415549069}
   - component: {fileID: 8209451164258077205}
   m_Layer: 10
   m_Name: Tower_01
@@ -111,6 +111,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 13.927752, y: 14.697365, z: 14.792265}
   m_Center: {x: -0.05186653, y: 6.2536793, z: -0.1815331}
+--- !u!114 &-3095246482165734405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6957985860104754605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4e8112d80003444382ef581c767f336, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <CanBuild>k__BackingField: 0
 --- !u!54 &-4259329475479671481
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -138,19 +151,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-6552911780415549069
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6957985860104754605}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49c9673e1de836f4ea510684a1f0b6b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <CanBuild>k__BackingField: 0
 --- !u!114 &8209451164258077205
 MonoBehaviour:
   m_ObjectHideFlags: 0

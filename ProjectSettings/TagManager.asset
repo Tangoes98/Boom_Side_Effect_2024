@@ -6,6 +6,7 @@ TagManager:
   tags:
   - BuildingArea
   - Building
+  - NoBuildingArea
   layers:
   - Default
   - TransparentFX

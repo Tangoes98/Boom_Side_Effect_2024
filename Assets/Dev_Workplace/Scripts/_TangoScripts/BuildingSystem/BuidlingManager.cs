@@ -48,7 +48,7 @@ public class BuidlingManager : MonoBehaviour
     [Header("DEBUG")]
     [SerializeField] GameObject _previewBuilding;
     [SerializeField] string _buildingCode;
-    [field: SerializeField] public bool CanPlaceBuilding { get; private set; }
+    [field: SerializeField] public bool CanPlopBuilding { get; private set; }
     [field: SerializeField] public bool HaveEnoughResourceToBuild { get; private set; }
     [SerializeField] bool _isBuilding;
     BuildingArtAssets _buildingAssets;
@@ -185,7 +185,7 @@ public class BuidlingManager : MonoBehaviour
 
     void OnButtonClick(Button btn)
     {
-        CanPlaceBuilding = false;
+        CanPlopBuilding = false;
 
         //*Show Links
         ArchiLinkManager.Instance.LinkFromClosestArchToPointer(true);
@@ -226,22 +226,24 @@ public class BuidlingManager : MonoBehaviour
 
     void BuildingValidation()
     {
-        var buildingCheacker = _previewBuilding.GetComponent<BuildingChecker>();
-        if (!buildingCheacker.CanBuild)
+        var buildingCollidCheacker = _previewBuilding.GetComponent<BuildingCollidingCheck>();
+        //var buildingCheacker = _previewBuilding.GetComponentInChildren<BuildingChecker>();
+
+        if (!buildingCollidCheacker.CanBuild)
         {
             foreach (var item in _buildingAssets.Subassets)
             {
                 item.GetComponent<MeshRenderer>().material = _buildingForbidMaterial;
             }
-            CanPlaceBuilding = false;
+            CanPlopBuilding = false;
         }
-        else
+        else if (buildingCollidCheacker.CanBuild)
         {
             foreach (var item in _buildingAssets.Subassets)
             {
                 item.GetComponent<MeshRenderer>().material = _buildingShadowMaterial;
             }
-            CanPlaceBuilding = true;
+            CanPlopBuilding = true;
         }
     }
 

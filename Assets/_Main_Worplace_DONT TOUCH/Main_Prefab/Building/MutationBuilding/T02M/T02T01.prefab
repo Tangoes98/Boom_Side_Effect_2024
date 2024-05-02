@@ -65,8 +65,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1892487841968342741}
   - component: {fileID: 7828518832753730534}
+  - component: {fileID: 5924418115185964710}
   - component: {fileID: -7316881082618418257}
-  - component: {fileID: -8732396897854986495}
   - component: {fileID: -203424129189139703}
   m_Layer: 10
   m_Name: T02T01
@@ -114,6 +114,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 8.330593, y: 13.110438, z: 8.290904}
   m_Center: {x: -0.6, y: 6.1773515, z: -0.7}
+--- !u!114 &5924418115185964710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1352693974052360230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4e8112d80003444382ef581c767f336, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <CanBuild>k__BackingField: 0
 --- !u!54 &-7316881082618418257
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -141,19 +154,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-8732396897854986495
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1352693974052360230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49c9673e1de836f4ea510684a1f0b6b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <CanBuild>k__BackingField: 0
 --- !u!114 &-203424129189139703
 MonoBehaviour:
   m_ObjectHideFlags: 0

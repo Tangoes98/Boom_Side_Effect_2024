@@ -67,7 +67,7 @@ public class MouseStateManager : MonoBehaviour
                 if (!MouseController.Is_LMB_Down()) return;
 
                 //*Check if is a valid position to place the Building
-                if (!BuidlingManager.Instance.CanPlaceBuilding) return;
+                if (!BuidlingManager.Instance.CanPlopBuilding) return;
 
                 PlaceBuilding();
 
