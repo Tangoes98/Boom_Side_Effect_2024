@@ -55,6 +55,7 @@ MonoBehaviour:
     maxHealth: 0
     speed: 0
     range: 0
+    minRange: 0
     viewRange: 0
     attackMode: 0
     lockMode: 0
@@ -71,6 +72,7 @@ MonoBehaviour:
   baseInfo:
     name: JiaTeLinJiChe
     speed: 5
+    minRange: 3
     baseType: 1
     addonType: 4
     attackMode: 1

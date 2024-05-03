@@ -8,6 +8,8 @@ public class MinionBase
 
     public float speed;
 
+    public float minRange;
+
     public DamageType baseType;
     public DamageType addonType;
 
@@ -30,16 +32,16 @@ public class MinionBase
 }
 public enum MinionStateType
 {
-    IDLE,//´ý»ú×´Ì¬
-    VIEW,//Ë÷µÐ×·×Ù
-    INTERVAL,//¼ä¸ô×´Ì¬
-    ATTACK,//¹¥»÷×´Ì¬
-    DYING,//±ôËÀ
-    DIZZY//Ñ£ÔÎ
+    IDLE,//ï¿½ï¿½ï¿½ï¿½×´Ì¬
+    VIEW,//ï¿½ï¿½ï¿½ï¿½×·ï¿½ï¿½
+    INTERVAL,//ï¿½ï¿½ï¿½×´Ì¬
+    ATTACK,//ï¿½ï¿½ï¿½ï¿½×´Ì¬
+    DYING,//ï¿½ï¿½ï¿½ï¿½
+    DIZZY//Ñ£ï¿½ï¿½
 }
 
 public enum MinionType
 {
-    ENEMY,//µÐ¾ü 
-    FRIEND//ÓÑ¾ü
+    ENEMY,//ï¿½Ð¾ï¿½ 
+    FRIEND//ï¿½Ñ¾ï¿½
 }

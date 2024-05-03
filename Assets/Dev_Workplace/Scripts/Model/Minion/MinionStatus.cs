@@ -9,6 +9,7 @@ public class MinionStatus {
     public float speed; 
 
     public float range;
+    public float minRange;
     
     public float viewRange; // 索敌范围，doc没写，感觉需要，先放这
 

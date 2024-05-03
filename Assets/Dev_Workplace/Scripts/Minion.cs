@@ -41,6 +41,10 @@ public class Minion : MonoBehaviour
 
     private float _poisonUpdateTimer = 1;
 
+    public AoeAttack aoeAttack;
+    private void Awake() {
+        aoeAttack = GetComponent<AoeAttack>();
+    }
 
     public void Initialize(Barrack parent)
     {
@@ -52,7 +56,8 @@ public class Minion : MonoBehaviour
         status.maxHealth = modifier * prop.health;
         status.health = status.maxHealth;
         status.damage = modifier * prop.damage;
-
+        
+        status.minRange = baseInfo.minRange;
         status.range = prop.range;
         status.viewRange = math.max(prop.range, prop.viewRange);
         status.attackMode = baseInfo.attackMode;
@@ -90,8 +95,6 @@ public class Minion : MonoBehaviour
 
         TransitionState(MinionStateType.IDLE);
 
-        //SendMessage("InitializeHealth", status.maxHealth);
-
     }
 
     void Update()
@@ -109,12 +112,13 @@ public class Minion : MonoBehaviour
         _parent.DestroyMinion(this);
     }
 
-    public Minion[] GetOppenentInRange(float range)
+    public Minion[] GetOppenentInRange(float range, float minRange)
     {
         LayerMask OppenetLayer = (baseInfo.minionType == MinionType.FRIEND) ? LevelManager.EnemyLayer() : LevelManager.FriendLayer();
         Collider[] attackTargets = Physics.OverlapSphere(this.transform.position, range, OppenetLayer);
         Minion[] minions = attackTargets.Select(collider => collider.gameObject.GetComponent<Minion>())
                                .Where(enemy => enemy != null)
+                               .Where(m => minRange==0 || Vector3.Distance(this.transform.position, m.transform.position)> minRange)
                                .OrderBy(m => Vector3.Distance(this.transform.position, m.transform.position))
                                .ToArray();
         if (attackTargets.Length > 0)
@@ -140,10 +144,14 @@ public class Minion : MonoBehaviour
     {
         target.TakeEffect(status.specialEffect, status.specialEffectModifier,status.specialEffectLastTime);
         target.TakeEffect(status.secondSpEffect, status.secondSpEffectModifier, status.secondSpEffectLastTime);
+        if(target.status.health<=status.damage && aoeAttack!=null && aoeAttack.type==AoeType.CIRCLE_CENTER_ENEMY_DIE) {
+            aoeAttack.TriggerAOE(target.transform.position); 
+        }
         target.TakeDamage(status.damage);
+        
     }
 
-    void TakeDamage(float damage)
+    public void TakeDamage(float damage)
     {
         if(_stateLabel== MinionStateType.DYING.ToString()) {
             return;
@@ -156,7 +164,7 @@ public class Minion : MonoBehaviour
             TransitionState(MinionStateType.DYING);
         }
     }
-    void TakeEffect(SpecialEffect type, float modifier, float lastTime)
+    public void TakeEffect(SpecialEffect type, float modifier, float lastTime)
     {
         if (type == SpecialEffect.NONE) return;
         status.effectBase.AddEffect(type, modifier,lastTime);

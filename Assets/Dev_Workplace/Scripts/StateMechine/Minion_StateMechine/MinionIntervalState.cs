@@ -28,7 +28,7 @@ public class MinionIntervalState : IState
     {
         timer -= Time.deltaTime;
         // refresh nearest enemies
-        Minion[] targets = manager.GetOppenentInRange(status.range);
+        Minion[] targets = manager.GetOppenentInRange(status.range,status.minRange);
         manager.targets = targets;
 
         attackTarget = manager.targets==null? null : manager.targets[0];

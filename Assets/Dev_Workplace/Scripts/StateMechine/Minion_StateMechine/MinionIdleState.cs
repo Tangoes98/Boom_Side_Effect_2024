@@ -14,11 +14,11 @@ public class MinionIdleState : IState
     public void onEnter()
     {
 
-        //manager.targets = null; // ¿ÉÄÜ²»ÐèÒª
+        //manager.targets = null; // ï¿½ï¿½ï¿½Ü²ï¿½ï¿½ï¿½Òª
         manager.agent.speed = status.speed;
         manager.targets = null;
 
-        //»Øµ½Ä¬ÈÏÎ»ÖÃ
+        //ï¿½Øµï¿½Ä¬ï¿½ï¿½Î»ï¿½ï¿½
         manager.agent.SetDestination(manager.moveDestination);
         manager.animationController.SwitchAnimState("Move");
     }
@@ -28,8 +28,8 @@ public class MinionIdleState : IState
     }
     public void onUpdate()
     {
-        //Èç¹ûµÐÈË½øÈë¹¥»÷·¶Î§£¬ÇÐ»»µ½¹¥»÷×´Ì¬
-        Minion[] targets = manager.GetOppenentInRange(status.range);
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë½ï¿½ï¿½ë¹¥ï¿½ï¿½ï¿½ï¿½Î§ï¿½ï¿½ï¿½Ð»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬
+        Minion[] targets = manager.GetOppenentInRange(status.range,status.minRange);
         if (targets != null)
         {
             manager.targets = targets;
@@ -38,8 +38,8 @@ public class MinionIdleState : IState
             return;
         }
 
-        //Èç¹ûµÐÈË½øÈëË÷µÐ·¶Î§£¬ÇÐ»»µ½Ë÷µÐ×´Ì¬
-        targets = manager.GetOppenentInRange(status.viewRange);
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð·ï¿½Î§ï¿½ï¿½ï¿½Ð»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬
+        targets = manager.GetOppenentInRange(status.viewRange,0);
         if (targets != null)
         {
             manager.targets = targets;

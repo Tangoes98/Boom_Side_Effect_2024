@@ -57,12 +57,25 @@ public class MinionAttackState : IState
 
         if (status.attackMode == AttackMode.SINGLE_HIT && !_attacked)
         {
-            // 
-            // {
-                manager.Attack(attackTarget);
-                _attacked = true;
-            //     timerInterval0_1 = 1;
-            // }
+            if(manager.aoeAttack!=null && manager.aoeAttack.type==AoeType.CIRCLE_CENTER_SELF_DIE) {
+
+                manager.aoeAttack.TriggerAOE(manager.transform.position); 
+                manager.TransitionState(MinionStateType.DYING);
+                return;
+
+            }
+            if(manager.aoeAttack!=null && manager.aoeAttack.type==AoeType.CIRCLE_CENTER_ENEMY) {
+                manager.aoeAttack.TriggerAOE(attackTarget.transform.position); 
+            }
+
+            if(manager.aoeAttack!=null && (manager.aoeAttack.type==AoeType.CIRCLE_CENTER_SELF || 
+                                            manager.aoeAttack.type==AoeType.ARC || 
+                                            manager.aoeAttack.type==AoeType.LINE)) {
+                manager.aoeAttack.TriggerAOE(manager.transform.position); 
+                return;
+            }
+            manager.Attack(attackTarget);
+            _attacked = true;
         }
 
         if (status.attackMode == AttackMode.CONTINUOUS && timerInterval0_1 <= 0) {

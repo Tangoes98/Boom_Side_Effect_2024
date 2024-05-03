@@ -28,7 +28,7 @@ public class MinionViewState : IState
     public void onUpdate()
     {
         //如果敌人进入攻击范围，切换到攻击状态
-        Minion[] targets = manager.GetOppenentInRange(status.range);
+        Minion[] targets = manager.GetOppenentInRange(status.range,status.minRange);
         if (targets != null)
         {
             manager.targets = targets;
@@ -36,7 +36,7 @@ public class MinionViewState : IState
 
             return;
         }
-        manager.targets = manager.GetOppenentInRange(status.viewRange);
+        manager.targets = manager.GetOppenentInRange(status.viewRange,0);
 
         //敌方消失或敌方离开索敌范围，切换回待机
         if (manager.targets == null ||
