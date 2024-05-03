@@ -17,7 +17,8 @@ public class UIManager : MonoBehaviour
         }
         Instance = this;
 
-        SwitchLanguage("EN");
+        //SwitchLanguage(SceneDataManager.Instance.CurrentLanguage);
+        SwitchLanguage("CN");
     }
 
 

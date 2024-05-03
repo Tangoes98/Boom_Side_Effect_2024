@@ -374,6 +374,8 @@ public class ArchiLinkManager : MonoBehaviour
         if(Physics.Raycast(ray,out hit)) {
             Line line = hit.transform.GetComponent<Line>();
             if(line!=null && line.link != null) {
+                //* Update tutorial
+                if (TutorialUI.Instance.IsTutorialActive) TutorialUI.Instance.LineClickCount++;
                 Debug.Log("line clicked");
                 UpdateLink(line.link,line.link.NextState());
                 // 重新展示所有 line

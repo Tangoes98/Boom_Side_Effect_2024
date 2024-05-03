@@ -107,6 +107,7 @@ public class BuidlingManager : MonoBehaviour
     #region Event Methods
     void PlaceBuildingEventAction()
     {
+        if (TutorialUI.Instance.IsTutorialActive) TutorialUI.Instance.TutorialStep++;
 
         //* Check if there is enough resource to build
         if (!ResourceManager.Instance.CanBuild(_previewBuilding.GetComponent<Architect>().GetBuildCost()))
@@ -216,6 +217,8 @@ public class BuidlingManager : MonoBehaviour
 
         MouseStateManager.Instance.SwitchState(MouseStateManager.MouseStates.Building,
                                              () => { Debug.Log("EnterBuildingState"); });
+
+        if (TutorialUI.Instance.IsTutorialActive) TutorialUI.Instance.TutorialStep++;
     }
 
     #endregion

@@ -55,6 +55,9 @@ public class BuildingSelectionManager : MonoBehaviour
         if (!MouseController.Is_LMB_Down()) return;
         if (!CurrentSelectedBuilding) return;
 
+        //* update tutorial
+        if (TutorialUI.Instance.IsTutorialActive) TutorialUI.Instance.TutorialStep++;
+
         ShowSelectionPanels();
         MouseStateManager.Instance.SwitchState(MouseStateManager.MouseStates.SelectionPanelInspection, null);
 

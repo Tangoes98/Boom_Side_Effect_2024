@@ -49,6 +49,7 @@ public class MouseStateManager : MonoBehaviour
                 break;
 
             case MouseStates.SelectionPanelInspection:
+                if (TutorialUI.Instance.IsTutorialActive && MouseController.Is_RMB_Down()) return;
                 if (!MouseController.Is_RMB_Down()) return;
                 BuildingSelectionManager.Instance.CloseSelectionPanel();
                 SwitchState(MouseStates.Selecting, null);
@@ -73,7 +74,11 @@ public class MouseStateManager : MonoBehaviour
 
                 break;
             case MouseStates.Tutorial:
-                
+
+                if (TutorialUI.Instance.TutorialStep < 7) return;
+
+                if (!MouseController.Is_LMB_Down()) return;
+                TutorialUI.Instance.TutorialStep++;
 
 
                 break;

@@ -22,6 +22,8 @@ public class InputManager : MonoBehaviour
     }
     private void Update()
     {
+        if (TutorialUI.Instance.IsTutorialActive) return;
+
         if (IS_SPACE_DOWN()) _isPauseGame = !_isPauseGame;
 
 
@@ -45,7 +47,7 @@ public class InputManager : MonoBehaviour
     void PauseGameCheck()
     {
         if (!_isPauseGame) Time.timeScale = 1;
-        if (_isPauseGame) Time.timeScale = 0.1f; //? Slow Motion
+        if (_isPauseGame) Time.timeScale = 0f; //? Slow Motion
     }
 
     Vector3 InputAxis()
