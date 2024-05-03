@@ -24,7 +24,7 @@ public class Enemy : Minion
         status.secondSpEffect = Info().secondSpecialEffect;
 
         moveDestination = LevelManager.BaseDestination().position;
-        status.gotEffects = new Dictionary<SpecialEffect, Effect>();
+        status.effectBase = new Effect();
         status.takeDamageModifer = 1f;
 
         agent = this.GetComponent<NavMeshAgent>();

@@ -30,8 +30,8 @@ public class MinionStatus {
     public SpecialEffect secondSpEffect;
     public float secondSpEffectModifier;
     public float secondSpEffectLastTime;
-
-    public Dictionary<SpecialEffect, Effect> gotEffects;
+    public Effect effectBase;
+    public Dictionary<SpecialEffect, EffectStruct> gotEffects => effectBase.effect;
     public float takeDamageModifer;
 
 }

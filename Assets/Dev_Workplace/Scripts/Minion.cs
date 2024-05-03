@@ -39,6 +39,8 @@ public class Minion : MonoBehaviour
     [SerializeField] string _stateLabel;
     public AnimationController animationController;
 
+    private float _poisonUpdateTimer = 1;
+
 
     public void Initialize(Barrack parent)
     {
@@ -67,7 +69,7 @@ public class Minion : MonoBehaviour
         status.secondSpEffectModifier = prop.secondSpEffectModifier;
         status.secondSpEffectLastTime = prop.secondSpEffectLastTime;
 
-        status.gotEffects = new Dictionary<SpecialEffect, Effect>();
+        status.effectBase = new Effect();
         status.takeDamageModifer = 1f;
 
         moveDestination = baseInfo.minionType == MinionType.ENEMY ? LevelManager.BaseDestination().position : _parent.minionDestination;
@@ -136,8 +138,8 @@ public class Minion : MonoBehaviour
 
     public virtual void Attack(Minion target)
     {
-        target.TakeEffect(status.specialEffect, level);
-        target.TakeEffect(status.secondSpEffect, level);
+        target.TakeEffect(status.specialEffect, status.specialEffectModifier,status.specialEffectLastTime);
+        target.TakeEffect(status.secondSpEffect, status.secondSpEffectModifier, status.secondSpEffectLastTime);
         target.TakeDamage(status.damage);
     }
 
@@ -154,38 +156,54 @@ public class Minion : MonoBehaviour
             TransitionState(MinionStateType.DYING);
         }
     }
-    void TakeEffect(SpecialEffect type, int level)
+    void TakeEffect(SpecialEffect type, float modifier, float lastTime)
     {
         if (type == SpecialEffect.NONE) return;
-        if (!status.gotEffects.TryGetValue(type, out Effect existingeffect))
-        {
-            status.gotEffects.Add(type, new Effect());
-        }
-        status.gotEffects[type].AddEffect(type, level);
+        status.effectBase.AddEffect(type, modifier,lastTime);
     }
     void UpdateEffect()
     {
-        foreach (var gotEffect in status.gotEffects)
-        {
-            SpecialEffect specialEffect = gotEffect.Key;
-            Effect effect = gotEffect.Value;
+        List<SpecialEffect> cancelledEffects = status.effectBase.UpdateEffect(Time.deltaTime);
+        ResetEffect(cancelledEffects);
 
-            effect.UpdateEffect(Time.deltaTime);
+        foreach (var gotEffect in status.gotEffects)
+        {       
+            SpecialEffect specialEffect = gotEffect.Key;
+            EffectStruct effect = gotEffect.Value;
+
             switch (specialEffect)
             {
                 case SpecialEffect.WEAK:
-                    status.takeDamageModifer = 1 + effect.effect.modifier;
+                    status.takeDamageModifer = 1 + effect.modifier;
                     break;
                 case SpecialEffect.POSION:
-                    SendMessage("TakeDamage", effect.effect.modifier * status.maxHealth);
+                    _poisonUpdateTimer-=Time.deltaTime;
+                    if(_poisonUpdateTimer<=0) {
+                        SendMessage("TakeDamage", effect.modifier * status.maxHealth);
+                        _poisonUpdateTimer = 1;
+                    }
                     break;
                 case SpecialEffect.SLOW:
-                    agent.speed = status.speed = agent.speed * effect.effect.modifier;
+                    status.speed = Info().speed + effect.modifier;
+                    if(agent.speed>0) agent.speed = status.speed;
                     break;
                 case SpecialEffect.DIZZY:
                     TransitionState(MinionStateType.DIZZY);
                     break;
 
+            }
+        }
+    }
+
+    void ResetEffect(List<SpecialEffect> cancelledEffects) {
+        foreach (var e in cancelledEffects) {
+            if(e == SpecialEffect.SLOW) {
+                status.speed = Info().speed;
+                if(agent.speed>0) agent.speed = status.speed;
+            } else if(e==SpecialEffect.WEAK) {
+                status.takeDamageModifer = 1f;
+            } else if(e==SpecialEffect.POSION) {
+                _poisonUpdateTimer = 1f;
             }
         }
     }

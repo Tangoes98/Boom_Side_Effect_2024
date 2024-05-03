@@ -25,7 +25,7 @@ public class MinionDizzyState : IState
     }
     public void onUpdate()
     {
-        if (status.gotEffects[SpecialEffect.DIZZY].effect.lastTime < 0.1f) manager.TransitionState(MinionStateType.IDLE);
+        if (status.gotEffects[SpecialEffect.DIZZY].lastTime < 0.1f) manager.TransitionState(MinionStateType.IDLE);
     }
 
 }
