@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,7 +42,10 @@ public class Minion : MonoBehaviour
 
     private float _poisonUpdateTimer = 1;
 
-    public AoeAttack aoeAttack;
+    public AoeAttack aoeAttack {private set; get; }
+
+    public MainBase mainBase {get;set;}
+    
     private void Awake() {
         aoeAttack = GetComponent<AoeAttack>();
     }
@@ -112,16 +116,28 @@ public class Minion : MonoBehaviour
         _parent.DestroyMinion(this);
     }
 
-    public Minion[] GetOppenentInRange(float range, float minRange)
+    public Minion[] GetOppenentInRange(float range, float minRange, out MainBase baseInRange)
     {
         LayerMask OppenetLayer = (baseInfo.minionType == MinionType.FRIEND) ? LevelManager.EnemyLayer() : LevelManager.FriendLayer();
         Collider[] attackTargets = Physics.OverlapSphere(this.transform.position, range, OppenetLayer);
+        baseInRange = baseInfo.minionType == MinionType.FRIEND? null : 
+                        attackTargets.Select(collider => collider.gameObject.GetComponent<MainBase>())
+                            .Where(b => b != null)
+                            .FirstOrDefault();
+        
         Minion[] minions = attackTargets.Select(collider => collider.gameObject.GetComponent<Minion>())
                                .Where(enemy => enemy != null)
                                .Where(m => minRange==0 || Vector3.Distance(this.transform.position, m.transform.position)> minRange)
                                .OrderBy(m => Vector3.Distance(this.transform.position, m.transform.position))
                                .ToArray();
-        if (attackTargets.Length > 0)
+        
+        if(baseInfo.minionType == MinionType.ENEMY && baseInRange!=null && 
+                (minions.Length==0 || 
+                    Vector3.Distance(this.transform.position, minions[0].transform.position) > Vector3.Distance(this.transform.position, baseInRange.transform.position))) {
+            return null;
+        }
+
+        if (minions.Length > 0)
         {
             return minions;
         }
@@ -144,8 +160,8 @@ public class Minion : MonoBehaviour
     {
         target.TakeEffect(status.specialEffect, status.specialEffectModifier,status.specialEffectLastTime);
         target.TakeEffect(status.secondSpEffect, status.secondSpEffectModifier, status.secondSpEffectLastTime);
-        if(target.status.health<=status.damage && aoeAttack!=null && aoeAttack.type==AoeType.CIRCLE_CENTER_ENEMY_DIE) {
-            aoeAttack.TriggerAOE(target.transform.position); 
+        if(target.status.health<=status.damage*status.takeDamageModifer && aoeAttack!=null && aoeAttack.type==AoeType.CIRCLE_CENTER_ENEMY_DIE) {
+            aoeAttack.TriggerAOE(target.transform.position,status.takeDamageModifer); 
         }
         target.TakeDamage(status.damage);
         

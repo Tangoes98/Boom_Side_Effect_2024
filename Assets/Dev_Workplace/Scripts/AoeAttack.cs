@@ -14,6 +14,7 @@ public class AoeAttack : MonoBehaviour {
     private Minion mParent;
     private DefenseTower tParent;
 
+    private Vector3 _center = Vector3.zero;
 
     private void Start() {
         mParent = GetComponent<Minion>();
@@ -54,23 +55,19 @@ public class AoeAttack : MonoBehaviour {
       
     }
 
-    public void TriggerAOE(Vector3 center) {
+    public void TriggerAOE(Vector3 center, float takeDamageModifer) {
         Minion[] enemies; 
         Gizmos.color = Color.yellow;
         if(type == AoeType.LINE) {
             enemies = GetEnemyInRange(center,10, ParentFaceDirection());
-            Gizmos.DrawLine(center, center + aoeRange * ParentFaceDirection());
         } else if(type == AoeType.ARC) {
             enemies = GetEnemyInRange(center, 120, ParentFaceDirection());
-            Gizmos.DrawLine(center, center + aoeRange * (Quaternion.Euler(0, -60, 0) * ParentFaceDirection()));
-            Gizmos.DrawLine(center, center + aoeRange * (Quaternion.Euler(0, 60, 0) * ParentFaceDirection()));
         } else {
             enemies = GetEnemyInRange(center,360, Vector3.zero);
-            Gizmos.DrawWireSphere(center, aoeRange);
         }
-        
+        _center = center;
         foreach(var enemy in enemies) {
-            if(_damage>0) enemy.TakeDamage(_damage);
+            if(_damage>0) enemy.TakeDamage(_damage*takeDamageModifer);
             if(_effects!=null && _effects.Count>0) {
                 foreach(var effect in _effects) {
                     enemy.TakeEffect(effect.type,effect.modifier,effect.lastTime);
@@ -79,6 +76,19 @@ public class AoeAttack : MonoBehaviour {
             }
         }
 
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        if( _center == Vector3.zero) return;
+        if(type == AoeType.LINE) {
+            Gizmos.DrawLine(_center, _center + aoeRange * ParentFaceDirection());
+        } else if(type == AoeType.ARC) {
+            Gizmos.DrawLine(_center, _center + aoeRange * ParentFaceDirection());
+        } else {
+            Gizmos.DrawWireSphere(_center, aoeRange);
+        }
     }
 
     private Vector3 ParentFaceDirection() {

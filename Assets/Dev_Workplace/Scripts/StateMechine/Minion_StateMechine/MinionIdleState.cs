@@ -20,6 +20,7 @@ public class MinionIdleState : IState
 
         //�ص�Ĭ��λ��
         manager.agent.SetDestination(manager.moveDestination);
+
         manager.animationController.SwitchAnimState("Move");
     }
     public void onExit()
@@ -29,17 +30,28 @@ public class MinionIdleState : IState
     public void onUpdate()
     {
         //������˽��빥����Χ���л�������״̬
-        Minion[] targets = manager.GetOppenentInRange(status.range,status.minRange);
+        MainBase mainBase;
+        Minion[] targets = manager.GetOppenentInRange(status.range,status.minRange, out mainBase);
+        manager.mainBase = targets==null && mainBase !=null? mainBase : null;
+        if(manager.code=="E04") {
+            // dog go straight to main base
+            if(mainBase!=null)
+                manager.TransitionState(MinionStateType.ATTACK);  
+            
+            return;
+        }
         if (targets != null)
         {
             manager.targets = targets;
             manager.TransitionState(MinionStateType.ATTACK);
-
             return;
+        } else if(mainBase!=null) {
+            manager.TransitionState(MinionStateType.ATTACK);  
+            return;       
         }
 
         //������˽������з�Χ���л�������״̬
-        targets = manager.GetOppenentInRange(status.viewRange,0);
+        targets = manager.GetOppenentInRange(status.viewRange,0, out mainBase);
         if (targets != null)
         {
             manager.targets = targets;

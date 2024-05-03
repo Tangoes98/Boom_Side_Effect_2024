@@ -27,18 +27,22 @@ public class MinionViewState : IState
     }
     public void onUpdate()
     {
-        //Èç¹ûµÐÈË½øÈë¹¥»÷·¶Î§£¬ÇÐ»»µ½¹¥»÷×´Ì¬
-        Minion[] targets = manager.GetOppenentInRange(status.range,status.minRange);
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë½ï¿½ï¿½ë¹¥ï¿½ï¿½ï¿½ï¿½Î§ï¿½ï¿½ï¿½Ð»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬
+        MainBase mainBase;
+        Minion[] targets = manager.GetOppenentInRange(status.range,status.minRange, out mainBase);
+        manager.mainBase = targets==null && mainBase !=null? mainBase : null;
         if (targets != null)
         {
             manager.targets = targets;
             manager.TransitionState(MinionStateType.ATTACK);
-
-            return;
+            return; 
+        } else if(mainBase!=null) {
+            manager.TransitionState(MinionStateType.ATTACK); 
+            return;         
         }
-        manager.targets = manager.GetOppenentInRange(status.viewRange,0);
+        manager.targets = manager.GetOppenentInRange(status.viewRange,0, out mainBase);
 
-        //µÐ·½ÏûÊ§»òµÐ·½Àë¿ªË÷µÐ·¶Î§£¬ÇÐ»»»Ø´ý»ú
+        //ï¿½Ð·ï¿½ï¿½ï¿½Ê§ï¿½ï¿½Ð·ï¿½ï¿½ë¿ªï¿½ï¿½ï¿½Ð·ï¿½Î§ï¿½ï¿½ï¿½Ð»ï¿½ï¿½Ø´ï¿½ï¿½ï¿½
         if (manager.targets == null ||
             Vector3.Distance(viewTarget.transform.position, manager.transform.position) >= status.viewRange)
         {
@@ -46,27 +50,31 @@ public class MinionViewState : IState
             return;
         }
         viewTarget = manager.targets[0];
-        manager.agent.speed = status.speed;
-        manager.agent.SetDestination(viewTarget.transform.position);
-
-        //ÏÞÖÆ·¶Î§
+        
+        //ï¿½ï¿½ï¿½Æ·ï¿½Î§
         if (manager.Info().minionType == MinionType.FRIEND)
         {
             Barrack barrack = manager.Barrack();
             if (Vector3.Distance(barrack.transform.position, manager.transform.position) >= barrack.Status().range)
             {
-                //Í£Ö¹µ«³ÖÐøË÷µÐÖ±µ½µÐ·½£¨¿ÉÄÜ£©½øÈë±øÓª·¶Î§                
+                //Í£Ö¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½ï¿½Ð·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Óªï¿½ï¿½Î§                
                 if (viewTarget != null && Vector3.Distance(barrack.transform.position, viewTarget.transform.position) <= barrack.Status().range)
                 {
+                    manager.agent.SetDestination(viewTarget.transform.position);
                     manager.agent.speed = status.speed;
+
                     manager.animationController.SwitchAnimState("Move");
                 } else {
                     manager.animationController.SwitchAnimState("Idle");
                     manager.agent.speed = 0;
+
                 }
                 return;
             }
         }
+        manager.agent.speed = status.speed;
+        manager.agent.SetDestination(viewTarget.transform.position);
+
         manager.animationController.SwitchAnimState("Move");
     }
 }

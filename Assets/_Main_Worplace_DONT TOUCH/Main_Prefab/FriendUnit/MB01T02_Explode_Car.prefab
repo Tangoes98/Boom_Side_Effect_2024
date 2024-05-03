@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3803593518565151252}
   - component: {fileID: 8805706070467900456}
   - component: {fileID: 1083974912448533956}
+  - component: {fileID: 1376894380734848931}
   m_Layer: 9
   m_Name: MB01T02_Explode_Car
   m_TagString: Untagged
@@ -55,6 +56,7 @@ MonoBehaviour:
     maxHealth: 0
     speed: 0
     range: 0
+    minRange: 0
     viewRange: 0
     attackMode: 0
     lockMode: 0
@@ -71,6 +73,7 @@ MonoBehaviour:
   baseInfo:
     name: ZiBaoChe
     speed: 7
+    minRange: 0
     baseType: 1
     addonType: 2
     attackMode: 0
@@ -111,6 +114,7 @@ MonoBehaviour:
   <targets>k__BackingField: []
   _stateLabel: 
   animationController: {fileID: 0}
+  aoeAttack: {fileID: 0}
 --- !u!65 &8805706070467900456
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -159,6 +163,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1376894380734848931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3854347739719651370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d18e2d170c63d448aa294f95dfa2e2a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitRangeAsAoeRange: 0
+  aoeRange: 1
+  type: 2
 --- !u!1001 &4905484165428481900
 PrefabInstance:
   m_ObjectHideFlags: 0
