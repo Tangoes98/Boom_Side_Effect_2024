@@ -44,7 +44,8 @@ public class UIManager : MonoBehaviour
     }
     private void Update()
     {
-        //UpdatePlayerResourcePanel();
+        UpdatePlayerResourcePanel();
+
         // if (Input.GetMouseButtonDown(0))
         // {
         //     SceneManager.LoadScene(1);
@@ -73,7 +74,7 @@ public class UIManager : MonoBehaviour
     #region ===============
     void UpdatePlayerResourcePanel()
     {
-        _currentResource.text = $"CURRENT RESOURCE: {ResourceManager.Instance.PlayerResource}";
+        _currentResource.text = ResourceManager.Instance.PlayerResource.ToString();
     }
 
     void SwitchLanguage(string language)

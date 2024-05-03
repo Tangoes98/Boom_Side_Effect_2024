@@ -18,7 +18,7 @@ public class MouseStateManager : MonoBehaviour
 
     public enum MouseStates
     {
-        None, Selecting, SelectionPanelInspection, Building
+        None, Selecting, SelectionPanelInspection, Building, Tutorial
     }
     public event Action PlaceBuildingEvent;
     public event Action CancelBuildingEvent;
@@ -30,7 +30,7 @@ public class MouseStateManager : MonoBehaviour
 
     private void Start()
     {
-
+        _mouseStates = MouseStates.Tutorial;
     }
     private void Update()
     {
@@ -72,7 +72,11 @@ public class MouseStateManager : MonoBehaviour
                 PlaceBuilding();
 
                 break;
+            case MouseStates.Tutorial:
                 
+
+
+                break;
         }
     }
 
