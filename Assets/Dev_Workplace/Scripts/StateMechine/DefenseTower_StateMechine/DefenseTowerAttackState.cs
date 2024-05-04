@@ -28,7 +28,8 @@ public class DefenseTowerAttackState : IState
 
     public void onUpdate()
     {
-        if(!manager.checkTarget()) manager.TransitionState(DefenseTowerStateType.IDLE);
+        
+        //if(!manager.checkTarget()) manager.TransitionState(DefenseTowerStateType.IDLE);
     }
 
 }

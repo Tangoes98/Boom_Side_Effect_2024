@@ -14,6 +14,7 @@ public class MinionDyingState : IState
     {
         manager.animationController.SwitchAnimState("Dead");
         _deathAnimationTimer = 3f;
+        manager.agent.speed = 0;
 
     }
     public void onExit()
@@ -23,6 +24,7 @@ public class MinionDyingState : IState
     public void onUpdate()
     {
         _deathAnimationTimer -= Time.deltaTime;
+        //manager.transform.position = _freezePos;
         
         if (_deathAnimationTimer < 0)
         {

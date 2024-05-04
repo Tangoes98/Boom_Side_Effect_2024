@@ -42,14 +42,14 @@ ParticleSystem:
   m_GameObject: {fileID: 2468726193121659527}
   serializedVersion: 8
   lengthInSec: 10
-  simulationSpeed: 1
+  simulationSpeed: 2
   stopAction: 0
   cullingMode: 3
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 0
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1

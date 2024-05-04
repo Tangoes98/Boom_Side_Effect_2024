@@ -24,7 +24,13 @@ public class AoeAttack : MonoBehaviour {
 
     private Vector3 _center=Vector3.zero;
 
+    private GameObject _eff = null;
+
     private void Start() {
+        Load();
+    }
+
+    public void Load() {
         mParent = GetComponent<Minion>();
         tParent = GetComponent<DefenseTower>();
         var mainBase = GetComponent<MainBase>();
@@ -106,8 +112,14 @@ public class AoeAttack : MonoBehaviour {
     }
 
     IEnumerator CleanUp(GameObject eff) {
+        _eff = eff;
         yield return new WaitForSeconds(_fxLastTime);
+        _eff = null;
         Destroy(eff);
+    }
+
+    private void OnDestroy() {
+        Destroy(_eff);
     }
 
     void OnDrawGizmosSelected()

@@ -87,7 +87,7 @@ MonoBehaviour:
     levelRelatedProperties:
     - level: 1
       health: 30
-      range: 0
+      range: 15
       viewRange: 20
       damage: 5
       specialEffectModifier: 0.05
@@ -96,7 +96,7 @@ MonoBehaviour:
       secondSpEffectLastTime: 0
     - level: 2
       health: 42
-      range: 0
+      range: 15
       viewRange: 20
       damage: 10
       specialEffectModifier: 0.07
@@ -105,7 +105,7 @@ MonoBehaviour:
       secondSpEffectLastTime: 0
     - level: 3
       health: 55
-      range: 0
+      range: 15
       viewRange: 20
       damage: 15
       specialEffectModifier: 0.1
@@ -175,8 +175,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d18e2d170c63d448aa294f95dfa2e2a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitRangeAsAoeRange: 0
-  aoeRange: 15
+  unitRangeAsAoeRange: 1
+  aoeRange: 0
   type: 0
   _fxEffect: {fileID: 0}
   _fxLastTime: 3

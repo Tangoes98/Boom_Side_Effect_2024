@@ -174,12 +174,13 @@ public class Minion : MonoBehaviour,IHealthBar
             return;
         }
         damage *= status.takeDamageModifer;
-        status.health = Mathf.Clamp(status.health - damage, 0, status.maxHealth);
+        
         //GetComponentInChildren<Slider>().value = status.health;
-        if (status.health <= 0)
+        if (status.health - damage <= 0)
         {
             TransitionState(MinionStateType.DYING);
         }
+        status.health = Mathf.Clamp(status.health - damage, 0, status.maxHealth);
     }
     public void TakeEffect(SpecialEffect type, float modifier, float lastTime)
     {

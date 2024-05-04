@@ -65,8 +65,15 @@ public class AnimationController : MonoBehaviour
         
         yield return new WaitForSeconds(waitTime);
         // Debug.Log(_animationClipDic[stateName]);
-        animator.CrossFadeInFixedTime(_animationClipDic[stateName], _crossfadeDuration, 0);
+        if(animator.enabled) animator.CrossFadeInFixedTime(_animationClipDic[stateName], _crossfadeDuration, 0);
         _lastState = new(stateName,Time.time);
         _animWaiting = null;
+    }
+
+    public void HideSelf() {
+        animator.enabled = false;
+        foreach(var mr in transform.GetComponentsInChildren<MeshRenderer>()) {
+            mr.enabled = false;
+        }
     }
 }
