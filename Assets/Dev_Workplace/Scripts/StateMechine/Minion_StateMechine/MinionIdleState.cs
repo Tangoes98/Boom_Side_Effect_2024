@@ -29,7 +29,10 @@ public class MinionIdleState : IState
     }
     public void onUpdate()
     {
-        //������˽��빥����Χ���л�������״̬
+        if(manager.status.health<0.01f) {
+            manager.TransitionState(MinionStateType.DYING);
+            return;
+        }
         MainBase mainBase;
         Minion[] targets = manager.GetOppenentInRange(status.range,status.minRange, out mainBase);
         manager.mainBase = targets==null && mainBase !=null? mainBase : null;

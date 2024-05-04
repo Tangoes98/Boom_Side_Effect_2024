@@ -178,7 +178,8 @@ MonoBehaviour:
   unitRangeAsAoeRange: 0
   aoeRange: 10
   type: 2
-  _fxEffect: {fileID: 1879769179923522, guid: 65932b7368590234d8163da03c2055d8, type: 3}
+  _fxEffect: {fileID: 1212845143976486922, guid: 68aea2eacf7d44958aa32808e0f71857,
+    type: 3}
   _fxLastTime: 3
   _mainBaseDmg: 0
 --- !u!1001 &3894877672734775496
@@ -367,6 +368,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Explode_Car
+      objectReference: {fileID: 0}
+    - target: {fileID: 7346076554547922243, guid: 4f999cd873d2d084484c1463373a79de,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

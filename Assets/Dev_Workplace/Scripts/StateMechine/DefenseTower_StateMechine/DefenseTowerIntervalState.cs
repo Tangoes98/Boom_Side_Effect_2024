@@ -26,18 +26,13 @@ public class DefenseTowerIntervalState : IState
 
     public void onUpdate()
     {
-        Enemy[] targets = manager.GetEnemyInRange();
-        if (targets!= null)
-        {
-            manager.targets=targets;
-        }
-        if (!manager.checkTarget()) {
-            manager.TransitionState(DefenseTowerStateType.IDLE);
-            return;
-        }
         timer -= Time.deltaTime;
         if (timer <= 0)
         {
+            if (!manager.checkTarget()) {
+                manager.TransitionState(DefenseTowerStateType.IDLE);
+                return;
+            }
             manager.TransitionState(DefenseTowerStateType.ATTACK);
         }
     }

@@ -22,6 +22,10 @@ public class MinionAttackState : IState
 
     public void onEnter()
     {
+        if(manager.status.health<0.01f) {
+            return;
+        }
+        
         //*Set Animation State
         manager.animationController.SwitchAnimState("Attack");
 
@@ -54,6 +58,10 @@ public class MinionAttackState : IState
     }
     public void onUpdate()
     {   
+        if(manager.status.health<0.01f) {
+            manager.TransitionState(MinionStateType.DYING);
+            return;
+        }
         manager.transform.position = _freezePos;
         timer -= Time.deltaTime;
         timerInterval0_1 -= Time.deltaTime;
@@ -86,7 +94,8 @@ public class MinionAttackState : IState
             if(manager.aoeAttack!=null && manager.aoeAttack.type==AoeType.CIRCLE_CENTER_SELF_DIE) {
 
                 manager.aoeAttack.TriggerAOE(manager.transform.position,status.takeDamageModifer); 
-                manager.TransitionState(MinionStateType.DYING);
+                manager.animationController.HideSelf();
+                manager.TransitionState(MinionStateType.DYING);  
                 return;
 
             }

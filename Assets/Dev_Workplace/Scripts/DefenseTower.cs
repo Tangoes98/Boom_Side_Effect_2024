@@ -48,6 +48,10 @@ public class DefenseTower : Architect
         status.secondSpEffectModifier = prop.secondSpEffectModifier;
         status.secondSpEffectLastTime = prop.secondSpEffectLastTime;
 
+        if(aoeAttack!=null && level!=1) {
+            aoeAttack.Load();
+        }
+
     }
 
 
@@ -119,6 +123,7 @@ public class DefenseTower : Architect
         yield return new WaitForSeconds(status.fireTime);
         
         DealDamage();
+        TransitionState(DefenseTowerStateType.INTERVAL);
     }
     IEnumerator ContinuousAttack()
     {
@@ -129,6 +134,7 @@ public class DefenseTower : Architect
             timer -= 0.1f;
             yield return new WaitForSeconds(0.1f);
         }
+        TransitionState(DefenseTowerStateType.IDLE);
     }
     //应该拓展DealDamage和checkTarget就能处理成不同的建筑功能
     protected virtual void DealDamage()
@@ -152,8 +158,8 @@ public class DefenseTower : Architect
 
     public virtual bool checkTarget()//检测攻击对象是否存在
     {
-        //暂时为单体。
-        bool isExist = targets[0] != null && Vector3.Distance(targets[0].transform.position, this.transform.position) < status.range;
+        targets = GetEnemyInRange();
+        bool isExist = targets!=null && targets[0] != null && Vector3.Distance(targets[0].transform.position, this.transform.position) < status.range;
         return isExist;
 
     }
