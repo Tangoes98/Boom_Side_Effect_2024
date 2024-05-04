@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -9,16 +10,24 @@ public class AoeAttack : MonoBehaviour {
     public AoeType type;
 
     private float _damage;
+
+    [SerializeField] private GameObject _fxEffect;
+    [SerializeField] private float _fxLastTime=3;
+
+    [SerializeField] private float _mainBaseDmg; 
     private List<EffectStruct> _effects = new();
 
     private Minion mParent;
     private DefenseTower tParent;
+
+    private bool _isMainBase;
 
     private Vector3 _center=Vector3.zero;
 
     private void Start() {
         mParent = GetComponent<Minion>();
         tParent = GetComponent<DefenseTower>();
+        var mainBase = GetComponent<MainBase>();
         if(mParent != null) {
             if(unitRangeAsAoeRange) {
                 aoeRange = mParent.status.range;
@@ -34,7 +43,7 @@ public class AoeAttack : MonoBehaviour {
                                                 mParent.status.secondSpEffectModifier, 
                                                 mParent.status.specialEffectLastTime));
             } 
-        } else {
+        } else if(tParent != null) {
              if(unitRangeAsAoeRange) {
                 aoeRange = tParent.Status().range;
             }
@@ -50,12 +59,20 @@ public class AoeAttack : MonoBehaviour {
                                                 status.secondSpEffectModifier, 
                                                 status.specialEffectLastTime));
             } 
+        } else {
+            // main base
+            _damage = _mainBaseDmg;
+            _isMainBase = true;
+            _center = this.transform.position;
         }
     }
 
     private void Update() {
         if(type==AoeType.CIRCLE_CENTER_SELF || type==AoeType.CIRCLE_CENTER_SELF_DIE || type==AoeType.LINE || type==AoeType.ARC) {
             _center = transform.position;
+        }
+        if(_isMainBase) {
+            TriggerAOE(_center,1);
         }
     }
 
@@ -70,6 +87,12 @@ public class AoeAttack : MonoBehaviour {
             enemies = GetEnemyInRange(center,360, Vector3.zero);
         }
         _center = center;
+
+        if(_fxEffect!=null) {
+            GameObject eff = Instantiate(_fxEffect,center,Quaternion.identity);
+            StartCoroutine(CleanUp(eff));
+        }
+
         foreach(var enemy in enemies) {
             if(_damage>0) enemy.TakeDamage(_damage*takeDamageModifer);
             if(_effects!=null && _effects.Count>0) {
@@ -80,6 +103,11 @@ public class AoeAttack : MonoBehaviour {
             }
         }
 
+    }
+
+    IEnumerator CleanUp(GameObject eff) {
+        yield return new WaitForSeconds(_fxLastTime);
+        Destroy(eff);
     }
 
     void OnDrawGizmosSelected()

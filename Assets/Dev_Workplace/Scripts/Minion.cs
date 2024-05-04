@@ -11,7 +11,7 @@ using UnityEngine.AI;
 using UnityEngine.UI;
 using Yunhao_Fight;
 
-public class Minion : MonoBehaviour
+public class Minion : MonoBehaviour,IHealthBar
 {
 
     public string code;
@@ -250,5 +250,7 @@ public class Minion : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, status.viewRange);
     }
 
+    public float GetHealth() => status.health;
 
+    public float GetMaxHealth() => status.maxHealth;
 }

@@ -26,8 +26,13 @@ public class TutorialUI : MonoBehaviour
     float _timer;
     bool _isActive;
 
+    [Header("DEBUG")]
+    public bool EnableTutorial;
+
     private void Start()
     {
+        if (!EnableTutorial) return;
+        
         TutorialStep = 0;
         IsTutorialActive = true;
         _timer = 3f;

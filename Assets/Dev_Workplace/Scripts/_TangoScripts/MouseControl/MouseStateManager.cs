@@ -30,7 +30,7 @@ public class MouseStateManager : MonoBehaviour
 
     private void Start()
     {
-        _mouseStates = MouseStates.Tutorial;
+        _mouseStates = MouseStates.Building;
     }
     private void Update()
     {

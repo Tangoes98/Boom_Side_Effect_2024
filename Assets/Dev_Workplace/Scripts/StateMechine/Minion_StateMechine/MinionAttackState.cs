@@ -99,7 +99,7 @@ public class MinionAttackState : IState
                                             manager.aoeAttack.type==AoeType.LINE)) {
                 manager.aoeAttack.TriggerAOE(manager.transform.position,status.takeDamageModifer); 
             }
-            if(manager.aoeAttack.type!=AoeType.CIRCLE_CENTER_SELF)manager.Attack(attackTarget);
+            if(manager.aoeAttack==null || manager.aoeAttack.type!=AoeType.CIRCLE_CENTER_SELF)manager.Attack(attackTarget);
             _attacked = true;
         }
 

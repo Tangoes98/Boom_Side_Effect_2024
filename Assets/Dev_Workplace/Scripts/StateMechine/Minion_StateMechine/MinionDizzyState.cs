@@ -7,14 +7,12 @@ using UnityEngine.AI;
 public class MinionDizzyState : IState
 {
     Minion manager;
-    MinionStatus status;
 
     Vector3 _freezePos;
 
     public MinionDizzyState(Minion manager)
     {
         this.manager = manager;
-        this.status = manager.status;
     }
 
     public void onEnter()
@@ -29,7 +27,7 @@ public class MinionDizzyState : IState
     public void onUpdate()
     {
         manager.transform.position = _freezePos;
-        if (!status.gotEffects.ContainsKey(SpecialEffect.DIZZY)) manager.TransitionState(MinionStateType.IDLE);
+        if (!manager.status.gotEffects.ContainsKey(SpecialEffect.DIZZY)) manager.TransitionState(MinionStateType.IDLE);
     }
 
 }

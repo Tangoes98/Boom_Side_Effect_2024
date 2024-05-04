@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -78,7 +79,11 @@ public class AudioManager : MonoBehaviour
     public float _SFXVolume;
 
     [Header("REFERENCE")]
-    [SerializeField] AudioSource _audioSource;
+    [SerializeField] AudioSource _musicAudioSource;
+    [SerializeField] AudioSource _buildingSFXaudioSource;
+    [SerializeField] AudioSource _boomAudioSource;
+    [SerializeField] AudioSource _deadAudioSource;
+    [SerializeField] AudioSource _otherAudioSource;
 
     [Space(15)]
     [SerializeField] List<MusicPair> _music;
@@ -88,33 +93,50 @@ public class AudioManager : MonoBehaviour
     [SerializeField] List<OtherSFXPair> _otherSFX;
 
 
+
     private void Start()
     {
-
+        switch (SceneManager.GetActiveScene().buildIndex)
+        {
+            case 0:
+                PlayMusic(MusicType.Menu);
+                break;
+            case 1:
+                PlayMusic(MusicType.PreCombat);
+                break;
+        }
     }
 
+    private void Update()
+    {
+        _musicAudioSource.volume = _MusicVolume;
+    }
 
-    public void PlayMusic(MusicType t, float volume)
+
+
+
+    public void PlayMusic(MusicType t)
     {
-        _audioSource.PlayOneShot(_music[(int)t]._Audio, volume);
+        _musicAudioSource.loop = true;
+        _musicAudioSource.PlayOneShot(_music[(int)t]._Audio, _MusicVolume);
     }
-    public void PlayBuildingSFX(BuildingSFX t, float volume)
+    public void PlayBuildingSFX(BuildingSFX t)
     {
-        _audioSource.PlayOneShot(_buildingSFX[(int)t]._Audio, volume);
+        _buildingSFXaudioSource.PlayOneShot(_buildingSFX[(int)t]._Audio, _SFXVolume);
     }
-    public void PlayBoomSFX(BoomSFX t, float volume)
+    public void PlayBoomSFX(BoomSFX t)
     {
-        _audioSource.PlayOneShot(_boomSFX[(int)t]._Audio, volume);
+        _boomAudioSource.PlayOneShot(_boomSFX[(int)t]._Audio, _SFXVolume);
     }
-    public void PlayDeadSFX(DeadSFX t, float volume)
+    public void PlayDeadSFX(DeadSFX t)
     {
-        _audioSource.PlayOneShot(_deadSFX[(int)t]._Audio, volume);
+        _deadAudioSource.PlayOneShot(_deadSFX[(int)t]._Audio, _SFXVolume);
     }
-    public void PlayOtherSFX(OtherSFX t, float volume)
+    public void PlayOtherSFX(OtherSFX t)
     {
-        _audioSource.PlayOneShot(_otherSFX[(int)t]._Audio, volume);
+        _otherAudioSource.PlayOneShot(_otherSFX[(int)t]._Audio, _SFXVolume);
     }
-    
+
 
 
 
