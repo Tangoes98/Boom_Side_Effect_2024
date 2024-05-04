@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using TMPro;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
@@ -38,6 +40,15 @@ public class Minion : MonoBehaviour
     [SerializeField] string _stateLabel;
     public AnimationController animationController;
 
+    private float _poisonUpdateTimer = 1;
+
+    public AoeAttack aoeAttack {private set; get; }
+
+    public MainBase mainBase {get;set;}
+    
+    private void Awake() {
+        aoeAttack = GetComponent<AoeAttack>();
+    }
 
     public void Initialize(Barrack parent)
     {
@@ -49,9 +60,10 @@ public class Minion : MonoBehaviour
         status.maxHealth = modifier * prop.health;
         status.health = status.maxHealth;
         status.damage = modifier * prop.damage;
-
+        
+        status.minRange = baseInfo.minRange;
         status.range = prop.range;
-        status.viewRange = prop.viewRange;
+        status.viewRange = math.max(prop.range, prop.viewRange);
         status.attackMode = baseInfo.attackMode;
         status.lockMode = baseInfo.lockMode;
         status.fireInterval = baseInfo.fireInterval;
@@ -66,7 +78,7 @@ public class Minion : MonoBehaviour
         status.secondSpEffectModifier = prop.secondSpEffectModifier;
         status.secondSpEffectLastTime = prop.secondSpEffectLastTime;
 
-        status.gotEffects = new Dictionary<SpecialEffect, Effect>();
+        status.effectBase = new Effect();
         status.takeDamageModifer = 1f;
 
         moveDestination = baseInfo.minionType == MinionType.ENEMY ? LevelManager.BaseDestination().position : _parent.minionDestination;
@@ -83,11 +95,10 @@ public class Minion : MonoBehaviour
         states.Add(MinionStateType.INTERVAL, new MinionIntervalState(this));
         states.Add(MinionStateType.ATTACK, new MinionAttackState(this));
         states.Add(MinionStateType.VIEW, new MinionViewState(this));
+        states.Add(MinionStateType.DIZZY, new MinionDizzyState(this));
         states.Add(MinionStateType.DYING, new MinionDyingState(this));
 
         TransitionState(MinionStateType.IDLE);
-
-        //SendMessage("InitializeHealth", status.maxHealth);
 
     }
 
@@ -106,14 +117,28 @@ public class Minion : MonoBehaviour
         _parent.DestroyMinion(this);
     }
 
-    public Minion[] GetOppenentInRange(float range)
+    public Minion[] GetOppenentInRange(float range, float minRange, out MainBase baseInRange)
     {
         LayerMask OppenetLayer = (baseInfo.minionType == MinionType.FRIEND) ? LevelManager.EnemyLayer() : LevelManager.FriendLayer();
         Collider[] attackTargets = Physics.OverlapSphere(this.transform.position, range, OppenetLayer);
+        baseInRange = baseInfo.minionType == MinionType.FRIEND? null : 
+                        attackTargets.Select(collider => collider.gameObject.GetComponent<MainBase>())
+                            .Where(b => b != null)
+                            .FirstOrDefault();
+        
         Minion[] minions = attackTargets.Select(collider => collider.gameObject.GetComponent<Minion>())
                                .Where(enemy => enemy != null)
+                               .Where(m => minRange==0 || Vector3.Distance(this.transform.position, m.transform.position)> minRange)
+                               .OrderBy(m => Vector3.Distance(this.transform.position, m.transform.position))
                                .ToArray();
-        if (attackTargets.Length > 0)
+        
+        if(baseInfo.minionType == MinionType.ENEMY && baseInRange!=null && 
+                (minions.Length==0 || 
+                    Vector3.Distance(this.transform.position, minions[0].transform.position) > Vector3.Distance(this.transform.position, baseInRange.transform.position))) {
+            return null;
+        }
+
+        if (minions.Length > 0)
         {
             return minions;
         }
@@ -134,13 +159,20 @@ public class Minion : MonoBehaviour
 
     public virtual void Attack(Minion target)
     {
-        target.TakeEffect(status.specialEffect, level);
-        target.TakeEffect(status.secondSpEffect, level);
+        target.TakeEffect(status.specialEffect, status.specialEffectModifier,status.specialEffectLastTime);
+        target.TakeEffect(status.secondSpEffect, status.secondSpEffectModifier, status.secondSpEffectLastTime);
+        if(target.status.health<=status.damage*status.takeDamageModifer && aoeAttack!=null && aoeAttack.type==AoeType.CIRCLE_CENTER_ENEMY_DIE) {
+            aoeAttack.TriggerAOE(target.transform.position,status.takeDamageModifer); 
+        }
         target.TakeDamage(status.damage);
+        
     }
 
-    void TakeDamage(float damage)
+    public void TakeDamage(float damage)
     {
+        if(_stateLabel== MinionStateType.DYING.ToString()) {
+            return;
+        }
         damage *= status.takeDamageModifer;
         status.health = Mathf.Clamp(status.health - damage, 0, status.maxHealth);
         //GetComponentInChildren<Slider>().value = status.health;
@@ -149,38 +181,54 @@ public class Minion : MonoBehaviour
             TransitionState(MinionStateType.DYING);
         }
     }
-    void TakeEffect(SpecialEffect type, int level)
+    public void TakeEffect(SpecialEffect type, float modifier, float lastTime)
     {
         if (type == SpecialEffect.NONE) return;
-        if (!status.gotEffects.TryGetValue(type, out Effect existingeffect))
-        {
-            status.gotEffects.Add(type, new Effect());
-        }
-        status.gotEffects[type].AddEffect(type, level);
+        status.effectBase.AddEffect(type, modifier,lastTime);
     }
     void UpdateEffect()
     {
-        foreach (var gotEffect in status.gotEffects)
-        {
-            SpecialEffect specialEffect = gotEffect.Key;
-            Effect effect = gotEffect.Value;
+        List<SpecialEffect> cancelledEffects = status.effectBase.UpdateEffect(Time.deltaTime);
+        ResetEffect(cancelledEffects);
 
-            effect.UpdateEffect(Time.deltaTime);
+        foreach (var gotEffect in status.gotEffects)
+        {       
+            SpecialEffect specialEffect = gotEffect.Key;
+            EffectStruct effect = gotEffect.Value;
+
             switch (specialEffect)
             {
                 case SpecialEffect.WEAK:
-                    status.takeDamageModifer = 1 + effect.effect.modifier;
+                    status.takeDamageModifer = 1 + effect.modifier;
                     break;
                 case SpecialEffect.POSION:
-                    SendMessage("TakeDamage", effect.effect.modifier * status.maxHealth);
+                    _poisonUpdateTimer-=Time.deltaTime;
+                    if(_poisonUpdateTimer<=0) {
+                        SendMessage("TakeDamage", effect.modifier * status.maxHealth);
+                        _poisonUpdateTimer = 1;
+                    }
                     break;
                 case SpecialEffect.SLOW:
-                    agent.speed = status.speed = agent.speed * effect.effect.modifier;
+                    status.speed = Info().speed + effect.modifier;
+                    if(agent.speed>0) agent.speed = status.speed;
                     break;
                 case SpecialEffect.DIZZY:
                     TransitionState(MinionStateType.DIZZY);
                     break;
 
+            }
+        }
+    }
+
+    void ResetEffect(List<SpecialEffect> cancelledEffects) {
+        foreach (var e in cancelledEffects) {
+            if(e == SpecialEffect.SLOW) {
+                status.speed = Info().speed;
+                if(agent.speed>0) agent.speed = status.speed;
+            } else if(e==SpecialEffect.WEAK) {
+                status.takeDamageModifer = 1f;
+            } else if(e==SpecialEffect.POSION) {
+                _poisonUpdateTimer = 1f;
             }
         }
     }

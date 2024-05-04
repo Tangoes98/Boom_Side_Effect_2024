@@ -3,77 +3,89 @@ using System.Collections.Generic;
 using UnityEngine;
 public class Effect
 {
-    public EffectStruct effect;
+    public Dictionary<SpecialEffect,EffectStruct> effect;
 
-    List<EffectStruct> effectList;
+    Dictionary<SpecialEffect,List<EffectStruct>> effectDict;
+
     public Effect()
     {
-        effectList = new List<EffectStruct>();
-        effect = new EffectStruct(0,0);
+        effectDict = new()
+        {
+            { SpecialEffect.WEAK, new() },
+            { SpecialEffect.DIZZY, new() },
+            { SpecialEffect.POSION, new() },
+            { SpecialEffect.SLOW, new() }
+        };
+        effect = new ();
     }
 
-    public void AddEffect(SpecialEffect type, int level)
+    public void AddEffect(SpecialEffect type, float modifier, float lastTime)
     {
+        var effectList = effectDict[type];
+        var es = new EffectStruct(type,modifier,lastTime);
         if(effectList.Count == 0)
         {
-            effectList.Add(new EffectStruct(type,level));
+            effectList.Add(es);
         }
         else
         {
+            bool inserted = false;
             for(int i = 0; i < effectList.Count; i++)
             {
-                if (effect.modifierLevel < level)
+                if (Mathf.Abs(effectList[i].modifier) < Mathf.Abs(modifier))
                 {
-                    effectList.Insert(i, new EffectStruct(type, level));
+                    effectList.Insert(i, es);
+                    inserted = true;
                     break;
                 }
             }
+            if(!inserted) effectList.Add(es);
         }
-        effect = effectList[0];
+        effect[type]= effectList[0];
     }
-    public void UpdateEffect(float time)
+    public List<SpecialEffect> UpdateEffect(float time)
     {
-        foreach(EffectStruct es in effectList)
-        {
-            es.CountDown(time);
-            if (es.lastTime <= 0)
+        List<SpecialEffect> doneEffects = new();
+        foreach(var entry in effectDict) {
+            var effectList = entry.Value;
+            SpecialEffect type = entry.Key;
+            if(effectList.Count == 0) {
+                continue;
+            }
+
+            foreach(EffectStruct es in effectList)
             {
-                effectList.Remove(es);
+                es.CountDown(time);
+                if (es.lastTime <= 0)
+                {
+                    effectList.Remove(es);
+                }
+            }
+            if(effectList.Count==0) {
+                doneEffects.Add(type);
+                effect.Remove(type);
+            } else {
+                effect[type] = effectList[0];
             }
         }
-        effect = effectList[0];
+        return doneEffects;
     }
 
 }
 public struct EffectStruct
 {
-    public float modifierLevel;
     public float modifier;
     public float lastTime;
 
-    public EffectStruct(SpecialEffect type,int level)
+    public SpecialEffect type;
+
+    public EffectStruct(SpecialEffect type, float modifier, float lastTime)
     {
-        modifierLevel = level; modifier = 0;lastTime = 0;
-        switch (type)
-        {
-            case SpecialEffect.WEAK:
-                modifier = level * 0.05f;
-                lastTime = level * 1;
-                break;
-            case SpecialEffect.POSION:
-                modifier = (5 + level) * 0.01f;
-                lastTime = level + 2f;
-                break;
-            case SpecialEffect.SLOW:
-                modifier = level *2f;
-                lastTime = level + 2f;
-                break;
-            case SpecialEffect.DIZZY:
-                modifier = 0;
-                lastTime = (level+1)*0.1f;
-                break;
-        }
+        this.type = type;
+        this.modifier = modifier;
+        this.lastTime = lastTime;
     }
+
     public void CountDown(float cd)
     {
         lastTime -= cd;

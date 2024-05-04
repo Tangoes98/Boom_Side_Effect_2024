@@ -9,6 +9,7 @@ public class Enemy : Minion
 {
     private void Start()
     {
+        status.maxHealth = GetBaseProperty(1).health;
         status.health = status.maxHealth;
 
         status.attackMode = Info().attackMode;
@@ -23,7 +24,7 @@ public class Enemy : Minion
         status.secondSpEffect = Info().secondSpecialEffect;
 
         moveDestination = LevelManager.BaseDestination().position;
-        status.gotEffects = new Dictionary<SpecialEffect, Effect>();
+        status.effectBase = new Effect();
         status.takeDamageModifer = 1f;
 
         agent = this.GetComponent<NavMeshAgent>();
@@ -36,8 +37,8 @@ public class Enemy : Minion
         states.Add(MinionStateType.INTERVAL, new MinionIntervalState(this));
         states.Add(MinionStateType.ATTACK, new MinionAttackState(this));
         states.Add(MinionStateType.VIEW, new MinionViewState(this));
+        states.Add(MinionStateType.DIZZY, new MinionDizzyState(this));
         states.Add(MinionStateType.DYING, new MinionDyingState(this));
-
         TransitionState(MinionStateType.IDLE);
 
         //SendMessage("InitializeHealth", status.maxHealth);

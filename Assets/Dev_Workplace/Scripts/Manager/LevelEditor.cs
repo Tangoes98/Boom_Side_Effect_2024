@@ -19,10 +19,12 @@ public class LevelEditor : MonoBehaviour
 
 
 
-    [SerializeField] private float spawnInterval =0.4f;
+    [SerializeField] private float spawnInterval =1f;
     [SerializeField] private GameObject _startLevelButton;
     [Header("炸矿洞的animator")]
     [SerializeField] private Animator _boomAnminator;
+    [SerializeField] private Transform[] _spawnLocations;
+
     [SerializeField] private Level[] levels;
     [SerializeField] private EnemyBase[] enemies;
     [SerializeField] private Transform enemyParentObject;
@@ -73,10 +75,19 @@ public class LevelEditor : MonoBehaviour
         WaveNumber++;
         _currentWave = _waveQueue.Dequeue();
         ChangeState(LevelState.FIGHT_WAVE);
-        _spawnQueue = new Queue<SpawnEnemyBase[]> (_currentWave.timeline.Select(se => se.spawns));
+        _spawnQueue = new Queue<SpawnEnemyBase[]> (_currentWave.timeline.Select(se => StrToSpawnEnemyBase(se.spawns)));
         foreach(var se in _currentWave.timeline) {
             Invoke(nameof(Spawn), se.timePoint);
         }
+    }
+
+    private SpawnEnemyBase[] StrToSpawnEnemyBase(string spawns) {
+        List<SpawnEnemyBase> bases = new();
+        foreach(string spawn in spawns.Split(";")) {
+            var arr = spawn.Split(",");
+            bases.Add(new(){code=arr[0], number= int.Parse(arr[1]), spawnLocation = _spawnLocations[int.Parse(arr[2])]});
+        }
+        return bases.ToArray();
     }
 
     private void Spawn() {

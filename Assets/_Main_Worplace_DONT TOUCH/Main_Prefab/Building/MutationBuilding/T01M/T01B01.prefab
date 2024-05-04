@@ -70,6 +70,7 @@ GameObject:
   - component: {fileID: 67812353911738657}
   - component: {fileID: -4259329475479671481}
   - component: {fileID: 8209451164258077205}
+  - component: {fileID: -1747927070402768858}
   m_Layer: 10
   m_Name: T01B01
   m_TagString: Building
@@ -227,7 +228,22 @@ MonoBehaviour:
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
   targets: []
-  stateLabel: {fileID: 0}
+  stateLabel: 
+--- !u!114 &-1747927070402768858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6957985860104754605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d18e2d170c63d448aa294f95dfa2e2a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitRangeAsAoeRange: 0
+  aoeRange: 3
+  type: 0
 --- !u!1001 &3250692489263107529
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -26,7 +26,7 @@ public class DefenseTowerIdleState : IState
         if (targets!= null)
         {
             manager.targets=targets;
-            manager.TransitionState(DefenseTowerStateType.INTERVAL);
+            manager.TransitionState(DefenseTowerStateType.ATTACK);
         }
     }
 }

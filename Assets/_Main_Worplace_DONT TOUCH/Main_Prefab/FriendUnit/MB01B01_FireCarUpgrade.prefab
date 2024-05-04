@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2813895342966522457}
   - component: {fileID: 6288918863211664066}
   - component: {fileID: 525626918086937671}
+  - component: {fileID: 3242463184570020158}
   m_Layer: 9
   m_Name: MB01B01_FireCarUpgrade
   m_TagString: Untagged
@@ -55,6 +56,7 @@ MonoBehaviour:
     maxHealth: 0
     speed: 0
     range: 0
+    minRange: 0
     viewRange: 0
     attackMode: 0
     lockMode: 0
@@ -71,6 +73,7 @@ MonoBehaviour:
   baseInfo:
     name: QiangHuaHuoYanPenSheChe
     speed: 5
+    minRange: 0
     baseType: 1
     addonType: 1
     attackMode: 0
@@ -140,9 +143,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1241358184360892033}
   serializedVersion: 4
-  m_Mass: 0.0000001
+  m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0
+  m_AngularDrag: 1
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -154,11 +157,26 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &3242463184570020158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241358184360892033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d18e2d170c63d448aa294f95dfa2e2a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitRangeAsAoeRange: 1
+  aoeRange: 0
+  type: 4
 --- !u!1001 &958146961375659938
 PrefabInstance:
   m_ObjectHideFlags: 0

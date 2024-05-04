@@ -9,6 +9,7 @@ public class MinionStatus {
     public float speed; 
 
     public float range;
+    public float minRange;
     
     public float viewRange; // 索敌范围，doc没写，感觉需要，先放这
 
@@ -30,8 +31,8 @@ public class MinionStatus {
     public SpecialEffect secondSpEffect;
     public float secondSpEffectModifier;
     public float secondSpEffectLastTime;
-
-    public Dictionary<SpecialEffect, Effect> gotEffects;
+    public Effect effectBase;
+    public Dictionary<SpecialEffect, EffectStruct> gotEffects => effectBase.effect;
     public float takeDamageModifer;
 
 }
