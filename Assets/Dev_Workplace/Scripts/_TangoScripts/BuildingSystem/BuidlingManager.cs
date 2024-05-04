@@ -128,6 +128,9 @@ public class BuidlingManager : MonoBehaviour
             }
             _dissolveTime = 0f;
             _buildingActionStates = BuildingActionState.PlayBuildingDissolveEffect;
+
+            //*Play SFX
+            AudioManager.Instance.PlayBuildingSFX(AudioManager.BuildingSFX.Build);
         }
         ArchiLinkManager.Instance.LinkFromClosestArchToPointer(false);
     }
@@ -215,8 +218,12 @@ public class BuidlingManager : MonoBehaviour
             }
         }
 
+        //* update mouse state
         MouseStateManager.Instance.SwitchState(MouseStateManager.MouseStates.Building,
                                              () => { Debug.Log("EnterBuildingState"); });
+
+        //* Play SFX
+        AudioManager.Instance.PlayBuildingSFX(AudioManager.BuildingSFX.Selected);
 
         if (TutorialUI.Instance.IsTutorialActive) TutorialUI.Instance.TutorialStep++;
     }

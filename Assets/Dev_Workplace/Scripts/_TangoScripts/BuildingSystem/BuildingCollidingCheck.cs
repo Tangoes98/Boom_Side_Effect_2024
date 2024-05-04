@@ -12,20 +12,38 @@ public class BuildingCollidingCheck : MonoBehaviour
     {
         if (other.CompareTag("Building"))
         {
-            _colliderStayCheck = false;
+            //_colliderStayCheck = false;
             CanBuild = false;
             return;
         }
+        //else CanBuild = true;
 
-        if (!other.CompareTag("BuildingArea"))
+        // if (!other.CompareTag("BuildingArea"))
+        // {
+        //     _colliderStayCheck = false;
+        //     CanBuild = false;
+        //     return;
+        // }
+
+        if (other.CompareTag("BuildingArea"))
         {
-            _colliderStayCheck = false;
+            //_colliderStayCheck = false;
+            CanBuild = true;
+            return;
+        }
+        //else CanBuild = false;
+
+        if (other.CompareTag("NoBuildingArea"))
+        {
+            //_colliderStayCheck = false;
             CanBuild = false;
             return;
         }
+        //else CanBuild = true;
 
-        _colliderStayCheck = true;
-        CanBuild = true;
+        // _colliderStayCheck = true;
+        // CanBuild = true;
+
     }
 
     private void OnTriggerExit(Collider other)
@@ -39,20 +57,26 @@ public class BuildingCollidingCheck : MonoBehaviour
 
         if (other.CompareTag("BuildingArea"))
         {
+            CanBuild = false;
+            return;
+        }
+
+        if (other.CompareTag("NoBuildingArea"))
+        {
             CanBuild = true;
             return;
         }
 
-        CanBuild = false;
+        //CanBuild = false;
     }
 
-    // private void OnTriggerStay(Collider other)
-    // {
-    //     if (other.CompareTag("BuildingArea") && _colliderStayCheck)
-    //     {
-    //         CanBuild = true;
-    //         return;
-    //     }
-    //     CanBuild = false;
-    // }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("NoBuildingArea"))
+        {
+            CanBuild = false;
+            return;
+        }
+        
+    }
 }

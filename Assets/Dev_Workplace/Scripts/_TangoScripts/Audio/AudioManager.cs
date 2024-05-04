@@ -118,7 +118,10 @@ public class AudioManager : MonoBehaviour
     public void PlayMusic(MusicType t)
     {
         _musicAudioSource.loop = true;
-        _musicAudioSource.PlayOneShot(_music[(int)t]._Audio, _MusicVolume);
+        _musicAudioSource.clip = _music[(int)t]._Audio;
+        _musicAudioSource.volume = _MusicVolume;
+        _musicAudioSource.Play();
+        //_musicAudioSource.PlayOneShot(_music[(int)t]._Audio, _MusicVolume);
     }
     public void PlayBuildingSFX(BuildingSFX t)
     {

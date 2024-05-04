@@ -98,6 +98,14 @@ public class TutorialUI : MonoBehaviour
         _isActive = false;
         BuildingSelectionManager.Instance.CloseSelectionPanel();
         MouseStateManager.Instance.SwitchState(MouseStateManager.MouseStates.Selecting, null);
+
+        //* Environment FX
+        EnvironmentFX.Instance.PlayBoomVFX(1);
+
+        //*Play music
+        AudioManager.Instance.PlayMusic(AudioManager.MusicType.Combat);
+
+
     }
 
     void UpdateTutorialScene(int sceneIndex)
