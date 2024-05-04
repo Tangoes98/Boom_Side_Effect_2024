@@ -55,6 +55,7 @@ MonoBehaviour:
     maxHealth: 0
     speed: 0
     range: 0
+    minRange: 0
     viewRange: 0
     attackMode: 0
     lockMode: 0
@@ -71,6 +72,7 @@ MonoBehaviour:
   baseInfo:
     name: DuSuBing
     speed: 3
+    minRange: 0
     baseType: 3
     addonType: 0
     attackMode: 0
@@ -142,9 +144,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7425934711789390196}
   serializedVersion: 4
-  m_Mass: 0.0000001
+  m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0
+  m_AngularDrag: 1
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -156,10 +158,10 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!1001 &2692223803400409885
 PrefabInstance:

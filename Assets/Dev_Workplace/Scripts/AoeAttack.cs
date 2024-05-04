@@ -14,7 +14,7 @@ public class AoeAttack : MonoBehaviour {
     private Minion mParent;
     private DefenseTower tParent;
 
-    private Vector3 _center = Vector3.zero;
+    private Vector3 _center=Vector3.zero;
 
     private void Start() {
         mParent = GetComponent<Minion>();
@@ -51,8 +51,12 @@ public class AoeAttack : MonoBehaviour {
                                                 status.specialEffectLastTime));
             } 
         }
-        
-      
+    }
+
+    private void Update() {
+        if(type==AoeType.CIRCLE_CENTER_SELF || type==AoeType.CIRCLE_CENTER_SELF_DIE || type==AoeType.LINE || type==AoeType.ARC) {
+            _center = transform.position;
+        }
     }
 
     public void TriggerAOE(Vector3 center, float takeDamageModifer) {
@@ -85,7 +89,8 @@ public class AoeAttack : MonoBehaviour {
         if(type == AoeType.LINE) {
             Gizmos.DrawLine(_center, _center + aoeRange * ParentFaceDirection());
         } else if(type == AoeType.ARC) {
-            Gizmos.DrawLine(_center, _center + aoeRange * ParentFaceDirection());
+            Gizmos.DrawLine(_center, _center + aoeRange * (Quaternion.Euler(0, -60, 0) * ParentFaceDirection()));
+            Gizmos.DrawLine(_center, _center + aoeRange * (Quaternion.Euler(0, 60, 0) * ParentFaceDirection()));
         } else {
             Gizmos.DrawWireSphere(_center, aoeRange);
         }

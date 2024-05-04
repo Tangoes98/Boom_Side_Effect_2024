@@ -228,7 +228,7 @@ MonoBehaviour:
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
   targets: []
-  stateLabel: {fileID: 0}
+  stateLabel: 
 --- !u!114 &-1747927070402768858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,7 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d18e2d170c63d448aa294f95dfa2e2a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitRangeAsAoeRange: 1
+  unitRangeAsAoeRange: 0
   aoeRange: 3
   type: 0
 --- !u!1001 &3250692489263107529

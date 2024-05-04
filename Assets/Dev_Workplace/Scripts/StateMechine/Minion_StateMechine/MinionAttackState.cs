@@ -31,6 +31,10 @@ public class MinionAttackState : IState
         timerInterval0_1 = 0.1f;
 
         if(manager.mainBase==null) {
+            if(manager.targets==null) {
+                manager.TransitionState(MinionStateType.IDLE);
+                return;
+            }
             attackTarget = manager.targets[0];
             manager.agent.SetDestination(attackTarget.transform.position);
         } else {
@@ -95,7 +99,7 @@ public class MinionAttackState : IState
                                             manager.aoeAttack.type==AoeType.LINE)) {
                 manager.aoeAttack.TriggerAOE(manager.transform.position,status.takeDamageModifer); 
             }
-            manager.Attack(attackTarget);
+            if(manager.aoeAttack.type!=AoeType.CIRCLE_CENTER_SELF)manager.Attack(attackTarget);
             _attacked = true;
         }
 

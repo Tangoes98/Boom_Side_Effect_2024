@@ -1,8 +1,10 @@
 using System;
+using UnityEngine;
 
 [Serializable]
 public class SpawnEnemy {
     public float timePoint;
-    public SpawnEnemyBase[] spawns;
+    [Header("code,number,locationIndex;code,number,locationIndex")]
+    public string spawns;
     
 }

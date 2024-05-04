@@ -23,6 +23,8 @@ public class AnimationController : MonoBehaviour
 
 
 
+
+
     // private void Start()
     // {
     //     foreach (var item in _animationClipPairs)
@@ -41,15 +43,10 @@ public class AnimationController : MonoBehaviour
 
     public void SwitchAnimState(string stateName)
     {
-        if(_lastState!=null) {
-            if(_lastState.Item1 == stateName) {
+        if(_lastState!=null && _lastState.Item1 == stateName) {
                 return;
-            }
-            if(Time.time - _lastState.Item2 >1.5f) {
-                _lastState =null;
-            }
         }
-        if(_lastState ==null) {
+        if(_lastState ==null || Time.time - _lastState.Item2 >1.5f) {
             // Debug.Log(_animationClipDic[stateName]);
             animator.CrossFadeInFixedTime(_animationClipDic[stateName], _crossfadeDuration, 0);
             _lastState = new(stateName,Time.time);

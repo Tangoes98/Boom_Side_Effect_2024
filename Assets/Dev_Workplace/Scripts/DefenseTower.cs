@@ -19,7 +19,9 @@ public class DefenseTower : Architect
     protected Dictionary<DefenseTowerStateType, IState> states = new Dictionary<DefenseTowerStateType, IState>();
     public Enemy[] targets;
 
-    [SerializeField] TextMeshProUGUI stateLabel;
+    [SerializeField] string stateLabel;
+
+    public AoeAttack aoeAttack {private set; get; }
 
     public override void UpgradeTo(int level) {
         //if(level==this.level) {
@@ -58,6 +60,8 @@ public class DefenseTower : Architect
         states.Add(DefenseTowerStateType.ATTACK, new DefenseTowerAttackState(this));
 
         TransitionState(DefenseTowerStateType.IDLE);
+
+        aoeAttack = GetComponent<AoeAttack>();
     }
 
     void Update()
@@ -67,6 +71,7 @@ public class DefenseTower : Architect
 
     public float GetDamage(out ModifierType modifierType) { // BUFF/DEBUFF
         float modifier = ArchiLinkManager.Instance.GetModifier(Unstability, out modifierType);
+        //Debug.Log(modifier + " " + status.damage);
         return status.damage * modifier;
     }
 
@@ -79,7 +84,7 @@ public class DefenseTower : Architect
         currentState = states[type];
         currentState.onEnter();
 
-        stateLabel.text = type.ToString();
+        stateLabel = type.ToString();
     }
 
     public Enemy[] GetEnemyInRange()
@@ -87,6 +92,7 @@ public class DefenseTower : Architect
         Collider[] attackTargets = Physics.OverlapSphere(this.transform.position, status.range, LevelManager.EnemyLayer());
         Enemy[] enemies = attackTargets.Select(collider => collider.gameObject.GetComponent<Enemy>())
                                .Where(enemy => enemy != null)
+                               .OrderBy(m => Vector3.Distance(this.transform.position, m.transform.position))
                                .ToArray();
         if (attackTargets.Length > 0)
         {
@@ -111,6 +117,7 @@ public class DefenseTower : Architect
     IEnumerator SingleAttack()
     {
         yield return new WaitForSeconds(status.fireTime);
+        
         DealDamage();
     }
     IEnumerator ContinuousAttack()
@@ -127,7 +134,20 @@ public class DefenseTower : Architect
     protected virtual void DealDamage()
     {
         //暂时为单体。
-        targets[0].gameObject.SendMessage("TakeDamage", GetDamage(out modifiertype));//攻击最近的目标
+        var damage =GetDamage(out modifiertype);
+        if(aoeAttack!=null && aoeAttack.type==AoeType.CIRCLE_CENTER_SELF) {
+            aoeAttack.TriggerAOE(this.transform.position,1); 
+            return;
+        }
+
+        var target = targets[0].GetComponent<Minion>();
+        target.TakeDamage(damage);
+        target.TakeEffect(status.specialEffect, status.specialEffectModifier,status.specialEffectLastTime);
+        target.TakeEffect(status.secondSpEffect, status.secondSpEffectModifier, status.secondSpEffectLastTime);
+        if(aoeAttack!=null && aoeAttack.type==AoeType.CIRCLE_CENTER_ENEMY) {
+            aoeAttack.TriggerAOE(target.transform.position,1); 
+        }
+        
     }
 
     public virtual bool checkTarget()//检测攻击对象是否存在

@@ -37,8 +37,8 @@ public class Enemy : Minion
         states.Add(MinionStateType.INTERVAL, new MinionIntervalState(this));
         states.Add(MinionStateType.ATTACK, new MinionAttackState(this));
         states.Add(MinionStateType.VIEW, new MinionViewState(this));
+        states.Add(MinionStateType.DIZZY, new MinionDizzyState(this));
         states.Add(MinionStateType.DYING, new MinionDyingState(this));
-
         TransitionState(MinionStateType.IDLE);
 
         //SendMessage("InitializeHealth", status.maxHealth);

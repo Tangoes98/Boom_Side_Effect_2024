@@ -9,6 +9,8 @@ public class MinionDizzyState : IState
     Minion manager;
     MinionStatus status;
 
+    Vector3 _freezePos;
+
     public MinionDizzyState(Minion manager)
     {
         this.manager = manager;
@@ -18,6 +20,7 @@ public class MinionDizzyState : IState
     public void onEnter()
     {
         manager.agent.speed = 0;
+        _freezePos = manager.transform.position;
     }
     public void onExit()
     {
@@ -25,7 +28,8 @@ public class MinionDizzyState : IState
     }
     public void onUpdate()
     {
-        if (status.gotEffects[SpecialEffect.DIZZY].lastTime < 0.1f) manager.TransitionState(MinionStateType.IDLE);
+        manager.transform.position = _freezePos;
+        if (!status.gotEffects.ContainsKey(SpecialEffect.DIZZY)) manager.TransitionState(MinionStateType.IDLE);
     }
 
 }
