@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainBase : MonoBehaviour
+public class MainBase : MonoBehaviour,IHealthBar
 {
     [SerializeField] private float _maxHealth;
     public float health;
@@ -17,4 +17,8 @@ public class MainBase : MonoBehaviour
             Debug.Log("LOSE");
         }
     }
+
+    public float GetHealth() => health;
+
+    public float GetMaxHealth() => _maxHealth;
 }

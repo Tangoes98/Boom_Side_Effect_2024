@@ -22,7 +22,7 @@ public class InputManager : MonoBehaviour
     }
     private void Update()
     {
-        if (TutorialUI.Instance.IsTutorialActive) return;
+        if (TutorialUI.Instance!=null && TutorialUI.Instance.IsTutorialActive) return;
 
         if (IS_SPACE_DOWN()) _isPauseGame = !_isPauseGame;
 
