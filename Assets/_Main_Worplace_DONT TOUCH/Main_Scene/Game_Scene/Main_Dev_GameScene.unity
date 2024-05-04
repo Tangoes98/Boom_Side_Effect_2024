@@ -1813,7 +1813,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &76109690
 Transform:
   m_ObjectHideFlags: 0
@@ -5154,6 +5154,7 @@ MonoBehaviour:
   - {fileID: 1859816360}
   - {fileID: 581110887}
   _battleStartButton: {fileID: 1951673430}
+  Timer: 5
   EnableTutorial: 0
 --- !u!1001 &203579338
 PrefabInstance:
@@ -56918,8 +56919,8 @@ Transform:
   m_GameObject: {fileID: 4810006804547301277}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 12.95, y: 1.05728, z: 12.95}
+  m_LocalPosition: {x: 52.8, y: 5.4, z: 41.6}
+  m_LocalScale: {x: 12.95, y: 3.383719, z: 12.95}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4815021033032394513}

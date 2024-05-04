@@ -23,6 +23,7 @@ public class TutorialUI : MonoBehaviour
     public int LineClickCount;
     [SerializeField] List<GameObject> _tutorialScenes;
     [SerializeField] Button _battleStartButton;
+    public float Timer;
     float _timer;
     bool _isActive;
 
@@ -32,10 +33,10 @@ public class TutorialUI : MonoBehaviour
     private void Start()
     {
         if (!EnableTutorial) return;
-        
+
         TutorialStep = 0;
         IsTutorialActive = true;
-        _timer = 3f;
+        _timer = Timer;
         _isActive = true;
     }
 
@@ -52,7 +53,7 @@ public class TutorialUI : MonoBehaviour
                 MouseStateManager.Instance.SwitchState(MouseStateManager.MouseStates.Tutorial, null);
                 _timer -= Time.deltaTime;
                 if (_timer > 0) return;
-                _timer = 3f;
+                _timer = Timer;
                 TutorialStep++;
                 MouseStateManager.Instance.SwitchState(MouseStateManager.MouseStates.Selecting, null);
                 break;
@@ -71,11 +72,23 @@ public class TutorialUI : MonoBehaviour
             MouseStateManager.Instance.SwitchState(MouseStateManager.MouseStates.Tutorial, null);
             _timer -= Time.deltaTime;
             if (_timer > 0) return;
-            _timer = 2f;
+            _timer = Timer;
             TutorialStep++;
         }
 
     }
+
+
+    #region Publice
+    public void ResetTimer()
+    {
+        _timer = Timer;
+    }
+    #endregion
+
+
+
+
 
     void BattleStartBtnEvent()
     {
@@ -101,4 +114,6 @@ public class TutorialUI : MonoBehaviour
             }
         }
     }
+
+
 }

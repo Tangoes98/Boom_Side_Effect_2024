@@ -78,7 +78,11 @@ public class MouseStateManager : MonoBehaviour
                 if (TutorialUI.Instance.TutorialStep < 7) return;
 
                 if (!MouseController.Is_LMB_Down()) return;
+
+                TutorialUI.Instance.ResetTimer();
                 TutorialUI.Instance.TutorialStep++;
+                
+
 
 
                 break;
