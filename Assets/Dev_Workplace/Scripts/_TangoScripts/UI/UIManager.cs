@@ -80,6 +80,8 @@ public class UIManager : MonoBehaviour
 
     void SwitchLanguage(string language)
     {
+        if(_texts==null) return;
+        
         switch (language)
         {
             case "EN":

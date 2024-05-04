@@ -9,16 +9,21 @@ public class AoeAttack : MonoBehaviour {
     public AoeType type;
 
     private float _damage;
+
+    [SerializeField] private float _mainBaseDmg; 
     private List<EffectStruct> _effects = new();
 
     private Minion mParent;
     private DefenseTower tParent;
+
+    private bool _isMainBase;
 
     private Vector3 _center=Vector3.zero;
 
     private void Start() {
         mParent = GetComponent<Minion>();
         tParent = GetComponent<DefenseTower>();
+        var mainBase = GetComponent<MainBase>();
         if(mParent != null) {
             if(unitRangeAsAoeRange) {
                 aoeRange = mParent.status.range;
@@ -34,7 +39,7 @@ public class AoeAttack : MonoBehaviour {
                                                 mParent.status.secondSpEffectModifier, 
                                                 mParent.status.specialEffectLastTime));
             } 
-        } else {
+        } else if(tParent != null) {
              if(unitRangeAsAoeRange) {
                 aoeRange = tParent.Status().range;
             }
@@ -50,12 +55,20 @@ public class AoeAttack : MonoBehaviour {
                                                 status.secondSpEffectModifier, 
                                                 status.specialEffectLastTime));
             } 
+        } else {
+            // main base
+            _damage = _mainBaseDmg;
+            _isMainBase = true;
+            _center = this.transform.position;
         }
     }
 
     private void Update() {
         if(type==AoeType.CIRCLE_CENTER_SELF || type==AoeType.CIRCLE_CENTER_SELF_DIE || type==AoeType.LINE || type==AoeType.ARC) {
             _center = transform.position;
+        }
+        if(_isMainBase) {
+            TriggerAOE(_center,1);
         }
     }
 
