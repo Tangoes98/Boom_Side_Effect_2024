@@ -23,6 +23,7 @@ public class MinionDyingState : IState
     public void onUpdate()
     {
         _deathAnimationTimer -= Time.deltaTime;
+        
         if (_deathAnimationTimer < 0)
         {
             _deathAnimationTimer = 0;

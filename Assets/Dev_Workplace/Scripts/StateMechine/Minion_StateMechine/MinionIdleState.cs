@@ -14,16 +14,14 @@ public class MinionIdleState : IState
     public void onEnter()
     {
 
-        //manager.targets = null; // ¿ÉÄÜ²»ÐèÒª
+        //manager.targets = null; // ï¿½ï¿½ï¿½Ü²ï¿½ï¿½ï¿½Òª
         manager.agent.speed = status.speed;
+        manager.targets = null;
 
-        //»Øµ½Ä¬ÈÏÎ»ÖÃ
+        //ï¿½Øµï¿½Ä¬ï¿½ï¿½Î»ï¿½ï¿½
         manager.agent.SetDestination(manager.moveDestination);
 
-        //*Stop move animtion check
-        if (Vector3.Distance(manager.moveDestination, manager.transform.position) > manager.agent.stoppingDistance) 
-            manager.animationController.SwitchAnimState("Move");
-        else manager.animationController.SwitchAnimState("Idle");
+        manager.animationController.SwitchAnimState("Move");
     }
     public void onExit()
     {
@@ -31,23 +29,41 @@ public class MinionIdleState : IState
     }
     public void onUpdate()
     {
-        //Èç¹ûµÐÈË½øÈë¹¥»÷·¶Î§£¬ÇÐ»»µ½¹¥»÷×´Ì¬
-        Minion[] targets = manager.GetOppenentInRange(status.range);
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë½ï¿½ï¿½ë¹¥ï¿½ï¿½ï¿½ï¿½Î§ï¿½ï¿½ï¿½Ð»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬
+        MainBase mainBase;
+        Minion[] targets = manager.GetOppenentInRange(status.range,status.minRange, out mainBase);
+        manager.mainBase = targets==null && mainBase !=null? mainBase : null;
+        if(manager.code=="E04") {
+            // dog go straight to main base
+            if(mainBase!=null)
+                manager.TransitionState(MinionStateType.ATTACK);  
+            
+            return;
+        }
         if (targets != null)
         {
             manager.targets = targets;
             manager.TransitionState(MinionStateType.ATTACK);
-
             return;
+        } else if(mainBase!=null) {
+            manager.TransitionState(MinionStateType.ATTACK);  
+            return;       
         }
 
-        //Èç¹ûµÐÈË½øÈëË÷µÐ·¶Î§£¬ÇÐ»»µ½Ë÷µÐ×´Ì¬
-        targets = manager.GetOppenentInRange(status.viewRange);
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð·ï¿½Î§ï¿½ï¿½ï¿½Ð»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬
+        targets = manager.GetOppenentInRange(status.viewRange,0, out mainBase);
         if (targets != null)
         {
             manager.targets = targets;
             manager.TransitionState(MinionStateType.VIEW);
+
+            return;
         }
+
+        //*Stop move animtion check
+        if (Vector3.Distance(manager.moveDestination, manager.transform.position) > manager.agent.stoppingDistance) 
+            manager.animationController.SwitchAnimState("Move");
+        else manager.animationController.SwitchAnimState("Idle");
 
     }
 }

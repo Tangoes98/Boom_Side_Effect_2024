@@ -16,9 +16,9 @@ public class MinionViewState : IState
     }
     public void onEnter()
     {
-        viewTarget = manager.targets[0];
+        viewTarget = manager.targets==null? null : manager.targets[0];
 
-        if (!viewTarget) manager.animationController.SwitchAnimState("Idle");
+        if (viewTarget==null) manager.animationController.SwitchAnimState("Idle");
         else manager.animationController.SwitchAnimState("Move");
     }
     public void onExit()
@@ -27,38 +27,58 @@ public class MinionViewState : IState
     }
     public void onUpdate()
     {
-        //如果敌人进入攻击范围，切换到攻击状态
-        Minion[] targets = manager.GetOppenentInRange(status.range);
+        // refresh nearest enemy
+        MainBase mainBase;
+        Minion[] targets = manager.GetOppenentInRange(status.range,status.minRange, out mainBase);
+        manager.mainBase = targets==null && mainBase !=null? mainBase : null;
         if (targets != null)
         {
             manager.targets = targets;
             manager.TransitionState(MinionStateType.ATTACK);
-
-            return;
+            return; 
+        } else if(mainBase!=null) {
+            manager.TransitionState(MinionStateType.ATTACK); 
+            return;         
         }
-
-        //敌方消失或敌方离开索敌范围，切换回待机
+        manager.targets = manager.GetOppenentInRange(status.viewRange,0, out mainBase);
+        viewTarget = manager.targets==null? null : manager.targets[0];
+        // no enemy in range
         if (manager.targets == null ||
             Vector3.Distance(viewTarget.transform.position, manager.transform.position) >= status.viewRange)
         {
             manager.TransitionState(MinionStateType.IDLE);
             return;
         }
-        manager.agent.SetDestination(viewTarget.transform.position);
-
-        //限制范围
+        
+        
+        // limit moving range
         if (manager.Info().minionType == MinionType.FRIEND)
         {
             Barrack barrack = manager.Barrack();
-            if (Vector3.Distance(barrack.transform.position, manager.transform.position) >= barrack.Status().range)
+            var disToBarrack = Vector3.Distance(barrack.transform.position, manager.transform.position);
+            if ( disToBarrack >= barrack.Status().range)
             {
-                //停止但持续索敌直到敌方（可能）进入兵营范围
-                manager.agent.speed = 0;
-                if (viewTarget != null && Vector3.Distance(barrack.transform.position, viewTarget.transform.position) <= barrack.Status().range)
+                            
+                if (disToBarrack >= barrack.Status().range + 2)
                 {
+                    manager.agent.SetDestination(manager.moveDestination);
                     manager.agent.speed = status.speed;
+                    manager.animationController.SwitchAnimState("Move");
+                } else if(viewTarget != null && Vector3.Distance(barrack.transform.position, viewTarget.transform.position) <= barrack.Status().range) {
+                    manager.agent.SetDestination(viewTarget.transform.position);
+                    manager.agent.speed = status.speed;
+                    manager.animationController.SwitchAnimState("Move");
+                }else {
+                    manager.animationController.SwitchAnimState("Idle");
+                    manager.agent.speed = 0;
+
                 }
+                return;
             }
         }
+        manager.agent.speed = status.speed;
+        manager.agent.SetDestination(viewTarget.transform.position);
+
+        manager.animationController.SwitchAnimState("Move");
     }
 }
