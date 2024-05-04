@@ -56,11 +56,8 @@ public class Effect
             foreach(EffectStruct es in effectList)
             {
                 es.CountDown(time);
-                if (es.lastTime <= 0)
-                {
-                    effectList.Remove(es);
-                }
             }
+            effectList.RemoveAll(es => es.lastTime <= 0);
             if(effectList.Count==0) {
                 doneEffects.Add(type);
                 effect.Remove(type);
@@ -72,7 +69,7 @@ public class Effect
     }
 
 }
-public struct EffectStruct
+public class EffectStruct
 {
     public float modifier;
     public float lastTime;
