@@ -209,7 +209,7 @@ public class BuidlingManager : MonoBehaviour
             item.GetComponent<MeshRenderer>().material = _buildingShadowMaterial;
         }
         //* Stop all buidling VFX
-        if (_buildingAssets.CanAttack && _buildingAssets.AttackVFX != null) _buildingAssets.AttackVFX.gameObject.SetActive(false);
+        if (_buildingAssets.CanAttack && _buildingAssets.AttackVFX != null) _buildingAssets.AttackVFX.SetActive(false);
         if (_buildingAssets.ParticleSystems.Count > 0)
         {
             foreach (var item in _buildingAssets.ParticleSystems)

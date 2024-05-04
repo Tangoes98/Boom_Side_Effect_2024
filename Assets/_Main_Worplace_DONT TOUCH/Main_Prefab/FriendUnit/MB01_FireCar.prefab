@@ -318,6 +318,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FireCar
       objectReference: {fileID: 0}
+    - target: {fileID: 272193308127181523, guid: 9c7556f6b40641f40af91445d44a3b10,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4354682924007757303, guid: 9c7556f6b40641f40af91445d44a3b10,
         type: 3}
       propertyPath: _crossfadeDuration

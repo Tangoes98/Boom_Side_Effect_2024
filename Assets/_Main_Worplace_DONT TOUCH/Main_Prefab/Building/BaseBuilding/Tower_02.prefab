@@ -46,7 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DissolveFinishValue: 12.8
   CanAttack: 1
-  AttackVFX: {fileID: 226495757400140645}
+  IsAOEAttack: 0
+  AttackVFX: {fileID: 1181705551429489283}
   Subassets:
   - {fileID: 4760293159644293372}
   - {fileID: 8002866100075860807}
@@ -87,6 +88,7 @@ Transform:
   - {fileID: 3511110647495903742}
   - {fileID: 757174330773257344}
   - {fileID: 472617948045401107}
+  - {fileID: 4065559801193040444}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &7828518832753730534
@@ -222,6 +224,86 @@ MonoBehaviour:
       secondSpEffectLastTime: 0
   targets: []
   stateLabel: 
+--- !u!1001 &2556022436216638626
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1892487841968342741}
+    m_Modifications:
+    - target: {fileID: 1950926996609894046, guid: edf48a1c1545e584092bab6b34594a07,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1950926996609894046, guid: edf48a1c1545e584092bab6b34594a07,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 1950926996609894046, guid: edf48a1c1545e584092bab6b34594a07,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1950926996609894046, guid: edf48a1c1545e584092bab6b34594a07,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1950926996609894046, guid: edf48a1c1545e584092bab6b34594a07,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1950926996609894046, guid: edf48a1c1545e584092bab6b34594a07,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1950926996609894046, guid: edf48a1c1545e584092bab6b34594a07,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1950926996609894046, guid: edf48a1c1545e584092bab6b34594a07,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1950926996609894046, guid: edf48a1c1545e584092bab6b34594a07,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 1950926996609894046, guid: edf48a1c1545e584092bab6b34594a07,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3683542267786747425, guid: edf48a1c1545e584092bab6b34594a07,
+        type: 3}
+      propertyPath: m_Name
+      value: FX_GasSpit_T02_FWD
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: edf48a1c1545e584092bab6b34594a07, type: 3}
+--- !u!1 &1181705551429489283 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3683542267786747425, guid: edf48a1c1545e584092bab6b34594a07,
+    type: 3}
+  m_PrefabInstance: {fileID: 2556022436216638626}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4065559801193040444 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1950926996609894046, guid: edf48a1c1545e584092bab6b34594a07,
+    type: 3}
+  m_PrefabInstance: {fileID: 2556022436216638626}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2668723438123365135
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -286,16 +368,11 @@ PrefabInstance:
       value: T02_Oiltank
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2736750553793010896, guid: cb9afc0ecc5a4814686db7bc59ea41af, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb9afc0ecc5a4814686db7bc59ea41af, type: 3}
---- !u!198 &226495757400140645 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 2751023598678169706, guid: cb9afc0ecc5a4814686db7bc59ea41af,
-    type: 3}
-  m_PrefabInstance: {fileID: 2668723438123365135}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &757174330773257344 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3425888949180206991, guid: cb9afc0ecc5a4814686db7bc59ea41af,
