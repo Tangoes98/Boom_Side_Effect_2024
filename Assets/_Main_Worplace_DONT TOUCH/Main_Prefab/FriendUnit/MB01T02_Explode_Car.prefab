@@ -88,7 +88,7 @@ MonoBehaviour:
     - level: 1
       health: 30
       range: 5
-      viewRange: 10
+      viewRange: 20
       damage: 40
       specialEffectModifier: 0
       specialEffectLastTime: 0.2
@@ -96,8 +96,8 @@ MonoBehaviour:
       secondSpEffectLastTime: 0
     - level: 2
       health: 40
-      range: 0.2
-      viewRange: 2
+      range: 5
+      viewRange: 20
       damage: 60
       specialEffectModifier: 0
       specialEffectLastTime: 0.3
@@ -105,8 +105,8 @@ MonoBehaviour:
       secondSpEffectLastTime: 0
     - level: 3
       health: 50
-      range: 0.2
-      viewRange: 2
+      range: 5
+      viewRange: 20
       damage: 100
       specialEffectModifier: 0
       specialEffectLastTime: 0.5
@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitRangeAsAoeRange: 0
-  aoeRange: 1
+  aoeRange: 10
   type: 2
   _fxEffect: {fileID: 1879769179923522, guid: 65932b7368590234d8163da03c2055d8, type: 3}
   _fxLastTime: 3

@@ -73,23 +73,23 @@ MonoBehaviour:
     takeDamageModifer: 0
   baseInfo:
     name: 
-    speed: 5
+    speed: 6
     minRange: 0
     baseType: 0
     addonType: 0
     attackMode: 0
     lockMode: 0
     minionType: 0
-    fireInterval: 1
-    fireTime: 1
+    fireInterval: 1.5
+    fireTime: 0.5
     specialEffect: 0
     secondSpecialEffect: 0
     levelRelatedProperties:
     - level: 1
-      health: 100
-      range: 3
-      viewRange: 10
-      damage: 1
+      health: 15
+      range: 5
+      viewRange: 40
+      damage: 10
       specialEffectModifier: 0
       specialEffectLastTime: 0
       secondSpEffectModifier: 0

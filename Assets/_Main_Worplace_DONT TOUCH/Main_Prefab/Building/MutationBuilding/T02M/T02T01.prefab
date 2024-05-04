@@ -203,7 +203,7 @@ MonoBehaviour:
     levelRelatedProperties:
     - level: 1
       cost: 0
-      range: 2
+      range: 20
       damage: 0.8
       specialEffectModifier: 1.1
       specialEffectLastTime: 1
@@ -211,7 +211,7 @@ MonoBehaviour:
       secondSpEffectLastTime: 1
     - level: 2
       cost: 50
-      range: 2.5
+      range: 25
       damage: 1
       specialEffectModifier: 1.15
       specialEffectLastTime: 1
@@ -219,7 +219,7 @@ MonoBehaviour:
       secondSpEffectLastTime: 1
     - level: 3
       cost: 60
-      range: 3
+      range: 30
       damage: 1.4
       specialEffectModifier: 1.2
       specialEffectLastTime: 1
@@ -240,7 +240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitRangeAsAoeRange: 0
-  aoeRange: 0.5
+  aoeRange: 5
   type: 1
   _fxEffect: {fileID: 7576044986926139358, guid: 274bf44586b754781849d196d703fe33,
     type: 3}

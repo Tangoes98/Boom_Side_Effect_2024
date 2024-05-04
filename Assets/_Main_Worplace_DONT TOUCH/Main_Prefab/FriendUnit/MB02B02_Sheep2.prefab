@@ -95,8 +95,8 @@ MonoBehaviour:
       secondSpEffectLastTime: 0
     - level: 2
       health: 30
-      range: 0.5
-      viewRange: 2
+      range: 5
+      viewRange: 20
       damage: 4
       specialEffectModifier: 0.15
       specialEffectLastTime: 3
@@ -104,8 +104,8 @@ MonoBehaviour:
       secondSpEffectLastTime: 0
     - level: 3
       health: 40
-      range: 0.5
-      viewRange: 2
+      range: 5
+      viewRange: 20
       damage: 6
       specialEffectModifier: 0.2
       specialEffectLastTime: 3
