@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -9,6 +10,9 @@ public class AoeAttack : MonoBehaviour {
     public AoeType type;
 
     private float _damage;
+
+    [SerializeField] private GameObject _fxEffect;
+    [SerializeField] private float _fxLastTime=3;
 
     [SerializeField] private float _mainBaseDmg; 
     private List<EffectStruct> _effects = new();
@@ -83,6 +87,12 @@ public class AoeAttack : MonoBehaviour {
             enemies = GetEnemyInRange(center,360, Vector3.zero);
         }
         _center = center;
+
+        if(_fxEffect!=null) {
+            GameObject eff = Instantiate(_fxEffect,center,Quaternion.identity);
+            StartCoroutine(CleanUp(eff));
+        }
+
         foreach(var enemy in enemies) {
             if(_damage>0) enemy.TakeDamage(_damage*takeDamageModifer);
             if(_effects!=null && _effects.Count>0) {
@@ -93,6 +103,11 @@ public class AoeAttack : MonoBehaviour {
             }
         }
 
+    }
+
+    IEnumerator CleanUp(GameObject eff) {
+        yield return new WaitForSeconds(_fxLastTime);
+        Destroy(eff);
     }
 
     void OnDrawGizmosSelected()

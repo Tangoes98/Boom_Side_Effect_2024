@@ -227,7 +227,7 @@ MonoBehaviour:
       secondSpEffectModifier: -1
       secondSpEffectLastTime: 4
   targets: []
-  stateLabel: {fileID: 0}
+  stateLabel: 
 --- !u!114 &-3138784772108683733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,6 +243,10 @@ MonoBehaviour:
   unitRangeAsAoeRange: 0
   aoeRange: 0.5
   type: 3
+  _fxEffect: {fileID: 2468726193121659527, guid: 72e7fd5cba5c548448a8bc630928c41a,
+    type: 3}
+  _fxLastTime: 3
+  _mainBaseDmg: 0
 --- !u!1001 &243340800998155905
 PrefabInstance:
   m_ObjectHideFlags: 0
