@@ -99,10 +99,10 @@ public class AudioManager : MonoBehaviour
         switch (SceneManager.GetActiveScene().buildIndex)
         {
             case 0:
-                PlayMusic(MusicType.Menu, _MusicVolume);
+                PlayMusic(MusicType.Menu);
                 break;
             case 1:
-                PlayMusic(MusicType.PreCombat, _MusicVolume);
+                PlayMusic(MusicType.PreCombat);
                 break;
         }
     }
@@ -115,26 +115,26 @@ public class AudioManager : MonoBehaviour
 
 
 
-    public void PlayMusic(MusicType t, float volume)
+    public void PlayMusic(MusicType t)
     {
         _musicAudioSource.loop = true;
-        _musicAudioSource.PlayOneShot(_music[(int)t]._Audio, volume);
+        _musicAudioSource.PlayOneShot(_music[(int)t]._Audio, _MusicVolume);
     }
-    public void PlayBuildingSFX(BuildingSFX t, float volume)
+    public void PlayBuildingSFX(BuildingSFX t)
     {
-        _buildingSFXaudioSource.PlayOneShot(_buildingSFX[(int)t]._Audio, volume);
+        _buildingSFXaudioSource.PlayOneShot(_buildingSFX[(int)t]._Audio, _SFXVolume);
     }
-    public void PlayBoomSFX(BoomSFX t, float volume)
+    public void PlayBoomSFX(BoomSFX t)
     {
-        _boomAudioSource.PlayOneShot(_boomSFX[(int)t]._Audio, volume);
+        _boomAudioSource.PlayOneShot(_boomSFX[(int)t]._Audio, _SFXVolume);
     }
-    public void PlayDeadSFX(DeadSFX t, float volume)
+    public void PlayDeadSFX(DeadSFX t)
     {
-        _deadAudioSource.PlayOneShot(_deadSFX[(int)t]._Audio, volume);
+        _deadAudioSource.PlayOneShot(_deadSFX[(int)t]._Audio, _SFXVolume);
     }
-    public void PlayOtherSFX(OtherSFX t, float volume)
+    public void PlayOtherSFX(OtherSFX t)
     {
-        _otherAudioSource.PlayOneShot(_otherSFX[(int)t]._Audio, volume);
+        _otherAudioSource.PlayOneShot(_otherSFX[(int)t]._Audio, _SFXVolume);
     }
 
 

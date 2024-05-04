@@ -46,13 +46,13 @@ public class BuildingCollidingCheck : MonoBehaviour
         CanBuild = false;
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.CompareTag("BuildingArea") && _colliderStayCheck)
-        {
-            CanBuild = true;
-            return;
-        }
-        CanBuild = false;
-    }
+    // private void OnTriggerStay(Collider other)
+    // {
+    //     if (other.CompareTag("BuildingArea") && _colliderStayCheck)
+    //     {
+    //         CanBuild = true;
+    //         return;
+    //     }
+    //     CanBuild = false;
+    // }
 }

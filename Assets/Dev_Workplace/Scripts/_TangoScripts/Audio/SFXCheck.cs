@@ -1,18 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class SFXCheck : MonoBehaviour
+public class SFXCheck : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler
 {
-    // Start is called before the first frame update
-    void Start()
+    public void OnPointerClick(PointerEventData eventData)
     {
-        
+        AudioManager.Instance.PlayOtherSFX(AudioManager.OtherSFX.Click);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnPointerEnter(PointerEventData eventData)
     {
-        
+        AudioManager.Instance.PlayOtherSFX(AudioManager.OtherSFX.Select);
     }
 }
