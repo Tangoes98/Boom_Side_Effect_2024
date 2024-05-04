@@ -200,7 +200,7 @@ MonoBehaviour:
     levelRelatedProperties:
     - level: 1
       cost: 0
-      range: 2
+      range: 20
       damage: 1.5
       specialEffectModifier: -1.5
       specialEffectLastTime: 1
@@ -208,7 +208,7 @@ MonoBehaviour:
       secondSpEffectLastTime: 0
     - level: 2
       cost: 50
-      range: 3
+      range: 30
       damage: 1.7
       specialEffectModifier: -2.5
       specialEffectLastTime: 1
@@ -216,14 +216,14 @@ MonoBehaviour:
       secondSpEffectLastTime: 0
     - level: 3
       cost: 60
-      range: 4
+      range: 40
       damage: 2
       specialEffectModifier: -3.5
       specialEffectLastTime: 1
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
   targets: []
-  stateLabel: {fileID: 0}
+  stateLabel: 
 --- !u!1001 &2146687892003161363
 PrefabInstance:
   m_ObjectHideFlags: 0

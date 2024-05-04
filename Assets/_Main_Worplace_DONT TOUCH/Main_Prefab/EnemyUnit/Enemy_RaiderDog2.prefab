@@ -73,7 +73,7 @@ MonoBehaviour:
     takeDamageModifer: 0
   baseInfo:
     name: 
-    speed: 5
+    speed: 7
     minRange: 0
     baseType: 0
     addonType: 0
@@ -86,10 +86,10 @@ MonoBehaviour:
     secondSpecialEffect: 0
     levelRelatedProperties:
     - level: 1
-      health: 100
-      range: 3
-      viewRange: 10
-      damage: 1
+      health: 30
+      range: 5
+      viewRange: 40
+      damage: 20
       specialEffectModifier: 0
       specialEffectLastTime: 0
       secondSpEffectModifier: 0

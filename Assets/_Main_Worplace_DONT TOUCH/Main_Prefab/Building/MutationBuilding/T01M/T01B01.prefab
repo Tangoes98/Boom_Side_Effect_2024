@@ -242,8 +242,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitRangeAsAoeRange: 0
-  aoeRange: 3
+  aoeRange: 30
   type: 0
+  _fxEffect: {fileID: 0}
+  _fxLastTime: 3
+  _mainBaseDmg: 0
 --- !u!1001 &3250692489263107529
 PrefabInstance:
   m_ObjectHideFlags: 0
