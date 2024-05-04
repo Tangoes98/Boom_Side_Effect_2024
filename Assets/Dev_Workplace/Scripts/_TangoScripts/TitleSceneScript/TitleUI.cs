@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -61,8 +62,20 @@ public class TitleUI : MonoBehaviour
     #region Button events
     void StartGame()
     {
-        SceneManager.LoadScene(1);
+        UIFadeTransition.Instance.FadeIn();
+        StartCoroutine(WaitForSecond());
+        _settingPanel.SetActive(false);
     }
+    IEnumerator WaitForSecond()
+    {
+        var timer = new WaitForSeconds(2);
+        yield return timer;
+        SceneManager.LoadScene(1);
+        UIFadeTransition.Instance.FadeWait();
+
+        //! GOing to the next scene
+    }
+
     void OpenSetting()
     {
         _settingPanel.SetActive(true);
@@ -110,6 +123,7 @@ public class TitleUI : MonoBehaviour
     {
         btn.onClick.AddListener(buttonEvent);
     }
+
 
 
     #endregion
