@@ -75461,6 +75461,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2065377333}
+  - component: {fileID: 2065377334}
   m_Layer: 0
   m_Name: CamObj
   m_TagString: Untagged
@@ -75484,6 +75485,22 @@ Transform:
   - {fileID: 7221081}
   m_Father: {fileID: 755038270}
   m_LocalEulerAnglesHint: {x: 0, y: -45, z: 0}
+--- !u!114 &2065377334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065377332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6775649d5101eeb42b0cdc90c65a02c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LeftBottom: {x: 101, y: -227}
+  RightBottom: {x: 227, y: -101}
+  LeftTop: {x: 12, y: -138}
+  RightTop: {x: 138, y: -12}
 --- !u!1001 &2068198636
 PrefabInstance:
   m_ObjectHideFlags: 0
