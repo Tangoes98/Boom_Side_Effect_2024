@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2627547052922578157}
   - component: {fileID: 1968730024553051983}
   - component: {fileID: -8247409999206403577}
+  - component: {fileID: 7098537755267970847}
   m_Layer: 9
   m_Name: MB02B02_Sheep2
   m_TagString: Untagged
@@ -164,6 +165,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!195 &7098537755267970847
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769547925289043441}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 1.39
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 3
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 5.16
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1001 &2206232455756504010
 PrefabInstance:
   m_ObjectHideFlags: 0

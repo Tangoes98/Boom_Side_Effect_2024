@@ -247,11 +247,11 @@ public class Minion : MonoBehaviour,IHealthBar
     void createAgent()
     {
         this.transform.position = _parent.GetSpawnPosition();
-
-        agent = gameObject.AddComponent(typeof(NavMeshAgent)) as NavMeshAgent;
+        agent = GetComponent<NavMeshAgent>();
+        // agent = gameObject.AddComponent(typeof(NavMeshAgent)) as NavMeshAgent;
 
         //* Editing Minion Agent Info
-        agent.stoppingDistance = 3f;
+        // agent.stoppingDistance = 3f;
     }
 
     void OnDrawGizmosSelected()
