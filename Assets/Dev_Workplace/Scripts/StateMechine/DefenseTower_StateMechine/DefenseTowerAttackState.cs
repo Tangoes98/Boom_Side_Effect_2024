@@ -40,5 +40,5 @@ public class DefenseTowerAttackState : IState
 
         //if(!manager.checkTarget()) manager.TransitionState(DefenseTowerStateType.IDLE);
     }
-
+    public string Type() => DefenseTowerStateType.ATTACK.ToString();
 }

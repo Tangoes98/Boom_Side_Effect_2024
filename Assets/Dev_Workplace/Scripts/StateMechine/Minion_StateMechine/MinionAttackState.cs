@@ -48,7 +48,7 @@ public class MinionAttackState : IState
             try
             {
                 _unitArtAsset = manager.GetComponentInChildren<UnitArtAssets>();
-                _unitArtAsset._AttackVFX.SetActive(true);
+                if(_unitArtAsset!=null) _unitArtAsset._AttackVFX.SetActive(true);
                 // if (!artAssets._IsAOE)
                 // {
                 //     artAssets._AttackVFX.transform.LookAt(attackTarget.transform.position);
@@ -77,7 +77,7 @@ public class MinionAttackState : IState
     {
         try
         {
-            _unitArtAsset._AttackVFX.SetActive(false);
+            if(_unitArtAsset!=null) _unitArtAsset._AttackVFX.SetActive(false);
 
         }
         catch (System.Exception e)
@@ -176,4 +176,6 @@ public class MinionAttackState : IState
 
 
     }
+
+    public string Type() => MinionStateType.ATTACK.ToString();
 }
