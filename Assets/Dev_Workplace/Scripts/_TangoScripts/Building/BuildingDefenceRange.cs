@@ -7,15 +7,15 @@ public class BuildingDefenceRange : MonoBehaviour
 
     public float _Radius;
 
-
     void Update()
     {
+        _Radius = GetComponentInParent<Architect>().Status().range;
         transform.localScale = new Vector3(_Radius, transform.localScale.y, _Radius);
     }
 
-    private void OnDrawGizmos()
+    public void EnabnleDefenceRange(bool bvalue)
     {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawSphere(transform.position, _Radius);
+        this.gameObject.SetActive(bvalue);
     }
+
 }

@@ -121,6 +121,12 @@ public class BuidlingManager : MonoBehaviour
             _buildingUIPanel.SetActive(false);
             MouseStateManager.Instance.SwitchState(MouseStateManager.MouseStates.None, null);
 
+            //*Diable tower defence range preview
+            if (_buildingAssets.IsTower)
+            {
+                _buildingAssets.TowerDefenceRangePreview.EnabnleDefenceRange(false);
+            }
+
             _isBuilding = true;
             foreach (var item in _buildingAssets.Subassets)
             {
@@ -160,7 +166,14 @@ public class BuidlingManager : MonoBehaviour
 
         Vector3 buildingPos = _previewBuilding.transform.position;
         GameObject builfVFX = Instantiate(_buildingPlopVFX, buildingPos, Quaternion.identity);
-        ArchiLinkManager.Instance.Build(buildingPos, _buildingCode);
+        var newBuild = ArchiLinkManager.Instance.Build(buildingPos, _buildingCode);
+
+        //*Diable tower defence range preview
+        if (newBuild.GetComponentInChildren<BuildingArtAssets>().IsTower)
+        {
+            newBuild.GetComponentInChildren<BuildingArtAssets>().TowerDefenceRangePreview.EnabnleDefenceRange(false);
+        }
+        
         Destroy(_previewBuilding);
 
         yield return wait1Time;
@@ -208,6 +221,13 @@ public class BuidlingManager : MonoBehaviour
         {
             item.GetComponent<MeshRenderer>().material = _buildingShadowMaterial;
         }
+
+        //*Enable the defence tower range preview
+        if (_buildingAssets.IsTower)
+        {
+            _buildingAssets.TowerDefenceRangePreview.EnabnleDefenceRange(true);
+        }
+
         //* Stop all buidling VFX
         if (_buildingAssets.CanAttack && _buildingAssets.AttackVFX != null) _buildingAssets.AttackVFX.SetActive(false);
         if (_buildingAssets.ParticleSystems.Count > 0)
