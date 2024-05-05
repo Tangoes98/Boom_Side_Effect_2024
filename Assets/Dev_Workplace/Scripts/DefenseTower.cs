@@ -21,14 +21,15 @@ public class DefenseTower : Architect
 
     [SerializeField] string stateLabel;
 
-    public AoeAttack aoeAttack {private set; get; }
+    public AoeAttack aoeAttack { private set; get; }
 
-    public override void UpgradeTo(int level) {
+    public override void UpgradeTo(int level)
+    {
         //if(level==this.level) {
         //    return;
         //}
         this.level = level;
-        DefenseTowerProperty prop = (DefenseTowerProperty) GetBaseProperty(level);
+        DefenseTowerProperty prop = (DefenseTowerProperty)GetBaseProperty(level);
         // refresh all properties
         //status.maxLinkNum = prop.maxLinkNum;
         status.range = prop.range;
@@ -36,7 +37,7 @@ public class DefenseTower : Architect
 
         status.attackMode = baseInfo.attackMode;
         status.lockMode = baseInfo.lockMode;
-        status.fireInterval  = baseInfo.fireInterval;
+        status.fireInterval = baseInfo.fireInterval;
         status.fireTime = baseInfo.fireTime;
         status.aoeRange = baseInfo.aoeRange;
 
@@ -48,14 +49,16 @@ public class DefenseTower : Architect
         status.secondSpEffectModifier = prop.secondSpEffectModifier;
         status.secondSpEffectLastTime = prop.secondSpEffectLastTime;
 
-        if(aoeAttack!=null && level!=1) {
+        if (aoeAttack != null && level != 1)
+        {
             aoeAttack.Load();
         }
 
     }
 
 
-    protected override void Awake() {
+    protected override void Awake()
+    {
         base.Awake(); // keep this!
         Reload();
 
@@ -73,7 +76,8 @@ public class DefenseTower : Architect
         currentState.onUpdate();
     }
 
-    public float GetDamage(out ModifierType modifierType) { // BUFF/DEBUFF
+    public float GetDamage(out ModifierType modifierType)
+    { // BUFF/DEBUFF
         float modifier = ArchiLinkManager.Instance.GetModifier(Unstability, out modifierType);
         //Debug.Log(modifier + " " + status.damage);
         return status.damage * modifier;
@@ -121,7 +125,7 @@ public class DefenseTower : Architect
     IEnumerator SingleAttack()
     {
         yield return new WaitForSeconds(status.fireTime);
-        
+
         DealDamage();
         TransitionState(DefenseTowerStateType.INTERVAL);
     }
@@ -140,26 +144,28 @@ public class DefenseTower : Architect
     protected virtual void DealDamage()
     {
         //暂时为单体。
-        var damage =GetDamage(out modifiertype);
-        if(aoeAttack!=null && aoeAttack.type==AoeType.CIRCLE_CENTER_SELF) {
-            aoeAttack.TriggerAOE(this.transform.position,1); 
+        var damage = GetDamage(out modifiertype);
+        if (aoeAttack != null && aoeAttack.type == AoeType.CIRCLE_CENTER_SELF)
+        {
+            aoeAttack.TriggerAOE(this.transform.position, 1);
             return;
         }
 
         var target = targets[0].GetComponent<Minion>();
         target.TakeDamage(damage);
-        target.TakeEffect(status.specialEffect, status.specialEffectModifier,status.specialEffectLastTime);
+        target.TakeEffect(status.specialEffect, status.specialEffectModifier, status.specialEffectLastTime);
         target.TakeEffect(status.secondSpEffect, status.secondSpEffectModifier, status.secondSpEffectLastTime);
-        if(aoeAttack!=null && aoeAttack.type==AoeType.CIRCLE_CENTER_ENEMY) {
-            aoeAttack.TriggerAOE(target.transform.position,1); 
+        if (aoeAttack != null && aoeAttack.type == AoeType.CIRCLE_CENTER_ENEMY)
+        {
+            aoeAttack.TriggerAOE(target.transform.position, 1);
         }
-        
+
     }
 
     public virtual bool checkTarget()//检测攻击对象是否存在
     {
         targets = GetEnemyInRange();
-        bool isExist = targets!=null && targets[0] != null && Vector3.Distance(targets[0].transform.position, this.transform.position) < status.range;
+        bool isExist = targets != null && targets[0] != null && Vector3.Distance(targets[0].transform.position, this.transform.position) < status.range;
         return isExist;
 
     }

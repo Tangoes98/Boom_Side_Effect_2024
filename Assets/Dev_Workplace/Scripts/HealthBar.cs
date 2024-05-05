@@ -21,7 +21,7 @@ public class HealthBar : MonoBehaviour
     void Update()
     {
         _bar.fillAmount = math.clamp(_parent.GetHealth() / _parent.GetMaxHealth(),0,1);
-        transform.rotation = Camera.current.transform.rotation;
+        transform.rotation = Camera.main.transform.rotation;
         //transform.rotation = Quaternion.LookRotation(transform.position - Camera.current.transform.position);
     }
 }
