@@ -33,4 +33,6 @@ public class MinionDyingState : IState
             else LevelEditor.Instance.EnemyDie(manager);
         }
     }
+
+    public string Type() => MinionStateType.DYING.ToString();
 }

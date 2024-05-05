@@ -69,4 +69,6 @@ public class MinionIdleState : IState
         else manager.animationController.SwitchAnimState("Idle");
 
     }
+
+    public string Type() => MinionStateType.IDLE.ToString();
 }

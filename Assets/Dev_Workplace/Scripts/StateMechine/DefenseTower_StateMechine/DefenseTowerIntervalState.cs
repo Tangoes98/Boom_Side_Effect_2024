@@ -36,5 +36,6 @@ public class DefenseTowerIntervalState : IState
             manager.TransitionState(DefenseTowerStateType.ATTACK);
         }
     }
+    public string Type() => DefenseTowerStateType.INTERVAL.ToString();
 
 }

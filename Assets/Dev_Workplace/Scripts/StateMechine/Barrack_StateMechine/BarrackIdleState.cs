@@ -34,4 +34,6 @@ public class BarrackIdleState : IState
         }
     }
 
+    public string Type() =>BarrackStateType.IDLE.ToString();
+
 }

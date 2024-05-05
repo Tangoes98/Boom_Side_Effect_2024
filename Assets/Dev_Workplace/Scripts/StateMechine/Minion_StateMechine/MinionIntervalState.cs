@@ -96,4 +96,5 @@ public class MinionIntervalState : IState
             manager.TransitionState(MinionStateType.ATTACK);
         }
     }
+    public string Type() => MinionStateType.INTERVAL.ToString();
 }

@@ -81,4 +81,6 @@ public class MinionViewState : IState
 
         manager.animationController.SwitchAnimState("Move");
     }
+
+    public string Type() => MinionStateType.VIEW.ToString();
 }

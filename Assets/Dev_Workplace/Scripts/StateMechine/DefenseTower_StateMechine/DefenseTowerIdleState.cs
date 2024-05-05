@@ -29,4 +29,5 @@ public class DefenseTowerIdleState : IState
             manager.TransitionState(DefenseTowerStateType.ATTACK);
         }
     }
+    public string Type() => DefenseTowerStateType.IDLE.ToString();
 }

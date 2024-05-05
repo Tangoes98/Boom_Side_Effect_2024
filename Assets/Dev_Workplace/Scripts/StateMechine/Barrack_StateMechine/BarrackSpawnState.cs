@@ -35,4 +35,6 @@ public class BarrackSpawnState : IState
         }
     }
 
+    public string Type() =>BarrackStateType.SPAWN.ToString();
+
 }

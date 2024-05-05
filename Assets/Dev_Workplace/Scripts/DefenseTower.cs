@@ -134,7 +134,11 @@ public class DefenseTower : Architect
         float timer = status.fireTime;
         while (timer > 0 && checkTarget())
         {
-            DealDamage();
+            try {
+                DealDamage();
+            } catch(Exception e) {
+                Debug.Log(e);
+            }
             timer -= 0.1f;
             yield return new WaitForSeconds(0.1f);
         }

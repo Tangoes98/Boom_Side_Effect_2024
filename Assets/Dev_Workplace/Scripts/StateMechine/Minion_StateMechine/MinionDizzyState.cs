@@ -29,5 +29,5 @@ public class MinionDizzyState : IState
         manager.transform.position = _freezePos;
         if (!manager.status.gotEffects.ContainsKey(SpecialEffect.DIZZY)) manager.TransitionState(MinionStateType.IDLE);
     }
-
+    public string Type() => MinionStateType.DIZZY.ToString();
 }

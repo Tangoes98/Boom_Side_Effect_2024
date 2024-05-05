@@ -45,6 +45,10 @@ public class Minion : MonoBehaviour,IHealthBar
     public AoeAttack aoeAttack {private set; get; }
 
     public MainBase mainBase {get;set;}
+
+    private bool _rbResetting = false;
+    private float _stuckTimer = 2;
+    private Vector3 _lastPos = Vector3.zero;
     
     private void Awake() {
         aoeAttack = GetComponent<AoeAttack>();
@@ -106,6 +110,9 @@ public class Minion : MonoBehaviour,IHealthBar
     {
         UpdateEffect();
         currentState.onUpdate();
+        if(!_rbResetting) {
+            CheckIfStuck();
+        }
     }
 
     protected MinionProperty GetBaseProperty(int level) => baseInfo.levelRelatedProperties.Where(p => p.level == level).First();
@@ -146,6 +153,10 @@ public class Minion : MonoBehaviour,IHealthBar
     }
     public void TransitionState(MinionStateType type)
     {
+        if(currentState!=null && (currentState.Type() == MinionStateType.DYING.ToString() || currentState.Type() == type.ToString())) {
+            return;
+        }
+        
         if (currentState != null)
         {
             currentState.onExit();
@@ -254,4 +265,30 @@ public class Minion : MonoBehaviour,IHealthBar
     public float GetHealth() => status.health;
 
     public float GetMaxHealth() => status.maxHealth;
+
+    private void CheckIfStuck() {
+        if(baseInfo.minionType == MinionType.ENEMY && 
+            currentState.Type()==MinionStateType.IDLE.ToString() &&
+            Vector3.Distance(transform.position, _lastPos) <0.1f) {
+            _stuckTimer-=Time.deltaTime;
+            
+        }  else {
+            _stuckTimer=2;
+        }
+        _lastPos = transform.position;
+            
+        if(_stuckTimer<=0) {
+            _rbResetting = true;
+            _stuckTimer = 2;
+            StartCoroutine(ResetRigidBodyConstraints());
+        }     
+
+    }
+    private IEnumerator ResetRigidBodyConstraints() {
+        var rb = GetComponent<Rigidbody>();
+        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
+        yield return new WaitForNextFrameUnit();
+        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+        _rbResetting = false;
+    }
 }
