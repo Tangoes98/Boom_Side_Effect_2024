@@ -18,7 +18,7 @@ public class BuildingArtAssets : MonoBehaviour
     {
         //if (IsTower) TowerDefenceRangePreview.EnabnleDefenceRange(false);
 
-        AttackVFX.SetActive(false);
+        if (CanAttack) AttackVFX.SetActive(false);
 
 
 

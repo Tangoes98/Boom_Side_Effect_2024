@@ -22,10 +22,6 @@ public class DefenseTowerAttackState : IState
         _artAsset = manager.GetComponentInChildren<BuildingArtAssets>();
         if (!_artAsset) return;
         _artAsset.AttackVFX.SetActive(true);
-        if (!_artAsset.IsAOEAttack)
-        {
-            _artAsset.AttackVFX.transform.LookAt(targets[0].transform.position);
-        }
 
         manager.Attack();
     }
@@ -37,6 +33,13 @@ public class DefenseTowerAttackState : IState
 
     public void onUpdate()
     {
+        if (!_artAsset.IsAOEAttack)
+        {
+            if (manager.targets != null && manager.targets.Length > 0 && manager.targets[0] != null)
+            {
+                _artAsset.AttackVFX.transform.LookAt(manager.targets[0].transform.position);
+            }
+        }
 
         //if(!manager.checkTarget()) manager.TransitionState(DefenseTowerStateType.IDLE);
     }
