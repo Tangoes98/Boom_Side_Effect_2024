@@ -55,6 +55,10 @@ public class BuildingSelectionManager : MonoBehaviour
         if (!MouseController.Is_LMB_Down()) return;
         if (!CurrentSelectedBuilding) return;
 
+        //*Enable the defence tower range preview
+        var buildingAssets = CurrentSelectedBuilding.GetComponentInChildren<BuildingArtAssets>();
+        if (buildingAssets.IsTower) buildingAssets.TowerDefenceRangePreview.EnabnleDefenceRange(true);
+
         //* update tutorial
         if (TutorialUI.Instance.IsTutorialActive) TutorialUI.Instance.TutorialStep++;
 
@@ -68,10 +72,15 @@ public class BuildingSelectionManager : MonoBehaviour
     #region Publice methods
     public void CloseSelectionPanel()
     {
+        //*Diable tower defence range preview
+        var buildingAssets = CurrentSelectedBuilding.GetComponentInChildren<BuildingArtAssets>();
+        if (buildingAssets.IsTower) buildingAssets.TowerDefenceRangePreview.EnabnleDefenceRange(false);
+
         SelectBuildingLinks(false);
         CurrentSelectedBuilding = null;
         _buildingUIPanel.SetActive(false);
         UIPanelSelectionEvent?.Invoke(true);
+
     }
 
     #endregion
