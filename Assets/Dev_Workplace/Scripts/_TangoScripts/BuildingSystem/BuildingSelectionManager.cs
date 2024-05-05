@@ -128,6 +128,8 @@ public class BuildingSelectionManager : MonoBehaviour
 
     void SelectBuildingLinks(bool showLink)
     {
+        if(CurrentSelectedBuilding==null) return;
+        
         Architect building = CurrentSelectedBuilding.GetComponent<Architect>();
 
         ArchiLinkManager.Instance.GetInAndOutAndPauseLinks(building,

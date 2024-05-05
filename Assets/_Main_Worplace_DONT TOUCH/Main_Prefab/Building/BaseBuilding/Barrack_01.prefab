@@ -116,6 +116,7 @@ MonoBehaviour:
   existingLinkNum: 0
   activeOutputLinkNum: 0
   sourceArchitectLinkNum: 0
+  IsPreview: 0
   status:
     range: 0
     currentMinions: []
@@ -191,6 +192,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DissolveFinishValue: 14.15
   CanAttack: 0
+  IsAOEAttack: 0
   AttackVFX: {fileID: 0}
   Subassets:
   - {fileID: 6073075147260353565}

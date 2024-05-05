@@ -21,8 +21,7 @@ public class LevelEditor : MonoBehaviour
 
     [SerializeField] private float spawnInterval =1f;
     [SerializeField] private GameObject _startLevelButton;
-    [Header("炸矿洞的animator")]
-    [SerializeField] private Animator _boomAnminator;
+
     [SerializeField] private Transform[] _spawnLocations;
 
     [SerializeField] private Level[] levels;
@@ -61,8 +60,10 @@ public class LevelEditor : MonoBehaviour
         }
 
         var curLvl = levels[LevelNumber-1];
-        if(curLvl.boomTrigger!="" && _boomAnminator!=null) {
-            _boomAnminator.SetTrigger(curLvl.boomTrigger);
+        if(curLvl.boomEntrances!=null && curLvl.boomEntrances.Length>0) {
+            foreach(int e in curLvl.boomEntrances) {
+                EnvironmentFX.Instance.PlayBoomVFX(1, e - 1);
+            }
         }
         _waveQueue = new(curLvl.waves);
         WaveNumber = 0;

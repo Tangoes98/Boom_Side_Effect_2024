@@ -75,6 +75,8 @@ public abstract class Architect : MonoBehaviour
 
     public abstract void UpgradeTo(int level);
 
+    public bool IsPreview;
+
 
     public void SelfDestroy() {
         if(BaseArchitect!=null) {
