@@ -100,7 +100,7 @@ public class TutorialUI : MonoBehaviour
         MouseStateManager.Instance.SwitchState(MouseStateManager.MouseStates.Selecting, null);
 
         //* Environment FX
-        EnvironmentFX.Instance.PlayBoomVFX(1);
+        //EnvironmentFX.Instance.PlayBoomVFX(1);
 
         //*Play music
         AudioManager.Instance.PlayMusic(AudioManager.MusicType.Combat);

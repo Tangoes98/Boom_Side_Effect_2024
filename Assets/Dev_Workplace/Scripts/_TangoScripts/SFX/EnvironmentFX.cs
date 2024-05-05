@@ -22,35 +22,26 @@ public class EnvironmentFX : MonoBehaviour
         }
     }
 
-
-
-
-    public void PlayBoomVFX(float disableTime)
+    public void PlayBoomVFX(float disableTime, int entranceIndex)
     {
-        foreach (var item in _boomVFX)
-        {
-            item.SetActive(true);
-        }
-        StartCoroutine(LastUntilDisable(disableTime));
-        DisableBoomEntrance();
+        _boomVFX[entranceIndex].SetActive(true);
+        StartCoroutine(LastUntilDisable(disableTime, entranceIndex));
+        DisableBoomEntrance(entranceIndex);
 
         //*Play Sound
         AudioManager.Instance.PlayBoomSFX(AudioManager.BoomSFX.Cannon);
 
     }
-    IEnumerator LastUntilDisable(float disableTime)
+    IEnumerator LastUntilDisable(float disableTime, int entranceIndex)
     {
         var timer = new WaitForSeconds(disableTime);
         yield return timer;
-        foreach (var item in _boomVFX)
-        {
-            item.SetActive(false);
-        }
+        _boomVFX[entranceIndex].SetActive(false);
     }
 
-    void DisableBoomEntrance()
+    void DisableBoomEntrance(int index)
     {
-        _boomEntrance.ForEach((p) => p.SetActive(false));
+        _boomEntrance[index].SetActive(false);
     }
 
 }
