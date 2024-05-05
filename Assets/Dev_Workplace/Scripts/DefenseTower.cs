@@ -112,6 +112,7 @@ public class DefenseTower : Architect
 
     public void Attack()
     {
+        if(IsPreview) return;
         switch (status.attackMode)
         {
             case AttackMode.SINGLE_HIT:

@@ -63,6 +63,7 @@ public partial class Barrack : Architect
 
 
     public void ManufactureMinion() {
+        if(IsPreview) return;
         NavMeshHit hit;
         if (!NavMesh.SamplePosition(transform.position, out hit, status.range, NavMesh.AllAreas)) return;
         GameObject minionObj = Instantiate(baseInfo.minionPrefab,this.transform); // 改
@@ -98,6 +99,7 @@ public partial class Barrack : Architect
     public Vector3 GetIdlePosition()//需要加算一个偏移量，保持一定阵型
     {
         Collider[] points=Physics.OverlapSphere(this.transform.position, status.range, LevelManager.SpawnPointLayer());
+        Debug.Log(transform.position + ":" + status.range);
         if (points.Length > 0)
         {
             return new List<Collider>(points)

@@ -53,6 +53,7 @@ public class BuidlingManager : MonoBehaviour
     [SerializeField] bool _isBuilding;
     BuildingArtAssets _buildingAssets;
 
+    public Barrack PreviewBarrack {get;private set;}
 
 
     private void Start()
@@ -201,6 +202,8 @@ public class BuidlingManager : MonoBehaviour
         _buildingCode = _buttonAndBuildingCodeDic[btn];
         GameObject building = Instantiate(_buttonBuildingPairDictionary[btn], _buildingListObject);
         _previewBuilding = building;
+        _previewBuilding.GetComponent<Architect>().IsPreview = true;
+        PreviewBarrack = _previewBuilding.GetComponent<Barrack>();
 
         //* Switch all material into preview material
         _buildingAssets = building.GetComponentInChildren<BuildingArtAssets>();

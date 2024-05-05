@@ -28,7 +28,7 @@ public class BuildingCollidingCheck : MonoBehaviour
         if (other.CompareTag("BuildingArea"))
         {
             //_colliderStayCheck = false;
-            CanBuild = true;
+            CanBuild = IsSpawnPointInRangeIfBarrack();
             return;
         }
         //else CanBuild = false;
@@ -51,7 +51,7 @@ public class BuildingCollidingCheck : MonoBehaviour
         if (other.CompareTag("Building"))
         {
             _colliderStayCheck = true;
-            CanBuild = true;
+            CanBuild = IsSpawnPointInRangeIfBarrack();
             return;
         }
 
@@ -63,7 +63,7 @@ public class BuildingCollidingCheck : MonoBehaviour
 
         if (other.CompareTag("NoBuildingArea"))
         {
-            CanBuild = true;
+            CanBuild = IsSpawnPointInRangeIfBarrack();
             return;
         }
 
@@ -72,11 +72,18 @@ public class BuildingCollidingCheck : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("NoBuildingArea"))
+        if (other.CompareTag("NoBuildingArea") || other.CompareTag("Building"))
         {
             CanBuild = false;
             return;
-        }
+        } 
+        CanBuild = IsSpawnPointInRangeIfBarrack();
         
+    }
+    private bool IsSpawnPointInRangeIfBarrack() {
+        if(BuidlingManager.Instance.PreviewBarrack==null) {
+            return true;
+        }
+        return BuidlingManager.Instance.PreviewBarrack.GetIdlePosition()!=Vector3.zero;
     }
 }
