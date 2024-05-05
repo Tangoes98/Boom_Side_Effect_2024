@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7917191952696869026}
+  - component: {fileID: 1660093513225092874}
   m_Layer: 0
   m_Name: FX_TowerRange
   m_TagString: Untagged
@@ -24,15 +25,28 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3478574657692140046}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -94.61001, y: 26.718395, z: -10.124184}
-  m_LocalScale: {x: 12.95, y: 12.95, z: 12.95}
+  m_LocalScale: {x: 10, y: 5, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 978723162636361607}
   - {fileID: 875899498970583933}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1660093513225092874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3478574657692140046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd0ea5e04c290b24a8ff0c341a4012a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Radius: 1
 --- !u!1 &3707697558840672077
 GameObject:
   m_ObjectHideFlags: 0

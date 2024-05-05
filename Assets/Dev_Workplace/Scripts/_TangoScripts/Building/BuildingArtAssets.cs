@@ -10,4 +10,20 @@ public class BuildingArtAssets : MonoBehaviour
     public GameObject AttackVFX;
     public List<GameObject> Subassets = new();
     public List<ParticleSystem> ParticleSystems = new();
+
+    public bool IsTower;
+    public BuildingDefenceRange TowerDefenceRangePreview;
+
+    private void Start()
+    {
+        //if (IsTower) TowerDefenceRangePreview.EnabnleDefenceRange(false);
+
+        if (CanAttack) AttackVFX.SetActive(false);
+
+
+
+    }
+
+
+
 }
