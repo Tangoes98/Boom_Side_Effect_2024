@@ -71,7 +71,7 @@ public class BuildingSelectionManager : MonoBehaviour
             _upgradeCost.gameObject.SetActive(true);
             _upgradeCost.text = building.GetUpgradeCost().ToString();
         }
-        
+
         _demolishReturn.text = (building.GetBuildCost() * .8f).ToString();
 
         //*Enable the defence tower range preview
@@ -92,8 +92,11 @@ public class BuildingSelectionManager : MonoBehaviour
     public void CloseSelectionPanel()
     {
         //*Diable tower defence range preview
-        var buildingAssets = CurrentSelectedBuilding.GetComponentInChildren<BuildingArtAssets>();
-        if (buildingAssets.IsTower) buildingAssets.TowerDefenceRangePreview.EnabnleDefenceRange(false);
+        if (CurrentSelectedBuilding != null)
+        {
+            var buildingAssets = CurrentSelectedBuilding.GetComponentInChildren<BuildingArtAssets>();
+            if (buildingAssets != null && buildingAssets.IsTower) buildingAssets.TowerDefenceRangePreview.EnabnleDefenceRange(false);
+        }
 
         SelectBuildingLinks(false);
         CurrentSelectedBuilding = null;
