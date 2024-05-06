@@ -92,16 +92,16 @@ MonoBehaviour:
       health: 20
       range: 12.5
       viewRange: 20
-      damage: 6
+      damage: 15
       specialEffectModifier: 0
       specialEffectLastTime: 0
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
     - level: 2
-      health: 30
+      health: 50
       range: 12.5
       viewRange: 20
-      damage: 7
+      damage: 30
       specialEffectModifier: 0
       specialEffectLastTime: 0
       secondSpEffectModifier: 0
