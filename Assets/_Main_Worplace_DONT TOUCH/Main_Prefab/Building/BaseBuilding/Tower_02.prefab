@@ -204,9 +204,9 @@ MonoBehaviour:
     secondSpEffect: 0
     levelRelatedProperties:
     - level: 1
-      cost: 70
+      cost: 40
       range: 25
-      damage: 1.2
+      damage: 0.4
       specialEffectModifier: -1
       specialEffectLastTime: 1
       secondSpEffectModifier: 0
@@ -214,7 +214,7 @@ MonoBehaviour:
     - level: 2
       cost: 50
       range: 30
-      damage: 1.6
+      damage: 0.8
       specialEffectModifier: -2
       specialEffectLastTime: 1
       secondSpEffectModifier: 0
@@ -222,7 +222,7 @@ MonoBehaviour:
     - level: 3
       cost: 60
       range: 35
-      damage: 2.2
+      damage: 1.3
       specialEffectModifier: -3
       specialEffectLastTime: 1
       secondSpEffectModifier: 0

@@ -215,23 +215,23 @@ MonoBehaviour:
       damage: 8
       specialEffectModifier: 1.05
       specialEffectLastTime: 2
-      secondSpEffectModifier: -1
+      secondSpEffectModifier: -2.5
       secondSpEffectLastTime: 2
     - level: 2
       cost: 50
-      range: 25
+      range: 30
       damage: 10
       specialEffectModifier: 1.05
       specialEffectLastTime: 3
-      secondSpEffectModifier: -1
+      secondSpEffectModifier: -2.5
       secondSpEffectLastTime: 3
     - level: 3
       cost: 60
-      range: 30
+      range: 45
       damage: 16
       specialEffectModifier: 1.05
       specialEffectLastTime: 4
-      secondSpEffectModifier: -1
+      secondSpEffectModifier: -3.5
       secondSpEffectLastTime: 4
   targets: []
   stateLabel: 

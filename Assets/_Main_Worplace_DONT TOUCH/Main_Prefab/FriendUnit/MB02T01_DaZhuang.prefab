@@ -86,7 +86,7 @@ MonoBehaviour:
     secondSpecialEffect: 0
     levelRelatedProperties:
     - level: 1
-      health: 60
+      health: 150
       range: 5
       viewRange: 20
       damage: 30
@@ -95,7 +95,7 @@ MonoBehaviour:
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
     - level: 2
-      health: 90
+      health: 250
       range: 5
       viewRange: 20
       damage: 50

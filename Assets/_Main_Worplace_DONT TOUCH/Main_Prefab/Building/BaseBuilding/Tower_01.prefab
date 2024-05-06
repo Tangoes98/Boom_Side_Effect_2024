@@ -198,14 +198,14 @@ MonoBehaviour:
     addonType: 0
     attackMode: 0
     lockMode: 0
-    fireInterval: 0.5
+    fireInterval: 0.65
     fireTime: 0.2
     aoeRange: 0
     specialEffect: 1
     secondSpEffect: 0
     levelRelatedProperties:
     - level: 1
-      cost: 70
+      cost: 40
       range: 20
       damage: 10
       specialEffectModifier: 1.1

@@ -80,25 +80,25 @@ MonoBehaviour:
     attackMode: 0
     lockMode: 1
     minionType: 1
-    fireInterval: 2
+    fireInterval: 1
     fireTime: 0.2
     specialEffect: 3
     secondSpecialEffect: 0
     levelRelatedProperties:
     - level: 1
-      health: 23
+      health: 30
       range: 5
       viewRange: 20
-      damage: 3
+      damage: 35
       specialEffectModifier: 0.1
       specialEffectLastTime: 3
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
     - level: 2
-      health: 30
-      range: 5
+      health: 60
+      range: 8
       viewRange: 20
-      damage: 4
+      damage: 50
       specialEffectModifier: 0.15
       specialEffectLastTime: 3
       secondSpEffectModifier: 0

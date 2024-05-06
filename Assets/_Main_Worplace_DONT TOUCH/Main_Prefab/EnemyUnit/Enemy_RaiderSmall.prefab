@@ -56,14 +56,14 @@ MonoBehaviour:
     health: 0
     maxHealth: 15
     speed: 0
-    range: 10
+    range: 5
     minRange: 0
     viewRange: 10
     attackMode: 0
     lockMode: 0
     fireInterval: 0
     fireTime: 0
-    damage: 1
+    damage: 10
     specialEffect: 0
     specialEffectModifier: 0
     specialEffectLastTime: 0
@@ -73,7 +73,7 @@ MonoBehaviour:
     takeDamageModifer: 0
   baseInfo:
     name: 
-    speed: 3
+    speed: 5
     minRange: 0
     baseType: 0
     addonType: 0

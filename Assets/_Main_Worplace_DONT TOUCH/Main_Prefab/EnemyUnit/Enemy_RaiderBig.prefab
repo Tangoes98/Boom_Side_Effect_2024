@@ -63,7 +63,7 @@ MonoBehaviour:
     lockMode: 0
     fireInterval: 0
     fireTime: 0
-    damage: 1
+    damage: 13
     specialEffect: 0
     specialEffectModifier: 0
     specialEffectLastTime: 0
@@ -73,7 +73,7 @@ MonoBehaviour:
     takeDamageModifer: 0
   baseInfo:
     name: 
-    speed: 3
+    speed: 5
     minRange: 0
     baseType: 0
     addonType: 0

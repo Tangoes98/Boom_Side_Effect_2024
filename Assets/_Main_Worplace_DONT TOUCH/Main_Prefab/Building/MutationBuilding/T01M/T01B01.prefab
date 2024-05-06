@@ -213,7 +213,7 @@ MonoBehaviour:
     - level: 1
       cost: 0
       range: 30
-      damage: 6
+      damage: 4
       specialEffectModifier: 0
       specialEffectLastTime: 0
       secondSpEffectModifier: 0
@@ -221,7 +221,7 @@ MonoBehaviour:
     - level: 2
       cost: 50
       range: 30
-      damage: 9
+      damage: 7
       specialEffectModifier: 0
       specialEffectLastTime: 0
       secondSpEffectModifier: 0
@@ -229,7 +229,7 @@ MonoBehaviour:
     - level: 3
       cost: 60
       range: 30
-      damage: 14
+      damage: 12
       specialEffectModifier: 0
       specialEffectLastTime: 0
       secondSpEffectModifier: 0

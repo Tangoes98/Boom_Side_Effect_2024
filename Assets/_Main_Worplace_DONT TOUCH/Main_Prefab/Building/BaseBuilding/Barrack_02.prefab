@@ -137,7 +137,7 @@ MonoBehaviour:
       type: 3}
     properties:
     - level: 1
-      cost: 70
+      cost: 40
       range: 40
       maxMinionNum: 2
     - level: 2

@@ -218,7 +218,7 @@ MonoBehaviour:
     addonType: 4
     attackMode: 0
     lockMode: 0
-    fireInterval: 0.3
+    fireInterval: 0.1
     fireTime: 0.2
     aoeRange: 0
     specialEffect: 1
