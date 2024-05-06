@@ -124,6 +124,8 @@ public class BuidlingManager : MonoBehaviour
 
             //*Diable defence range preview
             _buildingAssets.EnableDefencRangePreview(false);
+            //*Diable Upgrade VFX
+            _buildingAssets.BuidldingUpgradeVFX.gameObject.SetActive(false);
 
             _isBuilding = true;
             foreach (var item in _buildingAssets.Subassets)
@@ -168,6 +170,8 @@ public class BuidlingManager : MonoBehaviour
 
         //*Diable defence range preview
         newBuild.GetComponentInChildren<BuildingArtAssets>().EnableDefencRangePreview(false);
+        //*Diable Upgrade VFX
+        newBuild.GetComponentInChildren<BuildingArtAssets>().BuidldingUpgradeVFX.gameObject.SetActive(false);
 
 
         Destroy(_previewBuilding);
@@ -222,6 +226,8 @@ public class BuidlingManager : MonoBehaviour
 
         //*Enable defence range preview
         _buildingAssets.EnableDefencRangePreview(true);
+        //*Diable Upgrade VFX
+        _buildingAssets.BuidldingUpgradeVFX.gameObject.SetActive(false);
 
 
         //* Stop all buidling VFX

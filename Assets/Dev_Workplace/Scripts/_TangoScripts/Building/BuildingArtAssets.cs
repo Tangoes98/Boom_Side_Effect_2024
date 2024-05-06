@@ -13,6 +13,7 @@ public class BuildingArtAssets : MonoBehaviour
 
 
     public BuidldingDefenceRange BuildingDefenceRangePreview;
+    public ParticleSystem BuidldingUpgradeVFX;
 
     private void Start()
     {

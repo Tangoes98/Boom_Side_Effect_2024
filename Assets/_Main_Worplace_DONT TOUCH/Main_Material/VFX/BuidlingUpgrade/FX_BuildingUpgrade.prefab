@@ -14721,7 +14721,7 @@ GameObject:
   - component: {fileID: 3710553423859211283}
   - component: {fileID: 4247968327154913374}
   m_Layer: 0
-  m_Name: FX_LevelUp
+  m_Name: FX_BuildingUpgrade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14736,9 +14736,9 @@ Transform:
   m_GameObject: {fileID: 2150986393742522015}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -84, y: 0.6393997, z: -44.62238}
-  m_LocalScale: {x: 9.489483, y: 9.489483, z: 9.489483}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 15, y: 15, z: 15}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3297853865106394712}
   - {fileID: 7390491391650350030}

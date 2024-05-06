@@ -77,6 +77,8 @@ public class BuildingSelectionManager : MonoBehaviour
         //*Enable the defence tower range preview
         var buildingAssets = CurrentSelectedBuilding.GetComponentInChildren<BuildingArtAssets>();
         buildingAssets.EnableDefencRangePreview(true);
+        //*Diable Upgrade VFX
+        buildingAssets.BuidldingUpgradeVFX.gameObject.SetActive(false);
 
         //* update tutorial
         if (TutorialUI.Instance.IsTutorialActive) TutorialUI.Instance.TutorialStep++;
@@ -96,6 +98,7 @@ public class BuildingSelectionManager : MonoBehaviour
         {
             var buildingAssets = CurrentSelectedBuilding.GetComponentInChildren<BuildingArtAssets>();
             buildingAssets.EnableDefencRangePreview(false);
+            buildingAssets.BuidldingUpgradeVFX.gameObject.SetActive(false);
         }
 
         SelectBuildingLinks(false);
@@ -122,7 +125,17 @@ public class BuildingSelectionManager : MonoBehaviour
         //* check if enough resources to upgrade 
         if (!ResourceManager.Instance.CanUpgrade(building.GetUpgradeCost())) return;
 
+        //* Play upgrade buidling VFX
+        var artAsset = CurrentSelectedBuilding.GetComponentInChildren<BuildingArtAssets>();
+        artAsset.BuidldingUpgradeVFX.gameObject.SetActive(true);
+        artAsset.BuidldingUpgradeVFX.Play();
+        WaitForUpgradeVFX(building);
         building.Upgrade();
+    }
+    IEnumerator WaitForUpgradeVFX(Architect building)
+    {
+        var waitTime = new WaitForSeconds(2);
+        yield return waitTime;
     }
 
     void DemolishAction()
