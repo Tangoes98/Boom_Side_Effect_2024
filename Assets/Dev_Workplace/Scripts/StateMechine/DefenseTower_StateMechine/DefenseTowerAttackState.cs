@@ -20,7 +20,7 @@ public class DefenseTowerAttackState : IState
     public void onEnter()
     {
         _artAsset = manager.GetComponentInChildren<BuildingArtAssets>();
-        if (!_artAsset) return;
+        if (!_artAsset || manager.IsPreview) return;
         _artAsset.AttackVFX.SetActive(true);
 
         manager.Attack();
@@ -33,6 +33,9 @@ public class DefenseTowerAttackState : IState
 
     public void onUpdate()
     {
+        if(manager.IsPreview) {
+            return;
+        }
         if (!_artAsset.IsAOEAttack)
         {
             if (manager.targets != null && manager.targets.Length > 0 && manager.targets[0] != null)
