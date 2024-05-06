@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5796998079644718675}
   - component: {fileID: 5058393056185428248}
   m_Layer: 0
-  m_Name: DirectionalLine
+  m_Name: DirectionalLine_BTA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80,7 +80,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.96558243
+    widthMultiplier: 5
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -130,7 +130,7 @@ LineRenderer:
     numCapVertices: 0
     alignment: 0
     textureMode: 1
-    textureScale: {x: 1, y: 1}
+    textureScale: {x: 0.2, y: 1}
     shadowBias: 0.5
     generateLightingData: 0
   m_MaskInteraction: 0
@@ -149,4 +149,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d5cb2ddc8ca34c47af445253c5c9b12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  status: 2
+  status: 1

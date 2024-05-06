@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5796998079644718675}
   - component: {fileID: 5058393056185428248}
   m_Layer: 0
-  m_Name: PauseLine
+  m_Name: DirectionalLine_ATB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54,7 +54,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3ae392c4f5074443fa26d4caac852142, type: 2}
+  - {fileID: 2100000, guid: 4510f41765a29534e9d24aff22eef9c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -149,4 +149,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d5cb2ddc8ca34c47af445253c5c9b12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  status: 2
+  status: 0
