@@ -63,5 +63,10 @@ public class ResourceManager : MonoBehaviour
         PlayerResource += resourceAmount;
     }
 
+    public void GainResorce(int amount)
+    {
+        PlayerResource += amount;
+    }
+
 
 }

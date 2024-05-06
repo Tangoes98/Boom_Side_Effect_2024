@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -36,6 +37,11 @@ public class UIManager : MonoBehaviour
     [Header("Locolization")]
     [SerializeField] UITexts _texts;
 
+    [Space(10f)]
+    [Header("ButtonFunction")]
+    [SerializeField] Toggle _pauseGameToggle;
+    [SerializeField] Button _settingButton;
+
 
     private void Start()
     {
@@ -47,14 +53,6 @@ public class UIManager : MonoBehaviour
     {
         UpdatePlayerResourcePanel();
 
-        // if (Input.GetMouseButtonDown(0))
-        // {
-        //     SceneManager.LoadScene(1);
-        // }
-        // if (Input.GetMouseButtonDown(1))
-        // {
-        //     SceneManager.LoadScene(0);
-        // }
 
         if (Input.GetKeyDown(KeyCode.T))
         {
@@ -80,8 +78,8 @@ public class UIManager : MonoBehaviour
 
     void SwitchLanguage(string language)
     {
-        if(_texts==null) return;
-        
+        if (_texts == null) return;
+
         switch (language)
         {
             case "EN":
