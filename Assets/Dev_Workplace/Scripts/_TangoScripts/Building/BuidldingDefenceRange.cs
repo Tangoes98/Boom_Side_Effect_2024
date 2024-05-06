@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BuildingDefenceRange : MonoBehaviour
+public class BuidldingDefenceRange : MonoBehaviour
 {
 
     public float _Radius;
@@ -12,10 +12,4 @@ public class BuildingDefenceRange : MonoBehaviour
         _Radius = GetComponentInParent<Architect>().Status().range;
         transform.localScale = new Vector3(_Radius, transform.localScale.y, _Radius);
     }
-
-    public void EnabnleDefenceRange(bool bvalue)
-    {
-        this.gameObject.SetActive(bvalue);
-    }
-
 }

@@ -59,7 +59,7 @@ MonoBehaviour:
   - {fileID: 3614594783478051663}
   - {fileID: 177152187547348992}
   IsTower: 1
-  TowerDefenceRangePreview: {fileID: 5168956363078949939}
+  BuildingDefenceRangePreview: {fileID: 5168956363078949939}
 --- !u!1 &6957985860104754605
 GameObject:
   m_ObjectHideFlags: 0

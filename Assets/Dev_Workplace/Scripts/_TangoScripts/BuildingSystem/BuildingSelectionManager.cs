@@ -76,7 +76,7 @@ public class BuildingSelectionManager : MonoBehaviour
 
         //*Enable the defence tower range preview
         var buildingAssets = CurrentSelectedBuilding.GetComponentInChildren<BuildingArtAssets>();
-        if (buildingAssets.IsTower) buildingAssets.TowerDefenceRangePreview.EnabnleDefenceRange(true);
+        buildingAssets.EnableDefencRangePreview(true);
 
         //* update tutorial
         if (TutorialUI.Instance.IsTutorialActive) TutorialUI.Instance.TutorialStep++;
@@ -95,7 +95,7 @@ public class BuildingSelectionManager : MonoBehaviour
         if (CurrentSelectedBuilding != null)
         {
             var buildingAssets = CurrentSelectedBuilding.GetComponentInChildren<BuildingArtAssets>();
-            if (buildingAssets != null && buildingAssets.IsTower) buildingAssets.TowerDefenceRangePreview.EnabnleDefenceRange(false);
+            buildingAssets.EnableDefencRangePreview(false);
         }
 
         SelectBuildingLinks(false);

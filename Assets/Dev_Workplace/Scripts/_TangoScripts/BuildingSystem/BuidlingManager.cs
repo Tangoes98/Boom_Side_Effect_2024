@@ -53,7 +53,7 @@ public class BuidlingManager : MonoBehaviour
     [SerializeField] bool _isBuilding;
     BuildingArtAssets _buildingAssets;
 
-    public Barrack PreviewBarrack {get;private set;}
+    public Barrack PreviewBarrack { get; private set; }
 
 
     private void Start()
@@ -122,11 +122,8 @@ public class BuidlingManager : MonoBehaviour
             _buildingUIPanel.SetActive(false);
             MouseStateManager.Instance.SwitchState(MouseStateManager.MouseStates.None, null);
 
-            //*Diable tower defence range preview
-            if (_buildingAssets.IsTower)
-            {
-                _buildingAssets.TowerDefenceRangePreview.EnabnleDefenceRange(false);
-            }
+            //*Diable defence range preview
+            _buildingAssets.EnableDefencRangePreview(false);
 
             _isBuilding = true;
             foreach (var item in _buildingAssets.Subassets)
@@ -169,12 +166,10 @@ public class BuidlingManager : MonoBehaviour
         GameObject builfVFX = Instantiate(_buildingPlopVFX, buildingPos, Quaternion.identity);
         var newBuild = ArchiLinkManager.Instance.Build(buildingPos, _buildingCode);
 
-        //*Diable tower defence range preview
-        if (newBuild.GetComponentInChildren<BuildingArtAssets>().IsTower)
-        {
-            newBuild.GetComponentInChildren<BuildingArtAssets>().TowerDefenceRangePreview.EnabnleDefenceRange(false);
-        }
-        
+        //*Diable defence range preview
+        newBuild.GetComponentInChildren<BuildingArtAssets>().EnableDefencRangePreview(false);
+
+
         Destroy(_previewBuilding);
 
         yield return wait1Time;
@@ -225,11 +220,9 @@ public class BuidlingManager : MonoBehaviour
             item.GetComponent<MeshRenderer>().material = _buildingShadowMaterial;
         }
 
-        //*Enable the defence tower range preview
-        if (_buildingAssets.IsTower)
-        {
-            _buildingAssets.TowerDefenceRangePreview.EnabnleDefenceRange(true);
-        }
+        //*Enable defence range preview
+        _buildingAssets.EnableDefencRangePreview(true);
+
 
         //* Stop all buidling VFX
         if (_buildingAssets.CanAttack && _buildingAssets.AttackVFX != null) _buildingAssets.AttackVFX.SetActive(false);

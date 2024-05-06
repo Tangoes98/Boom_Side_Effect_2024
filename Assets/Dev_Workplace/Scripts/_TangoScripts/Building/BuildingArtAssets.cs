@@ -11,17 +11,17 @@ public class BuildingArtAssets : MonoBehaviour
     public List<GameObject> Subassets = new();
     public List<ParticleSystem> ParticleSystems = new();
 
-    public bool IsTower;
-    public BuildingDefenceRange TowerDefenceRangePreview;
+
+    public BuidldingDefenceRange BuildingDefenceRangePreview;
 
     private void Start()
     {
-        //if (IsTower) TowerDefenceRangePreview.EnabnleDefenceRange(false);
-
         if (CanAttack) AttackVFX.SetActive(false);
+    }
 
-
-
+    public void EnableDefencRangePreview(bool bvalue)
+    {
+        BuildingDefenceRangePreview.gameObject.SetActive(bvalue);
     }
 
 

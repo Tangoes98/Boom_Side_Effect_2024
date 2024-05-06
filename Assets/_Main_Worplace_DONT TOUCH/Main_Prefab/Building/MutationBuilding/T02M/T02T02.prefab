@@ -52,7 +52,7 @@ MonoBehaviour:
   - {fileID: 278876410693091407}
   ParticleSystems: []
   IsTower: 1
-  TowerDefenceRangePreview: {fileID: 8494854820265944375}
+  BuildingDefenceRangePreview: {fileID: 8494854820265944375}
 --- !u!1 &1352693974052360230
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,6 +171,7 @@ MonoBehaviour:
   existingLinkNum: 0
   activeOutputLinkNum: 0
   sourceArchitectLinkNum: 0
+  IsPreview: 0
   status:
     range: 0
     damage: 0

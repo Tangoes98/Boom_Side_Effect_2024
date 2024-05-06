@@ -19544,6 +19544,7 @@ MonoBehaviour:
   _loadingObjects: {fileID: 281781472}
   _loadingCircle: {fileID: 281781474}
   _loading: Loading
+  _IsTransitionOver: 0
 --- !u!1001 &549533313
 PrefabInstance:
   m_ObjectHideFlags: 0
