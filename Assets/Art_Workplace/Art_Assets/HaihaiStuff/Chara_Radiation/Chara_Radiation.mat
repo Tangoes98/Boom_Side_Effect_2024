@@ -45,6 +45,6 @@ Material:
     - _CastShadows: 1
     - _NormalStrength: 0.5
     m_Colors:
-    - _AmbientColor: {r: 0.98307383, g: 1, b: 0.759434, a: 1}
+    - _AmbientColor: {r: 0.6147453, g: 0.6226415, b: 0.502225, a: 1}
     - _ShadowColor: {r: 0.25178748, g: 0.2830189, b: 0.081434675, a: 1}
   m_BuildTextureStacks: []
