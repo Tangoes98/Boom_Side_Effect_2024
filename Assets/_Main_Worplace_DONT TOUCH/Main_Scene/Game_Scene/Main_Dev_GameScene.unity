@@ -7303,7 +7303,7 @@ MonoBehaviour:
   - {fileID: 581110887}
   _battleStartButton: {fileID: 1951673430}
   Timer: 5
-  EnableTutorial: 1
+  EnableTutorial: 0
 --- !u!1001 &200937735
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -79301,6 +79301,7 @@ MonoBehaviour:
       type: 3}
     resource: 10
   enemyParentObject: {fileID: 388094593}
+  _gearPrefabs: []
   LevelNumber: 0
   WaveNumber: 0
   currentState: 0
