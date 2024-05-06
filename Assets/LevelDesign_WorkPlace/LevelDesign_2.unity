@@ -3088,7 +3088,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98a70ed6b98f94440970cb7f6cdcdbfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <PlayerResource>k__BackingField: 999
+  <PlayerResource>k__BackingField: 100
 --- !u!1001 &78029361
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -80093,30 +80093,180 @@ MonoBehaviour:
   - boomEntrances: 
     waves:
     - timeline:
-      - timePoint: 6
-        spawns: E01,15,0
-      - timePoint: 25
-        spawns: E01,15,0;E02,5,0
+      - timePoint: 3
+        spawns: E01,5,0
+      interval: 5
+    - timeline:
+      - timePoint: 3
+        spawns: E01,8,0;E02,2,0
       interval: 5
   - boomEntrances: 
-    waves: []
+    waves:
+    - timeline:
+      - timePoint: 3
+        spawns: E01,9,0
+      - timePoint: 15
+        spawns: E02,2,0
+      - timePoint: 18
+        spawns: E03,2,0
+      interval: 3
+    - timeline:
+      - timePoint: 3
+        spawns: E01,4,0
+      - timePoint: 9
+        spawns: E03,3,0
+      - timePoint: 13
+        spawns: E04,6,0
+      interval: 3
+    - timeline:
+      - timePoint: 3
+        spawns: E01,10,0
+      - timePoint: 15
+        spawns: E02,6,0
+      - timePoint: 23
+        spawns: E04,6,0
+      interval: 0
+  - boomEntrances: 02000000
+    waves:
+    - timeline:
+      - timePoint: 3
+        spawns: E04,4,0
+      - timePoint: 8
+        spawns: E03,4,0
+      - timePoint: 14
+        spawns: E01,12,0
+      - timePoint: 28
+        spawns: E02,4,0
+      - timePoint: 3
+        spawns: E04,2,1
+      - timePoint: 6
+        spawns: E01,5,1
+      - timePoint: 13
+        spawns: E02,2,1
+      interval: 3
+    - timeline:
+      - timePoint: 3
+        spawns: E02,7,0
+      - timePoint: 12
+        spawns: E03,7,0
+      - timePoint: 21
+        spawns: E02,7,0
+      - timePoint: 3
+        spawns: E03,5,1
+      - timePoint: 10
+        spawns: E02,2,1
+      interval: 3
+    - timeline:
+      - timePoint: 3
+        spawns: E04,10,0
+      - timePoint: 15
+        spawns: E01,4,0
+      - timePoint: 21
+        spawns: E04,6,0
+      - timePoint: 28
+        spawns: E03,3,0
+      - timePoint: 3
+        spawns: E04,7,1
+      - timePoint: 13
+        spawns: E03,7,1
+      interval: 0
+  - boomEntrances: 03000000
+    waves:
+    - timeline:
+      - timePoint: 3
+        spawns: E01,15,0
+      - timePoint: 20
+        spawns: E01H,6,0
+      - timePoint: 28
+        spawns: E02,6,0
+      - timePoint: 35
+        spawns: E03,6,0
+      - timePoint: 3
+        spawns: E01H,3,1
+      - timePoint: 8
+        spawns: E01,6,1
+      - timePoint: 16
+        spawns: E02,5,1
+      - timePoint: 23
+        spawns: E03,5,1
+      - timePoint: 3
+        spawns: E01,5,2
+      - timePoint: 10
+        spawns: E02,3,2
+      - timePoint: 15
+        spawns: E03,3,2
+      interval: 3
+    - timeline:
+      - timePoint: 3
+        spawns: E04,15,0
+      - timePoint: 20
+        spawns: E02H,6,0
+      - timePoint: 3
+        spawns: E04,13,1
+      - timePoint: 17
+        spawns: E02H,4,1
+      - timePoint: 3
+        spawns: E04,8,2
+      - timePoint: 13
+        spawns: E02H,1,2
+      interval: 3
+    - timeline:
+      - timePoint: 3
+        spawns: E01H,12,0
+      - timePoint: 17
+        spawns: E02H,8,0
+      - timePoint: 27
+        spawns: E03H,5,0
+      - timePoint: 34
+        spawns: E04,8,0
+      - timePoint: 3
+        spawns: E01H,10,1
+      - timePoint: 15
+        spawns: E02H,6,1
+      - timePoint: 23
+        spawns: E03H,8,1
+      - timePoint: 33
+        spawns: E04,6,1
+      - timePoint: 3
+        spawns: E02H,3,2
+      - timePoint: 13
+        spawns: E01H,8,2
+      - timePoint: 24
+        spawns: E03H,2,2
+      interval: 3
   enemies:
   - code: E01
     enemyPrefab: {fileID: 7425934711789390196, guid: ffdee56f6552e374bad3cc5348c4b692,
       type: 3}
-    resource: 40
+    resource: 2
   - code: E02
     enemyPrefab: {fileID: 7425934711789390196, guid: ccc210143a7b0a14cb6e8b8a447b21e7,
       type: 3}
     resource: 5
   - code: E03
-    enemyPrefab: {fileID: 7425934711789390196, guid: c3dc15cf929fd794aa5f8b208688cd08,
+    enemyPrefab: {fileID: 7425934711789390196, guid: 0af263f285725224886640307b59ae7e,
       type: 3}
-    resource: 20
+    resource: 4
   - code: E04
     enemyPrefab: {fileID: 7425934711789390196, guid: 8653e8bc9cc9e3c40bc790e2d160f86a,
       type: 3}
-    resource: 10
+    resource: 2
+  - code: E01H
+    enemyPrefab: {fileID: 7425934711789390196, guid: 968c55f64f755af4dae237b63077d1bf,
+      type: 3}
+    resource: 3
+  - code: E02H
+    enemyPrefab: {fileID: 7425934711789390196, guid: e81c2bfa6bdbd0840bfcab6f7bdf3e32,
+      type: 3}
+    resource: 6
+  - code: E03H
+    enemyPrefab: {fileID: 7425934711789390196, guid: c3dc15cf929fd794aa5f8b208688cd08,
+      type: 3}
+    resource: 5
+  - code: E04H
+    enemyPrefab: {fileID: 7425934711789390196, guid: faf5776dd0f786f44b0474d12a20d2dd,
+      type: 3}
+    resource: 3
   enemyParentObject: {fileID: 388094593}
   _gearPrefabs:
   - {fileID: 1609965701880054843, guid: ca71a34d476e14d169bbbaf74487f1e4, type: 3}
@@ -81906,6 +82056,8 @@ MonoBehaviour:
     type: 3}
   _currentResource: {fileID: 374713139}
   _texts: {fileID: 2138687933}
+  _pauseGameToggle: {fileID: 0}
+  _settingButton: {fileID: 0}
 --- !u!224 &6161912316616032738
 RectTransform:
   m_ObjectHideFlags: 0
