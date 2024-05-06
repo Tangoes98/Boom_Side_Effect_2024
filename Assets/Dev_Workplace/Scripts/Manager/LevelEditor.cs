@@ -136,7 +136,7 @@ public class LevelEditor : MonoBehaviour
         yield return new WaitForSeconds(3);
         var tf = gear.transform;
         var currentPos = tf.position;
-        var target = new Vector3(231,53,-178);
+        var target = new Vector3(293,53,-56);
         var t = 0f;
         while(t <= 1f)
         {

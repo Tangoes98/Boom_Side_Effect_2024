@@ -21,14 +21,14 @@ public class DefenseTowerAttackState : IState
     {
         _artAsset = manager.GetComponentInChildren<BuildingArtAssets>();
         if (!_artAsset || manager.IsPreview) return;
-        _artAsset.AttackVFX.SetActive(true);
+        if(_artAsset.AttackVFX!=null) _artAsset.AttackVFX.SetActive(true);
 
         manager.Attack();
     }
 
     public void onExit()
     {
-        _artAsset.AttackVFX.SetActive(false);
+        if(_artAsset.AttackVFX!=null) _artAsset.AttackVFX.SetActive(false);
     }
 
     public void onUpdate()
@@ -36,7 +36,7 @@ public class DefenseTowerAttackState : IState
         if(manager.IsPreview) {
             return;
         }
-        if (!_artAsset.IsAOEAttack)
+        if (!_artAsset.IsAOEAttack && _artAsset.AttackVFX!=null)
         {
             if (manager.targets != null && manager.targets.Length > 0 && manager.targets[0] != null)
             {
