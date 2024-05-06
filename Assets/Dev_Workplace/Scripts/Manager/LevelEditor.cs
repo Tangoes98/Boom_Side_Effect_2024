@@ -132,11 +132,11 @@ public class LevelEditor : MonoBehaviour
     }
 
     IEnumerator DropGear(int resource, Vector3 position) {
-        GameObject gear = Instantiate(_gearPrefabs[resource<=5? 0 : 1], position, Quaternion.identity);
+        GameObject gear = Instantiate(_gearPrefabs[resource<=3? 0 : 1], position, Quaternion.identity);
         yield return new WaitForSeconds(3);
         var tf = gear.transform;
         var currentPos = tf.position;
-        var target = new Vector3(197,53,-228);
+        var target = new Vector3(231,53,-178);
         var t = 0f;
         while(t <= 1f)
         {
