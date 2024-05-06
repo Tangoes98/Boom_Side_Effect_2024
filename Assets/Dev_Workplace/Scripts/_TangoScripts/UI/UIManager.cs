@@ -78,7 +78,8 @@ public class UIManager : MonoBehaviour
 
         if (InputManager.IS_SPACE_DOWN())
         {
-            _pauseGameToggle.isOn = !_pauseGameToggle.isOn;
+            if (!TutorialUI.Instance.IsTutorialActive)
+                _pauseGameToggle.isOn = !_pauseGameToggle.isOn;
         }
 
         if (Input.GetKeyDown(KeyCode.T))

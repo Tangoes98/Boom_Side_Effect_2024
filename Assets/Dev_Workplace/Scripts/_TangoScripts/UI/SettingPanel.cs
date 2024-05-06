@@ -12,6 +12,7 @@ public class SettingPanel : MonoBehaviour
         if (Instance != null) Destroy(this);
         else Instance = this;
         return;
+
     }
 
     [SerializeField] Toggle _ENtoggle;
@@ -31,9 +32,26 @@ public class SettingPanel : MonoBehaviour
 
     private void Start()
     {
+        if (!SceneDataManager.Instance)
+        {
+            InitializeCN();
+        }
+        else
+        {
+            switch (SceneDataManager.Instance.CurrentLanguage)
+            {
+
+                case "CN":
+                    UpdateCNToggle(true);
+                    break;
+                case "EN":
+                    UpdateENToggle(true);
+                    break;
+            }
+        }
+
         _ENtoggle.onValueChanged.AddListener(UpdateENToggle);
         _CNtoggle.onValueChanged.AddListener(UpdateCNToggle);
-
     }
 
     private void Update()
