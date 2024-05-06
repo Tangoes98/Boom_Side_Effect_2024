@@ -61,6 +61,7 @@ MonoBehaviour:
   - {fileID: 3844038694216043762}
   BuildingDefenceRangePreview: {fileID: 8625756865806589665}
   BuidldingUpgradeVFX: {fileID: 106447395819321015}
+  BuildingMutateVFX: {fileID: 0}
 --- !u!1 &1352693974052360230
 GameObject:
   m_ObjectHideFlags: 0
@@ -101,6 +102,7 @@ Transform:
   - {fileID: 7352918192421971176}
   - {fileID: 964485313729388873}
   - {fileID: 5859251809770423469}
+  - {fileID: 6231551251431144429}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &7828518832753730534
@@ -268,6 +270,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FX_BuildingUpgrade
+      objectReference: {fileID: 0}
+    - target: {fileID: 2150986393742522015, guid: 9139155494b3f524abc158addac32b85,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7157516683480002057, guid: 9139155494b3f524abc158addac32b85,
         type: 3}
@@ -489,6 +496,80 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8225793293000385892, guid: 2dec65abb8562bc4a816633f9870019b,
     type: 3}
   m_PrefabInstance: {fileID: 5209161808667205686}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5961374402037657748
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1892487841968342741}
+    m_Modifications:
+    - target: {fileID: 342806524571028345, guid: be19f8a8e6ed446fda0296b05f548df2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 342806524571028345, guid: be19f8a8e6ed446fda0296b05f548df2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 342806524571028345, guid: be19f8a8e6ed446fda0296b05f548df2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 342806524571028345, guid: be19f8a8e6ed446fda0296b05f548df2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 342806524571028345, guid: be19f8a8e6ed446fda0296b05f548df2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 342806524571028345, guid: be19f8a8e6ed446fda0296b05f548df2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 342806524571028345, guid: be19f8a8e6ed446fda0296b05f548df2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 342806524571028345, guid: be19f8a8e6ed446fda0296b05f548df2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 342806524571028345, guid: be19f8a8e6ed446fda0296b05f548df2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 342806524571028345, guid: be19f8a8e6ed446fda0296b05f548df2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3947422036118047453, guid: be19f8a8e6ed446fda0296b05f548df2,
+        type: 3}
+      propertyPath: m_Name
+      value: FX_BuildingMutate
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: be19f8a8e6ed446fda0296b05f548df2, type: 3}
+--- !u!4 &6231551251431144429 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 342806524571028345, guid: be19f8a8e6ed446fda0296b05f548df2,
+    type: 3}
+  m_PrefabInstance: {fileID: 5961374402037657748}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6970743647289467371
 PrefabInstance:
