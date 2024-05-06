@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.1802846, g: 0.225715, b: 0.3069236, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -80115,7 +80115,9 @@ MonoBehaviour:
       type: 3}
     resource: 10
   enemyParentObject: {fileID: 388094593}
-  _gearPrefabs: []
+  _gearPrefabs:
+  - {fileID: 1609965701880054843, guid: ca71a34d476e14d169bbbaf74487f1e4, type: 3}
+  - {fileID: 3457219319845987682, guid: 1830a8ee7ea704aad971ae5429237f52, type: 3}
   LevelNumber: 0
   WaveNumber: 0
   currentState: 0
