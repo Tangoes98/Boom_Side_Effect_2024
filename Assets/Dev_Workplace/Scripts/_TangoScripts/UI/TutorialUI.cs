@@ -36,6 +36,7 @@ public class TutorialUI : MonoBehaviour
 
         TutorialStep = 0;
         IsTutorialActive = true;
+        _battleStartButton.gameObject.SetActive(false);
         _timer = Timer;
         _isActive = true;
     }
@@ -63,6 +64,7 @@ public class TutorialUI : MonoBehaviour
                 break;
             case 13:
                 MouseStateManager.Instance.SwitchState(MouseStateManager.MouseStates.None, null);
+                _battleStartButton.gameObject.SetActive(true);
                 _battleStartButton.onClick.AddListener(BattleStartBtnEvent);
                 break;
         }

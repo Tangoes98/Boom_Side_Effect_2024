@@ -7303,7 +7303,7 @@ MonoBehaviour:
   - {fileID: 581110887}
   _battleStartButton: {fileID: 1951673430}
   Timer: 5
-  EnableTutorial: 0
+  EnableTutorial: 1
 --- !u!1001 &200937735
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20362,7 +20362,7 @@ Transform:
   m_GameObject: {fileID: 567192185}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 74.69, y: 0, z: 79.8}
+  m_LocalPosition: {x: 74.77, y: 0, z: 92.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20954,7 +20954,6 @@ RectTransform:
   - {fileID: 238259375}
   - {fileID: 549432629}
   - {fileID: 533149490}
-  - {fileID: 1951673429}
   m_Father: {fileID: 2097606040}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -65235,7 +65234,7 @@ Transform:
   m_GameObject: {fileID: 1750158894}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -102.49, y: 0, z: -31.06}
+  m_LocalPosition: {x: -102.49, y: 0, z: -24.71}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -74899,7 +74898,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1951673429
 RectTransform:
   m_ObjectHideFlags: 0
@@ -74914,7 +74913,7 @@ RectTransform:
   m_Children:
   - {fileID: 1764525285}
   - {fileID: 525714306}
-  m_Father: {fileID: 581110888}
+  m_Father: {fileID: 2097606040}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -79350,6 +79349,7 @@ RectTransform:
   - {fileID: 420344611}
   - {fileID: 1859816361}
   - {fileID: 581110888}
+  - {fileID: 1951673429}
   m_Father: {fileID: 199767729}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
