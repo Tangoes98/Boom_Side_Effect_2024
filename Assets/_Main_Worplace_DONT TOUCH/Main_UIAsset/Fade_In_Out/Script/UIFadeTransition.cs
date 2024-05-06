@@ -6,13 +6,12 @@ using UnityEngine.UI;
 public class UIFadeTransition : MonoBehaviour
 {
     public static UIFadeTransition Instance;
-
     void Awake()
     {
         if (Instance != null) Destroy(this);
         else Instance = this;
 
-
+        _IsTransitionOver = false;
         FadeWaitToOut();
     }
 
@@ -28,6 +27,8 @@ public class UIFadeTransition : MonoBehaviour
     [SerializeField] GameObject _loadingObjects;
     [SerializeField] Animator _loadingCircle;
     [SerializeField] string _loading;
+
+    public bool _IsTransitionOver;
 
 
     public void FadeIn()
@@ -67,11 +68,12 @@ public class UIFadeTransition : MonoBehaviour
         _transitionCanvas.SetActive(true);
         FadeAnimator.Play(_fadeWait);
         StartCoroutine(WaitForLoading());
+        _IsTransitionOver = true;
 
     }
     IEnumerator WaitForLoading()
     {
-        var timer = new WaitForSeconds(2);
+        var timer = new WaitForSeconds(1);
         yield return timer;
         FadeOut();
     }
