@@ -60,7 +60,18 @@ public class BuildingSelectionManager : MonoBehaviour
 
         //* Update Upgrade and Demolish cost TEXT
         Architect building = CurrentSelectedBuilding.GetComponent<Architect>();
-        _upgradeCost.text = building.GetUpgradeCost().ToString();
+        if (!building.IsUpgradable())
+        {
+            _upgradeBtn.gameObject.SetActive(false);
+            _upgradeCost.gameObject.SetActive(false);
+        }
+        else
+        {
+            _upgradeBtn.gameObject.SetActive(true);
+            _upgradeCost.gameObject.SetActive(true);
+            _upgradeCost.text = building.GetUpgradeCost().ToString();
+        }
+        
         _demolishReturn.text = (building.GetBuildCost() * .8f).ToString();
 
         //*Enable the defence tower range preview
