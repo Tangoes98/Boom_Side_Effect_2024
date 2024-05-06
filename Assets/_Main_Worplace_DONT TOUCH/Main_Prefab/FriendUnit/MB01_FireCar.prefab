@@ -83,7 +83,7 @@ MonoBehaviour:
     attackMode: 0
     lockMode: 1
     minionType: 1
-    fireInterval: 1.2
+    fireInterval: 0.8
     fireTime: 0.5
     specialEffect: 0
     secondSpecialEffect: 0
@@ -92,7 +92,7 @@ MonoBehaviour:
       health: 20
       range: 12.5
       viewRange: 20
-      damage: 4
+      damage: 6
       specialEffectModifier: 0
       specialEffectLastTime: 0
       secondSpEffectModifier: 0
@@ -101,7 +101,7 @@ MonoBehaviour:
       health: 30
       range: 12.5
       viewRange: 20
-      damage: 6
+      damage: 7
       specialEffectModifier: 0
       specialEffectLastTime: 0
       secondSpEffectModifier: 0
@@ -418,6 +418,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HealthBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 6753660566172012242, guid: 1ff5865667d9d4cccb31817ca546fe03,
+        type: 3}
+      propertyPath: _height
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6753660566172012242, guid: 1ff5865667d9d4cccb31817ca546fe03,
+        type: 3}
+      propertyPath: _length
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7270410806168333118, guid: 1ff5865667d9d4cccb31817ca546fe03,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7270410806168333118, guid: 1ff5865667d9d4cccb31817ca546fe03,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7270410806168333118, guid: 1ff5865667d9d4cccb31817ca546fe03,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.043748617
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

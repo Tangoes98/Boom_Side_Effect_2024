@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1802846, g: 0.225715, b: 0.3069236, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028462, g: 0.225715, b: 0.3069236, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -74738,6 +74738,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainBase
       objectReference: {fileID: 0}
+    - target: {fileID: 2584669737148788849, guid: e688637e0fd553b4a9c2b7faa7b2f854,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6120047101441786776, guid: e688637e0fd553b4a9c2b7faa7b2f854,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -80088,15 +80093,13 @@ MonoBehaviour:
   - boomEntrances: 
     waves:
     - timeline:
-      - timePoint: 5
-        spawns: E04,5,0;E01,5,1;E02,5,2
-      interval: 10
+      - timePoint: 6
+        spawns: E01,15,0
+      - timePoint: 25
+        spawns: E01,15,0;E02,5,0
+      interval: 5
   - boomEntrances: 
-    waves:
-    - timeline:
-      - timePoint: 5
-        spawns: E04,5,0
-      interval: 10
+    waves: []
   enemies:
   - code: E01
     enemyPrefab: {fileID: 7425934711789390196, guid: ffdee56f6552e374bad3cc5348c4b692,
