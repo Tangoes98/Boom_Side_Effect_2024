@@ -57,7 +57,7 @@ public class MinionIntervalState : IState
             return;
         } 
 
-        attackTarget = manager.targets==null? null : manager.targets[0];
+        attackTarget = manager.targets==null ||  manager.targets.Length == 0? null : manager.targets[0];
         bool outOfBarrackRange = false, veryOutOfRange = false;
         if(manager.Info().minionType == MinionType.FRIEND) {
             var barrack = manager.Barrack();

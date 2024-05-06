@@ -16,7 +16,7 @@ public class MinionViewState : IState
     }
     public void onEnter()
     {
-        viewTarget = manager.targets==null? null : manager.targets[0];
+        viewTarget = manager.targets==null ||  manager.targets.Length == 0? null : manager.targets[0];
 
         if (viewTarget==null) manager.animationController.SwitchAnimState("Idle");
         else manager.animationController.SwitchAnimState("Move");
@@ -41,7 +41,7 @@ public class MinionViewState : IState
             return;         
         }
         manager.targets = manager.GetOppenentInRange(status.viewRange,0, out mainBase);
-        viewTarget = manager.targets==null? null : manager.targets[0];
+        viewTarget = manager.targets==null ||  manager.targets.Length == 0? null : manager.targets[0];
         // no enemy in range
         if (manager.targets == null ||
             Vector3.Distance(viewTarget.transform.position, manager.transform.position) >= status.viewRange)
