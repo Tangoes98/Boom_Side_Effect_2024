@@ -48,6 +48,7 @@ public class Minion : MonoBehaviour,IHealthBar
 
     private bool _rbResetting = false;
     private float _stuckTimer = 2;
+    private int _stuckCount = 3;
     private Vector3 _lastPos = Vector3.zero;
     
     private void Awake() {
@@ -267,6 +268,17 @@ public class Minion : MonoBehaviour,IHealthBar
     public float GetMaxHealth() => status.maxHealth;
 
     private void CheckIfStuck() {
+        if(!agent.isOnNavMesh) {
+            NavMeshHit hit;
+            if(NavMesh.SamplePosition(transform.position, out hit, status.range, NavMesh.AllAreas)) {
+                transform.position = hit.position;
+            } else {
+                Destroy(this.gameObject);
+            }
+
+            return;
+        }
+
         if(baseInfo.minionType == MinionType.ENEMY && 
             currentState.Type()==MinionStateType.IDLE.ToString() &&
             Vector3.Distance(transform.position, _lastPos) <0.1f) {
@@ -274,13 +286,19 @@ public class Minion : MonoBehaviour,IHealthBar
             
         }  else {
             _stuckTimer=2;
+            _stuckCount=3;
         }
         _lastPos = transform.position;
             
         if(_stuckTimer<=0) {
             _rbResetting = true;
             _stuckTimer = 2;
+            if(_stuckCount<0) {
+                Destroy(this.gameObject);
+                return;
+            }
             StartCoroutine(ResetRigidBodyConstraints());
+            _stuckCount--;
         }     
 
     }
