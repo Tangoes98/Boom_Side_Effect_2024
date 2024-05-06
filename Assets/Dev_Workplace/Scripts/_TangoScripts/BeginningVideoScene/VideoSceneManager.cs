@@ -22,23 +22,42 @@ public class VideoSceneManager : MonoBehaviour
     [Space(15)]
     [SerializeField] TextMeshProUGUI _skipTextEN;
     [SerializeField] TextMeshProUGUI _skipTextCN;
-    event Action NextSceneEvent;
+    event Action<VideoPlayer> NextSceneEvent;
     float _timer;
     bool _isActive = true;
 
+    [Space(15)]
+    [SerializeField] VideoPlayer _winningVideo;
+    [SerializeField] VideoPlayer _losingVideo;
+
     private void Start()
     {
+        NextSceneEvent += NextSceneEventAction;
+        _videoClip.loopPointReached += NextSceneEventAction;
+
         _skipTextCN.gameObject.SetActive(false);
         _skipTextEN.gameObject.SetActive(false);
 
         _skippingUI.fillAmount = 0f;
         _timer = _skipTimer;
 
+        if (SceneManager.GetActiveScene().buildIndex == 4) return;
+        
+        StartCoroutine(WaitForHint());
+    }
+
+    IEnumerator WaitForHint()
+    {
+        var timer = new WaitForSeconds(4);
+        yield return timer;
         if (SceneDataManager.Instance.CurrentLanguage == "CN") _skipTextCN.gameObject.SetActive(true);
         else _skipTextEN.gameObject.SetActive(true);
-
-        NextSceneEvent += NextSceneEventAction;
     }
+
+
+
+
+
 
     private void Update()
     {
@@ -47,7 +66,20 @@ public class VideoSceneManager : MonoBehaviour
         if (!_isVideoPlayed)
         {
             if (!UIFadeTransition.Instance._IsTransitionOver) return;
-            _videoClip.Play();
+
+            if (SceneManager.GetActiveScene().buildIndex == 4)
+            {
+                if (SceneDataManager.Instance.IsWinning)
+                {
+                    _winningVideo.Play();
+                }
+                else
+                {
+                    _losingVideo.Play();
+                }
+            }
+            else _videoClip.Play();
+
             _isVideoPlayed = true;
         }
 
@@ -64,12 +96,12 @@ public class VideoSceneManager : MonoBehaviour
 
         if (_skippingUI.fillAmount == 1)
         {
-            NextSceneEvent?.Invoke();
+            NextSceneEvent?.Invoke(_videoClip);
         }
 
     }
 
-    void NextSceneEventAction()
+    void NextSceneEventAction(VideoPlayer vp)
     {
         UIFadeTransition.Instance.FadeIn();
         switch (SceneManager.GetActiveScene().buildIndex)
@@ -80,6 +112,9 @@ public class VideoSceneManager : MonoBehaviour
             case 3: //! At Credit video
                 StartCoroutine(WaitForNextScene(0)); //! Go to title
                 break;
+            case 4: //! At Final video
+                StartCoroutine(WaitForNextScene(0)); //! Go to title
+                break;
         }
     }
     IEnumerator WaitForNextScene(int sceneIndex)
@@ -88,6 +123,7 @@ public class VideoSceneManager : MonoBehaviour
         yield return timer;
         SceneManager.LoadScene(sceneIndex);
     }
+
 
 
 

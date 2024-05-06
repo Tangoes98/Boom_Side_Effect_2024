@@ -197,8 +197,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 570425343
-  m_fontColor: {r: 1, g: 1, b: 1, a: 0.12941177}
+    rgba: 452984831
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0.101960786}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -655,7 +655,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _videoClip: {fileID: 2038567528}
   _skippingUI: {fileID: 1070484233}
-  _skipTimer: 3
+  _skipTimer: 1
   _skipTextEN: {fileID: 181219731}
   _skipTextCN: {fileID: 1694437282}
 --- !u!1 &1694437281
@@ -707,7 +707,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 0.12941177}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0.101960786}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

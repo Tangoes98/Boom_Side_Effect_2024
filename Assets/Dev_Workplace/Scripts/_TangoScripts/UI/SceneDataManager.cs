@@ -31,7 +31,7 @@ public class SceneDataManager : MonoBehaviour
 
     public string CurrentLanguage;
 
-
+    public bool IsWinning;
 
 
 
