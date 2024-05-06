@@ -72,7 +72,7 @@ public class BuildingSelectionManager : MonoBehaviour
             _upgradeCost.text = building.GetUpgradeCost().ToString();
         }
 
-        _demolishReturn.text = (building.GetBuildCost() * .8f).ToString();
+        _demolishReturn.text = Mathf.RoundToInt(building.GetBuildCost() * .8f).ToString();
 
         //*Enable the defence tower range preview
         var buildingAssets = CurrentSelectedBuilding.GetComponentInChildren<BuildingArtAssets>();
@@ -129,6 +129,9 @@ public class BuildingSelectionManager : MonoBehaviour
     {
         if (!CurrentSelectedBuilding) return;
         Architect building = CurrentSelectedBuilding.GetComponent<Architect>();
+
+        //*Return Resource to player
+        ResourceManager.Instance.GainResorce(Mathf.RoundToInt(building.GetBuildCost() * .8f));
 
         MouseStateManager.Instance.SwitchState(MouseStateManager.MouseStates.Selecting, CloseSelectionPanel);
         building.SelfDestroy();
