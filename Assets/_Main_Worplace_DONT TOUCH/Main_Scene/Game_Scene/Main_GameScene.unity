@@ -3722,7 +3722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98a70ed6b98f94440970cb7f6cdcdbfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <PlayerResource>k__BackingField: 999
+  <PlayerResource>k__BackingField: 180
 --- !u!1001 &78029361
 PrefabInstance:
   m_ObjectHideFlags: 0
