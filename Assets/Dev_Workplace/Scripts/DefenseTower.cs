@@ -155,7 +155,9 @@ public class DefenseTower : Architect
             aoeAttack.TriggerAOE(this.transform.position, 1);
             return;
         }
-
+        if(targets==null || targets.Length==0 || targets[0]==null) {
+            return;
+        }
         var target = targets[0].GetComponent<Minion>();
         target.TakeDamage(damage);
         target.TakeEffect(status.specialEffect, status.specialEffectModifier, status.specialEffectLastTime);
@@ -170,7 +172,7 @@ public class DefenseTower : Architect
     public virtual bool checkTarget()//检测攻击对象是否存在
     {
         targets = GetEnemyInRange();
-        bool isExist = targets != null && targets[0] != null && Vector3.Distance(targets[0].transform.position, this.transform.position) < status.range;
+        bool isExist = targets != null && targets.Length!=0 && targets[0] != null && Vector3.Distance(targets[0].transform.position, this.transform.position) < status.range;
         return isExist;
 
     }
