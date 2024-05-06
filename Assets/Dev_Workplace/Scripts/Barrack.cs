@@ -96,15 +96,25 @@ public partial class Barrack : Architect
         Vector3 point = NavMesh.SamplePosition(sp, out hit, status.range, NavMesh.AllAreas) ? hit.position : Vector3.zero;
         return point;
     }
+
+    private int _minionCount = 0;
     public Vector3 GetIdlePosition()//需要加算一个偏移量，保持一定阵型
     {
         Collider[] points=Physics.OverlapSphere(this.transform.position, status.range, LevelManager.SpawnPointLayer());
-        Debug.Log(transform.position + ":" + status.range);
+        //Debug.Log(transform.position + ":" + status.range);
         if (points.Length > 0)
         {
+            var r = _minionCount++ % 4;
+            Vector3 offset = r switch {
+                0=> Vector3.back * 2,
+                1=> Vector3.forward * 2,
+                2=> Vector3.left * 2,
+                3=> Vector3.right * 2,
+                _ => Vector3.zero * 2
+            };
             return new List<Collider>(points)
                 .OrderBy(p => Vector3.Distance(this.transform.position, p.transform.position))
-                .First().transform.position;
+                .First().transform.position + offset;
         }
         else
         {

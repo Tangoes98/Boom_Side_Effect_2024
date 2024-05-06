@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,6 +22,8 @@ public class BuildingSelectionManager : MonoBehaviour
     [SerializeField] GameObject _buildingUIPanel;
     [SerializeField] Button _upgradeBtn;
     [SerializeField] Button _demolitionBtn;
+    [SerializeField] TextMeshProUGUI _upgradeCost;
+    [SerializeField] TextMeshProUGUI _demolishReturn;
 
     [Header("DEBUG")]
     public Transform CurrentSelectedBuilding;
@@ -55,6 +58,22 @@ public class BuildingSelectionManager : MonoBehaviour
         if (!MouseController.Is_LMB_Down()) return;
         if (!CurrentSelectedBuilding) return;
 
+        //* Update Upgrade and Demolish cost TEXT
+        Architect building = CurrentSelectedBuilding.GetComponent<Architect>();
+        if (!building.IsUpgradable())
+        {
+            _upgradeBtn.gameObject.SetActive(false);
+            _upgradeCost.gameObject.SetActive(false);
+        }
+        else
+        {
+            _upgradeBtn.gameObject.SetActive(true);
+            _upgradeCost.gameObject.SetActive(true);
+            _upgradeCost.text = building.GetUpgradeCost().ToString();
+        }
+
+        _demolishReturn.text = (building.GetBuildCost() * .8f).ToString();
+
         //*Enable the defence tower range preview
         var buildingAssets = CurrentSelectedBuilding.GetComponentInChildren<BuildingArtAssets>();
         if (buildingAssets.IsTower) buildingAssets.TowerDefenceRangePreview.EnabnleDefenceRange(true);
@@ -73,8 +92,11 @@ public class BuildingSelectionManager : MonoBehaviour
     public void CloseSelectionPanel()
     {
         //*Diable tower defence range preview
-        var buildingAssets = CurrentSelectedBuilding.GetComponentInChildren<BuildingArtAssets>();
-        if (buildingAssets.IsTower) buildingAssets.TowerDefenceRangePreview.EnabnleDefenceRange(false);
+        if (CurrentSelectedBuilding != null)
+        {
+            var buildingAssets = CurrentSelectedBuilding.GetComponentInChildren<BuildingArtAssets>();
+            if (buildingAssets != null && buildingAssets.IsTower) buildingAssets.TowerDefenceRangePreview.EnabnleDefenceRange(false);
+        }
 
         SelectBuildingLinks(false);
         CurrentSelectedBuilding = null;
@@ -128,8 +150,8 @@ public class BuildingSelectionManager : MonoBehaviour
 
     void SelectBuildingLinks(bool showLink)
     {
-        if(CurrentSelectedBuilding==null) return;
-        
+        if (CurrentSelectedBuilding == null) return;
+
         Architect building = CurrentSelectedBuilding.GetComponent<Architect>();
 
         ArchiLinkManager.Instance.GetInAndOutAndPauseLinks(building,

@@ -28,6 +28,8 @@ public class LevelEditor : MonoBehaviour
     [SerializeField] private EnemyBase[] enemies;
     [SerializeField] private Transform enemyParentObject;
 
+    [SerializeField] private GameObject[] _gearPrefabs;
+
 
     [Header("以下请勿修改")]
     
@@ -114,12 +116,11 @@ public class LevelEditor : MonoBehaviour
     public void EnemyDie(Minion enemy) {
         EnemyOnStage.Remove(enemy);
         EnemyBase eb = enemyDict[enemy.code];
-        
+        Vector3 pos = enemy.transform.position;
         Destroy(enemy.gameObject);
 
-        // add drop GEAR animation !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        ResourceManager.Instance.DropResource(eb.resource);
-
+        StartCoroutine(DropGear(eb.resource, pos));
+        
         if(IsCurrentWaveDone()) {
             if(_waveQueue.Count == 0) {
                 ChangeState(LevelState.BUILD);
@@ -128,6 +129,24 @@ public class LevelEditor : MonoBehaviour
                 Invoke(nameof(NextWave), _currentWave.interval);
             }
         }
+    }
+
+    IEnumerator DropGear(int resource, Vector3 position) {
+        GameObject gear = Instantiate(_gearPrefabs[resource<=5? 0 : 1], position, Quaternion.identity);
+        yield return new WaitForSeconds(3);
+        var tf = gear.transform;
+        var currentPos = tf.position;
+        var target = new Vector3(197,53,-228);
+        var t = 0f;
+        while(t <= 1f)
+        {
+            t += Time.deltaTime / 2;
+            tf.position = Vector3.Lerp(currentPos, target, t);
+            yield return null;
+        }
+        Destroy(tf.gameObject);
+        ResourceManager.Instance.DropResource(resource);
+
     }
 
     private void ChangeState(LevelState state) {
