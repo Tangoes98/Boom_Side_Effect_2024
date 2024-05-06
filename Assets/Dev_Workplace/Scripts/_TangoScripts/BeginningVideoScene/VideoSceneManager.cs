@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.Video;
@@ -7,13 +6,13 @@ using TMPro;
 using System;
 using UnityEngine.SceneManagement;
 
-public class BeginningVideoSceneManager : MonoBehaviour
+public class VideoSceneManager : MonoBehaviour
 {
 
 
 
 
-    [SerializeField] VideoPlayer _beginningVideo;
+    [SerializeField] VideoPlayer _videoClip;
     bool _isVideoPlayed = false;
 
     [Space(15)]
@@ -48,7 +47,7 @@ public class BeginningVideoSceneManager : MonoBehaviour
         if (!_isVideoPlayed)
         {
             if (!UIFadeTransition.Instance._IsTransitionOver) return;
-            _beginningVideo.Play();
+            _videoClip.Play();
             _isVideoPlayed = true;
         }
 
@@ -73,13 +72,21 @@ public class BeginningVideoSceneManager : MonoBehaviour
     void NextSceneEventAction()
     {
         UIFadeTransition.Instance.FadeIn();
-        StartCoroutine(WaitForNextScene());
+        switch (SceneManager.GetActiveScene().buildIndex)
+        {
+            case 2: //! At beginning video
+                StartCoroutine(WaitForNextScene(1)); //! Go to battle
+                break;
+            case 3: //! At Credit video
+                StartCoroutine(WaitForNextScene(0)); //! Go to title
+                break;
+        }
     }
-    IEnumerator WaitForNextScene()
+    IEnumerator WaitForNextScene(int sceneIndex)
     {
         var timer = new WaitForSeconds(2);
         yield return timer;
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(sceneIndex);
     }
 
 

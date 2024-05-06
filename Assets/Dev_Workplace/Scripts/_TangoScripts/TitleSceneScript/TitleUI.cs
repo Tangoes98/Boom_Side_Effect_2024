@@ -62,18 +62,9 @@ public class TitleUI : MonoBehaviour
     #region Button events
     void StartGame()
     {
-        UIFadeTransition.Instance.FadeIn();
-        StartCoroutine(WaitForSecond());
         _settingPanel.SetActive(false);
-    }
-    IEnumerator WaitForSecond()
-    {
-        var timer = new WaitForSeconds(2);
-        yield return timer;
-        SceneManager.LoadScene(2); //! load beginning video
-        UIFadeTransition.Instance.FadeWaitToOut();
-
-        //! GOing to the next scene
+        UIFadeTransition.Instance.FadeIn();
+        StartCoroutine(WaitForNextScene(2)); //! load beginning video
     }
 
     void OpenSetting()
@@ -82,7 +73,9 @@ public class TitleUI : MonoBehaviour
     }
     void OpenCredits()
     {
-        SceneManager.LoadScene("Credits");
+        _settingPanel.SetActive(false);
+        UIFadeTransition.Instance.FadeIn();
+        StartCoroutine(WaitForNextScene(3)); //! Go to Credits
     }
     void QuitGame()
     {
@@ -91,6 +84,13 @@ public class TitleUI : MonoBehaviour
     void FinishSetting()
     {
         _settingPanel.SetActive(false);
+    }
+
+    IEnumerator WaitForNextScene(int sceneIndex)
+    {
+        var timer = new WaitForSeconds(2);
+        yield return timer;
+        SceneManager.LoadScene(sceneIndex);
     }
 
     #endregion
