@@ -6,7 +6,12 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-
+    public static InputManager Instance;
+    private void Awake()
+    {
+        if (Instance != null) Destroy(this);
+        else Instance = this;
+    }
 
     [Header("REFERENCE")]
     [SerializeField] GameObject _camObject;
@@ -22,10 +27,7 @@ public class InputManager : MonoBehaviour
     }
     private void Update()
     {
-        if (TutorialUI.Instance!=null && TutorialUI.Instance.IsTutorialActive) return;
-
-        if (IS_SPACE_DOWN()) _isPauseGame = !_isPauseGame;
-
+        if (TutorialUI.Instance != null && TutorialUI.Instance.IsTutorialActive) return;
 
         PauseGameCheck();
         timer += Time.deltaTime;
@@ -42,6 +44,14 @@ public class InputManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space)) return true;
         else return false;
     }
+
+    public static bool IS_ESC_DOWN()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape)) return true;
+        else return false;
+    }
+    public void PauseGame(bool bvalue) => _isPauseGame = bvalue;
+
     #endregion
     #region ==================
     void PauseGameCheck()

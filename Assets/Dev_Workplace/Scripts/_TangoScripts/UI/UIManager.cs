@@ -19,7 +19,7 @@ public class UIManager : MonoBehaviour
         Instance = this;
 
         //SwitchLanguage(SceneDataManager.Instance.CurrentLanguage);
-        SwitchLanguage("CN");
+        // SwitchLanguage("CN");
     }
 
 
@@ -41,18 +41,45 @@ public class UIManager : MonoBehaviour
     [Header("ButtonFunction")]
     [SerializeField] Toggle _pauseGameToggle;
     [SerializeField] Button _settingButton;
+    [SerializeField] GameObject _settingPanel;
+    [SerializeField] Button _finishSettingButton;
+    [SerializeField] Button _returnToTitleButton;
 
 
     private void Start()
     {
         Cursor.SetCursor(_mouseCursorDefault, _hotSpot, _cursorMode);
 
+        _pauseGameToggle.onValueChanged.AddListener(ToggleButtonEventAction);
+        _settingButton.onClick.AddListener(SettingButtonEventAction);
+        _finishSettingButton.onClick.AddListener(FinishSettingButtonEventAction);
+        _returnToTitleButton.onClick.AddListener(ReturnToTitleEventAction);
 
     }
     private void Update()
     {
         UpdatePlayerResourcePanel();
 
+        if (SceneDataManager.Instance)
+        {
+            SwitchLanguage(SceneDataManager.Instance.CurrentLanguage);
+        }
+        else
+        {
+            Debug.Log("Current language not selected");
+            SwitchLanguage("CN");
+        }
+
+        if (InputManager.IS_ESC_DOWN())
+        {
+            if (_settingPanel.activeSelf) _settingPanel.SetActive(false);
+            else _settingPanel.SetActive(true);
+        }
+
+        if (InputManager.IS_SPACE_DOWN())
+        {
+            _pauseGameToggle.isOn = !_pauseGameToggle.isOn;
+        }
 
         if (Input.GetKeyDown(KeyCode.T))
         {
@@ -64,12 +91,32 @@ public class UIManager : MonoBehaviour
         }
 
     }
-    void OnMouseEnter()
+
+
+
+
+
+
+    #region Button Events
+    void ToggleButtonEventAction(bool bvalue)
     {
+        InputManager.Instance.PauseGame(bvalue);
+    }
+    void SettingButtonEventAction()
+    {
+        _settingPanel.SetActive(true);
+    }
+    void FinishSettingButtonEventAction()
+    {
+        _settingPanel.SetActive(false);
+    }
+    void ReturnToTitleEventAction()
+    {
+        SceneManager.LoadScene(0);
     }
 
 
-
+    #endregion
     #region ===============
     void UpdatePlayerResourcePanel()
     {
@@ -100,6 +147,9 @@ public class UIManager : MonoBehaviour
             item.gameObject.SetActive(isActive);
         }
     }
+
+
+
     #endregion
 
 }

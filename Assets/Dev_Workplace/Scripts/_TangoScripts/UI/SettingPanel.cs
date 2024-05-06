@@ -4,9 +4,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TitleSettingPanel : MonoBehaviour
+public class SettingPanel : MonoBehaviour
 {
-    public static TitleSettingPanel Instance;
+    public static SettingPanel Instance;
     private void Awake()
     {
         if (Instance != null) Destroy(this);
@@ -24,11 +24,16 @@ public class TitleSettingPanel : MonoBehaviour
     [SerializeField] Slider _sliderSFX;
     [SerializeField] TextMeshProUGUI _SFXText;
 
+    // [Space(15)]
+    // [Header("Button")]
+    // [SerializeField] Button _ 
+
 
     private void Start()
     {
         _ENtoggle.onValueChanged.AddListener(UpdateENToggle);
-        _CNtoggle.onValueChanged.AddListener(UpdateCNToggle);       
+        _CNtoggle.onValueChanged.AddListener(UpdateCNToggle);
+
     }
 
     private void Update()
@@ -38,7 +43,7 @@ public class TitleSettingPanel : MonoBehaviour
         AudioManager.Instance._MusicVolume = UpdateSoundVolume(_sliderMusic, _musicText);
         AudioManager.Instance._SFXVolume = UpdateSoundVolume(_sliderSFX, _SFXText);
     }
-    
+
     #region Language
     void UpdateCurrentLanguage()
     {
@@ -56,6 +61,17 @@ public class TitleSettingPanel : MonoBehaviour
         _CNtoggle.isOn = value;
         _ENtoggle.isOn = !value;
     }
+
+    void InitializeEN()
+    {
+        _ENtoggle.isOn = true;
+        _CNtoggle.isOn = false;
+    }
+    void InitializeCN()
+    {
+        _CNtoggle.isOn = true;
+        _ENtoggle.isOn = false;
+    }
     #endregion
     #region Sound
     float UpdateSoundVolume(Slider slider, TextMeshProUGUI text)
@@ -64,7 +80,6 @@ public class TitleSettingPanel : MonoBehaviour
         return slider.value;
     }
     #endregion
-
 
 
 

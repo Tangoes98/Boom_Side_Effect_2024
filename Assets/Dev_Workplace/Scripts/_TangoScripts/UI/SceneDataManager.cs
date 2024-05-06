@@ -20,8 +20,14 @@ public class SceneDataManager : MonoBehaviour
         {
             DontDestroyOnLoad(gameobject);
         }
-        
+
         DontDestroyOnLoad(this);
+
+    }
+    private void Start()
+    {
+        CurrentLanguage = "CN";
+
     }
 
     public string CurrentLanguage;

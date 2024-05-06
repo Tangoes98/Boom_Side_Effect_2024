@@ -6,7 +6,7 @@ public class BuildingCollidingCheck : MonoBehaviour
 {
     [field: SerializeField] public bool CanBuild { get; private set; }
 
-    bool _colliderStayCheck;
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -50,7 +50,6 @@ public class BuildingCollidingCheck : MonoBehaviour
     {
         if (other.CompareTag("Building"))
         {
-            _colliderStayCheck = true;
             CanBuild = IsSpawnPointInRangeIfBarrack();
             return;
         }
