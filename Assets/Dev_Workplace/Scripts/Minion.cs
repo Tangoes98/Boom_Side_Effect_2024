@@ -281,7 +281,7 @@ public class Minion : MonoBehaviour,IHealthBar
 
         if(baseInfo.minionType == MinionType.ENEMY && 
             currentState.Type()==MinionStateType.IDLE.ToString() &&
-            Vector3.Distance(transform.position, _lastPos) <0.1f) {
+            Vector3.Distance(transform.position, _lastPos) <0.01f) {
             _stuckTimer-=Time.deltaTime;
             
         }  else {
