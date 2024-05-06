@@ -43,7 +43,11 @@ public class BuildingSelectionManager : MonoBehaviour
 
     private void Update()
     {
-
+        if (MouseStateManager.Instance.MouseState == MouseStateManager.MouseStates.SelectionPanelInspection &&
+            _buildingUIPanel.activeSelf && CurrentSelectedBuilding!=null) {     
+            // Panel already Open, change it position
+            _buildingUIPanel.GetComponent<RectTransform>().anchoredPosition = GetBuildingScreenCanvasPosition(CurrentSelectedBuilding);
+        }
         if (MouseStateManager.Instance.MouseState != MouseStateManager.MouseStates.Selecting) return;
 
         //*Close Selection UI Panel
