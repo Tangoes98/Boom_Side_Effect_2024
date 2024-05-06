@@ -114,7 +114,8 @@ MonoBehaviour:
   unitRangeAsAoeRange: 0
   aoeRange: 25
   type: 0
-  _fxEffect: {fileID: 0}
+  _fxEffect: {fileID: 6596942358460330271, guid: c6e32bf9b4a334f23b150b1568fe0d47,
+    type: 3}
   _fxLastTime: 3
   _mainBaseDmg: 0.05
 --- !u!1001 &372210329791268030

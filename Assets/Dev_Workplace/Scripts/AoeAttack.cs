@@ -78,11 +78,16 @@ public class AoeAttack : MonoBehaviour {
             _center = transform.position;
         }
         if(_isMainBase) {
-            TriggerAOE(_center,1);
+            if(TriggerAOE(_center,1)) {
+                if(_eff==null) _eff = Instantiate(_fxEffect,_center,Quaternion.identity);
+                else if(!_eff.activeSelf) _eff.SetActive(true);
+            } else {
+                if(_eff!=null && _eff.activeSelf) _eff.SetActive(false);
+            }
         }
     }
 
-    public void TriggerAOE(Vector3 center, float takeDamageModifer) {
+    public bool TriggerAOE(Vector3 center, float takeDamageModifer) {
         Minion[] enemies; 
         Gizmos.color = Color.yellow;
         if(type == AoeType.LINE) {
@@ -94,7 +99,7 @@ public class AoeAttack : MonoBehaviour {
         }
         _center = center;
 
-        if(_fxEffect!=null) {
+        if(_fxEffect!=null && !_isMainBase) {
             GameObject eff = Instantiate(_fxEffect,center,Quaternion.identity);
             StartCoroutine(CleanUp(eff));
         }
@@ -108,7 +113,7 @@ public class AoeAttack : MonoBehaviour {
                 
             }
         }
-
+        return enemies.Length>0;
     }
 
     IEnumerator CleanUp(GameObject eff) {
