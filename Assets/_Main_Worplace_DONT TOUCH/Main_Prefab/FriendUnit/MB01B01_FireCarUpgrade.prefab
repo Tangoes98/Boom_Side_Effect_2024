@@ -76,32 +76,32 @@ MonoBehaviour:
     takeDamageModifer: 0
   baseInfo:
     name: QiangHuaHuoYanPenSheChe
-    speed: 5
+    speed: 7
     minRange: 0
     baseType: 1
     addonType: 1
     attackMode: 0
     lockMode: 1
     minionType: 1
-    fireInterval: 1.5
+    fireInterval: 0.5
     fireTime: 0.5
     specialEffect: 0
     secondSpecialEffect: 0
     levelRelatedProperties:
     - level: 1
-      health: 20
+      health: 30
       range: 12.5
       viewRange: 20
-      damage: 8
+      damage: 22
       specialEffectModifier: 0
       specialEffectLastTime: 0
       secondSpEffectModifier: 0
       secondSpEffectLastTime: 0
     - level: 2
-      health: 25
+      health: 60
       range: 12.5
       viewRange: 20
-      damage: 13
+      damage: 45
       specialEffectModifier: 0
       specialEffectLastTime: 0
       secondSpEffectModifier: 0

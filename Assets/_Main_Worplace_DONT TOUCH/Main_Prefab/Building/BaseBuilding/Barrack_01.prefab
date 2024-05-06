@@ -135,7 +135,7 @@ MonoBehaviour:
       type: 3}
     properties:
     - level: 1
-      cost: 70
+      cost: 40
       range: 40
       maxMinionNum: 2
     - level: 2
@@ -202,6 +202,8 @@ MonoBehaviour:
   - {fileID: 159241407457888411}
   - {fileID: 5625518661549975991}
   - {fileID: 5336625966868097361}
+  IsTower: 0
+  TowerDefenceRangePreview: {fileID: 0}
 --- !u!1001 &881367012909800687
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -63,7 +63,7 @@ MonoBehaviour:
     lockMode: 0
     fireInterval: 0
     fireTime: 0
-    damage: 1
+    damage: 16
     specialEffect: 0
     specialEffectModifier: 0
     specialEffectLastTime: 0
@@ -89,7 +89,7 @@ MonoBehaviour:
       health: 200
       range: 5
       viewRange: 40
-      damage: 50
+      damage: 40
       specialEffectModifier: 0
       specialEffectLastTime: 0
       secondSpEffectModifier: 0

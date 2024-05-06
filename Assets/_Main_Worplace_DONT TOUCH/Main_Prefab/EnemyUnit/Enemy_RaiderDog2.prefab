@@ -73,7 +73,7 @@ MonoBehaviour:
     takeDamageModifer: 0
   baseInfo:
     name: 
-    speed: 7
+    speed: 12
     minRange: 0
     baseType: 0
     addonType: 0

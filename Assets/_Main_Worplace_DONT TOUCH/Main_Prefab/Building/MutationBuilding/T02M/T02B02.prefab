@@ -180,6 +180,7 @@ MonoBehaviour:
   existingLinkNum: 0
   activeOutputLinkNum: 0
   sourceArchitectLinkNum: 0
+  IsPreview: 0
   status:
     range: 0
     damage: 0
@@ -203,36 +204,36 @@ MonoBehaviour:
     addonType: 3
     attackMode: 1
     lockMode: 0
-    fireInterval: 0.5
+    fireInterval: 0.6
     fireTime: 999
-    aoeRange: 0.5
+    aoeRange: 1.5
     specialEffect: 2
     secondSpEffect: 3
     levelRelatedProperties:
     - level: 1
       cost: 0
       range: 10
-      damage: 1.2
+      damage: 0.06
       specialEffectModifier: -1
       specialEffectLastTime: 1
-      secondSpEffectModifier: 0.1
-      secondSpEffectLastTime: 1
+      secondSpEffectModifier: 0.05
+      secondSpEffectLastTime: 12
     - level: 2
       cost: 50
       range: 15
-      damage: 1.5
+      damage: 0.09
       specialEffectModifier: -2
       specialEffectLastTime: 1
-      secondSpEffectModifier: 0.15
-      secondSpEffectLastTime: 1
+      secondSpEffectModifier: 0.08
+      secondSpEffectLastTime: 12
     - level: 3
       cost: 60
       range: 20
-      damage: 1.8
+      damage: 0.1
       specialEffectModifier: -3
       specialEffectLastTime: 1
-      secondSpEffectModifier: 0.2
-      secondSpEffectLastTime: 1
+      secondSpEffectModifier: 0.15
+      secondSpEffectLastTime: 18
   targets: []
   stateLabel: 
 --- !u!114 &-5232145462609682552
@@ -248,7 +249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitRangeAsAoeRange: 0
-  aoeRange: 5
+  aoeRange: 15
   type: 1
   _fxEffect: {fileID: 524105176687992315, guid: 00d870fa8642c4f0ea76590fa57fea4c,
     type: 3}
