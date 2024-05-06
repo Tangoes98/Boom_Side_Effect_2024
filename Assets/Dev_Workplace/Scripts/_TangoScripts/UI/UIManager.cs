@@ -44,7 +44,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject _settingPanel;
     [SerializeField] Button _finishSettingButton;
     [SerializeField] Button _returnToTitleButton;
-
+    [SerializeField] GameObject _gamePausedPanel;
 
     private void Start()
     {
@@ -101,6 +101,8 @@ public class UIManager : MonoBehaviour
     void ToggleButtonEventAction(bool bvalue)
     {
         InputManager.Instance.PauseGame(bvalue);
+        if (_gamePausedPanel.activeSelf) _gamePausedPanel.SetActive(false);
+        else _gamePausedPanel.SetActive(true);
     }
     void SettingButtonEventAction()
     {

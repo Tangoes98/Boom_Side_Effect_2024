@@ -22,12 +22,11 @@ public class SceneDataManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(this);
+        CurrentLanguage = "CN";
 
     }
     private void Start()
     {
-        CurrentLanguage = "CN";
-
     }
 
     public string CurrentLanguage;

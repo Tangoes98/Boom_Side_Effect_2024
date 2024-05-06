@@ -572,7 +572,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _savingGameobjects:
-  - {fileID: 1753088844}
   - {fileID: 321510809}
   CurrentLanguage: 
 --- !u!4 &134739807
@@ -2141,7 +2140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1030028004
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7250,11 +7249,11 @@ SceneRoots:
   - {fileID: 2018183308}
   - {fileID: 115108837}
   - {fileID: 134739807}
-  - {fileID: 1753088847}
   - {fileID: 321510810}
   - {fileID: 294398141}
   - {fileID: 5096078}
   - {fileID: 188898454}
+  - {fileID: 1753088847}
   - {fileID: 4100405279880816540}
   - {fileID: 1036136876}
   - {fileID: 1111568136}

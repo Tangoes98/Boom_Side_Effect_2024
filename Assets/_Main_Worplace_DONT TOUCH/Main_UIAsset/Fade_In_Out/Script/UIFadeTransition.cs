@@ -13,7 +13,7 @@ public class UIFadeTransition : MonoBehaviour
         else Instance = this;
 
 
-        FadeOut();
+        FadeWaitToOut();
     }
 
     [field: SerializeField] public Animator FadeAnimator { get; private set; }
@@ -62,7 +62,7 @@ public class UIFadeTransition : MonoBehaviour
     }
 
 
-    public void FadeWait()
+    public void FadeWaitToOut()
     {
         _transitionCanvas.SetActive(true);
         FadeAnimator.Play(_fadeWait);

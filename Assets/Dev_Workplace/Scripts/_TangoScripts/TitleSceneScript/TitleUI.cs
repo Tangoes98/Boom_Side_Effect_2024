@@ -71,7 +71,7 @@ public class TitleUI : MonoBehaviour
         var timer = new WaitForSeconds(2);
         yield return timer;
         SceneManager.LoadScene(1);
-        UIFadeTransition.Instance.FadeWait();
+        UIFadeTransition.Instance.FadeWaitToOut();
 
         //! GOing to the next scene
     }
