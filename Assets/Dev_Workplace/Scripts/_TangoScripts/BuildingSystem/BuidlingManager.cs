@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -130,7 +131,12 @@ public class BuidlingManager : MonoBehaviour
             _isBuilding = true;
             foreach (var item in _buildingAssets.Subassets)
             {
-                item.GetComponent<MeshRenderer>().material = _buildingDissolveMaterial;
+                var materials = item.GetComponent<MeshRenderer>().materials;
+                for (int i = 0; i < materials.Length; i++)
+                {
+                    materials[i] = _buildingDissolveMaterial;
+                }
+                //item.GetComponent<MeshRenderer>().material = _buildingDissolveMaterial;
             }
             _dissolveTime = 0f;
             _buildingActionStates = BuildingActionState.PlayBuildingDissolveEffect;
@@ -263,17 +269,27 @@ public class BuidlingManager : MonoBehaviour
 
         if (!buildingCollidCheacker.CanBuild)
         {
+            
             foreach (var item in _buildingAssets.Subassets)
             {
-                item.GetComponent<MeshRenderer>().material = _buildingForbidMaterial;
+                var materials = item.GetComponent<MeshRenderer>().materials;
+                for (int i = 0; i < materials.Length; i++)
+                {
+                    materials[i] = _buildingForbidMaterial;
+                }
             }
             CanPlopBuilding = false;
         }
         else if (buildingCollidCheacker.CanBuild)
         {
+
             foreach (var item in _buildingAssets.Subassets)
             {
-                item.GetComponent<MeshRenderer>().material = _buildingShadowMaterial;
+                var materials = item.GetComponent<MeshRenderer>().materials;
+                for (int i = 0; i < materials.Length; i++)
+                {
+                    materials[i] = _buildingShadowMaterial;
+                }
             }
             CanPlopBuilding = true;
         }
