@@ -273,7 +273,7 @@ public class Minion : MonoBehaviour,IHealthBar
             if(NavMesh.SamplePosition(transform.position, out hit, status.range, NavMesh.AllAreas)) {
                 transform.position = hit.position;
             } else {
-                Destroy(this.gameObject);
+                LevelEditor.Instance.EnemyDie(this);
             }
 
             return;
@@ -294,7 +294,7 @@ public class Minion : MonoBehaviour,IHealthBar
             _rbResetting = true;
             _stuckTimer = 2;
             if(_stuckCount<0) {
-                Destroy(this.gameObject);
+                LevelEditor.Instance.EnemyDie(this);
                 return;
             }
             StartCoroutine(ResetRigidBodyConstraints());
