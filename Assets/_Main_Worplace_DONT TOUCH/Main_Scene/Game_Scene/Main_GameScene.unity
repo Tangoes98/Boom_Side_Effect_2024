@@ -76759,16 +76759,46 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 338522567344639331, guid: e688637e0fd553b4a9c2b7faa7b2f854,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 338522567344639331, guid: e688637e0fd553b4a9c2b7faa7b2f854,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 338522567344639331, guid: e688637e0fd553b4a9c2b7faa7b2f854,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 706417517939439185, guid: e688637e0fd553b4a9c2b7faa7b2f854,
+        type: 3}
+      propertyPath: aoeRange
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 706417517939439185, guid: e688637e0fd553b4a9c2b7faa7b2f854,
         type: 3}
       propertyPath: _fxEffect
       value: 
       objectReference: {fileID: 7244550661997658920, guid: e96ee1b53a0c14e43b08022e5b5ed8ca,
         type: 3}
+    - target: {fileID: 2317353517092824162, guid: e688637e0fd553b4a9c2b7faa7b2f854,
+        type: 3}
+      propertyPath: _maxHealth
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 2584669737148788849, guid: e688637e0fd553b4a9c2b7faa7b2f854,
         type: 3}
       propertyPath: m_Name
       value: MainBase
+      objectReference: {fileID: 0}
+    - target: {fileID: 4462731743244052623, guid: e688637e0fd553b4a9c2b7faa7b2f854,
+        type: 3}
+      propertyPath: _height
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6120047101441786776, guid: e688637e0fd553b4a9c2b7faa7b2f854,
         type: 3}
