@@ -9,8 +9,12 @@ public class Enemy : Minion
 {
     private void Start()
     {
-        status.maxHealth = GetBaseProperty(1).health;
+        var baseProp = GetBaseProperty(1);
+        status.maxHealth = baseProp.health;
         status.health = status.maxHealth;
+        status.damage = baseProp.damage;
+        status.range = baseProp.range;
+        status.viewRange = baseProp.viewRange;
 
         status.attackMode = Info().attackMode;
         status.lockMode = Info().lockMode;
@@ -19,9 +23,13 @@ public class Enemy : Minion
         status.speed = Info().speed;
 
         status.specialEffect = Info().specialEffect;
+        status.specialEffectModifier = baseProp.specialEffectModifier;
+        status.specialEffectLastTime = baseProp.specialEffectLastTime;
 
 
         status.secondSpEffect = Info().secondSpecialEffect;
+        status.secondSpEffectModifier = baseProp.secondSpEffectModifier;
+        status.secondSpEffectLastTime = baseProp.secondSpEffectLastTime;
 
         moveDestination = LevelManager.BaseDestination().position;
         status.effectBase = new Effect();

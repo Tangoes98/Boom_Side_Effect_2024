@@ -38,7 +38,7 @@ public class MinionAttackState : IState
 
         if (manager.mainBase == null)
         {
-            if (manager.targets == null)
+            if (manager.targets == null || manager.targets.Length == 0 || manager.targets[0]==null)
             {
                 manager.TransitionState(MinionStateType.IDLE);
                 return;
