@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1802846, g: 0.225715, b: 0.3069236, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028462, g: 0.225715, b: 0.3069236, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 195874}
   m_Layer: 11
   m_Name: point74
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -765,7 +765,7 @@ GameObject:
   - component: {fileID: 23651229}
   m_Layer: 11
   m_Name: point65
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1107,7 +1107,7 @@ GameObject:
   - component: {fileID: 27595586}
   m_Layer: 11
   m_Name: point12
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3088,7 +3088,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98a70ed6b98f94440970cb7f6cdcdbfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <PlayerResource>k__BackingField: 999
+  <PlayerResource>k__BackingField: 280
 --- !u!1001 &78029361
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3544,7 +3544,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4298537970429522, guid: 40416f6f047a36b49b29f48e2de76762, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -19.469
+      value: -20.32
       objectReference: {fileID: 0}
     - target: {fileID: 4298537970429522, guid: 40416f6f047a36b49b29f48e2de76762, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3552,7 +3552,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4298537970429522, guid: 40416f6f047a36b49b29f48e2de76762, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -22.224
+      value: -21.41
       objectReference: {fileID: 0}
     - target: {fileID: 4298537970429522, guid: 40416f6f047a36b49b29f48e2de76762, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4133,7 +4133,7 @@ GameObject:
   - component: {fileID: 111774531}
   m_Layer: 11
   m_Name: point19
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5298,7 +5298,7 @@ GameObject:
   - component: {fileID: 141232666}
   m_Layer: 11
   m_Name: point25
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5748,7 +5748,7 @@ GameObject:
   - component: {fileID: 156548426}
   m_Layer: 11
   m_Name: point28
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6442,7 +6442,7 @@ GameObject:
   - component: {fileID: 174361513}
   m_Layer: 11
   m_Name: point52
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8811,7 +8811,7 @@ GameObject:
   - component: {fileID: 245382272}
   m_Layer: 11
   m_Name: point14
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9532,7 +9532,7 @@ GameObject:
   - component: {fileID: 258921832}
   m_Layer: 11
   m_Name: point69
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11006,7 +11006,7 @@ GameObject:
   - component: {fileID: 297186147}
   m_Layer: 11
   m_Name: point18
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11367,7 +11367,7 @@ GameObject:
   - component: {fileID: 309516936}
   m_Layer: 11
   m_Name: point1
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15575,7 +15575,7 @@ GameObject:
   - component: {fileID: 427055273}
   m_Layer: 11
   m_Name: point66
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16690,7 +16690,7 @@ GameObject:
   - component: {fileID: 455160166}
   m_Layer: 11
   m_Name: point77
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16821,7 +16821,7 @@ GameObject:
   - component: {fileID: 458263805}
   m_Layer: 11
   m_Name: point11
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17435,7 +17435,7 @@ GameObject:
   - component: {fileID: 485644682}
   m_Layer: 11
   m_Name: point84
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18823,7 +18823,7 @@ GameObject:
   - component: {fileID: 528238798}
   m_Layer: 11
   m_Name: point82
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19072,7 +19072,7 @@ GameObject:
   - component: {fileID: 533975891}
   m_Layer: 11
   m_Name: point60
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19492,7 +19492,7 @@ GameObject:
   - component: {fileID: 546142194}
   m_Layer: 11
   m_Name: point37
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20362,7 +20362,7 @@ Transform:
   m_GameObject: {fileID: 567192185}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 74.69, y: 0, z: 79.8}
+  m_LocalPosition: {x: 79.88, y: -4.75, z: 95.27}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20837,7 +20837,7 @@ GameObject:
   - component: {fileID: 578091717}
   m_Layer: 11
   m_Name: point46
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21148,7 +21148,7 @@ GameObject:
   - component: {fileID: 591763924}
   m_Layer: 11
   m_Name: point68
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21575,7 +21575,7 @@ GameObject:
   - component: {fileID: 603864361}
   m_Layer: 11
   m_Name: point9
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21722,7 +21722,7 @@ GameObject:
   - component: {fileID: 611655571}
   m_Layer: 11
   m_Name: point88
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21910,7 +21910,7 @@ GameObject:
   - component: {fileID: 614185782}
   m_Layer: 11
   m_Name: point80
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22729,7 +22729,7 @@ GameObject:
   - component: {fileID: 636221101}
   m_Layer: 11
   m_Name: point47
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23402,7 +23402,7 @@ GameObject:
   - component: {fileID: 649057566}
   m_Layer: 11
   m_Name: point53
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23902,7 +23902,7 @@ GameObject:
   - component: {fileID: 672207534}
   m_Layer: 11
   m_Name: point62
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25623,7 +25623,7 @@ GameObject:
   - component: {fileID: 717741476}
   m_Layer: 11
   m_Name: point64
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25835,7 +25835,7 @@ GameObject:
   - component: {fileID: 727600686}
   m_Layer: 11
   m_Name: point38
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25962,7 +25962,7 @@ GameObject:
   - component: {fileID: 730451381}
   m_Layer: 11
   m_Name: point81
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26202,7 +26202,7 @@ GameObject:
   - component: {fileID: 735466699}
   m_Layer: 11
   m_Name: point33
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27384,7 +27384,7 @@ GameObject:
   - component: {fileID: 772731313}
   m_Layer: 11
   m_Name: point34
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29647,7 +29647,7 @@ GameObject:
   - component: {fileID: 824034047}
   m_Layer: 11
   m_Name: point31
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32026,7 +32026,7 @@ GameObject:
   - component: {fileID: 880519512}
   m_Layer: 11
   m_Name: point5
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32913,15 +32913,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4943042569567786, guid: 8afcdba2550a55b48b618b8c64e07210, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -20.04
+      value: -21.23
       objectReference: {fileID: 0}
     - target: {fileID: 4943042569567786, guid: 8afcdba2550a55b48b618b8c64e07210, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.3
+      value: -0.09
       objectReference: {fileID: 0}
     - target: {fileID: 4943042569567786, guid: 8afcdba2550a55b48b618b8c64e07210, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -22.82
+      value: -21.06
       objectReference: {fileID: 0}
     - target: {fileID: 4943042569567786, guid: 8afcdba2550a55b48b618b8c64e07210, type: 3}
       propertyPath: m_LocalRotation.w
@@ -34163,7 +34163,7 @@ GameObject:
   - component: {fileID: 911790860}
   m_Layer: 11
   m_Name: point79
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34298,7 +34298,7 @@ GameObject:
   - component: {fileID: 915101586}
   m_Layer: 11
   m_Name: point4
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34522,7 +34522,7 @@ GameObject:
   - component: {fileID: 918253361}
   m_Layer: 11
   m_Name: point24
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34988,7 +34988,7 @@ GameObject:
   - component: {fileID: 941004201}
   m_Layer: 11
   m_Name: point85
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35042,7 +35042,7 @@ GameObject:
   - component: {fileID: 943069288}
   m_Layer: 11
   m_Name: point71
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35606,7 +35606,7 @@ GameObject:
   - component: {fileID: 955961131}
   m_Layer: 11
   m_Name: point76
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35660,7 +35660,7 @@ GameObject:
   - component: {fileID: 956043561}
   m_Layer: 11
   m_Name: point30
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36074,7 +36074,7 @@ GameObject:
   - component: {fileID: 968338731}
   m_Layer: 11
   m_Name: point86
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36168,7 +36168,7 @@ GameObject:
   - component: {fileID: 977490304}
   m_Layer: 11
   m_Name: point32
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36827,7 +36827,7 @@ GameObject:
   - component: {fileID: 989637910}
   m_Layer: 11
   m_Name: point2
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36881,7 +36881,7 @@ GameObject:
   - component: {fileID: 990379819}
   m_Layer: 11
   m_Name: point57
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36947,13 +36947,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 994332250}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -104.32, y: 0, z: 96.03}
+  m_LocalRotation: {x: -0, y: 0.5542167, z: -0, w: 0.8323724}
+  m_LocalPosition: {x: -102.4, y: 0, z: 98.33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2114268322}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 67.314, z: 0}
 --- !u!1001 &995637635
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37396,7 +37396,7 @@ GameObject:
   - component: {fileID: 1003169466}
   m_Layer: 11
   m_Name: point8
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37717,7 +37717,7 @@ GameObject:
   - component: {fileID: 1010862010}
   m_Layer: 11
   m_Name: point36
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39934,7 +39934,7 @@ GameObject:
   - component: {fileID: 1070359377}
   m_Layer: 11
   m_Name: point44
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42423,7 +42423,7 @@ GameObject:
   - component: {fileID: 1169091938}
   m_Layer: 11
   m_Name: point41
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42477,7 +42477,7 @@ GameObject:
   - component: {fileID: 1169401788}
   m_Layer: 11
   m_Name: point67
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42639,7 +42639,7 @@ GameObject:
   - component: {fileID: 1172909019}
   m_Layer: 11
   m_Name: point63
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43622,7 +43622,7 @@ GameObject:
   - component: {fileID: 1199332738}
   m_Layer: 11
   m_Name: point35
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44883,7 +44883,7 @@ GameObject:
   - component: {fileID: 1224967386}
   m_Layer: 11
   m_Name: point87
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45118,7 +45118,7 @@ GameObject:
   - component: {fileID: 1240408023}
   m_Layer: 11
   m_Name: point59
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45172,7 +45172,7 @@ GameObject:
   - component: {fileID: 1245032332}
   m_Layer: 11
   m_Name: point83
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45226,7 +45226,7 @@ GameObject:
   - component: {fileID: 1246692039}
   m_Layer: 11
   m_Name: point75
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47313,7 +47313,7 @@ GameObject:
   - component: {fileID: 1298847325}
   m_Layer: 11
   m_Name: point26
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48034,7 +48034,7 @@ GameObject:
   - component: {fileID: 1316792217}
   m_Layer: 11
   m_Name: point55
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48240,7 +48240,7 @@ GameObject:
   - component: {fileID: 1321554762}
   m_Layer: 11
   m_Name: point58
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48367,7 +48367,7 @@ GameObject:
   - component: {fileID: 1323305301}
   m_Layer: 11
   m_Name: point6
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48692,7 +48692,7 @@ GameObject:
   - component: {fileID: 1329981251}
   m_Layer: 11
   m_Name: point40
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48746,7 +48746,7 @@ GameObject:
   - component: {fileID: 1330497648}
   m_Layer: 11
   m_Name: point70
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49020,7 +49020,7 @@ GameObject:
   - component: {fileID: 1332912913}
   m_Layer: 11
   m_Name: point48
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49940,7 +49940,7 @@ GameObject:
   - component: {fileID: 1364068316}
   m_Layer: 11
   m_Name: point72
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52777,7 +52777,7 @@ GameObject:
   - component: {fileID: 1431380971}
   m_Layer: 11
   m_Name: point3
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54002,7 +54002,7 @@ GameObject:
   - component: {fileID: 1466872325}
   m_Layer: 11
   m_Name: point73
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55882,7 +55882,7 @@ GameObject:
   - component: {fileID: 1507755318}
   m_Layer: 11
   m_Name: point39
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57451,7 +57451,7 @@ GameObject:
   - component: {fileID: 1561088848}
   m_Layer: 11
   m_Name: point42
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58075,7 +58075,7 @@ GameObject:
   - component: {fileID: 1576385148}
   m_Layer: 11
   m_Name: point49
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58923,7 +58923,7 @@ GameObject:
   - component: {fileID: 1598715311}
   m_Layer: 11
   m_Name: point13
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59557,7 +59557,7 @@ GameObject:
   - component: {fileID: 1612596348}
   m_Layer: 11
   m_Name: point21
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59611,7 +59611,7 @@ GameObject:
   - component: {fileID: 1616212124}
   m_Layer: 11
   m_Name: point45
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61286,7 +61286,7 @@ GameObject:
   - component: {fileID: 1655694434}
   m_Layer: 11
   m_Name: point43
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64100,7 +64100,7 @@ GameObject:
   - component: {fileID: 1723113863}
   m_Layer: 11
   m_Name: point15
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64309,7 +64309,7 @@ GameObject:
   - component: {fileID: 1730048645}
   m_Layer: 11
   m_Name: point7
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64403,7 +64403,7 @@ GameObject:
   - component: {fileID: 1740558047}
   m_Layer: 11
   m_Name: point16
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64827,7 +64827,7 @@ Transform:
   m_GameObject: {fileID: 1750158894}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -102.49, y: 0, z: -31.06}
+  m_LocalPosition: {x: -100.11, y: -0.26, z: -25.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -66192,7 +66192,7 @@ GameObject:
   - component: {fileID: 1778980587}
   m_Layer: 11
   m_Name: point29
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -66246,7 +66246,7 @@ GameObject:
   - component: {fileID: 1779915874}
   m_Layer: 11
   m_Name: point23
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -69994,7 +69994,7 @@ GameObject:
   - component: {fileID: 1867390489}
   m_Layer: 11
   m_Name: point22
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70141,7 +70141,7 @@ GameObject:
   - component: {fileID: 1871542081}
   m_Layer: 11
   m_Name: point89
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70263,7 +70263,7 @@ GameObject:
   - component: {fileID: 1879330092}
   m_Layer: 11
   m_Name: point10
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70317,7 +70317,7 @@ GameObject:
   - component: {fileID: 1879414348}
   m_Layer: 11
   m_Name: point54
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73201,7 +73201,7 @@ GameObject:
   - component: {fileID: 1930015871}
   m_Layer: 11
   m_Name: point20
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73483,7 +73483,7 @@ GameObject:
   - component: {fileID: 1939123260}
   m_Layer: 11
   m_Name: point78
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73924,6 +73924,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MainBase
+      objectReference: {fileID: 0}
+    - target: {fileID: 4462731743244052623, guid: e688637e0fd553b4a9c2b7faa7b2f854,
+        type: 3}
+      propertyPath: _height
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4462731743244052623, guid: e688637e0fd553b4a9c2b7faa7b2f854,
+        type: 3}
+      propertyPath: _length
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6120047101441786776, guid: e688637e0fd553b4a9c2b7faa7b2f854,
         type: 3}
@@ -77007,7 +77017,7 @@ GameObject:
   - component: {fileID: 2052140862}
   m_Layer: 11
   m_Name: point56
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77280,7 +77290,7 @@ GameObject:
   - component: {fileID: 2064599665}
   m_Layer: 11
   m_Name: point51
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77942,7 +77952,7 @@ GameObject:
   - component: {fileID: 2080985846}
   m_Layer: 11
   m_Name: point61
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78089,7 +78099,7 @@ GameObject:
   - component: {fileID: 2084171143}
   m_Layer: 11
   m_Name: point50
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79275,19 +79285,23 @@ MonoBehaviour:
     waves:
     - timeline:
       - timePoint: 5
-        spawns: E04,5,0;E01,5,1;E02,5,2
+        spawns: E01,15,0
+      interval: 10
+    - timeline:
+      - timePoint: 5
+        spawns: E01,15,0
+      - timePoint: 25
+        spawns: E02,5,0
       interval: 10
   - boomEntrances: 
     waves:
-    - timeline:
-      - timePoint: 5
-        spawns: E04,5,0
+    - timeline: []
       interval: 10
   enemies:
   - code: E01
     enemyPrefab: {fileID: 7425934711789390196, guid: ffdee56f6552e374bad3cc5348c4b692,
       type: 3}
-    resource: 40
+    resource: 5
   - code: E02
     enemyPrefab: {fileID: 7425934711789390196, guid: ccc210143a7b0a14cb6e8b8a447b21e7,
       type: 3}
@@ -79388,7 +79402,7 @@ GameObject:
   - component: {fileID: 2116884578}
   m_Layer: 11
   m_Name: point17
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -80565,7 +80579,7 @@ GameObject:
   - component: {fileID: 2143553397}
   m_Layer: 11
   m_Name: point27
-  m_TagString: Untagged
+  m_TagString: NoBuildingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
