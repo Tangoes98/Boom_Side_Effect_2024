@@ -12,6 +12,7 @@ public class MinionDyingState : IState
     }
     public void onEnter()
     {
+        manager.gameObject.layer = LayerMask.NameToLayer("Default");
         manager.animationController.SwitchAnimState("Dead");
         _deathAnimationTimer = 3f;
         manager.agent.speed = 0;
