@@ -24,6 +24,7 @@ public class BuildingSelectionManager : MonoBehaviour
     [SerializeField] Button _demolitionBtn;
     [SerializeField] TextMeshProUGUI _upgradeCost;
     [SerializeField] TextMeshProUGUI _demolishReturn;
+    [SerializeField] LevelUI levelUI;
 
     [Header("DEBUG")]
     public Transform CurrentSelectedBuilding;
@@ -133,6 +134,7 @@ public class BuildingSelectionManager : MonoBehaviour
         var artAsset = CurrentSelectedBuilding.GetComponentInChildren<BuildingArtAssets>();
         artAsset.BuidldingUpgradeVFX.gameObject.SetActive(true);
         artAsset.BuidldingUpgradeVFX.Play();
+        levelUI.SetLevel(building.level + 1);
         WaitForUpgradeVFX(building);
         building.Upgrade();
     }
@@ -173,6 +175,7 @@ public class BuildingSelectionManager : MonoBehaviour
         if (CurrentSelectedBuilding == null) return;
 
         Architect building = CurrentSelectedBuilding.GetComponent<Architect>();
+        levelUI.SetLevel(building.level);
 
         ArchiLinkManager.Instance.GetInAndOutAndPauseLinks(building,
                                                         out List<Link> incomingLinks,
