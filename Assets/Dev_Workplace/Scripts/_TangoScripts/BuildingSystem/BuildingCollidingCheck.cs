@@ -16,34 +16,20 @@ public class BuildingCollidingCheck : MonoBehaviour
             CanBuild = false;
             return;
         }
-        //else CanBuild = true;
+        else CanBuild = true;
 
-        // if (!other.CompareTag("BuildingArea"))
+        // if (other.CompareTag("BuildingArea"))
         // {
-        //     _colliderStayCheck = false;
-        //     CanBuild = false;
+        //     CanBuild = IsSpawnPointInRangeIfBarrack();
         //     return;
         // }
 
-        if (other.CompareTag("BuildingArea"))
-        {
-            //_colliderStayCheck = false;
-            CanBuild = IsSpawnPointInRangeIfBarrack();
-            return;
-        }
-        //else CanBuild = false;
-
-        if (other.CompareTag("NoBuildingArea"))
-        {
-            //_colliderStayCheck = false;
-            CanBuild = false;
-            return;
-        }
-        //else CanBuild = true;
-
-        // _colliderStayCheck = true;
-        // CanBuild = true;
-
+        // if (other.CompareTag("NoBuildingArea"))
+        // {
+        //     //_colliderStayCheck = false;
+        //     CanBuild = false;
+        //     return;
+        // }
     }
 
     private void OnTriggerExit(Collider other)
@@ -53,36 +39,40 @@ public class BuildingCollidingCheck : MonoBehaviour
             CanBuild = IsSpawnPointInRangeIfBarrack();
             return;
         }
+        else CanBuild = false;
 
-        if (other.CompareTag("BuildingArea"))
-        {
-            CanBuild = false;
-            return;
-        }
+        // if (other.CompareTag("BuildingArea"))
+        // {
+        //     CanBuild = false;
+        //     return;
+        // }
 
-        if (other.CompareTag("NoBuildingArea"))
-        {
-            CanBuild = IsSpawnPointInRangeIfBarrack();
-            return;
-        }
+        // if (other.CompareTag("NoBuildingArea"))
+        // {
+        //     CanBuild = IsSpawnPointInRangeIfBarrack();
+        //     return;
+        // }
 
-        //CanBuild = false;
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("NoBuildingArea") || other.CompareTag("Building"))
+        //if (other.CompareTag("NoBuildingArea") || other.CompareTag("Building"))
+        if (other.CompareTag("Building"))
         {
             CanBuild = false;
             return;
-        } 
-        CanBuild = IsSpawnPointInRangeIfBarrack();
-        
+        }
+        //CanBuild = IsSpawnPointInRangeIfBarrack();
+
     }
-    private bool IsSpawnPointInRangeIfBarrack() {
-        if(BuidlingManager.Instance.PreviewBarrack==null) {
+
+    private bool IsSpawnPointInRangeIfBarrack()
+    {
+        if (BuidlingManager.Instance.PreviewBarrack == null)
+        {
             return true;
         }
-        return BuidlingManager.Instance.PreviewBarrack.GetIdlePosition()!=Vector3.zero;
+        return BuidlingManager.Instance.PreviewBarrack.GetIdlePosition() != Vector3.zero;
     }
 }

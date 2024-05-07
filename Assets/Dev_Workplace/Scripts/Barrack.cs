@@ -124,7 +124,7 @@ public partial class Barrack : Architect
         }
         else
         {
-            Debug.LogError("there's no spawn point in range");
+            Debug.Log("there's no spawn point in range");
             return Vector3.zero;
         }
     }
