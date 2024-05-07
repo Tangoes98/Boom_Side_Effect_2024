@@ -47,7 +47,13 @@ public class DebugScripts : MonoBehaviour
 
     void SpeedUpAction()
     {
-        Time.timeScale = _GameSpeed;
+        if (InputManager.Instance._IsSpeedTakingControl)
+            InputManager.Instance._IsSpeedTakingControl = false;
+        else
+        {
+            InputManager.Instance._IsSpeedTakingControl = true;
+            Time.timeScale = _GameSpeed;
+        }
     }
     void SkipTutorialAction()
     {
