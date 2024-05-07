@@ -19,12 +19,16 @@ public class DebugScripts : MonoBehaviour
     float timer = 0f;
     [Space(15)]
     public Button _SkipTutorial;
+    [Space(15)]
+    public MainBase _MainBase;
+    public Button _NeverDie;
 
     private void Start()
     {
         ButtonEvent(_AddResource, AddResourceAction);
         ButtonEvent(_SpeedUp, SpeedUpAction);
         ButtonEvent(_SkipTutorial, SkipTutorialAction);
+        ButtonEvent(_NeverDie, NeverDieAction);
     }
 
     private void Update()
@@ -59,12 +63,18 @@ public class DebugScripts : MonoBehaviour
     {
         TutorialUI.Instance.TutorialStep = 13;
     }
+    void NeverDieAction()
+    {
+        _MainBase.health = float.MaxValue;
+    }
 
+    #region ==========
 
     void ButtonEvent(Button btn, UnityAction uaction)
     {
         btn.onClick.AddListener(uaction);
     }
+    #endregion
 
 
 

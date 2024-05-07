@@ -30,10 +30,20 @@ public class VideoSceneManager : MonoBehaviour
     [SerializeField] VideoPlayer _winningVideo;
     [SerializeField] VideoPlayer _losingVideo;
 
+    [Space(15)]
+    [SerializeField] GameObject _introVideoObj;
+    [SerializeField] VideoPlayer _introVideo;
+
+
     private void Start()
     {
         NextSceneEvent += NextSceneEventAction;
         _videoClip.loopPointReached += NextSceneEventAction;
+
+
+        _introVideo.loopPointReached += IntroVideoFinishEventAction;
+
+
         _winningVideo.loopPointReached += NextSceneEventAction;
         _losingVideo.loopPointReached += NextSceneEventAction;
 
@@ -44,9 +54,10 @@ public class VideoSceneManager : MonoBehaviour
         _timer = _skipTimer;
 
         if (SceneManager.GetActiveScene().buildIndex == 4) return;
-        
+
         StartCoroutine(WaitForHint());
     }
+
 
     IEnumerator WaitForHint()
     {
@@ -56,6 +67,11 @@ public class VideoSceneManager : MonoBehaviour
         else _skipTextEN.gameObject.SetActive(true);
     }
 
+    void IntroVideoFinishEventAction(VideoPlayer source)
+    {
+        _introVideoObj.SetActive(false);
+        _videoClip.Play();
+    }
 
 
 
@@ -69,7 +85,7 @@ public class VideoSceneManager : MonoBehaviour
         {
             if (!UIFadeTransition.Instance._IsTransitionOver) return;
 
-            if (SceneManager.GetActiveScene().buildIndex == 4)
+            if (SceneManager.GetActiveScene().buildIndex == 4) // at final scnene
             {
                 if (SceneDataManager.Instance.IsWinning)
                 {
@@ -79,6 +95,11 @@ public class VideoSceneManager : MonoBehaviour
                 {
                     _losingVideo.Play();
                 }
+            }
+            else if (SceneManager.GetActiveScene().buildIndex == 2) // at beginning scene
+            {
+                _introVideo.Play();
+                _videoClip.Prepare();
             }
             else _videoClip.Play();
 
