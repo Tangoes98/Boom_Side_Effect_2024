@@ -52,6 +52,9 @@ public class SettingPanel : MonoBehaviour
 
         _ENtoggle.onValueChanged.AddListener(UpdateENToggle);
         _CNtoggle.onValueChanged.AddListener(UpdateCNToggle);
+
+        _sliderMusic.value = .5f;
+        _sliderSFX.value = .5f;
     }
 
     private void Update()
