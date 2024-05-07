@@ -29,12 +29,12 @@ public class InputManager : MonoBehaviour
     {
         if (TutorialUI.Instance != null && TutorialUI.Instance.IsTutorialActive) return;
 
-        if (_IsSpeedTakingControl) return;
+        _camObject.transform.Translate(InputAxis());
 
+        if (_IsSpeedTakingControl) return;
         PauseGameCheck();
 
 
-        _camObject.transform.Translate(InputAxis());
     }
 
 

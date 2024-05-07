@@ -34,6 +34,8 @@ public class VideoSceneManager : MonoBehaviour
     {
         NextSceneEvent += NextSceneEventAction;
         _videoClip.loopPointReached += NextSceneEventAction;
+        _winningVideo.loopPointReached += NextSceneEventAction;
+        _losingVideo.loopPointReached += NextSceneEventAction;
 
         _skipTextCN.gameObject.SetActive(false);
         _skipTextEN.gameObject.SetActive(false);
