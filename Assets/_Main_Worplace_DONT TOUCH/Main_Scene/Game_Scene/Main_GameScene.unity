@@ -52663,6 +52663,7 @@ MonoBehaviour:
   _camObject: {fileID: 2065377332}
   _camSpeed: 120
   _isPauseGame: 0
+  _IsSpeedTakingControl: 0
 --- !u!1001 &1372829964
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -59446,7 +59447,7 @@ GameObject:
   - component: {fileID: 1558027043}
   - component: {fileID: 1558027045}
   m_Layer: 0
-  m_Name: '[NEED DESTORY]DebugPrefab'
+  m_Name: '[NEED DESTORY]Console'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59499,7 +59500,7 @@ MonoBehaviour:
   _AddResource: {fileID: 1648722155}
   _GainResourceAmount: 100
   _SpeedUp: {fileID: 556057237}
-  _GameSpeed: 2
+  _GameSpeed: 10
   Timer: {fileID: 611943333}
   _SkipTutorial: {fileID: 1905213823}
 --- !u!1 &1561088846

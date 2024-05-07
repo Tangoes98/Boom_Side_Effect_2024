@@ -20,12 +20,16 @@ public class InputManager : MonoBehaviour
 
     [SerializeField] bool _isPauseGame = false;
 
+    public bool _IsSpeedTakingControl = false;
+
     private void Start()
     {
     }
     private void Update()
     {
         if (TutorialUI.Instance != null && TutorialUI.Instance.IsTutorialActive) return;
+
+        if (_IsSpeedTakingControl) return;
 
         PauseGameCheck();
 
