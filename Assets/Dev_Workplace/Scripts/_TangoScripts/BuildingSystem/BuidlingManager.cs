@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -263,6 +264,7 @@ public class BuidlingManager : MonoBehaviour
 
         if (!buildingCollidCheacker.CanBuild)
         {
+
             foreach (var item in _buildingAssets.Subassets)
             {
                 item.GetComponent<MeshRenderer>().material = _buildingForbidMaterial;
@@ -271,6 +273,7 @@ public class BuidlingManager : MonoBehaviour
         }
         else if (buildingCollidCheacker.CanBuild)
         {
+
             foreach (var item in _buildingAssets.Subassets)
             {
                 item.GetComponent<MeshRenderer>().material = _buildingShadowMaterial;

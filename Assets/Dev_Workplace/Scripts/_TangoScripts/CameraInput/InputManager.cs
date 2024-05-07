@@ -17,10 +17,10 @@ public class InputManager : MonoBehaviour
     [SerializeField] GameObject _camObject;
     [SerializeField] float _camSpeed;
 
-    [Header("DEBUG")]
-    public TextMeshProUGUI Timer;
-    float timer = 0f;
+
     [SerializeField] bool _isPauseGame = false;
+
+    public bool _IsSpeedTakingControl = false;
 
     private void Start()
     {
@@ -29,11 +29,12 @@ public class InputManager : MonoBehaviour
     {
         if (TutorialUI.Instance != null && TutorialUI.Instance.IsTutorialActive) return;
 
-        PauseGameCheck();
-        timer += Time.deltaTime;
-        Timer.text = timer.ToString();
-
         _camObject.transform.Translate(InputAxis());
+
+        if (_IsSpeedTakingControl) return;
+        PauseGameCheck();
+
+
     }
 
 
@@ -57,7 +58,7 @@ public class InputManager : MonoBehaviour
     void PauseGameCheck()
     {
         if (!_isPauseGame) Time.timeScale = 1;
-        if (_isPauseGame) Time.timeScale = 0f; //? Slow Motion
+        if (_isPauseGame) Time.timeScale = .1f; //? Slow Motion
     }
 
     Vector3 InputAxis()

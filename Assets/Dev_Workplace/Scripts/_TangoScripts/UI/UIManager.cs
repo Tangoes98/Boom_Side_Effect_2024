@@ -82,14 +82,6 @@ public class UIManager : MonoBehaviour
                 _pauseGameToggle.isOn = !_pauseGameToggle.isOn;
         }
 
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            SwitchLanguage("CN");
-        }
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            SwitchLanguage("EN");
-        }
 
     }
 
@@ -97,6 +89,17 @@ public class UIManager : MonoBehaviour
 
 
 
+    public void GameOver()
+    {
+        UIFadeTransition.Instance.FadeIn();
+        StartCoroutine(WaitForNextScene());
+    }
+    IEnumerator WaitForNextScene()
+    {
+        var timer = new WaitForSeconds(2);
+        yield return timer;
+        SceneManager.LoadScene(4);
+    }
 
     #region Button Events
     void ToggleButtonEventAction(bool bvalue)
@@ -150,6 +153,7 @@ public class UIManager : MonoBehaviour
             item.gameObject.SetActive(isActive);
         }
     }
+
 
 
 

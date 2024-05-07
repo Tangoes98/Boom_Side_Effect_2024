@@ -210,7 +210,6 @@ MonoBehaviour:
   - {fileID: 1666335846121413128}
   BuildingDefenceRangePreview: {fileID: 6639538637088877727}
   BuidldingUpgradeVFX: {fileID: 2080692515616704375}
-  BuildingMutateVFX: {fileID: 0}
 --- !u!1001 &3431341028804205412
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -228,6 +227,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7157516683480002057, guid: 9139155494b3f524abc158addac32b85,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7157516683480002057, guid: 9139155494b3f524abc158addac32b85,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7157516683480002057, guid: 9139155494b3f524abc158addac32b85,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7157516683480002057, guid: 9139155494b3f524abc158addac32b85,
         type: 3}
