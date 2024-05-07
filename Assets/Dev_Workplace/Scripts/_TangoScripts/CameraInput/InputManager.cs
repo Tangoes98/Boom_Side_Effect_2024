@@ -17,9 +17,7 @@ public class InputManager : MonoBehaviour
     [SerializeField] GameObject _camObject;
     [SerializeField] float _camSpeed;
 
-    [Header("DEBUG")]
-    public TextMeshProUGUI Timer;
-    float timer = 0f;
+
     [SerializeField] bool _isPauseGame = false;
 
     private void Start()
@@ -30,8 +28,7 @@ public class InputManager : MonoBehaviour
         if (TutorialUI.Instance != null && TutorialUI.Instance.IsTutorialActive) return;
 
         PauseGameCheck();
-        timer += Time.deltaTime;
-        Timer.text = timer.ToString();
+
 
         _camObject.transform.Translate(InputAxis());
     }

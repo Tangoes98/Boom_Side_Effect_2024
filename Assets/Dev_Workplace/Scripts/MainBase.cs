@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainBase : MonoBehaviour,IHealthBar
+public class MainBase : MonoBehaviour, IHealthBar
 {
     [SerializeField] private float _maxHealth;
     public float health;
@@ -11,10 +11,14 @@ public class MainBase : MonoBehaviour,IHealthBar
         health = _maxHealth;
     }
 
-    public void TakeDamage(float damage) {
-        health-=damage;
-        if(health <=0) {
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
             Debug.Log("LOSE");
+            SceneDataManager.Instance.IsWinning = false;
+            UIManager.Instance.GameOver();
         }
     }
 

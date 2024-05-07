@@ -27,6 +27,7 @@ public class SceneDataManager : MonoBehaviour
     }
     private void Start()
     {
+
     }
 
     public string CurrentLanguage;

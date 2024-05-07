@@ -120,6 +120,8 @@ public class LevelEditor : MonoBehaviour
             if(_waveQueue.Count == 0) {
                 if(levels.Length < LevelNumber + 1) {
                     Debug.Log("WIN");
+                    SceneDataManager.Instance.IsWinning = true;
+                    UIManager.Instance.GameOver();
                     return;
                 }
                 ChangeState(LevelState.BUILD);
