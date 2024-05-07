@@ -267,11 +267,7 @@ public class BuidlingManager : MonoBehaviour
 
             foreach (var item in _buildingAssets.Subassets)
             {
-                var materials = item.GetComponent<MeshRenderer>().materials;
-                for (int i = 0; i < materials.Length; i++)
-                {
-                    materials[i] = _buildingForbidMaterial;
-                }
+                item.GetComponent<MeshRenderer>().material = _buildingForbidMaterial;
             }
             CanPlopBuilding = false;
         }
@@ -280,11 +276,7 @@ public class BuidlingManager : MonoBehaviour
 
             foreach (var item in _buildingAssets.Subassets)
             {
-                var materials = item.GetComponent<MeshRenderer>().materials;
-                for (int i = 0; i < materials.Length; i++)
-                {
-                    materials[i] = _buildingShadowMaterial;
-                }
+                item.GetComponent<MeshRenderer>().material = _buildingShadowMaterial;
             }
             CanPlopBuilding = true;
         }
