@@ -205,6 +205,8 @@ public class BuidlingManager : MonoBehaviour
     {
         CanPlopBuilding = false;
 
+        _buildingUIPanel.SetActive(false);
+
         //*Show Links
         ArchiLinkManager.Instance.LinkFromClosestArchToPointer(true);
 
