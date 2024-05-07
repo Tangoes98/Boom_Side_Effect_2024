@@ -59,7 +59,7 @@ public class LevelEditor : MonoBehaviour
         var curLvl = levels[LevelNumber-1];
         if(curLvl.boomEntrances!=null && curLvl.boomEntrances.Length>0) {
             foreach(int e in curLvl.boomEntrances) {
-                EnvironmentFX.Instance.PlayBoomVFX(1, e - 1);
+                EnvironmentFX.Instance.PlayBoomVFX(1, e - 2);
             }
         }
         _waveQueue = new(curLvl.waves);
