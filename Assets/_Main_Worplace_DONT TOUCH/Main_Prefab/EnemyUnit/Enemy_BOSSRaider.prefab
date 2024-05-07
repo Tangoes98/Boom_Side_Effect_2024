@@ -381,12 +381,12 @@ PrefabInstance:
     - target: {fileID: 6753660566172012242, guid: 1ff5865667d9d4cccb31817ca546fe03,
         type: 3}
       propertyPath: _height
-      value: 0.2
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 6753660566172012242, guid: 1ff5865667d9d4cccb31817ca546fe03,
         type: 3}
       propertyPath: _length
-      value: 3
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
