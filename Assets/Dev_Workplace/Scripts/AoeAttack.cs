@@ -100,8 +100,7 @@ public class AoeAttack : MonoBehaviour {
         _center = center;
 
         if(_fxEffect!=null && !_isMainBase) {
-            GameObject eff = Instantiate(_fxEffect,center,Quaternion.identity);
-            StartCoroutine(CleanUp(eff));
+            Instantiate(_fxEffect,center,Quaternion.identity);
         }
 
         foreach(var enemy in enemies) {
@@ -116,12 +115,7 @@ public class AoeAttack : MonoBehaviour {
         return enemies.Length>0;
     }
 
-    IEnumerator CleanUp(GameObject eff) {
-        _eff = eff;
-        yield return new WaitForSeconds(_fxLastTime);
-        _eff = null;
-        Destroy(eff);
-    }
+    
 
     private void OnDestroy() {
         Destroy(_eff);

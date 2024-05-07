@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7361586328989655932}
   - component: {fileID: 9011178536819217009}
   - component: {fileID: 7234680849363138325}
+  - component: {fileID: -4809280855506789514}
   m_Layer: 0
   m_Name: FX_Explosion_Car
   m_TagString: Untagged
@@ -4902,6 +4903,19 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &-4809280855506789514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1212845143976486922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fdf3386d30d34880be774835aa6fbe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fxLastTime: 3
 --- !u!1 &5010054714142695596
 GameObject:
   m_ObjectHideFlags: 0

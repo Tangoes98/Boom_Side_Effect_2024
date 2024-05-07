@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4621283709767971096}
+  - component: {fileID: 2142083664647203178}
   m_Layer: 0
   m_Name: FX_FireRing_double
   m_TagString: Untagged
@@ -32,6 +33,19 @@ Transform:
   - {fileID: 5856754876358677982}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2142083664647203178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 903140736305369146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fdf3386d30d34880be774835aa6fbe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fxLastTime: 1
 --- !u!1001 &5393566651577529112
 PrefabInstance:
   m_ObjectHideFlags: 0

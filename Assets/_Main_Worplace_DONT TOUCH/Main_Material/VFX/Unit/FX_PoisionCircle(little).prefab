@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8095584748930741799}
   - component: {fileID: 2832932103186451820}
   - component: {fileID: 4144081692493939278}
+  - component: {fileID: 5936076163170108675}
   m_Layer: 0
   m_Name: FX_PoisionCircle(little)
   m_TagString: Untagged
@@ -28,8 +29,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.82145715, y: 0.11757933, z: 0.82145715}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.31, y: 0.18750694, z: 1.31}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -49,7 +50,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 0
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
@@ -4864,3 +4865,16 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &5936076163170108675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6022902275896606564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fdf3386d30d34880be774835aa6fbe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fxLastTime: 3

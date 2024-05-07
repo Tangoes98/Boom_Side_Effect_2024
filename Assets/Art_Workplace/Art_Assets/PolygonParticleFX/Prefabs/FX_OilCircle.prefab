@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6961202529081030217}
   - component: {fileID: 4932106577610181366}
   - component: {fileID: 3582321710566506588}
+  - component: {fileID: 8822686026670342421}
   m_Layer: 0
   m_Name: FX_OilCircle
   m_TagString: Untagged
@@ -4864,3 +4865,16 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &8822686026670342421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2468726193121659527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fdf3386d30d34880be774835aa6fbe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fxLastTime: 3
