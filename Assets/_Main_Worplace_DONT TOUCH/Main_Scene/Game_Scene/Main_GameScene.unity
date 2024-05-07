@@ -18505,12 +18505,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _boomEntrance:
-  - {fileID: 53674300}
   - {fileID: 814824391}
+  - {fileID: 53674300}
   - {fileID: 1918692738}
   _boomVFX:
-  - {fileID: 1461716045}
   - {fileID: 1268443941}
+  - {fileID: 1461716045}
   - {fileID: 1443531636}
 --- !u!4 &495103019 stripped
 Transform:
@@ -82901,6 +82901,140 @@ MonoBehaviour:
       - timePoint: 24
         spawns: E03H,2,2
       interval: 3
+  - boomEntrances: 04000000
+    waves:
+    - timeline:
+      - timePoint: 3
+        spawns: E01H,10,0
+      - timePoint: 15
+        spawns: E02H,15,0
+      - timePoint: 32
+        spawns: E04H,20,0
+      - timePoint: 3
+        spawns: E01H,10,1
+      - timePoint: 15
+        spawns: E02H,15,1
+      - timePoint: 32
+        spawns: E04H,20,1
+      - timePoint: 3
+        spawns: E01H,15,2
+      - timePoint: 18
+        spawns: E02H,10,2
+      - timePoint: 31
+        spawns: E04H,20,2
+      - timePoint: 3
+        spawns: E01H,5,3
+      - timePoint: 10
+        spawns: E02H,3,3
+      interval: 3
+    - timeline:
+      - timePoint: 3
+        spawns: E02H,15,0
+      - timePoint: 20
+        spawns: E01H,15,0
+      - timePoint: 37
+        spawns: BOSS,1,0
+      - timePoint: 41
+        spawns: E03H,10,0
+      - timePoint: 53
+        spawns: E04H,15,0
+      - timePoint: 3
+        spawns: E02H,15,1
+      - timePoint: 20
+        spawns: E01H,20,1
+      - timePoint: 43
+        spawns: E03H,10,1
+      - timePoint: 55
+        spawns: E04H,15,1
+      - timePoint: 3
+        spawns: E02H,10,2
+      - timePoint: 15
+        spawns: E01H,5,2
+      - timePoint: 22
+        spawns: E04H,5,2
+      - timePoint: 29
+        spawns: E03H,5,2
+      - timePoint: 3
+        spawns: E02H,10,3
+      - timePoint: 15
+        spawns: E01H,5,3
+      - timePoint: 22
+        spawns: E04H,5,3
+      - timePoint: 29
+        spawns: E03H,5,3
+      interval: 3
+    - timeline:
+      - timePoint: 3
+        spawns: E02H,20,0
+      - timePoint: 25
+        spawns: BOSS,1,0
+      - timePoint: 28
+        spawns: E04H,30,0
+      - timePoint: 61
+        spawns: E03H,10,0
+      - timePoint: 3
+        spawns: E02H,15,1
+      - timePoint: 21
+        spawns: E04H,30,1
+      - timePoint: 53
+        spawns: E03H,8,1
+      - timePoint: 3
+        spawns: E02H,20,2
+      - timePoint: 25
+        spawns: BOSS,1,2
+      - timePoint: 28
+        spawns: E04H,30,2
+      - timePoint: 61
+        spawns: E03H,5,2
+      - timePoint: 3
+        spawns: E02H,10,3
+      - timePoint: 15
+        spawns: E04H,10,3
+      - timePoint: 27
+        spawns: E03H,8,3
+      interval: 3
+    - timeline:
+      - timePoint: 3
+        spawns: E01H,20,0
+      - timePoint: 25
+        spawns: BOSS,1,0
+      - timePoint: 28
+        spawns: E02H,20,0
+      - timePoint: 51
+        spawns: E03H,20,0
+      - timePoint: 74
+        spawns: E04H,25,0
+      - timePoint: 3
+        spawns: E01H,20,1
+      - timePoint: 25
+        spawns: E02H,15,1
+      - timePoint: 43
+        spawns: BOSS,1,1
+      - timePoint: 46
+        spawns: E03H,20,1
+      - timePoint: 69
+        spawns: E04H,15,1
+      - timePoint: 3
+        spawns: E02H,20,2
+      - timePoint: 25
+        spawns: BOSS,1,2
+      - timePoint: 28
+        spawns: E01H,20,2
+      - timePoint: 51
+        spawns: E04H,20,2
+      - timePoint: 74
+        spawns: E03H,15,2
+      - timePoint: 3
+        spawns: E04H,20,3
+      - timePoint: 25
+        spawns: BOSS,1,3
+      - timePoint: 28
+        spawns: E01H,5,3
+      - timePoint: 35
+        spawns: E03H,10,3
+      - timePoint: 48
+        spawns: E02H,10,3
+      interval: 3
   enemies:
   - code: E01
     enemyPrefab: {fileID: 7425934711789390196, guid: ffdee56f6552e374bad3cc5348c4b692,
@@ -82921,19 +83055,23 @@ MonoBehaviour:
   - code: E01H
     enemyPrefab: {fileID: 7425934711789390196, guid: 968c55f64f755af4dae237b63077d1bf,
       type: 3}
-    resource: 3
+    resource: 1
   - code: E02H
     enemyPrefab: {fileID: 7425934711789390196, guid: e81c2bfa6bdbd0840bfcab6f7bdf3e32,
       type: 3}
-    resource: 6
+    resource: 4
   - code: E03H
     enemyPrefab: {fileID: 7425934711789390196, guid: c3dc15cf929fd794aa5f8b208688cd08,
       type: 3}
-    resource: 5
+    resource: 3
   - code: E04H
     enemyPrefab: {fileID: 7425934711789390196, guid: faf5776dd0f786f44b0474d12a20d2dd,
       type: 3}
-    resource: 3
+    resource: 1
+  - code: BOSS
+    enemyPrefab: {fileID: 7425934711789390196, guid: 76fc88fd72bf41243a77c2041c98a88a,
+      type: 3}
+    resource: 10
   enemyParentObject: {fileID: 388094593}
   _gearPrefabs:
   - {fileID: 1609965701880054843, guid: ca71a34d476e14d169bbbaf74487f1e4, type: 3}
