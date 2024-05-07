@@ -99,6 +99,7 @@ public class TutorialUI : MonoBehaviour
         IsTutorialActive = false;
         _isActive = false;
         BuildingSelectionManager.Instance.CloseSelectionPanel();
+        BuildingSelectionManager.Instance.UIPanel.SetActive(true);
         MouseStateManager.Instance.SwitchState(MouseStateManager.MouseStates.Selecting, null);
 
         //* Environment FX

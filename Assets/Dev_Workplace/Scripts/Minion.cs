@@ -38,6 +38,9 @@ public class Minion : MonoBehaviour,IHealthBar
 
     //[SerializeField] TextMeshProUGUI stateLabel;
     [SerializeField] string _stateLabel;
+
+    [SerializeField] private GameObject _buff,_debuff;
+
     public AnimationController animationController;
 
     private float _poisonUpdateTimer = 1;
@@ -60,6 +63,13 @@ public class Minion : MonoBehaviour,IHealthBar
         _parent = parent;
         level = parent.level;
         float modifier = GetMinionDamageAndHealthModifier(parent.Unstability);
+
+        if(modifierType == ModifierType.BUFF && _buff!=null) {
+            _buff.SetActive(true);
+        } else if(modifierType == ModifierType.DEBUFF && _debuff!=null) {
+            _debuff.SetActive(true);
+        }
+
         MinionProperty prop = GetBaseProperty(level);
 
         status.maxHealth = modifier * prop.health;

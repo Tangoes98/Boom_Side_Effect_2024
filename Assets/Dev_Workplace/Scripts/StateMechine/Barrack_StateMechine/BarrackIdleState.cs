@@ -27,6 +27,10 @@ public class BarrackIdleState : IState
 
     public void onUpdate()
     {
+        if(status.currentMinions.Count >= status.maxMinionNum) {
+            time = status.manufactureInterval;
+        }
+        
         time -= Time.deltaTime;
         if (time < 0 && status.currentMinions.Count < status.maxMinionNum)
         {
