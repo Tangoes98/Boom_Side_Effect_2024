@@ -658,6 +658,8 @@ MonoBehaviour:
   _skipTimer: 1
   _skipTextEN: {fileID: 181219731}
   _skipTextCN: {fileID: 1694437282}
+  _winningVideo: {fileID: 0}
+  _losingVideo: {fileID: 0}
 --- !u!1 &1694437281
 GameObject:
   m_ObjectHideFlags: 0
@@ -837,7 +839,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2038567526}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: bae5878662ab10b4e9c8f9d5aa29af73, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 8c70ca17d39369f468ced7fc48dd9364, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
