@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ResourceManager : MonoBehaviour
@@ -19,7 +20,9 @@ public class ResourceManager : MonoBehaviour
     public event Action DropResourcesEvent;
 
 
-
+    [SerializeField] private GameObject _textBesideCursorEN,_textBesideCursorCN;
+    private float _timer = 1f;
+    private bool _isShowTextByCursor = false;
 
     [field: SerializeField] public int PlayerResource { get; private set; }
 
@@ -30,6 +33,9 @@ public class ResourceManager : MonoBehaviour
     {
         if (buildingCost > PlayerResource)
         {
+            
+            TurnOnTextBesideCursor();
+            
             Debug.Log("Dont have enough resource to build");
             return false;
         }
@@ -42,6 +48,7 @@ public class ResourceManager : MonoBehaviour
     {
         if (upgradeCost > PlayerResource)
         {
+            TurnOnTextBesideCursor();
             Debug.Log("Dont have enough resource upgrade");
             return false;
         }
@@ -68,5 +75,25 @@ public class ResourceManager : MonoBehaviour
         PlayerResource += amount;
     }
 
+    private void Update() {
 
+        if(_isShowTextByCursor) {
+            _timer-=Time.deltaTime;
+
+            if(_timer <0) {
+                _isShowTextByCursor = false;
+                _textBesideCursorEN.SetActive(false);
+                _textBesideCursorCN.SetActive(false);
+            }
+        }
+    }
+
+    private void TurnOnTextBesideCursor() {
+        _isShowTextByCursor = true;
+        _timer = 1;
+        GameObject textBesideCursor = (SceneDataManager.Instance==null || SceneDataManager.Instance.CurrentLanguage == "CN")?
+                                            _textBesideCursorCN : _textBesideCursorEN;
+        textBesideCursor.transform.position = Input.mousePosition ;
+        textBesideCursor.SetActive(true);
+    }
 }
