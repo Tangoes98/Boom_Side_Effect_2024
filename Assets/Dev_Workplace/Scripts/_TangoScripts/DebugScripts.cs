@@ -23,6 +23,9 @@ public class DebugScripts : MonoBehaviour
     public MainBase _MainBase;
     public Button _NeverDie;
 
+    string cheatCode = "TANGO";
+    int cheatCodeIndex = 0;
+
     private void Start()
     {
         ButtonEvent(_AddResource, AddResourceAction);
@@ -41,6 +44,8 @@ public class DebugScripts : MonoBehaviour
 
         timer += Time.deltaTime;
         Timer.text = timer.ToString();
+
+        //if(Input.GetKeyDown())
     }
 
 
