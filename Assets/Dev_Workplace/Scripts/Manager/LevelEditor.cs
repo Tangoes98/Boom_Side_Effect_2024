@@ -56,11 +56,6 @@ public class LevelEditor : MonoBehaviour
 
     public void NextLevel() {
         LevelNumber ++;
-        if(levels.Length < LevelNumber) {
-            Debug.Log("WIN");
-            return;
-        }
-
         var curLvl = levels[LevelNumber-1];
         if(curLvl.boomEntrances!=null && curLvl.boomEntrances.Length>0) {
             foreach(int e in curLvl.boomEntrances) {
@@ -123,6 +118,10 @@ public class LevelEditor : MonoBehaviour
         
         if(IsCurrentWaveDone()) {
             if(_waveQueue.Count == 0) {
+                if(levels.Length < LevelNumber + 1) {
+                    Debug.Log("WIN");
+                    return;
+                }
                 ChangeState(LevelState.BUILD);
             } else {
                 ChangeState(LevelState.FIGHT_INTERVAL);
