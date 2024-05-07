@@ -170,9 +170,9 @@ public class BuidlingManager : MonoBehaviour
         var newBuild = ArchiLinkManager.Instance.Build(buildingPos, _buildingCode);
 
         //*Diable defence range preview
-        newBuild.GetComponentInChildren<BuildingArtAssets>().EnableDefencRangePreview(false);
+        newBuild.gameObject.GetComponentInChildren<BuildingArtAssets>().EnableDefencRangePreview(false);
         //*Diable Upgrade VFX
-        newBuild.GetComponentInChildren<BuildingArtAssets>().BuidldingUpgradeVFX.gameObject.SetActive(false);
+        newBuild.gameObject.GetComponentInChildren<BuildingArtAssets>().BuidldingUpgradeVFX.gameObject.SetActive(false);
 
 
         Destroy(_previewBuilding);

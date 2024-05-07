@@ -79,6 +79,7 @@ public class ArchiLinkManager : MonoBehaviour
         _architects.Add(arch, position);
         if(!isMutant) {
             // auto link cloest link if basic, then mutate
+            
             var tuple = FindClosestArchArray(arch);
             if(tuple==null) {
                 return arch;
@@ -113,6 +114,9 @@ public class ArchiLinkManager : MonoBehaviour
             _architects.Remove(toArchitect);
             Architect newArch = Build(pos,mutantCode);
             _architects.TryAdd(newArch, pos);
+
+            //*Diable defence range preview
+            newArch.GetComponentInChildren<BuildingArtAssets>().EnableDefencRangePreview(false);
 
             newArch.BaseArchitect = toArchitect.gameObject; // save for later
             if (toArchitect.gameObject.transform == BuildingSelectionManager.Instance.CurrentSelectedBuilding)
@@ -417,6 +421,14 @@ public class ArchiLinkManager : MonoBehaviour
         Vector3 closestPos = Vector3.zero;
         Architect closestArch = null;
         float dis = float.PositiveInfinity;
+
+        List<Architect> temp = _architects.Keys.ToList();
+        foreach(var i in temp) {
+            if(i==null || i.gameObject==null) {
+                _architects.Remove(i);
+            }
+        }
+        
         foreach(var e in _architects) {
             var arch = e.Key;
             var pos = e.Value;
