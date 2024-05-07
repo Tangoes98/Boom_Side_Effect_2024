@@ -58,7 +58,6 @@ MonoBehaviour:
   - {fileID: 193913999268931562}
   BuildingDefenceRangePreview: {fileID: 3412832294146934258}
   BuidldingUpgradeVFX: {fileID: 3384165146098060889}
-  BuildingMutateVFX: {fileID: 0}
 --- !u!1 &1352693974052360230
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,6 +261,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1892487841968342741}
     m_Modifications:
+    - target: {fileID: 342806524571028345, guid: be19f8a8e6ed446fda0296b05f548df2,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 342806524571028345, guid: be19f8a8e6ed446fda0296b05f548df2,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 342806524571028345, guid: be19f8a8e6ed446fda0296b05f548df2,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 342806524571028345, guid: be19f8a8e6ed446fda0296b05f548df2,
         type: 3}
       propertyPath: m_LocalPosition.x
