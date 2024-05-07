@@ -150,6 +150,14 @@ public class DefenseTower : Architect
     {
         //暂时为单体。
         var damage = GetDamage(out modifiertype);
+
+        if(modifiertype == ModifierType.BUFF && buff!=null) {
+            StartCoroutine(PlayBuff(true));
+        } else if (modifiertype == ModifierType.DEBUFF && debuff!=null) {
+            StartCoroutine(PlayBuff(false));
+        }
+
+
         if (aoeAttack != null && aoeAttack.type == AoeType.CIRCLE_CENTER_SELF)
         {
             aoeAttack.TriggerAOE(this.transform.position, 1);
