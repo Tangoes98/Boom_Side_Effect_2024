@@ -59500,7 +59500,7 @@ MonoBehaviour:
   _GainResourceAmount: 100
   _SpeedUp: {fileID: 556057237}
   _GameSpeed: 2
-  Timer: {fileID: 0}
+  Timer: {fileID: 611943333}
   _SkipTutorial: {fileID: 1905213823}
 --- !u!1 &1561088846
 GameObject:
