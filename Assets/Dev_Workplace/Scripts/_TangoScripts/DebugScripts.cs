@@ -36,16 +36,37 @@ public class DebugScripts : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.BackQuote))
-        {
-            if (_DebugPanel.activeSelf) _DebugPanel.SetActive(false);
-            else _DebugPanel.SetActive(true);
-        }
+        // if (Input.GetKeyDown(KeyCode.BackQuote))
+        // {
+        //     if (_DebugPanel.activeSelf) _DebugPanel.SetActive(false);
+        //     else _DebugPanel.SetActive(true);
+        // }
 
         timer += Time.deltaTime;
         Timer.text = timer.ToString();
 
-        //if(Input.GetKeyDown())
+        if (Input.anyKeyDown)
+        {
+            if (Input.GetKeyDown(cheatCode[cheatCodeIndex].ToString().ToLower()))
+            {
+                cheatCodeIndex++;
+                if (cheatCodeIndex == cheatCode.Length)
+                {
+                    ActivateCheatPanel();
+                    cheatCodeIndex = 0;
+                }
+            }
+            else
+            {
+                cheatCodeIndex = 0;
+            }
+        }
+    }
+
+    void ActivateCheatPanel()
+    {
+        if (_DebugPanel.activeSelf) _DebugPanel.SetActive(false);
+        else _DebugPanel.SetActive(true);
     }
 
 
