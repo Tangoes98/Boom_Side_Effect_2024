@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 195874}
   m_Layer: 11
   m_Name: point74
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -181,7 +181,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2473641 stripped
 GameObject:
@@ -829,7 +829,7 @@ GameObject:
   - component: {fileID: 23651229}
   m_Layer: 11
   m_Name: point65
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -869,7 +869,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &24114572
 PrefabInstance:
@@ -889,7 +889,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -1243,7 +1243,7 @@ GameObject:
   - component: {fileID: 27595586}
   m_Layer: 11
   m_Name: point12
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1283,7 +1283,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &27662396
 GameObject:
@@ -3282,7 +3282,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -4502,7 +4502,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -4864,7 +4864,7 @@ GameObject:
   - component: {fileID: 111774531}
   m_Layer: 11
   m_Name: point19
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4904,7 +4904,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &116131527
 GameObject:
@@ -5813,7 +5813,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -6095,7 +6095,7 @@ GameObject:
   - component: {fileID: 141232666}
   m_Layer: 11
   m_Name: point25
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6135,7 +6135,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &141983800 stripped
 Transform:
@@ -6470,7 +6470,7 @@ GameObject:
   - component: {fileID: 156548426}
   m_Layer: 11
   m_Name: point28
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6510,7 +6510,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &157833821
 PrefabInstance:
@@ -7051,7 +7051,7 @@ GameObject:
   - component: {fileID: 174361513}
   m_Layer: 11
   m_Name: point52
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7091,7 +7091,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &177865752
 PrefabInstance:
@@ -7805,7 +7805,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -9421,7 +9421,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -9669,7 +9669,7 @@ GameObject:
   - component: {fileID: 245382272}
   m_Layer: 11
   m_Name: point14
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9709,7 +9709,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &246646359
 PrefabInstance:
@@ -10216,7 +10216,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -10465,7 +10465,7 @@ GameObject:
   - component: {fileID: 258921832}
   m_Layer: 11
   m_Name: point69
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10505,7 +10505,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &260029322
 GameObject:
@@ -11587,7 +11587,7 @@ GameObject:
   - component: {fileID: 297186147}
   m_Layer: 11
   m_Name: point18
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11627,7 +11627,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &298614116
 GameObject:
@@ -11972,7 +11972,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -12123,7 +12123,7 @@ GameObject:
   - component: {fileID: 309516936}
   m_Layer: 11
   m_Name: point1
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12163,7 +12163,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &314131405
 PrefabInstance:
@@ -13874,7 +13874,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -16520,7 +16520,7 @@ GameObject:
   - component: {fileID: 427055273}
   m_Layer: 11
   m_Name: point66
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16560,7 +16560,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &427746046
 PrefabInstance:
@@ -17256,7 +17256,7 @@ GameObject:
   - component: {fileID: 455160166}
   m_Layer: 11
   m_Name: point77
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17296,7 +17296,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &455585298
 PrefabInstance:
@@ -17387,7 +17387,7 @@ GameObject:
   - component: {fileID: 458263805}
   m_Layer: 11
   m_Name: point11
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17427,7 +17427,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &461831441 stripped
 Transform:
@@ -18307,7 +18307,7 @@ GameObject:
   - component: {fileID: 485644682}
   m_Layer: 11
   m_Name: point84
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18347,7 +18347,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &487881945
 GameObject:
@@ -18442,7 +18442,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -18937,7 +18937,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -19463,7 +19463,7 @@ GameObject:
   - component: {fileID: 528238798}
   m_Layer: 11
   m_Name: point82
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19503,7 +19503,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &531957285
 PrefabInstance:
@@ -19523,7 +19523,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -19733,7 +19733,7 @@ GameObject:
   - component: {fileID: 533975891}
   m_Layer: 11
   m_Name: point60
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19773,7 +19773,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &535448022
 PrefabInstance:
@@ -19793,7 +19793,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -20288,7 +20288,7 @@ GameObject:
   - component: {fileID: 546142194}
   m_Layer: 11
   m_Name: point37
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20328,7 +20328,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &547597081 stripped
 Transform:
@@ -20690,7 +20690,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -20856,7 +20856,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -21286,7 +21286,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -21406,7 +21406,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -21639,7 +21639,7 @@ GameObject:
   - component: {fileID: 578091717}
   m_Layer: 11
   m_Name: point46
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21679,7 +21679,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &578183514 stripped
 Transform:
@@ -21829,7 +21829,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -22072,7 +22072,7 @@ GameObject:
   - component: {fileID: 591763924}
   m_Layer: 11
   m_Name: point68
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22112,7 +22112,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &592959155
 PrefabInstance:
@@ -22634,7 +22634,7 @@ GameObject:
   - component: {fileID: 603864361}
   m_Layer: 11
   m_Name: point9
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22674,7 +22674,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &604028037
 PrefabInstance:
@@ -22992,7 +22992,7 @@ GameObject:
   - component: {fileID: 611655571}
   m_Layer: 11
   m_Name: point88
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23032,7 +23032,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &611877653
 PrefabInstance:
@@ -23299,7 +23299,7 @@ GameObject:
   - component: {fileID: 614185782}
   m_Layer: 11
   m_Name: point80
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23339,7 +23339,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &614885808 stripped
 GameObject:
@@ -24107,7 +24107,7 @@ GameObject:
   - component: {fileID: 636221101}
   m_Layer: 11
   m_Name: point47
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24147,7 +24147,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &636767287
 PrefabInstance:
@@ -24916,7 +24916,7 @@ GameObject:
   - component: {fileID: 649057566}
   m_Layer: 11
   m_Name: point53
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24956,7 +24956,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &650321868
 GameObject:
@@ -25302,7 +25302,7 @@ GameObject:
   - component: {fileID: 672207534}
   m_Layer: 11
   m_Name: point62
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25342,7 +25342,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &672417348
 PrefabInstance:
@@ -27361,7 +27361,7 @@ GameObject:
   - component: {fileID: 717741476}
   m_Layer: 11
   m_Name: point64
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27401,7 +27401,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &723389128
 PrefabInstance:
@@ -27421,7 +27421,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -27498,7 +27498,7 @@ GameObject:
   - component: {fileID: 727600686}
   m_Layer: 11
   m_Name: point38
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27538,7 +27538,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &728485230
 PrefabInstance:
@@ -27760,7 +27760,7 @@ GameObject:
   - component: {fileID: 730451381}
   m_Layer: 11
   m_Name: point81
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27800,7 +27800,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &730976427 stripped
 GameObject:
@@ -27925,7 +27925,7 @@ GameObject:
   - component: {fileID: 735466699}
   m_Layer: 11
   m_Name: point33
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27965,7 +27965,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &735647415
 PrefabInstance:
@@ -28213,7 +28213,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -28595,7 +28595,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -29500,7 +29500,7 @@ GameObject:
   - component: {fileID: 772731313}
   m_Layer: 11
   m_Name: point34
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29540,7 +29540,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &776532423
 PrefabInstance:
@@ -31437,7 +31437,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -31925,7 +31925,7 @@ GameObject:
   - component: {fileID: 824034047}
   m_Layer: 11
   m_Name: point31
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31965,7 +31965,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &824360592 stripped
 Transform:
@@ -32958,7 +32958,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -34033,7 +34033,7 @@ GameObject:
   - component: {fileID: 880519512}
   m_Layer: 11
   m_Name: point5
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34073,7 +34073,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &881277110
 PrefabInstance:
@@ -36410,7 +36410,7 @@ GameObject:
   - component: {fileID: 911790860}
   m_Layer: 11
   m_Name: point79
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36450,7 +36450,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &913359183 stripped
 Transform:
@@ -36470,7 +36470,7 @@ GameObject:
   - component: {fileID: 915101586}
   m_Layer: 11
   m_Name: point4
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36510,7 +36510,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &916959454
 PrefabInstance:
@@ -36694,7 +36694,7 @@ GameObject:
   - component: {fileID: 918253361}
   m_Layer: 11
   m_Name: point24
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36734,7 +36734,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &919399627 stripped
 GameObject:
@@ -37442,7 +37442,7 @@ GameObject:
   - component: {fileID: 941004201}
   m_Layer: 11
   m_Name: point85
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37482,7 +37482,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &943069286
 GameObject:
@@ -37496,7 +37496,7 @@ GameObject:
   - component: {fileID: 943069288}
   m_Layer: 11
   m_Name: point71
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37536,7 +37536,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &943712604
 GameObject:
@@ -37634,7 +37634,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -37897,7 +37897,7 @@ GameObject:
   - component: {fileID: 955961131}
   m_Layer: 11
   m_Name: point76
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37937,7 +37937,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &956043559
 GameObject:
@@ -37951,7 +37951,7 @@ GameObject:
   - component: {fileID: 956043561}
   m_Layer: 11
   m_Name: point30
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37991,7 +37991,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &956360409
 GameObject:
@@ -38272,7 +38272,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -38353,7 +38353,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -38517,7 +38517,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -38592,7 +38592,7 @@ GameObject:
   - component: {fileID: 968338731}
   m_Layer: 11
   m_Name: point86
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38632,7 +38632,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &971333862 stripped
 GameObject:
@@ -38686,7 +38686,7 @@ GameObject:
   - component: {fileID: 977490304}
   m_Layer: 11
   m_Name: point32
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38726,7 +38726,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &978662054
 GameObject:
@@ -39072,7 +39072,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -39325,7 +39325,7 @@ GameObject:
   - component: {fileID: 989637910}
   m_Layer: 11
   m_Name: point2
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39365,7 +39365,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &990379817
 GameObject:
@@ -39379,7 +39379,7 @@ GameObject:
   - component: {fileID: 990379819}
   m_Layer: 11
   m_Name: point57
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39419,7 +39419,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &995637635
 PrefabInstance:
@@ -39762,7 +39762,7 @@ GameObject:
   - component: {fileID: 1003169466}
   m_Layer: 11
   m_Name: point8
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39802,7 +39802,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1007003677
 PrefabInstance:
@@ -39822,7 +39822,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -40083,7 +40083,7 @@ GameObject:
   - component: {fileID: 1010862010}
   m_Layer: 11
   m_Name: point36
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40123,7 +40123,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1011426909
 PrefabInstance:
@@ -40897,7 +40897,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -42661,7 +42661,7 @@ GameObject:
   - component: {fileID: 1070359377}
   m_Layer: 11
   m_Name: point44
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42701,7 +42701,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1073284816
 PrefabInstance:
@@ -42814,7 +42814,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -45036,7 +45036,7 @@ GameObject:
   - component: {fileID: 1169091938}
   m_Layer: 11
   m_Name: point41
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45076,7 +45076,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1169401786
 GameObject:
@@ -45090,7 +45090,7 @@ GameObject:
   - component: {fileID: 1169401788}
   m_Layer: 11
   m_Name: point67
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45130,7 +45130,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1169955102 stripped
 GameObject:
@@ -45252,7 +45252,7 @@ GameObject:
   - component: {fileID: 1172909019}
   m_Layer: 11
   m_Name: point63
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45292,7 +45292,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1174150202 stripped
 MonoBehaviour:
@@ -45324,7 +45324,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -46382,7 +46382,7 @@ GameObject:
   - component: {fileID: 1199332738}
   m_Layer: 11
   m_Name: point35
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46422,7 +46422,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1199778423
 GameObject:
@@ -47131,7 +47131,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -47434,7 +47434,7 @@ GameObject:
   - component: {fileID: 1224967386}
   m_Layer: 11
   m_Name: point87
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47474,7 +47474,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1225469069
 GameObject:
@@ -48029,7 +48029,7 @@ GameObject:
   - component: {fileID: 1240408023}
   m_Layer: 11
   m_Name: point59
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48069,7 +48069,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1241167268
 GameObject:
@@ -48198,7 +48198,7 @@ GameObject:
   - component: {fileID: 1245032332}
   m_Layer: 11
   m_Name: point83
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48238,7 +48238,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1245491987
 GameObject:
@@ -48291,7 +48291,7 @@ GameObject:
   - component: {fileID: 1246692039}
   m_Layer: 11
   m_Name: point75
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48331,7 +48331,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1247441437 stripped
 Transform:
@@ -50938,7 +50938,7 @@ GameObject:
   - component: {fileID: 1298847325}
   m_Layer: 11
   m_Name: point26
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50978,7 +50978,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1302664019
 PrefabInstance:
@@ -51619,7 +51619,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -51694,7 +51694,7 @@ GameObject:
   - component: {fileID: 1316792217}
   m_Layer: 11
   m_Name: point55
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51734,7 +51734,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1318168434
 PrefabInstance:
@@ -51959,7 +51959,7 @@ GameObject:
   - component: {fileID: 1321554762}
   m_Layer: 11
   m_Name: point58
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51999,7 +51999,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1322228365
 PrefabInstance:
@@ -52086,7 +52086,7 @@ GameObject:
   - component: {fileID: 1323305301}
   m_Layer: 11
   m_Name: point6
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52126,7 +52126,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1324318157
 PrefabInstance:
@@ -52550,7 +52550,7 @@ GameObject:
   - component: {fileID: 1329981251}
   m_Layer: 11
   m_Name: point40
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52590,7 +52590,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1330497646
 GameObject:
@@ -52604,7 +52604,7 @@ GameObject:
   - component: {fileID: 1330497648}
   m_Layer: 11
   m_Name: point70
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52644,7 +52644,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1331213736
 PrefabInstance:
@@ -52755,7 +52755,7 @@ GameObject:
   - component: {fileID: 1332912913}
   m_Layer: 11
   m_Name: point48
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52795,7 +52795,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1333243888
 GameObject:
@@ -53036,7 +53036,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -53765,7 +53765,7 @@ GameObject:
   - component: {fileID: 1364068316}
   m_Layer: 11
   m_Name: point72
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53805,7 +53805,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1364220377
 PrefabInstance:
@@ -53962,7 +53962,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -54219,7 +54219,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -54822,7 +54822,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -54978,7 +54978,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -55162,7 +55162,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -56107,7 +56107,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -56752,7 +56752,7 @@ GameObject:
   - component: {fileID: 1431380971}
   m_Layer: 11
   m_Name: point3
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56792,7 +56792,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1433079918
 PrefabInstance:
@@ -57738,7 +57738,7 @@ GameObject:
   - component: {fileID: 1466872325}
   m_Layer: 11
   m_Name: point73
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57778,7 +57778,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1467270822
 GameObject:
@@ -57873,7 +57873,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -58420,7 +58420,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -59897,7 +59897,7 @@ GameObject:
   - component: {fileID: 1507755318}
   m_Layer: 11
   m_Name: point39
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59937,7 +59937,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1507802603
 GameObject:
@@ -61134,7 +61134,7 @@ GameObject:
   - component: {fileID: 1561088848}
   m_Layer: 11
   m_Name: point42
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61174,7 +61174,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1562337279
 PrefabInstance:
@@ -62150,7 +62150,7 @@ GameObject:
   - component: {fileID: 1576385148}
   m_Layer: 11
   m_Name: point49
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62190,7 +62190,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1578438993
 PrefabInstance:
@@ -62621,7 +62621,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -63020,7 +63020,7 @@ GameObject:
   - component: {fileID: 1598715311}
   m_Layer: 11
   m_Name: point13
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63060,7 +63060,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1599608406 stripped
 Transform:
@@ -63419,7 +63419,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -63494,7 +63494,7 @@ GameObject:
   - component: {fileID: 1612596348}
   m_Layer: 11
   m_Name: point21
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63534,7 +63534,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1614334201
 GameObject:
@@ -63579,7 +63579,7 @@ GameObject:
   - component: {fileID: 1616212124}
   m_Layer: 11
   m_Name: point45
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63619,7 +63619,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1617317076 stripped
 Transform:
@@ -64883,7 +64883,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -65234,7 +65234,7 @@ GameObject:
   - component: {fileID: 1655694434}
   m_Layer: 11
   m_Name: point43
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65274,7 +65274,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1655858504
 PrefabInstance:
@@ -66632,7 +66632,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -68171,7 +68171,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -68400,7 +68400,7 @@ GameObject:
   - component: {fileID: 1723113863}
   m_Layer: 11
   m_Name: point15
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68440,7 +68440,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1723314825
 GameObject:
@@ -68699,7 +68699,7 @@ GameObject:
   - component: {fileID: 1730048645}
   m_Layer: 11
   m_Name: point7
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68739,7 +68739,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1736165798 stripped
 Transform:
@@ -68793,7 +68793,7 @@ GameObject:
   - component: {fileID: 1740558047}
   m_Layer: 11
   m_Name: point16
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68833,7 +68833,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1741383220
 PrefabInstance:
@@ -69370,7 +69370,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -70603,7 +70603,7 @@ GameObject:
   - component: {fileID: 1778980587}
   m_Layer: 11
   m_Name: point29
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70643,7 +70643,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1779915872
 GameObject:
@@ -70657,7 +70657,7 @@ GameObject:
   - component: {fileID: 1779915874}
   m_Layer: 11
   m_Name: point23
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70697,7 +70697,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1780068835
 GameObject:
@@ -70965,7 +70965,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -74128,7 +74128,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -75064,7 +75064,7 @@ GameObject:
   - component: {fileID: 1867390489}
   m_Layer: 11
   m_Name: point22
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75104,7 +75104,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1868572375 stripped
 Transform:
@@ -75254,7 +75254,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -75335,7 +75335,7 @@ GameObject:
   - component: {fileID: 1871542081}
   m_Layer: 11
   m_Name: point89
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75375,7 +75375,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1871615593
 GameObject:
@@ -75533,7 +75533,7 @@ GameObject:
   - component: {fileID: 1879330092}
   m_Layer: 11
   m_Name: point10
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75573,7 +75573,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1879414346
 GameObject:
@@ -75587,7 +75587,7 @@ GameObject:
   - component: {fileID: 1879414348}
   m_Layer: 11
   m_Name: point54
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75627,7 +75627,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1879957927
 PrefabInstance:
@@ -76938,7 +76938,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -77127,7 +77127,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194315909902484, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4580306064720120, guid: 0494383efaa5afb40993d7b2076cf371, type: 3}
       propertyPath: m_LocalScale.x
@@ -77901,7 +77901,7 @@ GameObject:
   - component: {fileID: 1930015871}
   m_Layer: 11
   m_Name: point20
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77941,7 +77941,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1931213806
 GameObject:
@@ -78333,7 +78333,7 @@ GameObject:
   - component: {fileID: 1939123260}
   m_Layer: 11
   m_Name: point78
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78373,7 +78373,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1939527136
 PrefabInstance:
@@ -78968,7 +78968,7 @@ PrefabInstance:
     - target: {fileID: 2584669737148788849, guid: e688637e0fd553b4a9c2b7faa7b2f854,
         type: 3}
       propertyPath: m_TagString
-      value: NoBuildingArea
+      value: Building
       objectReference: {fileID: 0}
     - target: {fileID: 4462731743244052623, guid: e688637e0fd553b4a9c2b7faa7b2f854,
         type: 3}
@@ -82966,7 +82966,7 @@ GameObject:
   - component: {fileID: 2052140862}
   m_Layer: 11
   m_Name: point56
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83006,7 +83006,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2059160840
 PrefabInstance:
@@ -83475,7 +83475,7 @@ GameObject:
   - component: {fileID: 2064599665}
   m_Layer: 11
   m_Name: point51
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83515,7 +83515,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2065377332
 GameObject:
@@ -83837,7 +83837,7 @@ GameObject:
   - component: {fileID: 2080985846}
   m_Layer: 11
   m_Name: point61
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83877,7 +83877,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2083648114
 PrefabInstance:
@@ -83984,7 +83984,7 @@ GameObject:
   - component: {fileID: 2084171143}
   m_Layer: 11
   m_Name: point50
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84024,7 +84024,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2089086594 stripped
 GameObject:
@@ -85444,7 +85444,7 @@ GameObject:
   - component: {fileID: 2116884578}
   m_Layer: 11
   m_Name: point17
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -85484,7 +85484,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2117274665
 PrefabInstance:
@@ -86675,7 +86675,7 @@ GameObject:
   - component: {fileID: 2143553397}
   m_Layer: 11
   m_Name: point27
-  m_TagString: NoBuildingArea
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -86715,7 +86715,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &2144718011 stripped
 Transform:

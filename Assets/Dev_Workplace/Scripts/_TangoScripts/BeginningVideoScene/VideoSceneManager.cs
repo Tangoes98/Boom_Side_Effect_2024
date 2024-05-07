@@ -34,6 +34,12 @@ public class VideoSceneManager : MonoBehaviour
     [SerializeField] GameObject _introVideoObj;
     [SerializeField] VideoPlayer _introVideo;
 
+    private void Awake()
+    {
+        _skipTextCN.gameObject.SetActive(false);
+        _skipTextEN.gameObject.SetActive(false);
+    }
+
 
     private void Start()
     {
@@ -47,8 +53,6 @@ public class VideoSceneManager : MonoBehaviour
         _winningVideo.loopPointReached += NextSceneEventAction;
         _losingVideo.loopPointReached += NextSceneEventAction;
 
-        _skipTextCN.gameObject.SetActive(false);
-        _skipTextEN.gameObject.SetActive(false);
 
         _skippingUI.fillAmount = 0f;
         _timer = _skipTimer;
