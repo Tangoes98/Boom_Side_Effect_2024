@@ -57,7 +57,7 @@ public class InputManager : MonoBehaviour
     void PauseGameCheck()
     {
         if (!_isPauseGame) Time.timeScale = 1;
-        if (_isPauseGame) Time.timeScale = 0f; //? Slow Motion
+        if (_isPauseGame) Time.timeScale = .1f; //? Slow Motion
     }
 
     Vector3 InputAxis()
