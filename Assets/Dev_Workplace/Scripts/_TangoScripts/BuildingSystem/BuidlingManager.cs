@@ -144,6 +144,7 @@ public class BuidlingManager : MonoBehaviour
 
     void CancelBuildingEventAction()
     {
+        _buildingUIPanel.SetActive(true);
         ArchiLinkManager.Instance.LinkFromClosestArchToPointer(false);
         Destroy(_previewBuilding);
         _previewBuilding = null;
