@@ -28,7 +28,7 @@ public class BuildingSelectionManager : MonoBehaviour
 
     [Header("DEBUG")]
     public Transform CurrentSelectedBuilding;
-
+    public GameObject UIPanel; //! only disable at tutorial step 6
 
 
     public event Action<bool> UIPanelSelectionEvent;
@@ -63,6 +63,7 @@ public class BuildingSelectionManager : MonoBehaviour
         if (!MouseController.Is_LMB_Down()) return;
         if (!CurrentSelectedBuilding) return;
 
+
         //* Update Upgrade and Demolish cost TEXT
         Architect building = CurrentSelectedBuilding.GetComponent<Architect>();
         if (!building.IsUpgradable())
@@ -85,10 +86,16 @@ public class BuildingSelectionManager : MonoBehaviour
         //*Diable Upgrade VFX
         buildingAssets.BuidldingUpgradeVFX.gameObject.SetActive(false);
 
-        //* update tutorial
-        if (TutorialUI.Instance.IsTutorialActive) TutorialUI.Instance.TutorialStep++;
 
         ShowSelectionPanels();
+
+
+        //* update tutorial
+        if (TutorialUI.Instance.IsTutorialActive) TutorialUI.Instance.TutorialStep++;
+        
+        if(TutorialUI.Instance.TutorialStep == 6) UIPanel.SetActive(false);
+        else UIPanel.SetActive(true);
+        
         MouseStateManager.Instance.SwitchState(MouseStateManager.MouseStates.SelectionPanelInspection, null);
 
     }
@@ -135,13 +142,7 @@ public class BuildingSelectionManager : MonoBehaviour
         artAsset.BuidldingUpgradeVFX.gameObject.SetActive(true);
         artAsset.BuidldingUpgradeVFX.Play();
         levelUI.SetLevel(building.level + 1);
-        WaitForUpgradeVFX(building);
         building.Upgrade();
-    }
-    IEnumerator WaitForUpgradeVFX(Architect building)
-    {
-        var waitTime = new WaitForSeconds(2);
-        yield return waitTime;
     }
 
     void DemolishAction()
