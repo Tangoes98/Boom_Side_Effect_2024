@@ -56,6 +56,8 @@ public class MouseStateManager : MonoBehaviour
                 break;
 
             case MouseStates.Building:
+            
+                if (TutorialUI.Instance.IsTutorialActive && MouseController.Is_RMB_Down()) return;
 
                 //*Check if Cancel the Building action
                 if (MouseController.Is_RMB_Down())
