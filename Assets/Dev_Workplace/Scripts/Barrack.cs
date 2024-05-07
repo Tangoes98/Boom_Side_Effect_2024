@@ -70,6 +70,12 @@ public partial class Barrack : Architect
         
         Minion minion = minionObj.GetComponent<Minion>();
         minion.Initialize(this);
+        if(minion.modifierType == ModifierType.BUFF && buff!=null) {
+            StartCoroutine(PlayBuff(true));
+        } else if (minion.modifierType == ModifierType.DEBUFF && debuff!=null) {
+            StartCoroutine(PlayBuff(false));
+        }
+
         status.currentMinions.Add(minion);
     }
 

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.Mathematics;
@@ -27,7 +28,7 @@ public abstract class Architect : MonoBehaviour
     [SerializeField,Range(0,4)]
     public int sourceArchitectLinkNum;
 
-    
+    [SerializeField] public GameObject buff,debuff;
 
     public GameObject BaseArchitect {get;set;} // 合体前的基础建筑
 
@@ -45,6 +46,8 @@ public abstract class Architect : MonoBehaviour
     protected ModifierType modifiertype;
 
     protected IState currentState;
+
+    private bool _isBuffPlaying;
    
     protected virtual void Awake() {
         SelfExam();
@@ -53,6 +56,9 @@ public abstract class Architect : MonoBehaviour
             existingLinkNum=0;
             sourceArchitectLinkNum=0;
             activeOutputLinkNum=0;
+            if(buff!=null) buff.SetActive(false);
+            if(debuff!=null) debuff.SetActive(false);
+            _isBuffPlaying = false;
             Reload(); 
         } catch(Exception e) {
             Debug.LogError("建筑初始化失败，请检查BaseInfo>Properties中level=1的元素");
@@ -106,6 +112,21 @@ public abstract class Architect : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, Status().range);
+    }
+
+    public IEnumerator PlayBuff(bool isBuff) {
+        if(!_isBuffPlaying) {
+            _isBuffPlaying = true;
+            if(isBuff) {
+                buff.SetActive(true);
+            } else {
+                debuff.SetActive(true);
+            }
+            yield return new WaitForSeconds(1);
+            buff.SetActive(false);
+            debuff.SetActive(false);
+            _isBuffPlaying = false;
+        }
     }
 
 }
